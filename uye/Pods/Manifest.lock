@@ -1,0 +1,21 @@
+PODS:
+  - Alamofire (4.4.0)
+  - HandyJSON (1.7.2)
+  - IQKeyboardManagerSwift (4.0.13)
+  - SnapKit (3.2.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4.0)
+  - HandyJSON (~> 1.7.2)
+  - IQKeyboardManagerSwift
+  - SnapKit (~> 3.2.0)
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  HandyJSON: e7ad0483005826baba1d1c251cd98d0aa8bd8cce
+  IQKeyboardManagerSwift: fb399c4cddcd8d9bbcd2d0c7c81ed290b61c088e
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+
+PODFILE CHECKSUM: 2a6b03bb0bd0c2e2ddc82f553610128141a8ef85
+
+COCOAPODS: 1.2.1
