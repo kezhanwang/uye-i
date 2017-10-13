@@ -9,11 +9,7 @@
 import UIKit
 
 // MARK: - 常量
-/// 导航栏高度
-let navigationBarHeight :CGFloat = 64
 
-/// tabbar高度
-let tabbarHeight :CGFloat = 49
 
 /// 默认cell的距左侧间隙
 let spaceWidth :CGFloat = 15
@@ -85,6 +81,8 @@ public extension UIDevice {
         case "iPhone8,4":                               return "iPhone SE"
         case "iPhone9,1":                               return "iPhone 7"
         case "iPhone9,2":                               return "iPhone 7 Plus"
+        case "iPhone10,1":                              return "iPhone 8"
+        case "iPhone10,2":                              return "iPhone 8 Plus"
         case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":return "iPad 2"
         case "iPad3,1", "iPad3,2", "iPad3,3":           return "iPad 3"
         case "iPad3,4", "iPad3,5", "iPad3,6":           return "iPad 4"

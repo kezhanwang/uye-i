@@ -11,16 +11,8 @@ import UIKit
 import Alamofire
 import HandyJSON
 
-let UYURLTypeKey = "com.kezhan.base.URL.type"
-let DistributionURL = "http://dev.kezhanwang.cn/"
-let DevelopmentURL = "http://api2.kezhanwang.cn/"
 
-enum UYDevelopPlatform : Int {
-    case Distribution = 0
-    case UAT = 1
-    case Development = 2
-    case Test = 3
-}
+typealias RequestCompleteHandler = (Any,Error?)->()
 
 class UYRequestManager: NSObject {
     var sessionManager : SessionManager?
@@ -42,80 +34,69 @@ extension UYRequestManager {
         configuration.httpAdditionalHeaders = defaultHeaders
         sessionManager = Alamofire.SessionManager(configuration:configuration)
     }
-    
-    
 }
 
 // MARK: - 设置基本参数
 extension UYRequestManager {
     fileprivate func addBaseParameters(paramete:Parameters?) -> Parameters {
+        
         var par = paramete
         //当前时间的时间戳
-        
+        if par == nil {
+            par = [:];
+        }
         par?["_t"] = NSDate().timeIntervalSince1970
-        par?["phoneid"] = deviceUUID
-        
+        par?["phoneid"] = "deviceUUID"
+        par?["map_lng"] = "113.305791"
+        par?["map_lat"] = "23.337532"
+        par?["version"] = "1.0"
         return par!
     }
 }
 
-// MARK: - URL配置
-extension UYRequestManager {
-    fileprivate func baseURL() -> String {
-        let urlType : UYDevelopPlatform = UYDevelopPlatform(rawValue: UserDefaults.standard.integer(forKey: UYURLTypeKey))!
-        switch urlType {
-        case .Distribution:
-            return DevelopmentURL
-        case _ :
-            return DistributionURL
-        }
-    }
-    public class func updateDevelopPlatform(devPlatform:UYDevelopPlatform) {
-        UserDefaults.standard.set(devPlatform, forKey: UYURLTypeKey)
-        UserDefaults.standard.synchronize()
-    }
-}
+
 // MARK: - Make Requests
 extension UYRequestManager {
     
-    public func request(config:UYRequestConfig,complete:@escaping(_ result:Array<Any>,_ error:Error?) -> Void) {
+    public func request<T:HandyJSON>(config:UYRequestConfig,type:T.Type, complete:RequestCompleteHandler? = nil) {
+        let parameters = addBaseParameters(paramete: config.parameters)
         
-        sessionManager?.request((config.requestURL?.requestURLString(baseURL: baseURL()))!, method: config.requestMethod, parameters: config.parameters)
+        sessionManager?.request((config.requestURL?.requestURLString())!, method: config.requestMethod, parameters: parameters)
             .responseJSON {[weak self] response in
+                
+                guard (complete != nil) else { return }
+                
                 if response.result.isSuccess {
-                    self?.handleRequestResult(config: config, response: response, complete: complete)
+                    self?.handleRequestResult(config: config,type:type, response: response, complete: complete!)
                 }else{
-                    self?.handleRequestFailResult(config: config, response: response, complete: complete);
+                    self?.handleRequestFailResult(response: response, complete: complete!)
                 }
         }
     }
-    
 }
 
-// MARK: - HanderResults
+// MARK: - processing result
 extension UYRequestManager {
     
-    fileprivate func handleRequestResult(config:UYRequestConfig,response:DataResponse<Any>, complete:@escaping(_ result:Array<Any>,_ error:Error?) -> Void) {
-        
-        if let json = response.result.value as? [String : Any],
-            let code = json["code"] as? Int,
-            code == 0 {
-            if let data = json["data"] as? NSDictionary {
-                complete([data],nil)
-            }else
-                if let data = json["data"] as? Array<Any> {
-                    complete(data,nil)
+    fileprivate func handleRequestResult<T:HandyJSON>(config:UYRequestConfig,type:T.Type,response:DataResponse<Any>, complete:RequestCompleteHandler) {
+        if let json = response.result.value {
+            
+            let responseModel:UYResponseModel?  =  UYResponseModel<T>.deserialize(from: json as? Dictionary)
+            if responseModel != nil {
+                if responseModel?.code == 1000 {
+                    complete(responseModel?.data ?? type,nil)
                 }else{
-                    complete([response],UYRequestError.UYResponseFail(code: -1, msg: "data数据为空"))
+                    handleRequestFailResult(response: response, complete: complete)
+                }
+            }else{
+                complete([response],UYRequestError.localFail(code: -11, msg: "解析失败"))
             }
-            
-            
         }else{
-            handleRequestFailResult(config: config, response: response, complete: complete)
+            handleRequestFailResult(response: response, complete: complete)
         }
     }
     
-    fileprivate func handleRequestFailResult(config:UYRequestConfig,response:DataResponse<Any>, complete:@escaping(_ result:Array<Any>,_ error:Error?) -> Void) {
+    fileprivate func handleRequestFailResult(response:DataResponse<Any>, complete:RequestCompleteHandler) {
         
         var resultError :Error?
         if response.result.isSuccess {
@@ -123,11 +104,13 @@ extension UYRequestManager {
                 let code = json["code"] as? Int,
                 let msg = json["msg"] as? String
             {
-                resultError = UYRequestError.UYResponseFail(code: code, msg: msg)
+                resultError = UYRequestError.localFail(code: code, msg: msg)
             }
         }else{
-            resultError = UYRequestError.afRequestFail(error: response.error!)
+            resultError = UYRequestError.afFail(error: response.error!)
         }
         complete([response],resultError)
     }
 }
+
+

@@ -61,23 +61,27 @@ class UYWebViewController: UYBaseViewController {
         webView.removeObserver(self, forKeyPath: webViewTitleKey, context: &myTitleContext)
         
     }
-
+    override func setupUI() {
+        super.setupUI()
+        automaticallyAdjustsScrollViewInsets = false
+        webViewSetup()
+      
+    }
 }
 // MARK: - 设置界面
-extension UYWebViewController {
-    override func setupUI() {
-        setupNavigation()
-        automaticallyAdjustsScrollViewInsets = false
-        
-        webView.frame = CGRect(x: 0, y: navigationBarHeight, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-navigationBarHeight)
+extension UYWebViewController  {
+    func webViewSetup() {
         webView.navigationDelegate = self
-        view.insertSubview(webView, belowSubview: navigationBar)
+        view.addSubview(webView)
+        webView.snp.makeConstraints { (make) in
+            make.top.left.bottom.right.equalTo(0)
+        }
         
         progressView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 2)
         progressView.progressTintColor = UIColor.themeColor()
         progressView.trackTintColor = UIColor.white
-        view.insertSubview(progressView, belowSubview: navigationBar)
-        
+        view.addSubview(progressView)
+//        view.insertSubview(progressView, belowSubview: navigationBar)
         
         webView.addObserver(self, forKeyPath: webViewProgressKey, options: .new, context: &myProgressContext)
         webView.addObserver(self, forKeyPath: webViewTitleKey, options: .new, context: &myTitleContext)
@@ -102,7 +106,8 @@ extension UYWebViewController {
             }
         }else if context == &myTitleContext {
             if keyPath == webViewTitleKey {
-                navigationItemKZ.title = webView.title
+                navigationItem.title = webView.title
+//                navigationItemKZ.title = webView.title
             }
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)

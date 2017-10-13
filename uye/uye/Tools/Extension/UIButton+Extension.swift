@@ -36,7 +36,7 @@ extension UIButton {
         // 在global线程里创建一个时间源
         let codeTimer = DispatchSource.makeTimerSource(queue:DispatchQueue.global())
         // 设定这个时间源是每秒循环一次，立即开始
-        codeTimer.scheduleRepeating(deadline: .now(), interval: .seconds(1))
+        codeTimer.schedule(deadline: .now(), repeating: .seconds(1))
         // 设定时间源的触发事件
         codeTimer.setEventHandler(handler: { [weak self] in
             //如果对象释放了，那么直接取消

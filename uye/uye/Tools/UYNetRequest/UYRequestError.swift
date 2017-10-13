@@ -10,16 +10,16 @@ import Foundation
 import Alamofire
 
 public enum UYRequestError: Error {
-    case afRequestFail(error:Error)
-    case UYResponseFail(code:Int, msg:String)
+    case afFail(error:Error)
+    case localFail(code:Int, msg:String)
 }
 
 extension UYRequestError {
     var localizedDescription: String {
         switch self {
-        case .afRequestFail(let error):
+        case .afFail(let error):
             return error.localizedDescription;
-        case .UYResponseFail(let code, let msg):
+        case .localFail(let code, let msg):
             return "\(msg)(\(code))"
         }
     }

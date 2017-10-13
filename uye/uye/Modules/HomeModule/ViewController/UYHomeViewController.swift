@@ -9,27 +9,52 @@
 import UIKit
 
 class UYHomeViewController: UYBaseViewController {
-
+    
+    
+    fileprivate let buton = UIButton(type: UIButtonType.system)
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = "首页"
+        
+        
+        buton.setTitle("点击看看", for: UIControlState.normal)
+        view.addSubview(buton)
+        buton.addTarget(self, action: #selector(showToast), for: UIControlEvents.touchUpInside)
+        buton.backgroundColor = UIColor.randomColor()
+        buton.snp.makeConstraints { (make) in
+            make.top.left.equalTo(100)
+            make.width.height.equalTo(80)
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @objc func showToast() {
+        getHomeData()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+// MARK: - 获取数据
+extension UYHomeViewController {
+    func getHomeData() {
+        showWaitToast()
+        request.getHomeCategorysData { (data:UYHomeModel?, error : Error?) in
+            self.dismissAllToast()
+            if error != nil {
+                self.showTextToastAutoDismiss(msg: (error?.localizedDescription)!)
+            }else{
+
+            }
+        }
+        
+//        request.getOrganiseList(isRefash: true, word: "上海") { (list:UYOrganiseList?, error:Error?) -> (Void) in
+//            self.dismissAllToast()
+//            if error != nil {
+//                self.showTextToastAutoDismiss(msg: (error?.localizedDescription)!)
+//            }else{
+//
+//            }
+//        }
+        
+        
+        
+    }
+}
+
