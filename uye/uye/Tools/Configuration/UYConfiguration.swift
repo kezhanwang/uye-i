@@ -10,6 +10,8 @@ import UIKit
 
 // MARK: - 常量
 
+let mapKey = "nXTHL3YFSXWmk1AQmG7nvO3Qa2AKiyPD"
+
 
 /// 默认cell的距左侧间隙
 let spaceWidth :CGFloat = 15

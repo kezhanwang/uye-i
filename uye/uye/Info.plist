@@ -42,6 +42,10 @@
 	<string>APP需要您的同意，才能访问相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>APP需要您的同意，才能访问相册</string>
+	<key>NSContactsUsageDescription</key>
+	<string>APP需要您的同意，才能访问通讯录</string>
+	<key>NSCameraUsageDescription</key>
+	<string>APP需要您的同意，才能访问相机</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

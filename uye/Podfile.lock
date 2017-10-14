@@ -1,7 +1,10 @@
 PODS:
   - Alamofire (4.5.1)
+  - BaiduMapKit (3.4.0)
   - HandyJSON (4.0.0-beta.1)
   - IQKeyboardManagerSwift (5.0.0)
+  - Kingfisher (4.0.1)
+  - MJRefresh (3.1.12)
   - Moya (9.0.0):
     - Moya/Core (= 9.0.0)
   - Moya/Core (9.0.0):
@@ -12,19 +15,25 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.5.1)
+  - BaiduMapKit (~> 3.4.0)
   - HandyJSON (~> 4.0.0-beta.1)
   - IQKeyboardManagerSwift (= 5.0.0)
+  - Kingfisher (~> 4.0.1)
+  - MJRefresh (~> 3.1.12)
   - Moya (~> 9.0.0)
   - SnapKit (~> 4.0.0)
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  BaiduMapKit: 0a5e5e0b1e3fd8dc5aceb40ab9b89e52e1d13df9
   HandyJSON: 428bb18e2c34c2a77361accebf90cf64e4f74118
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
+  Kingfisher: b771785e9461ed4b8686d40e7145f9e58100cb24
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   Moya: cf5e6ee93af526532f92614004b8ad2ea60fd845
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 37945a24c062ca46f1bbbefcc9ccc4699796474c
+PODFILE CHECKSUM: 19698effccdff388ae37dba205bd255f89f57347
 
 COCOAPODS: 1.2.1

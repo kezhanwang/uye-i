@@ -12,7 +12,7 @@ class UYBaseViewController: UIViewController {
     let request = UYNetRequest()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.grayViewColor()
+        view.backgroundColor = UIColor.background
         setupUI()
     }
  
@@ -22,12 +22,7 @@ class UYBaseViewController: UIViewController {
     open func setupUI(){
     }
 }
-// MARK: - 设置界面
-extension UYBaseViewController {
- 
-    
 
-}
 // MARK: - 界面切换的快捷方法
 extension UYBaseViewController {
     func pushToNextVC(nextVC :UIViewController) {

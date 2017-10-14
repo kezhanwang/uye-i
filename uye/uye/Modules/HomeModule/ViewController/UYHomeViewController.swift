@@ -12,15 +12,26 @@ class UYHomeViewController: UYBaseViewController {
     
     
     fileprivate let buton = UIButton(type: UIButtonType.system)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "首页"
+        
+        if UYLocationManager.shared.allowLocationAuthorization {
+            updateLocation()
+        }else{
+            UYLocationManager.shared.loactionAuthorizationStatusChanged {[weak self] in
+                self?.updateLocation()
+            }
+        }
+    
+        
         
         
         buton.setTitle("点击看看", for: UIControlState.normal)
         view.addSubview(buton)
         buton.addTarget(self, action: #selector(showToast), for: UIControlEvents.touchUpInside)
-        buton.backgroundColor = UIColor.randomColor()
+        buton.backgroundColor = UIColor.randomColor
         buton.snp.makeConstraints { (make) in
             make.top.left.equalTo(100)
             make.width.height.equalTo(80)
@@ -33,6 +44,11 @@ class UYHomeViewController: UYBaseViewController {
 
 // MARK: - 获取数据
 extension UYHomeViewController {
+    func updateLocation() {
+        UYLocationManager.shared.beginUpdataLocation(complete: {[weak self] (success) -> (Void) in
+            self?.getHomeData()
+        })
+    }
     func getHomeData() {
         showWaitToast()
         request.getHomeCategorysData { (data:UYHomeModel?, error : Error?) in

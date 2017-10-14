@@ -43,9 +43,9 @@ extension UYNavigationController :UIGestureRecognizerDelegate {
 }
 extension UYNavigationController {
     func setupNavigationBar()  {
-        navigationBar.barTintColor = UIColor.themeColor()
-        navigationBar.tintColor = UIColor.white
-        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white,
+        navigationBar.barTintColor = UIColor.white
+        navigationBar.tintColor = UIColor.navigationBarTintColor
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.navigationBarTintColor,
                                              NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 18)];
     }
 

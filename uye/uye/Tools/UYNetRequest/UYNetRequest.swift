@@ -24,7 +24,7 @@ extension UYNetRequest {
         config.parameters = ["phone":phone]
         UYRequestManager.shared.request(config: config, type: UYHomeModel.self) { (homeModel: Any, error:Error?) in
             if error != nil {
-                complete(nil,error)
+                complete(error)
             }else{
                 complete(nil)
             }

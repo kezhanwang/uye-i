@@ -78,7 +78,7 @@ extension UYWebViewController  {
         }
         
         progressView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 2)
-        progressView.progressTintColor = UIColor.themeColor()
+        progressView.progressTintColor = UIColor.themeColor
         progressView.trackTintColor = UIColor.white
         view.addSubview(progressView)
 //        view.insertSubview(progressView, belowSubview: navigationBar)

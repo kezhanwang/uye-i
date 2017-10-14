@@ -10,5 +10,5 @@
 
 #import <CommonCrypto/CommonDigest.h>
 #import <sys/utsname.h>
-
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
 #endif /* uye_Bridging_Header_h */

@@ -17,6 +17,7 @@
 		354A74891F735B2A000906CA /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354A748C1F735B2A000906CA /* HandyJSON.framework */; };
 		354A748A1F735B2A000906CA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354A748D1F735B2A000906CA /* SnapKit.framework */; };
 		354D08BC1F908C140024414E /* UYUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D08BB1F908C140024414E /* UYUserInfo.swift */; };
+		354D08BF1F90A6770024414E /* UYLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D08BE1F90A6770024414E /* UYLocationManager.swift */; };
 		354E34121F6CF862009CFCE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E34111F6CF862009CFCE4 /* AppDelegate.swift */; };
 		354E34191F6CF862009CFCE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 354E34181F6CF862009CFCE4 /* Assets.xcassets */; };
 		354E343E1F6D3CD2009CFCE4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E34371F6D3CD1009CFCE4 /* String+Extension.swift */; };
@@ -39,7 +40,13 @@
 		355260AC1F6F663300F8734A /* UYRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AB1F6F663300F8734A /* UYRequestManager.swift */; };
 		355260AE1F6F664700F8734A /* UYRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AD1F6F664700F8734A /* UYRequestError.swift */; };
 		355260B01F6F665800F8734A /* UYBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AF1F6F665800F8734A /* UYBaseModel.swift */; };
+		356521BF1F91D5C200175734 /* UYUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356521BD1F91D5C200175734 /* UYUserTableViewCell.swift */; };
+		356521C01F91D5C200175734 /* UYUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */; };
+		356521C91F91E20000175734 /* UYCustomSimpleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */; };
+		356521CA1F91E20000175734 /* UYCustomSimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356521C81F91E20000175734 /* UYCustomSimpleTableCell.xib */; };
 		35BCD6B11F8E13B900C3469F /* UYOrganiseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCD6B01F8E13B900C3469F /* UYOrganiseList.swift */; };
+		35D253E61F91E68800945017 /* UYTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D253E51F91E68800945017 /* UYTableFooterView.swift */; };
+		35D253E81F91E92000945017 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D253E71F91E92000945017 /* UIImage+Extension.swift */; };
 		A20D203223A92CD788AFA2A5 /* Pods_uye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24262430B6035025E7355646 /* Pods_uye.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +64,7 @@
 		354A748C1F735B2A000906CA /* HandyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		354A748D1F735B2A000906CA /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		354D08BB1F908C140024414E /* UYUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYUserInfo.swift; sourceTree = "<group>"; };
+		354D08BE1F90A6770024414E /* UYLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYLocationManager.swift; sourceTree = "<group>"; };
 		354E340E1F6CF862009CFCE4 /* uye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		354E34111F6CF862009CFCE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		354E34181F6CF862009CFCE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,7 +90,13 @@
 		355260AB1F6F663300F8734A /* UYRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYRequestManager.swift; sourceTree = "<group>"; };
 		355260AD1F6F664700F8734A /* UYRequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYRequestError.swift; sourceTree = "<group>"; };
 		355260AF1F6F665800F8734A /* UYBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYBaseModel.swift; sourceTree = "<group>"; };
+		356521BD1F91D5C200175734 /* UYUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYUserTableViewCell.swift; sourceTree = "<group>"; };
+		356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYUserTableViewCell.xib; sourceTree = "<group>"; };
+		356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYCustomSimpleTableCell.swift; sourceTree = "<group>"; };
+		356521C81F91E20000175734 /* UYCustomSimpleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYCustomSimpleTableCell.xib; sourceTree = "<group>"; };
 		35BCD6B01F8E13B900C3469F /* UYOrganiseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseList.swift; sourceTree = "<group>"; };
+		35D253E51F91E68800945017 /* UYTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYTableFooterView.swift; sourceTree = "<group>"; };
+		35D253E71F91E92000945017 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +138,14 @@
 				3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */,
 			);
 			path = SRToastView;
+			sourceTree = "<group>";
+		};
+		354D08BD1F90A6560024414E /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				354D08BE1F90A6770024414E /* UYLocationManager.swift */,
+			);
+			path = LocationManager;
 			sourceTree = "<group>";
 		};
 		354E34051F6CF862009CFCE4 = {
@@ -171,6 +193,8 @@
 		354E34351F6D3CA9009CFCE4 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				35D253E41F91E65A00945017 /* TableFooterView */,
+				354D08BD1F90A6560024414E /* LocationManager */,
 				3517C1361F7DF444008E49AC /* SRToastView */,
 				355237C31F7248A10041B5BD /* Third */,
 				355260A61F6F62AB00F8734A /* UYNetRequest */,
@@ -190,6 +214,7 @@
 				354E343B1F6D3CD1009CFCE4 /* UIFont+Extension.swift */,
 				354E343C1F6D3CD2009CFCE4 /* UITableViewCell+Extension.swift */,
 				354E343D1F6D3CD2009CFCE4 /* UIView+Extension.swift */,
+				35D253E71F91E92000945017 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -197,6 +222,7 @@
 		354E34451F6D3DC2009CFCE4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				35D253E91F91F43600945017 /* Login&Register */,
 				35BCD6AD1F8E129700C3469F /* OrganiseModule */,
 				354E34551F6D4256009CFCE4 /* WebView */,
 				354E34541F6D416E009CFCE4 /* EmployModule */,
@@ -226,6 +252,7 @@
 		354E34531F6D4147009CFCE4 /* UserModule */ = {
 			isa = PBXGroup;
 			children = (
+				356521BA1F91C91300175734 /* View */,
 				3552609A1F6F5D0D00F8734A /* Model */,
 				355260971F6F5C6200F8734A /* ViewController */,
 			);
@@ -315,6 +342,17 @@
 			path = UYNetRequest;
 			sourceTree = "<group>";
 		};
+		356521BA1F91C91300175734 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				356521BD1F91D5C200175734 /* UYUserTableViewCell.swift */,
+				356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */,
+				356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */,
+				356521C81F91E20000175734 /* UYCustomSimpleTableCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		35BCD6AD1F8E129700C3469F /* OrganiseModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +375,45 @@
 				35BCD6B01F8E13B900C3469F /* UYOrganiseList.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		35D253E41F91E65A00945017 /* TableFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				35D253E51F91E68800945017 /* UYTableFooterView.swift */,
+			);
+			path = TableFooterView;
+			sourceTree = "<group>";
+		};
+		35D253E91F91F43600945017 /* Login&Register */ = {
+			isa = PBXGroup;
+			children = (
+				35D253EC1F91F45600945017 /* Views */,
+				35D253EB1F91F45100945017 /* Model */,
+				35D253EA1F91F44800945017 /* ViewController */,
+			);
+			path = "Login&Register";
+			sourceTree = "<group>";
+		};
+		35D253EA1F91F44800945017 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		35D253EB1F91F45100945017 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		35D253EC1F91F45600945017 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D6CBEA07A62221E6F131E73A /* Pods */ = {
@@ -413,6 +490,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				356521C01F91D5C200175734 /* UYUserTableViewCell.xib in Resources */,
+				356521CA1F91E20000175734 /* UYCustomSimpleTableCell.xib in Resources */,
 				354E34191F6CF862009CFCE4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +555,7 @@
 				355260A81F6F65FE00F8734A /* UYNetRequest.swift in Sources */,
 				3517C1381F7DF5D9008E49AC /* SRToast.swift in Sources */,
 				354E34441F6D3CD2009CFCE4 /* UIView+Extension.swift in Sources */,
+				35D253E81F91E92000945017 /* UIImage+Extension.swift in Sources */,
 				354E34501F6D3F9B009CFCE4 /* UYTabBarController.swift in Sources */,
 				354E34491F6D3E43009CFCE4 /* UYBaseViewController.swift in Sources */,
 				354E34431F6D3CD2009CFCE4 /* UITableViewCell+Extension.swift in Sources */,
@@ -484,13 +564,17 @@
 				354E34471F6D3E11009CFCE4 /* UYNavigationController.swift in Sources */,
 				354E34571F6D4284009CFCE4 /* UYWebViewController.swift in Sources */,
 				354E343E1F6D3CD2009CFCE4 /* String+Extension.swift in Sources */,
+				354D08BF1F90A6770024414E /* UYLocationManager.swift in Sources */,
 				355260AC1F6F663300F8734A /* UYRequestManager.swift in Sources */,
+				356521C91F91E20000175734 /* UYCustomSimpleTableCell.swift in Sources */,
 				3552609D1F6F5D7C00F8734A /* UYHomeViewController.swift in Sources */,
 				355260B01F6F665800F8734A /* UYBaseModel.swift in Sources */,
 				355260AE1F6F664700F8734A /* UYRequestError.swift in Sources */,
 				355260A11F6F5DBE00F8734A /* UYEmployViewController.swift in Sources */,
 				354E343F1F6D3CD2009CFCE4 /* UIBarButtonItem+Extension.swift in Sources */,
+				35D253E61F91E68800945017 /* UYTableFooterView.swift in Sources */,
 				354E34421F6D3CD2009CFCE4 /* UIFont+Extension.swift in Sources */,
+				356521BF1F91D5C200175734 /* UYUserTableViewCell.swift in Sources */,
 				3552609F1F6F5DB000F8734A /* UYUserViewController.swift in Sources */,
 				351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */,
 				354E34401F6D3CD2009CFCE4 /* UIButton+Extension.swift in Sources */,

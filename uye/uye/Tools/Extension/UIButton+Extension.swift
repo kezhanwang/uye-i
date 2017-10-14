@@ -56,7 +56,7 @@ extension UIButton {
             }else{
                 // 返回主线程处理一些事件，更新UI等等
                 DispatchQueue.main.async {
-                    self?.backgroundColor = UIColor.lightGrayViewColor()
+                    self?.backgroundColor = UIColor.lineGray
                     self?.setTitle("\(timeCount)s", for: .normal)
                     self?.isUserInteractionEnabled = false
                 }

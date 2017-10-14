@@ -7,13 +7,31 @@
 //
 
 import UIKit
+
 extension UIColor {
 // MARK: - 一些快捷设置Color的方法
     /// 随机颜色，用于调试使用
     ///
     /// - Returns: 随机颜色
-    class func randomColor() -> UIColor {
+    class var randomColor : UIColor {
         return UIColor.init(red: CGFloat(arc4random()%255)/255.0, green: CGFloat(arc4random()%255)/255.0, blue: CGFloat(arc4random()%255)/255.0, alpha: 1)
+    }
+    
+    /// 16进制颜色
+    ///
+    convenience init(hexColor: String) {
+        
+        // 存储转换后的数值
+        var red:UInt32 = 0, green:UInt32 = 0, blue:UInt32 = 0
+        
+        // 分别转换进行转换
+        Scanner(string: hexColor[0..<2]).scanHexInt32(&red)
+        
+        Scanner(string: hexColor[2..<4]).scanHexInt32(&green)
+        
+        Scanner(string: hexColor[4..<6]).scanHexInt32(&blue)
+        
+        self.init(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: 1.0)
     }
     
     /// 快捷设置Color的方法,不需要自己写`/255.0`了
@@ -26,38 +44,57 @@ extension UIColor {
     }
     
     
-// MARK: - 课栈配置的一些颜色
+// MARK: - U业配置的一些颜色
     
-// MARK: 主题颜色
-    class func themeColor() -> UIColor {
-        return RGBColor(red: 33, green: 171, blue: 242)
+    /// 主题颜色
+    class var themeColor:UIColor {
+        return UIColor(hexColor: "00c29a")
     }
+    /// Controller的背景颜色
+    class var background :UIColor {
+        return UIColor(hexColor:"f4f4f4")
+    }
+    ///大部分文字颜色
+    class var blackText :UIColor {
+        return UIColor(hexColor: "646464")
+    }
+    /// navigationbar的字体按钮颜色
+    class var navigationBarTintColor :UIColor {
+        return UIColor(hexColor: "484848")
+    }
+    /// tabbar的主题颜色
+    class var tabBarTint :UIColor {
+        return UIColor(hexColor: "00b496")
+    }
+    /// 分割线的颜色
+    class var lineGray : UIColor {
+        return UIColor(hexColor: "cccccc")
+    }
+    /// 头像的背景颜色
+    class var avatarBackground :UIColor {
+        return UIColor(hexColor: "ebebeb")
+    }
+    /// 头像边框颜色
+    class var avatarBorder:UIColor {
+        return UIColor(hexColor: "dfdfdf")
+    }
+    /// 地区黄色背景
+    class var areaOrangeBack: UIColor {
+        return UIColor(hexColor: "ffac29")
+    }
+    /// 地区灰色背景
+    class var areaGrayBack: UIColor {
+        return UIColor(hexColor: "e0e0e0")
+    }
+    /// 地区边框颜色
+    class var areaBorder: UIColor {
+        return UIColor(hexColor: "d5d5d5")
+    }
+   
     
-    // MARK: 文字的黑色
-    /// 文字黑色 51、51、51
-    class func blackTextColor() -> UIColor {
-        return RGBColor(red: 51, green: 51, blue: 51)
-    }
     
-    /// 灰色字体 80、80、80
-    class func grayTextColor() -> UIColor {
-        return RGBColor(red: 80, green: 80, blue: 80)
-    }
-    /// 灰色字体 141、141、141
-    class func lightGrayTextColor() -> UIColor {
-        return RGBColor(red: 141, green: 141, blue: 141)
-    }
+
     
     
-    // MARK: ViewController的View的灰色背景,tableView的背景色等
-    // 238、238、238
-    class func grayViewColor() -> UIColor {
-        return RGBColor(red: 238, green: 238, blue: 238)
-    }
-    
-    // MARK: tableViewCell的选中的颜色等
-    // 247、247、247
-    class func lightGrayViewColor() -> UIColor {
-        return RGBColor(red: 247, green: 247, blue: 247)
-    }
+
 }
