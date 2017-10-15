@@ -58,6 +58,10 @@ extension UIColor {
     class var blackText :UIColor {
         return UIColor(hexColor: "646464")
     }
+    ///灰色字体
+    class var grayText :UIColor {
+        return UIColor(hexColor: "a5a5a5")
+    }
     /// navigationbar的字体按钮颜色
     class var navigationBarTintColor :UIColor {
         return UIColor(hexColor: "484848")

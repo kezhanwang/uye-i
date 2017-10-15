@@ -10,11 +10,11 @@ import UIKit
 
 class UYLoginViewController: UYBaseViewController {
 
-    fileprivate var phoneTextField = UITextField()
-    fileprivate var codeTextField = UITextField()
-    fileprivate var getCodeBtn = UIButton(type: UIButtonType.custom)
-    fileprivate var showPwdBtn = UIButton(type: UIButtonType.custom)
-    fileprivate var footerView = UYTableFooterView(title: "登录")
+    fileprivate let phoneTextField = UITextField()
+    fileprivate let codeTextField = UITextField()
+    fileprivate let getCodeBtn = UIButton(type: UIButtonType.custom)
+    fileprivate let showPwdBtn = UIButton(type: UIButtonType.custom)
+    fileprivate let footerView = UYTableFooterView(title: "登录")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +22,7 @@ class UYLoginViewController: UYBaseViewController {
         navigationItem.title = "登录"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", target: self, action: #selector(goRegisterVC))
     }
-    @objc func goRegisterVC() {
-        print("go regisiter")
-    }
+    
     override func setupUI() {
         addSubeViews()
         
@@ -41,12 +39,11 @@ class UYLoginViewController: UYBaseViewController {
         
         getCodeBtn.isHidden = true
         getCodeBtn.isEnabled = false
-        getCodeBtn.setTitleColor(UIColor.blackText, for: UIControlState.normal)
+        getCodeBtn.setTitleColor(UIColor.themeColor, for: UIControlState.normal)
         getCodeBtn.setTitleColor(UIColor.disableTextColor, for: UIControlState.disabled)
         getCodeBtn.setTitle("获取验证码", for: UIControlState.normal)
         getCodeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         getCodeBtn.addTarget(self, action: #selector(getCodeAction), for: UIControlEvents.touchUpInside)
-
 //        getCodeBtn.backgroundColor = UIColor.randomColor
         
         
@@ -63,6 +60,12 @@ class UYLoginViewController: UYBaseViewController {
         showPasswordAction()
         
     }
+    
+    // MARK: 去注册页面
+    @objc func goRegisterVC() {
+       pushToNextVC(nextVC: UYRegisterViewController())
+    }
+    // MARK: 获取手机号验证码
     @objc func getCodeAction(){
         if phoneTextField.text?.lengthOfBytes(using: String.Encoding.utf8) == 11 {
             getCodeBtn.beginCountDown()
@@ -70,6 +73,7 @@ class UYLoginViewController: UYBaseViewController {
             showTextToastAutoDismiss(msg: "请输入11位手机号")
         }
     }
+    // MARK: 切换密码可见与不可见
     @objc func showPasswordAction() {
         showPwdBtn.isSelected = !showPwdBtn.isSelected
         if showPwdBtn.isSelected {
@@ -88,9 +92,9 @@ extension UYLoginViewController  {
         view.addSubview(footerView)
         view.addSubview(getCodeBtn)
         view.addSubview(showPwdBtn)
-        let ory = navigationController!.navigationBar.frame.height + navigationController!.navigationBar.frame.origin.y
+        
         phoneTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(ory)
+            make.top.equalTo(safeAreaHeight)
             make.left.equalTo(16)
             make.right.equalTo(-16)
             make.height.equalTo(49)
@@ -154,6 +158,7 @@ extension UYLoginViewController :UYTableFooterViewDelegate {
     }
 }
 
+// MARK: - 设置TextField是否可以输入的条件
 extension UYLoginViewController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if phoneTextField == textField {

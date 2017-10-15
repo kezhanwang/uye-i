@@ -11,7 +11,7 @@ let UserCellIdentifier :String = "UYUserTableViewCellIdentifier"
 let UserItemCellIdentifier = "UYCustomSimpleTableCellIdentifier"
 
 class UYUserViewController: UYBaseViewController {
-    var tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
+    let tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
     let iconArray = ["user_clear_icon","user_contact_us_icon"]
     let nameArray = ["清除缓存","联系我们"]
     

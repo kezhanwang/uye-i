@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351572781F9303B700AFCA8F /* UYRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351572761F9303B700AFCA8F /* UYRegisterViewController.swift */; };
+		3515727B1F9306A600AFCA8F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515727A1F9306A600AFCA8F /* UIViewController+Extension.swift */; };
 		3517C1301F7DF037008E49AC /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3517C1331F7DF037008E49AC /* IQKeyboardManagerSwift.framework */; };
 		3517C1311F7DF037008E49AC /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3517C1341F7DF037008E49AC /* Moya.framework */; };
 		3517C1321F7DF037008E49AC /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3517C1351F7DF037008E49AC /* Result.framework */; };
@@ -55,6 +57,8 @@
 		12160BFF0D29DE99B9C1AF4D /* Pods-uye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uye.release.xcconfig"; path = "Pods/Target Support Files/Pods-uye/Pods-uye.release.xcconfig"; sourceTree = "<group>"; };
 		1D19E058FE32AE5E02149D6F /* Pods-uye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uye.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uye/Pods-uye.debug.xcconfig"; sourceTree = "<group>"; };
 		24262430B6035025E7355646 /* Pods_uye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		351572761F9303B700AFCA8F /* UYRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYRegisterViewController.swift; sourceTree = "<group>"; };
+		3515727A1F9306A600AFCA8F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		3517C1331F7DF037008E49AC /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3517C1341F7DF037008E49AC /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3517C1351F7DF037008E49AC /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +221,7 @@
 				354E343C1F6D3CD2009CFCE4 /* UITableViewCell+Extension.swift */,
 				354E343D1F6D3CD2009CFCE4 /* UIView+Extension.swift */,
 				35D253E71F91E92000945017 /* UIImage+Extension.swift */,
+				3515727A1F9306A600AFCA8F /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				35D253ED1F91F91400945017 /* UYLoginViewController.swift */,
+				351572761F9303B700AFCA8F /* UYRegisterViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 				355260A81F6F65FE00F8734A /* UYNetRequest.swift in Sources */,
 				3517C1381F7DF5D9008E49AC /* SRToast.swift in Sources */,
 				354E34441F6D3CD2009CFCE4 /* UIView+Extension.swift in Sources */,
+				3515727B1F9306A600AFCA8F /* UIViewController+Extension.swift in Sources */,
 				35D253E81F91E92000945017 /* UIImage+Extension.swift in Sources */,
 				354E34501F6D3F9B009CFCE4 /* UYTabBarController.swift in Sources */,
 				354E34491F6D3E43009CFCE4 /* UYBaseViewController.swift in Sources */,
@@ -581,6 +588,7 @@
 				3552609F1F6F5DB000F8734A /* UYUserViewController.swift in Sources */,
 				351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */,
 				354E34401F6D3CD2009CFCE4 /* UIButton+Extension.swift in Sources */,
+				351572781F9303B700AFCA8F /* UYRegisterViewController.swift in Sources */,
 				354D08BC1F908C140024414E /* UYUserInfo.swift in Sources */,
 				35D253EE1F91F91400945017 /* UYLoginViewController.swift in Sources */,
 				35BCD6B11F8E13B900C3469F /* UYOrganiseList.swift in Sources */,
@@ -712,7 +720,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = uye/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjzt.uye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -736,7 +744,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = uye/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjzt.uye;
 				PRODUCT_NAME = "$(TARGET_NAME)";

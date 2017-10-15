@@ -18,7 +18,7 @@ class UYTableFooterView: UIView {
         }
     }
     //对内的
-    fileprivate var footerBtn = UIButton(type: UIButtonType.custom)
+    fileprivate let footerBtn = UIButton(type: UIButtonType.custom)
     fileprivate lazy var loginTypeBtn : UIButton = {
         () -> UIButton in
         let btn = UIButton(type: UIButtonType.custom)
@@ -30,7 +30,38 @@ class UYTableFooterView: UIView {
         btn.addTarget(self, action: #selector(loginTypeChange), for: UIControlEvents.touchUpInside)
         return btn
     }()
+    fileprivate lazy var serviceBtn :UIButton = {
+        () -> UIButton in
+        
+        let btn = UIButton(type: UIButtonType.custom)
+        let multipleAttributes: [NSAttributedStringKey : Any] = [
+            NSAttributedStringKey.foregroundColor: UIColor.grayText,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)]
+        
+        var attributedString = NSMutableAttributedString(string: "我同意\"服务条款\"和", attributes: multipleAttributes)
+        let range = NSRange(location: 4, length: 4)
+        attributedString.addAttribute(NSAttributedStringKey.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
+        btn.setAttributedTitle(attributedString, for: UIControlState.normal)
+        btn.addTarget(self, action: #selector(serviceBtnAction), for: UIControlEvents.touchUpInside)
+
+        return btn
+    }()
     
+    fileprivate lazy var privacyBtn :UIButton = {
+        () -> UIButton in
+        let btn = UIButton(type: UIButtonType.custom)
+        btn.addTarget(self, action: #selector(privacyBtnAction), for: UIControlEvents.touchUpInside)
+        
+        let multipleAttributes: [NSAttributedStringKey : Any] = [
+            NSAttributedStringKey.foregroundColor: UIColor.grayText,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)]
+        let attributedString = NSMutableAttributedString(string: "\"隐私权相关政策\"", attributes: multipleAttributes)
+        let range = NSRange(location: 1, length: 7)
+        attributedString.addAttribute(NSAttributedStringKey.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
+        btn .setAttributedTitle(attributedString, for: UIControlState.normal)
+        
+        return btn
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(footerBtn)
@@ -62,13 +93,14 @@ class UYTableFooterView: UIView {
             delegate!.footButtonAction()
         }
     }
-    @objc func loginTypeChange() {
-        loginTypeBtn.isSelected = !loginTypeBtn.isSelected
-        if delegate != nil {
-            delegate!.loginTypeChange!(ispwdLogin: loginTypeBtn.isSelected)
-        }
-    }
-    @objc func addLoginSubView(ispwdType:Bool = true) {
+    
+   
+}
+
+// MARK: - 登录需要的
+extension UYTableFooterView {
+    /// 登录页面需要的，登录方式切换
+    func addLoginSubView(ispwdType:Bool = true) {
         addSubview(loginTypeBtn)
         loginTypeBtn.snp.makeConstraints { (make) in
             make.top.equalTo(footerBtn.snp.bottom).offset(10)
@@ -78,8 +110,37 @@ class UYTableFooterView: UIView {
             loginTypeBtn.setTitle("使用短信登录", for: UIControlState.normal)
         }else{
             loginTypeBtn.setTitle("使用密码登录", for: UIControlState.normal)
-
         }
+    }
+    @objc func loginTypeChange() {
+        loginTypeBtn.isSelected = !loginTypeBtn.isSelected
+        if delegate != nil {
+            delegate!.loginTypeChange!(ispwdLogin: loginTypeBtn.isSelected)
+        }
+    }
+}
+
+// MARK: - 注册页面需要的
+extension UYTableFooterView {
+    /// 注册页面需要的，协议展示
+    func addRrgisterSubView() {
+        addSubview(serviceBtn)
+        addSubview(privacyBtn)
+        serviceBtn.snp.makeConstraints { (make) in
+            make.top.equalTo(footerBtn.snp.bottom).offset(10)
+            make.left.equalTo(16)
+        }
+        privacyBtn.snp.makeConstraints { (make) in
+            make.top.equalTo(serviceBtn.snp.top).offset(0)
+            make.left.equalTo(serviceBtn.snp.right).offset(0)
+        }
+        
+    }
+    @objc func serviceBtnAction() {
+        print("服务协议")
+    }
+    @objc func privacyBtnAction() {
+        print("隐私政策")
     }
 }
 @objc protocol UYTableFooterViewDelegate :NSObjectProtocol {
