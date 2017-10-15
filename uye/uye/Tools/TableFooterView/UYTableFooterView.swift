@@ -137,13 +137,20 @@ extension UYTableFooterView {
         
     }
     @objc func serviceBtnAction() {
-        print("服务协议")
+        if delegate != nil {
+            delegate!.registerShowServiceWeb!()
+        }
     }
     @objc func privacyBtnAction() {
-        print("隐私政策")
+        if delegate != nil {
+            delegate!.registerShowPrivacyWeb()
+        }
+        
     }
 }
 @objc protocol UYTableFooterViewDelegate :NSObjectProtocol {
     func footButtonAction()
     @objc optional func loginTypeChange(ispwdLogin:Bool)
+    @objc optional func registerShowServiceWeb()
+    @objc optional func registerShowPrivacyWeb()
 }

@@ -132,7 +132,37 @@ extension UYRegisterViewController : UYTableFooterViewDelegate {
         
     }
     
+    func registerShowServiceWeb() {
+        
+    }
+    
+    func registerShowPrivacyWeb() {
+        
+    }
+    
 }
 extension UYRegisterViewController : UITextFieldDelegate {
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if phoneTextField == textField || codeTextField == textField {
+            //限制只能输入数字，不能输入特殊字符
+            let length = string.lengthOfBytes(using: String.Encoding.utf8)
+            for loopIndex in 0 ..< length {
+                let char = (string as NSString).character(at: loopIndex)
+                if char < 48 {return false }
+                if char > 57 {return false }
+            }
+            if phoneTextField == textField {
+                //限制长度
+                let proposeLength = (textField.text?.lengthOfBytes(using: String.Encoding.utf8))! - range.length + string.lengthOfBytes(using: String.Encoding.utf8)
+                if proposeLength > 11 { return false }
+                if proposeLength == 11  {
+                    getCodeBtn.isEnabled = true
+                }else{
+                    getCodeBtn.isEnabled = false
+                }
+            }
+        }
+        
+        return true
+    }
 }
