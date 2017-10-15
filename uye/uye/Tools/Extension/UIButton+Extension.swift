@@ -49,14 +49,16 @@ extension UIButton {
             if timeCount <= 0 {
                 codeTimer.cancel()
                 DispatchQueue.main.async {
-                    self?.backgroundColor = UIColor.white
+//                    self?.backgroundColor = UIColor.white
                     self?.setTitle("获取验证码", for: .normal)
+                    self?.isEnabled = true
                     self?.isUserInteractionEnabled = true
                 }
             }else{
                 // 返回主线程处理一些事件，更新UI等等
                 DispatchQueue.main.async {
-                    self?.backgroundColor = UIColor.lineGray
+//                    self?.backgroundColor = UIColor.lineGray
+                    self?.isEnabled = false
                     self?.setTitle("\(timeCount)s", for: .normal)
                     self?.isUserInteractionEnabled = false
                 }

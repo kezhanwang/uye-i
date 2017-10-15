@@ -22,11 +22,10 @@ extension UIBarButtonItem {
         
         btn.setTitle(title, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
-        btn.setTitleColor(UIColor.white, for: .normal)
-        btn.setTitleColor(UIColor.navigationBarTintColor, for: .highlighted)
+        btn.setTitleColor(UIColor.navigationBarTintColor, for: .normal)
         btn.addTarget(target, action: action, for: .touchUpInside)
         if isBack {
-            btn.setImage(#imageLiteral(resourceName: "navi_back"), for: .normal)
+            btn.setImage(#imageLiteral(resourceName: "cell_accessory_icon"), for: .normal)
         }
         
         btn.sizeToFit()

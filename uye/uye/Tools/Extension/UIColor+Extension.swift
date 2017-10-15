@@ -91,7 +91,14 @@ extension UIColor {
         return UIColor(hexColor: "d5d5d5")
     }
    
-    
+    /// 按钮不可以点击的文字颜色
+    class var disableTextColor: UIColor {
+        return UIColor(hexColor: "cecece")
+    }
+    /// 按钮不可以点击的背景色
+    class var disableBackColor: UIColor {
+        return UIColor(hexColor: "d2d2d2")
+    }
     
 
     

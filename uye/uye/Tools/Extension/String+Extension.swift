@@ -38,4 +38,8 @@ extension String {
             return String(self[startIndex..<endIndex])
         }
     }
+    var length :Int {
+        return lengthOfBytes(using: String.Encoding.utf8)
+    }
+    
 }

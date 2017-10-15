@@ -47,6 +47,7 @@
 		35BCD6B11F8E13B900C3469F /* UYOrganiseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCD6B01F8E13B900C3469F /* UYOrganiseList.swift */; };
 		35D253E61F91E68800945017 /* UYTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D253E51F91E68800945017 /* UYTableFooterView.swift */; };
 		35D253E81F91E92000945017 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D253E71F91E92000945017 /* UIImage+Extension.swift */; };
+		35D253EE1F91F91400945017 /* UYLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D253ED1F91F91400945017 /* UYLoginViewController.swift */; };
 		A20D203223A92CD788AFA2A5 /* Pods_uye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24262430B6035025E7355646 /* Pods_uye.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		35BCD6B01F8E13B900C3469F /* UYOrganiseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseList.swift; sourceTree = "<group>"; };
 		35D253E51F91E68800945017 /* UYTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYTableFooterView.swift; sourceTree = "<group>"; };
 		35D253E71F91E92000945017 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		35D253ED1F91F91400945017 /* UYLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYLoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +400,7 @@
 		35D253EA1F91F44800945017 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				35D253ED1F91F91400945017 /* UYLoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */,
 				354E34401F6D3CD2009CFCE4 /* UIButton+Extension.swift in Sources */,
 				354D08BC1F908C140024414E /* UYUserInfo.swift in Sources */,
+				35D253EE1F91F91400945017 /* UYLoginViewController.swift in Sources */,
 				35BCD6B11F8E13B900C3469F /* UYOrganiseList.swift in Sources */,
 				354E34411F6D3CD2009CFCE4 /* UIColor+Extension.swift in Sources */,
 				355260AA1F6F662200F8734A /* UYRequestConfig.swift in Sources */,

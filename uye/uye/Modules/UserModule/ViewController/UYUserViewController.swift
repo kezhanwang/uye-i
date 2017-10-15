@@ -41,7 +41,22 @@ class UYUserViewController: UYBaseViewController {
         tableView.register(UINib(nibName: "UYCustomSimpleTableCell", bundle: nil), forCellReuseIdentifier: UserItemCellIdentifier)
         tableView.snp.makeConstraints { (make) in
             make.top.left.bottom.right.equalTo(0)
+            
         }
+        
+        let label = UILabel()
+        label.textColor = UIColor.gray
+        label.font = UIFont.systemFont(ofSize: 12)
+        let currentVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        label.text = "V-\(currentVersion)"
+        view.addSubview(label)
+        label.snp.makeConstraints { (make) in
+            
+            make.bottom.equalTo(-20-(tabBarController?.tabBar.frame.height)!)
+            make.centerX.equalTo(kScreenWidth/2)
+        }
+        
+        
     }
 }
 extension UYUserViewController :UITableViewDelegate,UITableViewDataSource {
@@ -99,12 +114,11 @@ extension UYUserViewController :UITableViewDelegate,UITableViewDataSource {
                 }
             }
         }
-        
-        
     }
 }
 extension UYUserViewController : UYTableFooterViewDelegate {
     func footButtonAction() {
-        print("go login")
+        let loginVC = UYLoginViewController()
+        pushToNextVC(nextVC: loginVC)
     }
 }
