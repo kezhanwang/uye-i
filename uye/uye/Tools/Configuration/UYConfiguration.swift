@@ -7,9 +7,18 @@
 //
 
 import UIKit
+/**
+ 应该看看一下的第三方们
+ PermissionScope //获取用户权限的请求
+ Moya //结合SwiftyJSON和Alamofire的封装网络请求
+ DeviceKit //获取设备信息
+ GDPerformanceView //调试使用，可以展示FPS，CPU 使用情况
+ */
+//
 
 // MARK: - 常量
 
+// MARK: 第三方常Key量
 let mapKey = "nXTHL3YFSXWmk1AQmG7nvO3Qa2AKiyPD"
 
 
@@ -40,77 +49,31 @@ let kInputCellLabelWidth = 80 - spaceWidth
 
 
 
+
+
 // MARK: - URL
 /// 客服电话
 let customerServicePhone = "4000029691"
 
-/// 关于我们的url
-let aboutUsURLString = "http://api2.kezhanwang.cn/html/about/about.html"
 
 /// 注册协议
-let reigsterAgreementURLString = "http://api2.kezhanwang.cn/html/reg_h5/reg.html"
+let ServiceAgreementURLString = "https:www.baidu.com"
+let PrivacyAgreementURLString = "https:www.baidu.com"
 
-/// 常见问题的URL
-let commonProblemsURLString = "http://pay.kezhanwang.cn/app/apploan/question"
 
 
 // MARK: - 设备信息
-
 let deviceName = UIDevice.current.name  //获取设备名称 例如：课栈的手机
 let sysName = UIDevice.current.systemName //获取系统名称 例如：iPhone OS
 let sysVersion = UIDevice.current.systemVersion //获取系统版本 例如：9.2
 let deviceUUID = UIDevice.current.identifierForVendor?.uuidString  //获取设备唯一标识符 例如：FBF2306E-A0D8-4F4B-BDED-9333B627D3E6
 let deviceModel = UIDevice.current.model //获取设备的型号 例如：iPhone
-public extension UIDevice {
-    var modelName: String {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        let machineMirror = Mirror(reflecting: systemInfo.machine)
-        let identifier = machineMirror.children.reduce("") { identifier, element in
-            guard let value = element.value as? Int8, value != 0 else { return identifier }
-            return identifier + String(UnicodeScalar(UInt8(value)))
-        }
-        
-        switch identifier {
-        case "iPod5,1":                                 return "iPod Touch 5"
-        case "iPod7,1":                                 return "iPod Touch 6"
-        case "iPhone3,1", "iPhone3,2", "iPhone3,3":     return "iPhone 4"
-        case "iPhone4,1":                               return "iPhone 4s"
-        case "iPhone5,1", "iPhone5,2":                  return "iPhone 5"
-        case "iPhone5,3", "iPhone5,4":                  return "iPhone 5c"
-        case "iPhone6,1", "iPhone6,2":                  return "iPhone 5s"
-        case "iPhone7,2":                               return "iPhone 6"
-        case "iPhone7,1":                               return "iPhone 6 Plus"
-        case "iPhone8,1":                               return "iPhone 6s"
-        case "iPhone8,2":                               return "iPhone 6s Plus"
-        case "iPhone8,4":                               return "iPhone SE"
-        case "iPhone9,1":                               return "iPhone 7"
-        case "iPhone9,2":                               return "iPhone 7 Plus"
-        case "iPhone10,1":                              return "iPhone 8"
-        case "iPhone10,2":                              return "iPhone 8 Plus"
-        case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":return "iPad 2"
-        case "iPad3,1", "iPad3,2", "iPad3,3":           return "iPad 3"
-        case "iPad3,4", "iPad3,5", "iPad3,6":           return "iPad 4"
-        case "iPad4,1", "iPad4,2", "iPad4,3":           return "iPad Air"
-        case "iPad5,3", "iPad5,4":                      return "iPad Air 2"
-        case "iPad2,5", "iPad2,6", "iPad2,7":           return "iPad Mini"
-        case "iPad4,4", "iPad4,5", "iPad4,6":           return "iPad Mini 2"
-        case "iPad4,7", "iPad4,8", "iPad4,9":           return "iPad Mini 3"
-        case "iPad5,1", "iPad5,2":                      return "iPad Mini 4"
-        case "iPad6,7", "iPad6,8":                      return "iPad Pro"
-        case "AppleTV5,3":                              return "Apple TV"
-        case "i386", "x86_64":                          return "Simulator"
-        default:                                        return identifier
-        }
-    }
-}
-
 let devName = UIDevice.current.modelName
 
 
 // MARK: - 版本信息
 let infoDic = Bundle.main.infoDictionary
-let appVersion = infoDic?["CFBundleShortVersionString"] // 获取App的版本
+let appVersion = infoDic?["CFBundleShortVersionString"] as! String// 获取App的版本
 let appBuildVersion = infoDic?["CFBundleVersion"] // 获取App的build版本
 let appName = infoDic?["CFBundleDisplayName"] // 获取App的名称
 

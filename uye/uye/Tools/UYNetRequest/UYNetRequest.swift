@@ -17,12 +17,12 @@ class UYNetRequest: NSObject {
 // MARK: - 公共部分
 extension UYNetRequest {
     // MARK: 获取短信验证码
-    func getPhoneCodeLoginRequest(phone:String,complete:@escaping(_ error:Error?) -> (Void)) {
+    func getPhoneCodeRequest(phone:String,complete:@escaping(_ error: UYError?) -> (Void)) {
         let config = UYRequestConfig()
         config.requestURL = UYRequestAPI.SMScode
         config.requestMethod = .get
         config.parameters = ["phone":phone]
-        UYRequestManager.shared.request(config: config, type: UYHomeModel.self) { (homeModel: Any, error:Error?) in
+        UYRequestManager.shared.request(config: config, type: UYHomeModel.self) { (homeModel: Any, error:UYError?) in
             if error != nil {
                 complete(error)
             }else{
@@ -35,50 +35,56 @@ extension UYNetRequest {
 // MARK: - 登录注册相关
 extension UYNetRequest {
     // MARK: 注册
-    func registerRequest(phone:String,code:String,pwd:String, complete:@escaping(_ userInfo:UYUserInfo?,_ error:Error?) -> (Void))  {
+    func registerRequest(phone:String,code:String,pwd:String, complete:@escaping(_ userInfo:UYUserInfo?,_ error:UYError?) -> (Void))  {
         let config = UYRequestConfig()
         config.requestURL = UYRequestAPI.register
         config.requestMethod = .get
         config.parameters = ["phone":phone,
                              "code":code,
                              "password":pwd]
-        UYRequestManager.shared.request(config: config, type: UYHomeModel.self) { (homeModel: Any, error:Error?) in
+        UYRequestManager.shared.request(config: config, type: UYUserInfo.self) {[weak self] (userInfo: Any, error:UYError?) in
             if error != nil {
                 complete(nil,error)
             }else{
-                complete((homeModel as! UYUserInfo),nil)
+                self?.saveUserInfo(userInf: (userInfo as! UYUserInfo))
+                complete((userInfo as! UYUserInfo),nil)
             }
         }
     }
      // MARK: 密码登录
-    func passwordLoginRequest(phone:String,pwd:String,complete:@escaping(_ userInfo:UYUserInfo?,_ error:Error?) -> (Void)) {
+    func loginWithPasswordRequest(phone:String,pwd:String,complete:@escaping(_ userInfo:UYUserInfo?,_ error:UYError?) -> (Void)) {
         let config = UYRequestConfig()
         config.requestURL = UYRequestAPI.login
         config.requestMethod = .get
         config.parameters = ["phone":phone,
                              "password":pwd]
-        UYRequestManager.shared.request(config: config, type: UYHomeModel.self) { (homeModel: Any, error:Error?) in
+        UYRequestManager.shared.request(config: config, type: UYUserInfo.self) {[weak self] (userInfo: Any, error:UYError?) in
             if error != nil {
                 complete(nil,error)
             }else{
-                complete((homeModel as! UYUserInfo),nil)
+                self?.saveUserInfo(userInf: (userInfo as! UYUserInfo))
+                complete((userInfo as! UYUserInfo),nil)
             }
         }
     }
      // MARK: 验证码登录
-    func phoneCodeLoginRequest(phone:String,code:String,complete:@escaping(_ userInfo:UYUserInfo?,_ error:Error?) -> (Void)) {
+    func loginWithPhoneCodeRequest(phone:String,code:String,complete:@escaping(_ userInfo:UYUserInfo?,_ error:UYError?) -> (Void)) {
         let config = UYRequestConfig()
         config.requestURL = UYRequestAPI.loginWithCode
         config.requestMethod = .get
         config.parameters = ["phone":phone,
                              "code":code]
-        UYRequestManager.shared.request(config: config, type: UYHomeModel.self) { (homeModel: Any, error:Error?) in
+        UYRequestManager.shared.request(config: config, type: UYHomeModel.self) {[weak self] (userInfo: Any, error:UYError?) in
             if error != nil {
                 complete(nil,error)
             }else{
-                complete((homeModel as! UYUserInfo),nil)
+                self?.saveUserInfo(userInf: (userInfo as! UYUserInfo))
+                complete((userInfo as! UYUserInfo),nil)
             }
         }
+    }
+    func saveUserInfo(userInf:UYUserInfo) {
+        UYAPPManager.shared.loginSuccess(userInfo: userInf)
     }
   
     
@@ -87,12 +93,12 @@ extension UYNetRequest {
 // MARK: - 首页相关
 extension UYNetRequest {
 // MARK: 首页获取分类
-    func getHomeCategorysData(complete:@escaping(_ result:UYHomeModel?,_ error:Error?) -> Void) {
+    func getHomeCategorysData(complete:@escaping(_ result:UYHomeModel?,_ error:UYError?) -> Void) {
         
         let config = UYRequestConfig()
         config.requestURL = UYRequestAPI.categorys
         config.requestMethod = .get
-        UYRequestManager.shared.request(config: config, type: UYHomeModel.self) { (homeModel: Any, error:Error?) in
+        UYRequestManager.shared.request(config: config, type: UYHomeModel.self) { (homeModel: Any, error:UYError?) in
             if error != nil {
                 complete(nil,error)
             }else{
@@ -106,7 +112,7 @@ extension UYNetRequest {
 extension UYNetRequest {
   
     // MARK: 首页机构推荐列表和搜索的列表。
-    func getOrganiseList(isRefash:Bool,word:String = "location", complete:@escaping(_ result:UYOrganiseList?,_ error:Error?) ->(Void)) {
+    func getOrganiseList(isRefash:Bool,word:String = "location", complete:@escaping(_ result:UYOrganiseList?,_ error:UYError?) ->(Void)) {
         
         if isRefash {
             page = 1;
@@ -118,7 +124,7 @@ extension UYNetRequest {
         config.parameters = ["word":word,
                              "page":page]
         
-        UYRequestManager.shared.request(config: config, type: UYOrganiseList.self) { (list:Any, error:Error?) in
+        UYRequestManager.shared.request(config: config, type: UYOrganiseList.self) { (list:Any, error:UYError?) in
             if error != nil {
                 complete(nil,error)
             }else{

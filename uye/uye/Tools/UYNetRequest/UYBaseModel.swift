@@ -10,8 +10,10 @@ import Foundation
 
 import HandyJSON
 
-class UYBaseModel: HandyJSON {
-    required init() {}
+class UYBaseModel:NSObject, HandyJSON {
+    required override init() {
+        super.init()
+    }
     
     func mapping(mapper: HelpingMapper) {}
 }

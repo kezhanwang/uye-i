@@ -34,7 +34,7 @@ enum UYRequestAPI : String {
     case login = "login/login" //登录
     case register = "login/register"//注册
     case loginWithCode = "login/Loginphone" //短信验证码登录
-    case SMScode = "safe/Getmsgcode" //获取短信验证码
+    case SMScode = "safe/getmsgcode" //获取短信验证码
     
     //首页机构相关
     case categorys = "app/index/index" //首页分类接口

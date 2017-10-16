@@ -25,7 +25,7 @@ extension UIBarButtonItem {
         btn.setTitleColor(UIColor.navigationBarTintColor, for: .normal)
         btn.addTarget(target, action: action, for: .touchUpInside)
         if isBack {
-            btn.setImage(#imageLiteral(resourceName: "cell_accessory_icon"), for: .normal)
+            btn.setImage(#imageLiteral(resourceName: "back_icon"), for: .normal)
         }
         
         btn.sizeToFit()

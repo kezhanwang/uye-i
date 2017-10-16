@@ -47,8 +47,7 @@ class UYUserViewController: UYBaseViewController {
         let label = UILabel()
         label.textColor = UIColor.gray
         label.font = UIFont.systemFont(ofSize: 12)
-        let currentVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
-        label.text = "V-\(currentVersion)"
+        label.text = "V-\(appVersion)"
         view.addSubview(label)
         label.snp.makeConstraints { (make) in
             
@@ -110,7 +109,7 @@ extension UYUserViewController :UITableViewDelegate,UITableViewDataSource {
             }
             if indexPath.row == 1 {
                 DispatchQueue.main.async {
-                    UIApplication.shared.openURL(URL(string: "telprompt://4000029691")!)
+                    UIApplication.shared.openURL(URL(string: "telprompt://\(customerServicePhone)")!)
                 }
             }
         }

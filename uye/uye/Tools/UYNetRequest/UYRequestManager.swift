@@ -12,7 +12,7 @@ import Alamofire
 import HandyJSON
 
 
-typealias RequestCompleteHandler = (Any,Error?)->()
+typealias RequestCompleteHandler = (Any,UYError?)->()
 
 class UYRequestManager: NSObject {
     var sessionManager : SessionManager?
@@ -29,10 +29,16 @@ class UYRequestManager: NSObject {
 // MARK: - 配置所有请求的基本信息
 extension UYRequestManager {
     fileprivate func configHttpHeaders()  {
-        let defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
+        //获取 UserAgent
+        let webView  = UIWebView()
+        let agentStr = webView.stringByEvaluatingJavaScript(from: "navigator.userAgent")
+        
+        var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
+        defaultHeaders["User-Agent"] = agentStr
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = defaultHeaders
         sessionManager = Alamofire.SessionManager(configuration:configuration)
+        
     }
 }
 
@@ -47,9 +53,9 @@ extension UYRequestManager {
         }
         par?["_t"] = NSDate().timeIntervalSince1970
         par?["phoneid"] = "deviceUUID"
-        par?["map_lng"] = "113.305791"
-        par?["map_lat"] = "23.337532"
-        par?["version"] = "1.0"
+        par?["map_lng"] = UYLocationManager.shared.longitude
+        par?["map_lat"] = UYLocationManager.shared.latitude
+        par?["version"] = appVersion
         return par!
     }
 }
@@ -89,7 +95,7 @@ extension UYRequestManager {
                     handleRequestFailResult(response: response, complete: complete)
                 }
             }else{
-                complete([response],UYRequestError.localFail(code: -11, msg: "解析失败"))
+                complete([response],UYError.mapFailError())
             }
         }else{
             handleRequestFailResult(response: response, complete: complete)
@@ -98,19 +104,19 @@ extension UYRequestManager {
     
     fileprivate func handleRequestFailResult(response:DataResponse<Any>, complete:RequestCompleteHandler) {
         
-        var resultError :Error?
+        var resultError :UYError?
         if response.result.isSuccess {
             if let json = response.result.value as? [String : Any],
                 let code = json["code"] as? Int,
                 let msg = json["msg"] as? String
             {
-                resultError = UYRequestError.localFail(code: code, msg: msg)
+                resultError = UYError(code: code, msg: msg)
             }
         }else{
-            resultError = UYRequestError.afFail(error: response.error!)
+            let httpError = response.result.error! as NSError
+            resultError = UYError(code: httpError.code, msg: httpError.localizedDescription)
         }
         complete([response],resultError)
     }
 }
-
 

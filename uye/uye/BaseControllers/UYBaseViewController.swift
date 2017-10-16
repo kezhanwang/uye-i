@@ -9,7 +9,10 @@
 import UIKit
 import SnapKit
 class UYBaseViewController: UIViewController {
-    let request = UYNetRequest()
+    lazy var request : UYNetRequest = {
+        () -> UYNetRequest in
+        return UYNetRequest()
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.background
@@ -29,11 +32,12 @@ extension UYBaseViewController {
         view.endEditing(false)
         navigationController?.pushViewController(nextVC, animated: true)
     }
-    func popToRootViewController() {
-        navigationController?.popToRootViewController(animated: true)
-    }
-    func popBackAction() {
-        navigationController?.popViewController(animated: true)
+    func popBackAction(toRoot:Bool = false) {
+        if toRoot {
+            navigationController?.popToRootViewController(animated: true)
+        }else{
+            navigationController?.popViewController(animated: true)
+        }
     }
     func popToViewController(targetVC :UIViewController) {
         navigationController?.popToViewController(targetVC, animated: true)

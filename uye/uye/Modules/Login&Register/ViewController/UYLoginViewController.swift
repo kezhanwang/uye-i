@@ -158,6 +158,33 @@ extension UYLoginViewController :UYTableFooterViewDelegate {
     }
 }
 
+// MARK: - 网络请求
+extension UYLoginViewController {
+    func getSMSCode() {
+        showWaitToast()
+        request.getPhoneCodeRequest(phone: phoneTextField.text!) {[weak self] (error:UYError?) -> (Void) in
+            if error == nil {
+                self?.dismissToast()
+                self?.getCodeBtn.beginCountDown()
+            }else{
+                self?.showTextToastAutoDismiss(msg: error!.description)
+            }
+        }
+    }
+    
+    /// 根据密码登录
+    func loginActionWithPassword() {
+        request.loginWithPasswordRequest(phone: phoneTextField.text!, pwd: codeTextField.text!) { (userInf:UYUserInfo?, error:UYError?) -> (Void) in
+            
+        }
+    }
+    /// 根据验证码登录
+    func loginActionWithSMSCode() {
+        request.loginWithPhoneCodeRequest(phone:phoneTextField.text!, code:  codeTextField.text!) { (userInfo, error:UYError?) -> (Void) in
+            
+        }
+    }
+}
 // MARK: - 设置TextField是否可以输入的条件
 extension UYLoginViewController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

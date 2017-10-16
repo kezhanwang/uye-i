@@ -27,6 +27,7 @@ class UYLocationManager: NSObject {
     var longitude:String = ""
     var latitude:String = ""
     
+    var blockTime :Int = 0
     
     /// 以下是单例的一种写法
     
@@ -50,6 +51,7 @@ class UYLocationManager: NSObject {
     
     func beginUpdataLocation(complete:UYLocationBlock? = nil )  {
         locationBlock = complete
+        blockTime = 0
         locService.startUserLocationService()
     }
     
@@ -71,7 +73,9 @@ extension UYLocationManager : BMKLocationServiceDelegate {
         longitude = String(userLocation.location.coordinate.longitude)
         latitude =  String(userLocation.location.coordinate.latitude)
         
-        if (locationBlock != nil) {
+        if (locationBlock != nil && blockTime == 0) {
+            
+            blockTime += 1
             locationBlock!(true)
         }
     }

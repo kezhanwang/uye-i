@@ -54,9 +54,17 @@ extension UIColor {
     class var background :UIColor {
         return UIColor(hexColor:"f4f4f4")
     }
+    class var lightBackground :UIColor {
+        return UIColor(hexColor:"f2f2f2")
+    }
     ///大部分文字颜色
     class var blackText :UIColor {
-        return UIColor(hexColor: "646464")
+        return UIColor(hexColor: "232323")
+//        return UIColor(hexColor: "646464")
+    }
+    ///灰色字体
+    class var darkGrayText :UIColor {
+        return UIColor(hexColor: "999999")
     }
     ///灰色字体
     class var grayText :UIColor {

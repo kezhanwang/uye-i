@@ -134,7 +134,6 @@ extension UYTableFooterView {
             make.top.equalTo(serviceBtn.snp.top).offset(0)
             make.left.equalTo(serviceBtn.snp.right).offset(0)
         }
-        
     }
     @objc func serviceBtnAction() {
         if delegate != nil {
@@ -143,9 +142,8 @@ extension UYTableFooterView {
     }
     @objc func privacyBtnAction() {
         if delegate != nil {
-            delegate!.registerShowPrivacyWeb()
+            delegate!.registerShowPrivacyWeb!()
         }
-        
     }
 }
 @objc protocol UYTableFooterViewDelegate :NSObjectProtocol {

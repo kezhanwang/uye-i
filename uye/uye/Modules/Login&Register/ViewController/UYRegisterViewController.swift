@@ -28,7 +28,7 @@ class UYRegisterViewController: UYBaseViewController {
     // MARK: 获取手机号验证码
     @objc func getCodeAction(){
         if phoneTextField.text?.length == 11 {
-            getCodeBtn.beginCountDown()
+            getSMSCode()
         }else{
             showTextToastAutoDismiss(msg: "请输入11位手机号")
         }
@@ -44,6 +44,8 @@ class UYRegisterViewController: UYBaseViewController {
     }
     
 }
+
+// MARK: - 设置UI页面
 extension UYRegisterViewController {
     func addSubViews() {
         view.addSubview(phoneTextField)
@@ -127,20 +129,69 @@ extension UYRegisterViewController {
         footerView.addRrgisterSubView()
     }
 }
+
+// MARK: - 网络请求
+extension UYRegisterViewController {
+    
+    func getSMSCode() {
+        showWaitToast()
+        request.getPhoneCodeRequest(phone: phoneTextField.text!) {[weak self] (error:UYError?) -> (Void) in
+            if error == nil {
+                self?.getCodeBtn.beginCountDown()
+                self?.dismissToast()
+            }else{
+                self?.showTextToastAutoDismiss(msg: error!.description)
+            }
+        }
+    }
+    
+    func checkRegigsterPar() {
+        if phoneTextField.text?.length != 11 {
+            showTextToastAutoDismiss(msg: "请输入11位手机号")
+            return
+        }
+        guard codeTextField.text!.length > 0 else {
+          showTextToastAutoDismiss(msg: "请输入短信验证码")
+            return
+        }
+        guard pwdTextField.text!.length > 0 else {
+            showTextToastAutoDismiss(msg: "请输入密码")
+            return
+        }
+        registerAction()
+    }
+    func registerAction()  {
+        showWaitToast()
+        request.registerRequest(phone: phoneTextField.text!, code: codeTextField.text!, pwd: pwdTextField.text!) {[weak self] (userInfo, error:UYError?) -> (Void) in
+            
+            if error != nil {
+                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+            }else{
+                self?.dismissToast()
+                self?.popBackAction()
+            }
+        }
+    }
+}
 extension UYRegisterViewController : UYTableFooterViewDelegate {
     func footButtonAction() {
-        
+        checkRegigsterPar()
     }
     
     func registerShowServiceWeb() {
-        
+        let webVC = UYWebViewController()
+        webVC.urlString = ServiceAgreementURLString
+        pushToNextVC(nextVC: webVC)
     }
     
     func registerShowPrivacyWeb() {
-        
+        let webVC = UYWebViewController()
+        webVC.urlString = PrivacyAgreementURLString
+        pushToNextVC(nextVC: webVC)
     }
     
 }
+
 extension UYRegisterViewController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if phoneTextField == textField || codeTextField == textField {
@@ -162,7 +213,6 @@ extension UYRegisterViewController : UITextFieldDelegate {
                 }
             }
         }
-        
         return true
     }
 }

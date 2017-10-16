@@ -25,20 +25,17 @@ class UYHomeViewController: UYBaseViewController {
             }
         }
     
-        
-        
-        
-        buton.setTitle("点击看看", for: UIControlState.normal)
+        buton.setTitle("去搜索看", for: UIControlState.normal)
         view.addSubview(buton)
-        buton.addTarget(self, action: #selector(showToast), for: UIControlEvents.touchUpInside)
+        buton.addTarget(self, action: #selector(showAToast), for: UIControlEvents.touchUpInside)
         buton.backgroundColor = UIColor.randomColor
         buton.snp.makeConstraints { (make) in
             make.top.left.equalTo(100)
             make.width.height.equalTo(80)
         }
     }
-    @objc func showToast() {
-        getHomeData()
+    @objc func showAToast() {
+        pushToNextVC(nextVC: UYSearchViewController())
     }
 }
 
@@ -51,23 +48,16 @@ extension UYHomeViewController {
     }
     func getHomeData() {
         showWaitToast()
-        request.getHomeCategorysData { (data:UYHomeModel?, error : Error?) in
-            self.dismissAllToast()
+        request.getHomeCategorysData {[weak self] (data:UYHomeModel?, error : UYError?) in
             if error != nil {
-                self.showTextToastAutoDismiss(msg: (error?.localizedDescription)!)
+                self?.showTextToastAutoDismiss(msg: (error?.description)!)
             }else{
+                self?.showTextToastAutoDismiss(msg: "(error?.description)!")
 
             }
         }
         
-//        request.getOrganiseList(isRefash: true, word: "上海") { (list:UYOrganiseList?, error:Error?) -> (Void) in
-//            self.dismissAllToast()
-//            if error != nil {
-//                self.showTextToastAutoDismiss(msg: (error?.localizedDescription)!)
-//            }else{
-//
-//            }
-//        }
+
         
         
         
