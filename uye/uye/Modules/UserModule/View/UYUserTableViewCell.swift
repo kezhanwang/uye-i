@@ -21,7 +21,12 @@ class UYUserTableViewCell: UITableViewCell {
         areaView.layer.cornerRadius = 11
         areaView.layer.masksToBounds = true
         setCellAccessoryDisclosureIndicator()
+    }
+    func setupUI()  {
         
+        let url = URL(string: UYAPPManager.shared.userInfo?.head_protrait ?? "")
+        avatarView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "user_avatar_icon"))
+        nameLabel.text = UYAPPManager.shared.userInfo?.username
     }
     
 }

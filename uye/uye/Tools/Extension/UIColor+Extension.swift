@@ -102,11 +102,16 @@ extension UIColor {
     class var areaBorder: UIColor {
         return UIColor(hexColor: "d5d5d5")
     }
-   
+    
+    /// 分类标记颜色
+    class var blueTextColor: UIColor {
+        return UIColor(hexColor: "39aefb")
+    }
     /// 按钮不可以点击的文字颜色
     class var disableTextColor: UIColor {
         return UIColor(hexColor: "cecece")
     }
+    
     /// 按钮不可以点击的背景色
     class var disableBackColor: UIColor {
         return UIColor(hexColor: "d2d2d2")

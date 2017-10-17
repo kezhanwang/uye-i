@@ -16,6 +16,9 @@
 		3517C1381F7DF5D9008E49AC /* SRToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517C1371F7DF5D9008E49AC /* SRToast.swift */; };
 		3517C13A1F7DF5F1008E49AC /* SRCycleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */; };
 		351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */; };
+		3524A2F91F95E2330035FE80 /* UYOrganiseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */; };
+		3524A2FA1F95E2330035FE80 /* UYOrganiseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */; };
+		3524A2FC1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */; };
 		354A74881F735B2A000906CA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354A748B1F735B2A000906CA /* Alamofire.framework */; };
 		354A74891F735B2A000906CA /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354A748C1F735B2A000906CA /* HandyJSON.framework */; };
 		354A748A1F735B2A000906CA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354A748D1F735B2A000906CA /* SnapKit.framework */; };
@@ -70,6 +73,9 @@
 		3517C1371F7DF5D9008E49AC /* SRToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRToast.swift; sourceTree = "<group>"; };
 		3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCycleProgressView.swift; sourceTree = "<group>"; };
 		351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYHomeModel.swift; sourceTree = "<group>"; };
+		3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseTableViewCell.swift; sourceTree = "<group>"; };
+		3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrganiseTableViewCell.xib; sourceTree = "<group>"; };
+		3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseDetailViewController.swift; sourceTree = "<group>"; };
 		354A748B1F735B2A000906CA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		354A748C1F735B2A000906CA /* HandyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		354A748D1F735B2A000906CA /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -385,6 +391,8 @@
 			isa = PBXGroup;
 			children = (
 				355CFEE81F9497EF001CB55C /* UYTagView.swift */,
+				3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */,
+				3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -414,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				35A87ED61F9493E3004DEFFE /* UYSearchViewController.swift */,
+				3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -542,6 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				356521C01F91D5C200175734 /* UYUserTableViewCell.xib in Resources */,
+				3524A2FA1F95E2330035FE80 /* UYOrganiseTableViewCell.xib in Resources */,
 				356521CA1F91E20000175734 /* UYCustomSimpleTableCell.xib in Resources */,
 				354E34191F6CF862009CFCE4 /* Assets.xcassets in Resources */,
 			);
@@ -620,10 +630,12 @@
 				354D08BF1F90A6770024414E /* UYLocationManager.swift in Sources */,
 				355260AC1F6F663300F8734A /* UYRequestManager.swift in Sources */,
 				355CFEE91F9497EF001CB55C /* UYTagView.swift in Sources */,
+				3524A2F91F95E2330035FE80 /* UYOrganiseTableViewCell.swift in Sources */,
 				356521C91F91E20000175734 /* UYCustomSimpleTableCell.swift in Sources */,
 				3552609D1F6F5D7C00F8734A /* UYHomeViewController.swift in Sources */,
 				355260B01F6F665800F8734A /* UYBaseModel.swift in Sources */,
 				355260AE1F6F664700F8734A /* UYRequestError.swift in Sources */,
+				3524A2FC1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift in Sources */,
 				355260A11F6F5DBE00F8734A /* UYEmployViewController.swift in Sources */,
 				354E343F1F6D3CD2009CFCE4 /* UIBarButtonItem+Extension.swift in Sources */,
 				3514F15E1F945BD9005574B3 /* UYAPPManager.swift in Sources */,

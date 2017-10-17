@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+//typealias UYLocationAuthorizationBlock = ()->(Void)
+typealias UYLoginBlock = () -> (Void)
 class UYLoginViewController: UYBaseViewController {
 
     fileprivate let phoneTextField = UITextField()
@@ -16,14 +17,18 @@ class UYLoginViewController: UYBaseViewController {
     fileprivate let showPwdBtn = UIButton(type: UIButtonType.custom)
     fileprivate let footerView = UYTableFooterView(title: "登录")
     
+    fileprivate var loginBlock :UYLoginBlock? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         navigationItem.title = "登录"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", target: self, action: #selector(goRegisterVC))
     }
-    
-    override func setupUI() {
+    func loginSuccess(block:@escaping UYLoginBlock) {
+        loginBlock = block
+    }
+    override  func setupUI() {
         addSubeViews()
         
         phoneTextField.placeholder = "手机号"
@@ -62,11 +67,11 @@ class UYLoginViewController: UYBaseViewController {
     }
     
     // MARK: 去注册页面
-    @objc func goRegisterVC() {
+    @objc fileprivate func goRegisterVC() {
        pushToNextVC(nextVC: UYRegisterViewController())
     }
     // MARK: 获取手机号验证码
-    @objc func getCodeAction(){
+    @objc fileprivate func getCodeAction(){
         if phoneTextField.text?.lengthOfBytes(using: String.Encoding.utf8) == 11 {
             getCodeBtn.beginCountDown()
         }else{
@@ -74,7 +79,7 @@ class UYLoginViewController: UYBaseViewController {
         }
     }
     // MARK: 切换密码可见与不可见
-    @objc func showPasswordAction() {
+    @objc fileprivate func showPasswordAction() {
         showPwdBtn.isSelected = !showPwdBtn.isSelected
         if showPwdBtn.isSelected {
             codeTextField.isSecureTextEntry = true
@@ -86,7 +91,7 @@ class UYLoginViewController: UYBaseViewController {
 
 // MARK: - 设置UI
 extension UYLoginViewController  {
-    func addSubeViews() {
+    fileprivate func addSubeViews() {
         view.addSubview(phoneTextField)
         view.addSubview(codeTextField)
         view.addSubview(footerView)
@@ -140,7 +145,11 @@ extension UYLoginViewController :UYTableFooterViewDelegate {
             }
             return
         }
-        print("可以登录啦")
+        if showPwdBtn.isHidden == true {
+            loginActionWithSMSCode()
+        }else{
+            loginActionWithPassword()
+        }
     }
     func loginTypeChange(ispwdLogin: Bool) {
         if ispwdLogin {
@@ -160,7 +169,7 @@ extension UYLoginViewController :UYTableFooterViewDelegate {
 
 // MARK: - 网络请求
 extension UYLoginViewController {
-    func getSMSCode() {
+   fileprivate func getSMSCode() {
         showWaitToast()
         request.getPhoneCodeRequest(phone: phoneTextField.text!) {[weak self] (error:UYError?) -> (Void) in
             if error == nil {
@@ -173,17 +182,39 @@ extension UYLoginViewController {
     }
     
     /// 根据密码登录
-    func loginActionWithPassword() {
-        request.loginWithPasswordRequest(phone: phoneTextField.text!, pwd: codeTextField.text!) { (userInf:UYUserInfo?, error:UYError?) -> (Void) in
-            
+   fileprivate func loginActionWithPassword() {
+        showWaitToast()
+        request.loginWithPasswordRequest(phone: phoneTextField.text!, pwd: codeTextField.text!) {[weak self] (userInf:UYUserInfo?, error:UYError?) -> (Void) in
+            if error != nil {
+                self?.showTextToastAutoDismiss(msg: error!.description)
+            }else{
+                self?.dismissToast()
+                self?.handleLoginSuccessAction()
+            }
         }
     }
     /// 根据验证码登录
-    func loginActionWithSMSCode() {
-        request.loginWithPhoneCodeRequest(phone:phoneTextField.text!, code:  codeTextField.text!) { (userInfo, error:UYError?) -> (Void) in
-            
+   fileprivate func loginActionWithSMSCode() {
+        showWaitToast()
+        request.loginWithPhoneCodeRequest(phone:phoneTextField.text!, code:  codeTextField.text!) {[weak self] (userInfo, error:UYError?) -> (Void) in
+            if error != nil {
+                self?.showTextToastAutoDismiss(msg: error!.description)
+            }else{
+                self?.dismissToast()
+                self?.handleLoginSuccessAction()
+            }
         }
     }
+   fileprivate func handleLoginSuccessAction() {
+        if loginBlock != nil {
+            loginBlock!()
+        }
+        popBackAction()
+
+
+    }
+    
+    
 }
 // MARK: - 设置TextField是否可以输入的条件
 extension UYLoginViewController : UITextFieldDelegate {

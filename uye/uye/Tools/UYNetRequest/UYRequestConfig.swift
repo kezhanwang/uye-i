@@ -30,12 +30,18 @@ class UYRequestConfig: NSObject {
 // MARK: - 网络请求的API
 //htt//dev.bjzhongteng.com/app/index/index?lng=113.305791&lat=23.337532
 enum UYRequestAPI : String {
+    //公共部分
+    case SMScode = "safe/getmsgcode" //获取短信验证码
+    case commonProvince = "common/province" //获取省列表
+    case commonCity = "common/city" //获取城市列表
+    case commonArea = "common/area" //获取区域列表
+    case common400 = "common/get400" //获取400电话
+    case commonUpload = "common/upload" //上传图片
     ///账号相关
     case login = "login/login" //登录
     case register = "login/register"//注册
     case loginWithCode = "login/Loginphone" //短信验证码登录
-    case SMScode = "safe/getmsgcode" //获取短信验证码
-    
+    case logout = "login/logout" //退出登录
     //首页机构相关
     case categorys = "app/index/index" //首页分类接口
     case organise = "app/index/inquire"//首页附近机构推荐（分页）和机构搜索接口

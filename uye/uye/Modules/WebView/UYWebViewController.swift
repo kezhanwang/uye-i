@@ -74,14 +74,18 @@ extension UYWebViewController  {
         webView.navigationDelegate = self
         view.addSubview(webView)
         webView.snp.makeConstraints { (make) in
-            make.top.left.bottom.right.equalTo(0)
+            make.top.equalTo(safeAreaHeight)
+            make.left.bottom.right.equalTo(0)
         }
         
-        progressView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 2)
         progressView.progressTintColor = UIColor.themeColor
         progressView.trackTintColor = UIColor.white
         view.addSubview(progressView)
-//        view.insertSubview(progressView, belowSubview: navigationBar)
+        progressView.snp.makeConstraints { (make) in
+            make.top.equalTo(safeAreaHeight)
+            make.left.right.equalTo(0)
+            make.height.equalTo(2)
+        }
         
         webView.addObserver(self, forKeyPath: webViewProgressKey, options: .new, context: &myProgressContext)
         webView.addObserver(self, forKeyPath: webViewTitleKey, options: .new, context: &myTitleContext)

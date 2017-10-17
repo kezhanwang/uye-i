@@ -14,7 +14,7 @@ class UYOrganiseList: UYBaseModel {
 }
 class UYOrganiseModel: UYBaseModel {
     //机构id
-    var id:String?
+    var org_id:String?
     //机构名称
     var org_name:String?
     //机构联系方式
@@ -46,7 +46,9 @@ class UYOrganiseModel: UYBaseModel {
     //是否有高薪险业务
     var is_high_salary:String?
     var is_shelf:String?
-        
+    //热门课程
+    var popular :String?
+    
     var status:String?
     var uye:String?
     

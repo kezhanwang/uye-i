@@ -11,11 +11,19 @@ let UserCellIdentifier :String = "UYUserTableViewCellIdentifier"
 let UserItemCellIdentifier = "UYCustomSimpleTableCellIdentifier"
 
 class UYUserViewController: UYBaseViewController {
-    let tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
-    let iconArray = ["user_clear_icon","user_contact_us_icon"]
-    let nameArray = ["清除缓存","联系我们"]
-    
-    
+    fileprivate let tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
+    fileprivate let iconArray = ["user_clear_icon","user_contact_us_icon"]
+    fileprivate let nameArray = ["清除缓存","联系我们"]
+    fileprivate let footerView = UYTableFooterView(title: "登录/注册")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        if UYAPPManager.shared.userInfo != nil {
+            footerView.title = "退出登录"
+        }else{
+            footerView.title = "登录/注册"
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "个人中心"
@@ -33,7 +41,7 @@ class UYUserViewController: UYBaseViewController {
         tableView.sectionFooterHeight = 10
         tableView.backgroundColor = UIColor.background
         tableView.tableHeaderView = UIView()
-        let footerView = UYTableFooterView(title: "登录/注册")
+        
         footerView.delegate = self
         tableView.tableFooterView = footerView
         
@@ -41,7 +49,6 @@ class UYUserViewController: UYBaseViewController {
         tableView.register(UINib(nibName: "UYCustomSimpleTableCell", bundle: nil), forCellReuseIdentifier: UserItemCellIdentifier)
         tableView.snp.makeConstraints { (make) in
             make.top.left.bottom.right.equalTo(0)
-            
         }
         
         let label = UILabel()
@@ -50,7 +57,6 @@ class UYUserViewController: UYBaseViewController {
         label.text = "V-\(appVersion)"
         view.addSubview(label)
         label.snp.makeConstraints { (make) in
-            
             make.bottom.equalTo(-20-(tabBarController?.tabBar.frame.height)!)
             make.centerX.equalTo(kScreenWidth/2)
         }
@@ -71,12 +77,12 @@ extension UYUserViewController :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell :UYUserTableViewCell = tableView.dequeueReusableCell(withIdentifier: UserCellIdentifier, for: indexPath) as! UYUserTableViewCell
+            cell.setupUI()
             return cell
         }else{
             let cell :UYCustomSimpleTableCell = tableView.dequeueReusableCell(withIdentifier: UserItemCellIdentifier, for: indexPath) as! UYCustomSimpleTableCell
             cell.iconView.image = UIImage(named: iconArray[indexPath.row])
             cell.nameLabel.text = nameArray[indexPath.row]
-            
             return cell
         }
     }
@@ -117,7 +123,23 @@ extension UYUserViewController :UITableViewDelegate,UITableViewDataSource {
 }
 extension UYUserViewController : UYTableFooterViewDelegate {
     func footButtonAction() {
-        let loginVC = UYLoginViewController()
-        pushToNextVC(nextVC: loginVC)
+        if footerView.title == "退出登录" {
+            UYAPPManager.shared.logoutAction()
+            footerView.title = "登录/注册"
+            tableView.reloadData()
+//            showWaitToast()
+//            request.logoutAction(complete: { [weak self] (error) -> (Void) in
+//                if error != nil {
+//                    self?.showTextToastAutoDismiss(msg: (error?.description)!)
+//                }else{
+//                    self?.dismissToast()
+//                    self?.footerView.title = "登录/注册"
+//                    self?.tableView.reloadData()
+//                }
+//            })
+        }else{
+            let loginVC = UYLoginViewController()
+            pushToNextVC(nextVC: loginVC)
+        }
     }
 }

@@ -22,7 +22,7 @@ extension UYNetRequest {
         config.requestURL = UYRequestAPI.SMScode
         config.requestMethod = .get
         config.parameters = ["phone":phone]
-        UYRequestManager.shared.request(config: config, type: UYHomeModel.self) { (homeModel: Any, error:UYError?) in
+        UYRequestManager.shared.request(config: config, type: UYEmptyModel.self) { (homeModel: Any, error:UYError?) in
             if error != nil {
                 complete(error)
             }else{
@@ -74,7 +74,7 @@ extension UYNetRequest {
         config.requestMethod = .get
         config.parameters = ["phone":phone,
                              "code":code]
-        UYRequestManager.shared.request(config: config, type: UYHomeModel.self) {[weak self] (userInfo: Any, error:UYError?) in
+        UYRequestManager.shared.request(config: config, type: UYUserInfo.self) {[weak self] (userInfo: Any, error:UYError?) in
             if error != nil {
                 complete(nil,error)
             }else{
@@ -85,6 +85,21 @@ extension UYNetRequest {
     }
     func saveUserInfo(userInf:UYUserInfo) {
         UYAPPManager.shared.loginSuccess(userInfo: userInf)
+    }
+    
+    func logoutAction(complete:@escaping(_ error: UYError?) -> (Void)) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.logout
+        config.requestMethod = .get
+
+        UYRequestManager.shared.request(config: config, type: UYEmptyModel.self) {(empty: Any, error:UYError?) in
+            if error != nil {
+                complete(error)
+            }else{
+                UYAPPManager.shared.logoutAction()
+                complete(nil)
+            }
+        }
     }
   
     

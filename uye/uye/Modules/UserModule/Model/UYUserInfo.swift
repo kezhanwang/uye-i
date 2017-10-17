@@ -22,7 +22,6 @@ class UYUserInfo: UYBaseModel {
 class UserCookie: UYBaseModel  {
     
     var PHPSESSID:String?
-    var bjzhongteng_com:String?
     var b42e7_uye_user:String?
     
 }

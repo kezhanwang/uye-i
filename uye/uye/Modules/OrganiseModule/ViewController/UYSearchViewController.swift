@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import MJRefresh
+let organisterCellIdentifier = "organisterCellIdentifier"
 
 class UYSearchViewController: UYBaseViewController {
     
     let tagsView :UIView = UIView()
     let tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
     let searchBar:UISearchBar = UISearchBar()
+    var organiseList:[UYOrganiseModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +23,22 @@ class UYSearchViewController: UYBaseViewController {
         view.backgroundColor = UIColor.white
     }
     override func setupUI() {
+        
         navigationItem.titleView = searchBar
+        navigationItem.leftBarButtonItem?.width = 80
         searchBar.showsCancelButton = true
         searchBar.delegate = self
+        let searchField:UITextField = searchBar.value(forKey: "_searchField") as! UITextField
+        searchField.backgroundColor = UIColor.lightBackground
+        searchField.font = UIFont.systemFont(ofSize: 15)
         searchBar.placeholder = "请输入您要搜索的机构名称"
         changeSearchBarCancelBtnTitleColor(view: searchBar)
         searchBar.becomeFirstResponder()
+        showErorView()
+        errorView.isHidden = true
+        setupTableView()
         addTagsView()
+        
     }
 
 }
@@ -39,10 +51,21 @@ extension UYSearchViewController {
                 self?.showTextToastAutoDismiss(msg: (error?.description)!)
             }else{
                 self?.dismissToast()
+                self?.organiseList = (self?.organiseList)! + (list?.organizes)!
+                if (self?.organiseList.isEmpty)! {
+                    self?.errorView.isHidden = false
+                    self?.view.bringSubview(toFront: (self?.errorView)!)
+                }else{
+//                    self?.tableView.mj_footer.endRefreshing()
+
+                    self?.errorView.isHidden = true
+                    self?.view.bringSubview(toFront: (self?.tableView)!)
+                    self?.tableView.reloadData()
+                }
+                
             }
         }
     }
-    
 }
 
 // MARK: - 设置页面之热门搜索和历史记录
@@ -75,22 +98,66 @@ extension UYSearchViewController {
 
 // MARK: - 设置页面之搜索无结果页面
 extension UYSearchViewController {
-    
+    func showErorView()  {
+        setupErrorView(image: "search_error_icon", title: "抱歉！暂无相关搜索结果~")
+        errorView.isHidden = false
+    }
+    func hiddenErrorView()   {
+        errorView.isHidden = true
+    }
 }
 
 // MARK: - 搜索有结果页面
 extension UYSearchViewController {
-    
+    func setupTableView()  {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(safeAreaHeight)
+            make.left.right.bottom.equalTo(0)
+        }
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.register(UINib(nibName: "UYOrganiseTableViewCell", bundle: nil), forCellReuseIdentifier: organisterCellIdentifier)
+        
+        let refashFooter = MJRefreshAutoFooter {[weak self] in
+            self?.getOrganiseList(isRefash: false)
+        }
+        tableView.mj_footer = refashFooter
+        
+    }
 }
-
+extension UYSearchViewController :UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return organiseList.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: organisterCellIdentifier, for: indexPath) as!  UYOrganiseTableViewCell
+        cell.setupCell(organise: organiseList[indexPath.row])
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let organiseDetailVC = UYOrganiseDetailViewController()
+        organiseDetailVC.organise = organiseList[indexPath.row]
+        pushToNextVC(nextVC: organiseDetailVC)
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 113
+    }
+}
 
 
 // MARK: - SearchBarDelegate
 extension UYSearchViewController :UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if (searchBar.text?.isEmpty)! {
+            showTextToastAutoDismiss(msg: searchBar.placeholder!)
+            return
+        }
+        changeSearchBarCancelBtnTitleColor(view: searchBar)
         searchBar.resignFirstResponder()
-        
-        
+        getOrganiseList(isRefash: true)
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -103,7 +170,7 @@ extension UYSearchViewController :UISearchBarDelegate {
     func changeSearchBarCancelBtnTitleColor(view:UIView) {
         if view.isKind(of: UIButton.self) {
             let getBtn = view as! UIButton
-            
+            getBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
             getBtn.isEnabled = true
             getBtn.isUserInteractionEnabled = true
             return;

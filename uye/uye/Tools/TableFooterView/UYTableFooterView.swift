@@ -17,6 +17,11 @@ class UYTableFooterView: UIView {
             footerBtn.isEnabled = enable
         }
     }
+    var title :String? {
+        didSet {
+            footerBtn.setTitle(title, for: UIControlState.normal)
+        }
+    }
     //对内的
     fileprivate let footerBtn = UIButton(type: UIButtonType.custom)
     fileprivate lazy var loginTypeBtn : UIButton = {
@@ -79,8 +84,9 @@ class UYTableFooterView: UIView {
         footerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         footerBtn.addTarget(self, action: #selector(footerBtnAction), for: UIControlEvents.touchUpInside)
     }
-    convenience init(title:String = "",frame:CGRect = CGRect(x: 0, y: 0, width: kScreenWidth, height: 150)) {
+    convenience init(title atitle:String = "",frame:CGRect = CGRect(x: 0, y: 0, width: kScreenWidth, height: 150)) {
         self.init(frame: frame)
+        title = atitle
         footerBtn.setTitle(title, for: UIControlState.normal)
     }
     
