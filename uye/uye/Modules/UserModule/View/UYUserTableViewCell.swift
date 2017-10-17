@@ -27,6 +27,14 @@ class UYUserTableViewCell: UITableViewCell {
         let url = URL(string: UYAPPManager.shared.userInfo?.head_protrait ?? "")
         avatarView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "user_avatar_icon"))
         nameLabel.text = UYAPPManager.shared.userInfo?.username
+        
+        areaLabel.text  = UYAPPManager.shared.userInfo?.active_city ?? "未知"
+        if areaLabel.text == "未知" {
+            areaView.backgroundColor = UIColor.areaGrayBack
+        }else{
+            areaView.backgroundColor = UIColor.areaOrangeBack
+        }
+        
     }
     
 }

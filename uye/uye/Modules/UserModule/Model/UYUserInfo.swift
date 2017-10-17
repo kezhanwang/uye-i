@@ -15,6 +15,8 @@ class UYUserInfo: UYBaseModel {
     var phone:String?
     var status:String?
     var head_protrait:String?
+    var active_city:String?
+    
     var cookie:UserCookie?
 
     

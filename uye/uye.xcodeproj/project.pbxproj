@@ -19,6 +19,7 @@
 		3524A2F91F95E2330035FE80 /* UYOrganiseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */; };
 		3524A2FA1F95E2330035FE80 /* UYOrganiseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */; };
 		3524A2FC1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */; };
+		353512661F96216B00D09893 /* UYSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353512651F96216B00D09893 /* UYSearchModel.swift */; };
 		354A74881F735B2A000906CA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354A748B1F735B2A000906CA /* Alamofire.framework */; };
 		354A74891F735B2A000906CA /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354A748C1F735B2A000906CA /* HandyJSON.framework */; };
 		354A748A1F735B2A000906CA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354A748D1F735B2A000906CA /* SnapKit.framework */; };
@@ -76,6 +77,7 @@
 		3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseTableViewCell.swift; sourceTree = "<group>"; };
 		3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrganiseTableViewCell.xib; sourceTree = "<group>"; };
 		3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseDetailViewController.swift; sourceTree = "<group>"; };
+		353512651F96216B00D09893 /* UYSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYSearchModel.swift; sourceTree = "<group>"; };
 		354A748B1F735B2A000906CA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		354A748C1F735B2A000906CA /* HandyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		354A748D1F735B2A000906CA /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +169,13 @@
 			path = SRToastView;
 			sourceTree = "<group>";
 		};
+		353512641F96065F00D09893 /* Apply */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Apply;
+			sourceTree = "<group>";
+		};
 		354D08BD1F90A6560024414E /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +260,7 @@
 		354E34451F6D3DC2009CFCE4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				353512641F96065F00D09893 /* Apply */,
 				35D253E91F91F43600945017 /* Login&Register */,
 				35BCD6AD1F8E129700C3469F /* OrganiseModule */,
 				354E34551F6D4256009CFCE4 /* WebView */,
@@ -431,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				35BCD6B01F8E13B900C3469F /* UYOrganiseList.swift */,
+				353512651F96216B00D09893 /* UYSearchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -612,6 +623,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				353512661F96216B00D09893 /* UYSearchModel.swift in Sources */,
 				3517C13A1F7DF5F1008E49AC /* SRCycleProgressView.swift in Sources */,
 				355260A81F6F65FE00F8734A /* UYNetRequest.swift in Sources */,
 				3517C1381F7DF5D9008E49AC /* SRToast.swift in Sources */,

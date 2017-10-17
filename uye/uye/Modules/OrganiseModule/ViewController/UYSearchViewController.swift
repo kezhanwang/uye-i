@@ -12,10 +12,13 @@ let organisterCellIdentifier = "organisterCellIdentifier"
 
 class UYSearchViewController: UYBaseViewController {
     
-    let tagsView :UIView = UIView()
-    let tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
-    let searchBar:UISearchBar = UISearchBar()
-    var organiseList:[UYOrganiseModel] = []
+    fileprivate let tagsView :UIView = UIView()
+    fileprivate let tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
+    fileprivate let searchBar:UISearchBar = UISearchBar()
+    fileprivate let hotSearch:UYTagView = UYTagView(title: "热门搜索")
+    fileprivate let historyView:UYTagView = UYTagView(title: "历史记录", showDelete: true)
+
+    fileprivate var organiseList:[UYOrganiseModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +41,7 @@ class UYSearchViewController: UYBaseViewController {
         errorView.isHidden = true
         setupTableView()
         addTagsView()
-        
+        getSearchData()
     }
 
 }
@@ -66,6 +69,15 @@ extension UYSearchViewController {
             }
         }
     }
+    func getSearchData() {
+        showWaitToast()
+        request.getSearchDataRequest { [weak self] (seargModel, error:UYError?) in
+            self?.dismissToast()
+            if error == nil {
+                self?.updateTagsViewWithSearchData(searchData: seargModel!)
+            }
+        }
+    }
 }
 
 // MARK: - 设置页面之热门搜索和历史记录
@@ -76,8 +88,8 @@ extension UYSearchViewController {
             make.top.equalTo(safeAreaHeight)
             make.left.right.bottom.equalTo(0)
         }
-        let hotSearch:UYTagView = UYTagView(title: "热门搜索")
-        hotSearch.tagsArray = ["翡翠","华育","IT","完美东流","健身","英语","设计"]
+        hotSearch.tagsArray = []
+        hotSearch.delegate = self
         tagsView.addSubview(hotSearch)
         hotSearch.snp.makeConstraints { (make) in
             make.top.equalTo(10)
@@ -85,8 +97,8 @@ extension UYSearchViewController {
             make.height.equalTo(hotSearch.estimatedHeight)
         }
         
-        let historyView:UYTagView = UYTagView(title: "历史记录", showDelete: true)
-        historyView.tagsArray = ["翡翠","华育","IT","完美东流","健身","英语","设计"]
+        historyView.tagsArray = []
+        historyView.delegate = self
         tagsView.addSubview(historyView)
         historyView.snp.makeConstraints { (make) in
             make.top.equalTo(20+hotSearch.estimatedHeight)
@@ -94,8 +106,29 @@ extension UYSearchViewController {
             make.height.equalTo(historyView.estimatedHeight)
         }
     }
-}
+    func updateTagsViewWithSearchData(searchData:UYSearchModel)  {
+        hotSearch.tagsArray = searchData.hot_search ?? []
+        historyView.tagsArray = searchData.history ?? []
+        hotSearch.snp.remakeConstraints { (make) in
+            make.top.equalTo(10)
+            make.left.right.equalTo(0)
+            make.height.equalTo(hotSearch.estimatedHeight)        }
+        historyView.snp.remakeConstraints { (make) in
+            make.top.equalTo(20+hotSearch.estimatedHeight)
+            make.left.right.equalTo(0)
+            make.height.equalTo(historyView.estimatedHeight)        }
 
+    }
+}
+extension UYSearchViewController : UYTagViewDelegate {
+    func deleteHistory() {
+        
+    }
+    func tagAcion(title: String) {
+        searchBar.text = title
+        searchBarSearchButtonClicked(searchBar)
+    }
+}
 // MARK: - 设置页面之搜索无结果页面
 extension UYSearchViewController {
     func showErorView()  {
