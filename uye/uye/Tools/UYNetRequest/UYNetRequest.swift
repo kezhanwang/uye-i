@@ -30,6 +30,39 @@ extension UYNetRequest {
             }
         }
     }
+    func checkVersionRequest(complete:@escaping(_ versionInfo:UYVersionInfo?,_ error:UYError?) -> (Void)) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.commonVersion
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYVersionInfo.self) { (result: Any, error:UYError?) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((result as! UYVersionInfo),error)
+            }
+        }
+        
+    }
+    func uploadImageRequest(images:[UYImageModel],complete:@escaping(_ picInfo:[String:Any]?,_ error:UYError?) -> (Void))  {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.commonUpload
+        config.requestMethod = .get
+        config.images = images
+        SRToast.shared.showToastView()
+        UYRequestManager.shared.uploadImageRequest(config: config, uploadProgress: { (progress) in
+//            SRToast.shared.showProgressToast(progress: progress)
+
+        }) { (picInfo, error) in
+            if error != nil {
+                complete(nil,error)
+                SRToast.shared.showTextToastAutoDismiss(msg: (error?.description)!)
+            }else{
+                SRToast.shared.dismissToast()
+                complete(picInfo as? [String:Any],nil)
+            }
+        }
+       
+    }
  
 }
 // MARK: - 登录注册相关
@@ -107,11 +140,10 @@ extension UYNetRequest {
 
 // MARK: - 首页相关
 extension UYNetRequest {
-// MARK: 首页获取分类
-    func getHomeCategorysData(complete:@escaping(_ result:UYHomeModel?,_ error:UYError?) -> Void) {
-        
+    // MARK: 首页获取
+    func getHomeData(complete:@escaping(_ result:UYHomeModel?,_ error:UYError?) -> Void) {
         let config = UYRequestConfig()
-        config.requestURL = UYRequestAPI.categorys
+        config.requestURL = UYRequestAPI.homeIndex
         config.requestMethod = .get
         UYRequestManager.shared.request(config: config, type: UYHomeModel.self) { (homeModel: Any, error:UYError?) in
             if error != nil {
@@ -145,6 +177,184 @@ extension UYNetRequest {
             }else{
                 self.page += 1;
                 complete((list as! UYOrganiseList),nil)
+            }
+        }
+    }
+    // MARK: 获取热门搜索以及搜索历史
+    func getSearchDataRequest(complete:@escaping(_ result:UYSearchModel?,_ error:UYError?) -> Void) {
+        
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.searchHistory
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYSearchModel.self) { (list:Any, error:UYError?) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYSearchModel),error)
+            }
+        }
+    }
+
+}
+
+
+// MARK: - 申请相关之问卷调查
+extension UYNetRequest {
+    func getQuestionListRequest(orgId:String, complete:@escaping(_ result:UYQuestionList?,_ error:UYError?) -> Void) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.applyQuestionList
+        config.requestMethod = .get
+        config.parameters = ["org_id":orgId]
+        UYRequestManager.shared.request(config: config, type: UYQuestionList.self) { (list:Any, error:UYError?) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYQuestionList),error)
+            }
+        }
+    }
+    func submitQuestionAnswer(orgId:String,answers:String,complete:@escaping(_ error: UYError?) -> (Void)) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.applyQuestionSubmit
+        config.requestMethod = .post
+        config.parameters = ["org_id":orgId,
+                             "question":answers]
+        UYRequestManager.shared.request(config: config, type: UYEmptyModel.self) { (list:Any, error:UYError?) in
+            complete(error)
+        }
+    }
+    
+}
+
+// MARK: - 申请相关之用户信息
+extension UYNetRequest {
+    
+    func getUsetInfoStatus(complete:@escaping(_ result:UYUserInfoStatus?,_ error:UYError?) -> Void) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userInfoStatus
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYUserInfoStatus.self) { (list:Any, error) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYUserInfoStatus),error)
+            }
+        }
+    }
+    func getUserInfoConfig(complete:@escaping(_ result:[UYBankInfo]?,_ error:UYError?) -> Void) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userInfoConfig
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYBankInfo.self) { (list:Any, error) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! [UYBankInfo]),error)
+            }
+        }
+    }
+    func getUserUDCreditRequest(complete:@escaping(_ result:UYUDCreditCongig?,_ error:UYError?) -> Void) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.udcredit
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYUDCreditCongig.self) { (result:Any, error) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((result as! UYUDCreditCongig),error)
+            }
+        }
+    }
+    
+    func getUserUDCreditUserPic(udcredit_order:String, complete:@escaping(_ result:UYUDCreditUserPic?,_ error:UYError?) -> Void) {
+        
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.udcreditPic
+        config.requestMethod = .get
+        config.parameters = ["udcredit_order":udcredit_order]
+        UYRequestManager.shared.request(config: config, type: UYUDCreditUserPic.self) { (list:Any, error) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYUDCreditUserPic),error)
+            }
+        }
+    }
+    func getUserInfoRequest(complete:@escaping(_ result:UYUserInfo?,_ error:UYError?) -> Void) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userIdentifyInfo
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYUserInfo.self) { (list:Any, error) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYUserInfo),error)
+            }
+        }
+    }
+    
+    func submitUserInfo(parameters:[String:Any],complete:@escaping(_ error: UYError?) -> (Void)) {
+
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userIdentifySubmit
+        config.requestMethod = .get
+        config.parameters = parameters
+        UYRequestManager.shared.request(config: config, type: UYEmptyModel.self) { (result:Any, error) in
+            complete(error)
+        }
+    }
+    func submitUserMobileBook(parameters:[String:Any],complete:@escaping(_ error: UYError?) -> (Void)) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userMobileSubmit
+        config.requestMethod = .post
+        config.parameters = parameters
+        UYRequestManager.shared.request(config: config, type: UYEmptyModel.self) { (result:Any, error) in
+            complete(error)
+        }
+    }
+}
+
+// MARK: - 申请相关之机构订单
+extension UYNetRequest {
+    func getOrderOrganiseConfig(orgId:String, complete:@escaping(_ result:UYOrganiseConfig?,_ error:UYError?) -> Void) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.orderOrganizeInfo
+        config.requestMethod = .get
+        config.parameters = ["org_id":orgId]
+        UYRequestManager.shared.request(config: config, type: UYOrganiseConfig.self) { (list:Any, error:UYError?) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYOrganiseConfig),error)
+            }
+        }
+    }
+    func submitOrderInfo(parameters:[String:Any],complete:@escaping(_ error: UYError?) -> (Void)) {
+        
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.orderSubmit
+        config.requestMethod = .post
+        config.parameters = parameters
+        UYRequestManager.shared.request(config: config, type: UYEmptyModel.self) { (result:Any, error) in
+            complete(error)
+        }
+        
+    }
+}
+// MARK: - 订单相关
+extension UYNetRequest {
+    //UYOrderListModel
+    func getOrderList(page:Int, complete:@escaping(_ result:UYOrderListModel?,_ error:UYError?) ->(Void)) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.orderList
+        config.requestMethod = .get
+        config.parameters = ["page":page]
+        
+        UYRequestManager.shared.request(config: config, type: UYOrderListModel.self) { (list:Any, error:UYError?) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYOrderListModel),nil)
             }
         }
     }
