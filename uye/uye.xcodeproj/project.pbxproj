@@ -37,6 +37,7 @@
 		353FD2581F9F2895003BB537 /* UYQuestionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FD2491F9F2895003BB537 /* UYQuestionHeaderView.swift */; };
 		353FD2591F9F2895003BB537 /* UYUserInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FD24A1F9F2895003BB537 /* UYUserInfoTableCell.swift */; };
 		353FD25A1F9F2895003BB537 /* UYUserInfoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353FD24B1F9F2895003BB537 /* UYUserInfoTableCell.xib */; };
+		353FD2661F9F3092003BB537 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353FD2651F9F3092003BB537 /* opencv2.framework */; };
 		354A214B1F9DBC7400B33832 /* UYEmployViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354A214A1F9DBC7400B33832 /* UYEmployViewController.xib */; };
 		354A214E1F9DBCF000B33832 /* UYOrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354A214C1F9DBCF000B33832 /* UYOrderCollectionViewCell.swift */; };
 		354A214F1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354A214D1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib */; };
@@ -176,6 +177,7 @@
 		353FD2491F9F2895003BB537 /* UYQuestionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYQuestionHeaderView.swift; sourceTree = "<group>"; };
 		353FD24A1F9F2895003BB537 /* UYUserInfoTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYUserInfoTableCell.swift; sourceTree = "<group>"; };
 		353FD24B1F9F2895003BB537 /* UYUserInfoTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UYUserInfoTableCell.xib; sourceTree = "<group>"; };
+		353FD2651F9F3092003BB537 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		354A214A1F9DBC7400B33832 /* UYEmployViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYEmployViewController.xib; sourceTree = "<group>"; };
 		354A214C1F9DBCF000B33832 /* UYOrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrderCollectionViewCell.swift; sourceTree = "<group>"; };
 		354A214D1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrderCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				3517C1311F7DF037008E49AC /* Moya.framework in Frameworks */,
 				3517C1321F7DF037008E49AC /* Result.framework in Frameworks */,
 				358CF6EF1F9B286300C281EA /* libc++.tbd in Frameworks */,
+				353FD2661F9F3092003BB537 /* opencv2.framework in Frameworks */,
 				354A74881F735B2A000906CA /* Alamofire.framework in Frameworks */,
 				354A74891F735B2A000906CA /* HandyJSON.framework in Frameworks */,
 				35D43CC21F9D9AF200D08BF4 /* UDIDSDK.a in Frameworks */,
@@ -731,6 +734,7 @@
 		358CF6E11F9B1F5F00C281EA /* UDSafeSDK */ = {
 			isa = PBXGroup;
 			children = (
+				353FD2651F9F3092003BB537 /* opencv2.framework */,
 				35D43CC11F9D9AF100D08BF4 /* UDIDSDK.a */,
 				358CF6EA1F9B1F9700C281EA /* Resource.bundle */,
 				358CF6E51F9B1F7C00C281EA /* UDIDSafeAuthEngine.h */,
