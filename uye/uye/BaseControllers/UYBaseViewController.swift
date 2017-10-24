@@ -21,6 +21,10 @@ class UYBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.background
+        if #available(iOS 11.0, *) {
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
         setupUI()
     }
  
@@ -50,6 +54,7 @@ extension UYBaseViewController {
         imageView.image = UIImage(named: image)
         titleLabel.text = title
         titleLabel.textColor = UIColor.darkGrayText
+        titleLabel.numberOfLines = 0
         titleLabel.font = UIFont.systemFont(ofSize: 13)
         titleLabel.textAlignment = NSTextAlignment.center
         errorView.snp.makeConstraints { (make) in
@@ -64,7 +69,6 @@ extension UYBaseViewController {
             make.top.equalTo(imageView.snp.bottom).offset(10)
         }
         view.bringSubview(toFront: errorView)
-
         
     }
 }
@@ -80,6 +84,11 @@ extension UYBaseViewController {
             navigationController?.popToRootViewController(animated: true)
         }else{
             navigationController?.popViewController(animated: true)
+        }
+    }
+    func popToRootViewController(after:DispatchTime) {
+        DispatchQueue.main.asyncAfter(deadline: after) {
+           self.navigationController?.popToRootViewController(animated: true)
         }
     }
     func popToViewController(targetVC :UIViewController) {

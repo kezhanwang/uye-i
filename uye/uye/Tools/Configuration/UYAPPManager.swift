@@ -36,6 +36,7 @@ class UYAPPManager: NSObject {
 // MARK: - Cookie 的处理
 extension UYAPPManager {
     func setHttpCookie() {
+        NotificationCenter.default.post(name: LoginStatusChange, object: nil)
         let hoursToAddInSeconds: TimeInterval = 2629743*12
         let expiresDate = NSDate().addingTimeInterval(hoursToAddInSeconds)
         

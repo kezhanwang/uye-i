@@ -32,9 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        UYLocationManager.shared.beginUpdataLocation()
+//        UYLocationManager.shared.beginUpdataLocation()
     }
-
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+//        
+//    }
 
 
 

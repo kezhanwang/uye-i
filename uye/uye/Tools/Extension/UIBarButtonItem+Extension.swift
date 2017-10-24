@@ -24,7 +24,7 @@ extension UIBarButtonItem {
         btn.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         btn.setTitleColor(UIColor.navigationBarTintColor, for: .normal)
         btn.addTarget(target, action: action, for: .touchUpInside)
-        btn.backgroundColor = UIColor.randomColor
+//        btn.backgroundColor = UIColor.randomColor
         if isBack {
             btn.setImage(UIImage(named: "bacn_icon"), for: .normal)
         }
