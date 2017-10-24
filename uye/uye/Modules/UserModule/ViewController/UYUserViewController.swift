@@ -48,7 +48,8 @@ class UYUserViewController: UYBaseViewController {
         tableView.register(UINib(nibName: "UYUserTableViewCell", bundle: nil), forCellReuseIdentifier: UserCellIdentifier)
         tableView.register(UINib(nibName: "UYCustomSimpleTableCell", bundle: nil), forCellReuseIdentifier: UserItemCellIdentifier)
         tableView.snp.makeConstraints { (make) in
-            make.top.left.bottom.right.equalTo(0)
+            make.top.equalTo(safeAreaHeight)
+            make.left.bottom.right.equalTo(0)
         }
         
         let label = UILabel()

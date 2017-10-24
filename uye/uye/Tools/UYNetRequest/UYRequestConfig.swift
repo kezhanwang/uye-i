@@ -25,6 +25,9 @@ class UYRequestConfig: NSObject {
     var requestMethod : HTTPMethod = .post
     var requestURL : UYRequestAPI?
     var parameters : Parameters?
+
+    var images : [UYImageModel]?
+    
 }
 
 // MARK: - 网络请求的API
@@ -37,16 +40,36 @@ enum UYRequestAPI : String {
     case commonArea = "common/area" //获取区域列表
     case common400 = "common/get400" //获取400电话
     case commonUpload = "common/upload" //上传图片
+    case commonVersion = "app/config/version"//版本升级检查
+    case udcredit = "udcredit/index"//有盾云的配置信息
+    case udcreditPic = "app/identity/pic"//有盾云识别后，获取身份证的照片
     ///账号相关
     case login = "login/login" //登录
     case register = "login/register"//注册
     case loginWithCode = "login/Loginphone" //短信验证码登录
     case logout = "login/logout" //退出登录
     //首页机构相关
-    case categorys = "app/index/index" //首页分类接口
+    case homeIndex = "app/index/index" //首页分类接口
     case organise = "app/index/inquire"//首页附近机构推荐（分页）和机构搜索接口
     case searchHistory = "app/index/search" //搜索历史以及热门
     case organizationDetail = "app/index/org"//机构详情
+    
+    //分期相关
+    case applyQuestionList = "app/question/config" //申请之问卷调查列表
+    case applyQuestionSubmit = "app/question/submit" ////申请之问卷调查提交
+    
+    case userInfoStatus = "app/user/index" //用户信息的各项状态
+    case userInfoConfig = "app/identity/config" //用户信息绑定的配置
+    case userIdentifyInfo = "app/identity/info" //用户身份信息获取
+    case userIdentifySubmit = "app/identity/submit" //用户信息绑定提交
+    case userMobileSubmit = "app/mobile/submit" //用户手机通讯录提交
+    
+    case orderOrganizeInfo = "app/insured/config" //订单的机构信息
+    case orderSubmit = "app/insured/submit" //订单提交
+    
+    //订单信息
+    case orderList = "app/order/list"//订单列表
+    
     
     func requestURLString() -> String {
         return baseURL() + self.rawValue

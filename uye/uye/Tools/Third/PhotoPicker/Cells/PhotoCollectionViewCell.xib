@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PhotoCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iNc-8R-T5k">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QI-wx-bWL">
+                        <rect key="frame" x="105" y="0.0" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="xt6-Lv-ObJ"/>
+                        </constraints>
+                        <state key="normal" image="photo_picker_normal.png">
+                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <state key="selected" image="photo_picker_select.png"/>
+                        <connections>
+                            <action selector="markBtnAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="kyJ-2e-JAu"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="1QI-wx-bWL" firstAttribute="width" secondItem="1QI-wx-bWL" secondAttribute="height" multiplier="1:1" id="GGW-tQ-Grd"/>
+                <constraint firstItem="1QI-wx-bWL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QZI-56-mSQ"/>
+                <constraint firstAttribute="trailing" secondItem="1QI-wx-bWL" secondAttribute="trailing" id="X4k-0e-RkW"/>
+                <constraint firstItem="iNc-8R-T5k" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bVM-hL-VuA"/>
+                <constraint firstAttribute="bottom" secondItem="iNc-8R-T5k" secondAttribute="bottom" id="g43-41-4sj"/>
+                <constraint firstAttribute="trailing" secondItem="iNc-8R-T5k" secondAttribute="trailing" id="qn7-gK-BNH"/>
+                <constraint firstItem="iNc-8R-T5k" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zpf-TX-b82"/>
+            </constraints>
+            <size key="customSize" width="242" height="151"/>
+            <connections>
+                <outlet property="imageView" destination="iNc-8R-T5k" id="6wL-rU-Luf"/>
+                <outlet property="markBtn" destination="1QI-wx-bWL" id="2tW-XG-YPQ"/>
+            </connections>
+            <point key="canvasLocation" x="-62" y="3.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="photo_picker_normal.png" width="26" height="26"/>
+        <image name="photo_picker_select.png" width="26" height="26"/>
+    </resources>
+</document>

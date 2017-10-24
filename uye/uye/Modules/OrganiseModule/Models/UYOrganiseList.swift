@@ -36,10 +36,11 @@ class UYOrganiseModel: UYBaseModel {
     //所在区
     var area:String?
     
+    //平均价格
     var avg_course_price:String?
     //所属分类
     var category:String?
-    
+    //就业指数，默认4.5
     var employment_index:String?
     //是否有就业险业务
     var is_employment:String?
@@ -52,5 +53,9 @@ class UYOrganiseModel: UYBaseModel {
     var status:String?
     var uye:String?
     
+   
+    
+    
     
 }
+

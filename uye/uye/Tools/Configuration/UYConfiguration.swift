@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SystemConfiguration
+
 /**
  应该看看一下的第三方们
  PermissionScope //获取用户权限的请求
@@ -21,7 +23,8 @@ import UIKit
 // MARK: 第三方常Key量
 let mapKey = "nXTHL3YFSXWmk1AQmG7nvO3Qa2AKiyPD"
 
-
+let MakeOrderSuccess = NSNotification.Name(rawValue:"com.uy.order.success")
+let LoginStatusChange = NSNotification.Name("com.uy.login.changed")
 /// 默认cell的距左侧间隙
 let spaceWidth :CGFloat = 15
 
@@ -37,7 +40,7 @@ let kIputCellHeight :CGFloat = 45
 /// 输入表格cell的标题最大宽度
 let kInputCellLabelWidth = 80 - spaceWidth
 
-
+//com.bjzt.uye
 
 
 
@@ -73,6 +76,10 @@ let devName = UIDevice.current.modelName
 
 // MARK: - 版本信息
 let infoDic = Bundle.main.infoDictionary
+
+/// 本地版本号
+let localAppVersion = "100"
+
 let appVersion = infoDic?["CFBundleShortVersionString"] as! String// 获取App的版本
 let appBuildVersion = infoDic?["CFBundleVersion"] // 获取App的build版本
 let appName = infoDic?["CFBundleDisplayName"] // 获取App的名称
@@ -91,3 +98,23 @@ func iOSVersionGreaterThan(version:Double) -> Bool {
 func iOSVersionLessThan(version:Double) -> Bool {
     return (UIDevice.current.systemVersion as NSString).doubleValue < version
 }
+
+/// 获取wifi的mac地址以及ssid
+func getMAC()->(success:Bool,ssid:String,mac:String){
+    
+    if let cfa:NSArray = CNCopySupportedInterfaces() {
+        for x in cfa {
+            if let dict = CFBridgingRetain(CNCopyCurrentNetworkInfo(x as! CFString)) {
+                let ssid = dict["SSID"]!
+                let mac  = dict["BSSID"]!
+                return (true,ssid as! String,mac as! String)
+            }
+        }
+    }
+    return (false,"","")
+}
+
+
+
+
+

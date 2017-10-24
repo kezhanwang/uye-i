@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoViewController">
+            <connections>
+                <outlet property="collectionView" destination="LlT-EN-SwO" id="O4f-na-HHj"/>
+                <outlet property="makeSureButton" destination="tWJ-R9-cjj" id="CCo-ZI-bnY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LlT-EN-SwO">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="bM1-PP-lee">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="mRZ-6Q-FmQ"/>
+                        <outlet property="delegate" destination="-1" id="yRl-Ne-0Wl"/>
+                    </connections>
+                </collectionView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOk-O5-Nhe">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="iEb-Yk-hp6"/>
+                        <barButtonItem style="plain" id="gpB-c7-oWG">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tWJ-R9-cjj">
+                                <rect key="frame" x="313" y="7" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="确定"/>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="makeSureButtonAction:" destination="-1" eventType="touchUpInside" id="xyG-BH-mly"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="TOk-O5-Nhe" secondAttribute="bottom" id="7eC-VY-EHh"/>
+                <constraint firstItem="LlT-EN-SwO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FGV-Zd-TUf"/>
+                <constraint firstAttribute="trailing" secondItem="TOk-O5-Nhe" secondAttribute="trailing" id="H0W-jX-Y4R"/>
+                <constraint firstItem="LlT-EN-SwO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HPH-AV-v92"/>
+                <constraint firstItem="TOk-O5-Nhe" firstAttribute="top" secondItem="LlT-EN-SwO" secondAttribute="bottom" id="HS5-Ov-Krp"/>
+                <constraint firstItem="TOk-O5-Nhe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="K5z-he-svg"/>
+                <constraint firstAttribute="trailing" secondItem="LlT-EN-SwO" secondAttribute="trailing" id="U81-CT-I7o"/>
+            </constraints>
+            <point key="canvasLocation" x="-315" y="-6"/>
+        </view>
+    </objects>
+</document>

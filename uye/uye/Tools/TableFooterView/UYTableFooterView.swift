@@ -73,7 +73,7 @@ class UYTableFooterView: UIView {
         footerBtn.snp.makeConstraints { (make) in
             make.left.equalTo(16)
             make.right.equalTo(-16)
-            make.top.equalTo(37)
+            make.top.equalTo(30)
             make.height.equalTo(49)
         }
         footerBtn.setBackgroundImage(UIImage.imageColor(color: UIColor.themeColor), for: UIControlState.normal)

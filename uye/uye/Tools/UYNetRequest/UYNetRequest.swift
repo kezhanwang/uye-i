@@ -148,27 +148,8 @@ extension UYNetRequest {
             }
         }
     }
-    
-    // MARK: 获取热门搜索以及搜索历史
-    func getSearchDataRequest(complete:@escaping(_ result:UYSearchModel?,_ error:UYError?) -> Void) {
-
-        let config = UYRequestConfig()
-        config.requestURL = UYRequestAPI.searchHistory
-        config.requestMethod = .get
-        UYRequestManager.shared.request(config: config, type: UYSearchModel.self) { (list:Any, error:UYError?) in
-            complete((list as! UYSearchModel),error)
-        }
-    }
 }
 
-// MARK: - 申请相关
-extension UYNetRequest {
-    
-}
-// MARK: - 订单相关
-extension UYNetRequest {
-    
-}
 // MARK: - 我的相关
 extension UYNetRequest {
     

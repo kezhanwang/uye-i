@@ -62,9 +62,17 @@ extension UIColor {
         return UIColor(hexColor: "232323")
 //        return UIColor(hexColor: "646464")
     }
+    /// 橘黄色字体
+    class var orangeText: UIColor {
+        return UIColor(hexColor: "fb6f00")
+    }
     ///灰色字体
     class var darkGrayText :UIColor {
         return UIColor(hexColor: "999999")
+    }
+    ///首页绿色文本
+    class var greenText :UIColor {
+        return UIColor(hexColor: "00c29a")
     }
     ///灰色字体
     class var grayText :UIColor {

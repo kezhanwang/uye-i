@@ -9,8 +9,7 @@
 import UIKit
 
 class UYTagView: UIView {
-    var estimatedHeight:CGFloat = 50
-    weak var delegate : UYTagViewDelegate?
+    var estimatedHeight:CGFloat = 0
     
     fileprivate lazy var deleteBtn : UIButton = {
         () -> UIButton in
@@ -37,9 +36,7 @@ class UYTagView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     @objc func deleteHistory() {
-        if delegate != nil {
-            delegate?.deleteHistory()
-        }
+        
     }
 }
 extension UYTagView {
@@ -84,7 +81,6 @@ extension UYTagView {
         for index in 0...count {
             let tag = UYTag(title: tagsArray[index], origin: CGPoint(x: orX, y: orY))
             tag.tag = index
-            tag.delegate = self
             addSubview(tag)
             guard index < count-1 else {
                 orY = orY + oneHeight + space
@@ -103,20 +99,9 @@ extension UYTagView {
         }
     }
 }
-extension UYTagView : UYTagDelegate {
-    func tagAcion(tag: UYTag) {
-        if delegate != nil {
-            delegate?.tagAcion(title: tag.title ?? "" )
-        }
-    }
-}
 class UYTag: UIView {
     
-    
     var title:String?
-    
-    weak var delegate : UYTagDelegate?
-    
     fileprivate lazy var titleLabel : UILabel = {
         () -> UILabel in
         let lable = UILabel()
@@ -125,12 +110,11 @@ class UYTag: UIView {
         return lable
     }()
    
-    init(title atitle:String,origin:CGPoint) {
-        let size : CGSize = getTextRectSize(text: atitle as NSString).size
+    init(title:String,origin:CGPoint) {
+        let size : CGSize = getTextRectSize(text: title as NSString).size
         let minWidth = size.width + 20 < 80 ? 80 : size.width + 20
         super.init(frame: CGRect(origin: origin, size: CGSize(width: minWidth, height: 30)))
         addSubview(titleLabel)
-        title = atitle
         titleLabel.text = title
         titleLabel.snp.makeConstraints { (make) in
             make.center.equalTo(self)
@@ -138,15 +122,8 @@ class UYTag: UIView {
         backgroundColor = UIColor.lightBackground
         layer.cornerRadius = 15
         layer.masksToBounds = true
-        
-        let tapGes = UITapGestureRecognizer(target: self, action: #selector(tagClick))
-        addGestureRecognizer(tapGes)
     }
-    @objc func tagClick() {
-        if delegate != nil {
-            delegate?.tagAcion(tag: self)
-        }
-    }
+  
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -160,11 +137,6 @@ func getTextRectSize(text:NSString,font:UIFont = UIFont.systemFont(ofSize: 14)) 
     let rect:CGRect = text.boundingRect(with: CGSize(width: 999, height: 30), options: option, attributes: attributes, context: nil)
     return rect;
 }
-protocol UYTagDelegate : NSObjectProtocol {
-    func tagAcion(tag:UYTag)
-//    @objc optional func loginTypeChange(ispwdLogin:Bool)
-}
-protocol UYTagViewDelegate : NSObjectProtocol {
-    func tagAcion(title:String)
-    func deleteHistory()
+protocol UYTagViewDelegate {
+    
 }
