@@ -19,6 +19,8 @@ class UYUserTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         areaView.layer.cornerRadius = 11
+        areaView.layer.borderColor = UIColor.areaBorder.cgColor
+        areaView.layer.borderWidth = 1
         areaView.layer.masksToBounds = true
         setCellAccessoryDisclosureIndicator()
     }

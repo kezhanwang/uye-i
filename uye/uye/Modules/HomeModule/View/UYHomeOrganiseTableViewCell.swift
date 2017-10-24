@@ -22,13 +22,13 @@ class UYHomeOrganiseTableViewCell: UITableViewCell {
     func setupUI(organise:UYOrganiseModel) {
         if let name = organise.org_name {
             organiseLabel.isHidden = false
-            let attributes:[NSAttributedStringKey:Any] = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 16),
+            let attributes:[NSAttributedStringKey:Any] = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15),
                                                           NSAttributedStringKey.foregroundColor:UIColor.blackText]
             
             let mutableAttributedString = NSMutableAttributedString(string: "您当前的位置在\(name)", attributes: attributes)
             let range = NSMakeRange(7, name.characters.count)
             
-            mutableAttributedString.addAttributes([NSAttributedStringKey.foregroundColor:UIColor.greenText], range: range)
+            mutableAttributedString.addAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 15),NSAttributedStringKey.foregroundColor:UIColor.greenText], range: range)
             
             organiseLabel.attributedText = mutableAttributedString
             guessLabel.isHidden = false

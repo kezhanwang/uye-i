@@ -41,7 +41,7 @@ class UYTableFooterView: UIView {
         let btn = UIButton(type: UIButtonType.custom)
         let multipleAttributes: [NSAttributedStringKey : Any] = [
             NSAttributedStringKey.foregroundColor: UIColor.grayText,
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)]
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]
         
         var attributedString = NSMutableAttributedString(string: "我同意\"服务条款\"和", attributes: multipleAttributes)
         let range = NSRange(location: 4, length: 4)
@@ -59,7 +59,7 @@ class UYTableFooterView: UIView {
         
         let multipleAttributes: [NSAttributedStringKey : Any] = [
             NSAttributedStringKey.foregroundColor: UIColor.grayText,
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)]
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]
         let attributedString = NSMutableAttributedString(string: "\"隐私权相关政策\"", attributes: multipleAttributes)
         let range = NSRange(location: 1, length: 7)
         attributedString.addAttribute(NSAttributedStringKey.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
@@ -81,7 +81,7 @@ class UYTableFooterView: UIView {
 
         footerBtn.layer.cornerRadius = 8
         footerBtn.layer.masksToBounds = true
-        footerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        footerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         footerBtn.addTarget(self, action: #selector(footerBtnAction), for: UIControlEvents.touchUpInside)
     }
     convenience init(title atitle:String = "",frame:CGRect = CGRect(x: 0, y: 0, width: kScreenWidth, height: 150)) {

@@ -53,9 +53,9 @@ extension UYBaseViewController {
         errorView.addSubview(titleLabel)
         imageView.image = UIImage(named: image)
         titleLabel.text = title
-        titleLabel.textColor = UIColor.darkGrayText
+        titleLabel.textColor = UIColor.grayText
         titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont.systemFont(ofSize: 13)
+        titleLabel.font = UIFont.systemFont(ofSize: 15)
         titleLabel.textAlignment = NSTextAlignment.center
         errorView.snp.makeConstraints { (make) in
             make.top.left.right.bottom.equalTo(0)

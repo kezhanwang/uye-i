@@ -94,18 +94,18 @@ extension UYRegisterViewController {
     }
     func configSubViews()  {
         phoneTextField.placeholder = "手机号"
-        phoneTextField.font = UIFont.systemFont(ofSize: 14)
+        phoneTextField.font = UIFont.systemFont(ofSize: 15)
         phoneTextField.textColor = UIColor.blackText
         phoneTextField.delegate = self
         phoneTextField.keyboardType = UIKeyboardType.numberPad
         
-        codeTextField.font = UIFont.systemFont(ofSize: 14)
+        codeTextField.font = UIFont.systemFont(ofSize: 15)
         codeTextField.placeholder = "验证码"
         codeTextField.textColor = UIColor.blackText
         codeTextField.delegate = self
         codeTextField.keyboardType = UIKeyboardType.numberPad
 
-        pwdTextField.font = UIFont.systemFont(ofSize: 14)
+        pwdTextField.font = UIFont.systemFont(ofSize: 15)
         pwdTextField.placeholder = "密码"
         pwdTextField.textColor = UIColor.blackText
         pwdTextField.delegate = self
@@ -115,7 +115,7 @@ extension UYRegisterViewController {
         getCodeBtn.setTitleColor(UIColor.themeColor, for: UIControlState.normal)
         getCodeBtn.setTitleColor(UIColor.disableTextColor, for: UIControlState.disabled)
         getCodeBtn.setTitle("获取验证码", for: UIControlState.normal)
-        getCodeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        getCodeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         getCodeBtn.addTarget(self, action: #selector(getCodeAction), for: UIControlEvents.touchUpInside)
         
         

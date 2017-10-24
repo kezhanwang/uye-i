@@ -52,7 +52,7 @@ class UYUploadImageTableViewCell: UITableViewCell {
             make.right.equalTo(-16)
             make.bottom.equalTo(-10)
         }
-        tipsLabel.textColor = UIColor.red
+        tipsLabel.textColor = UIColor.redText
         tipsLabel.numberOfLines = 0
         tipsLabel.font = UIFont.systemFont(ofSize: 13);
         

@@ -48,7 +48,7 @@ extension UIColor {
     
     /// 主题颜色
     class var themeColor:UIColor {
-        return UIColor(hexColor: "00c29a")
+        return UIColor(hexColor: "00b496")
     }
     /// Controller的背景颜色
     class var background :UIColor {
@@ -59,16 +59,16 @@ extension UIColor {
     }
     ///大部分文字颜色
     class var blackText :UIColor {
-        return UIColor(hexColor: "232323")
+        return UIColor(hexColor: "333333")
 //        return UIColor(hexColor: "646464")
     }
     /// 橘黄色字体
     class var orangeText: UIColor {
-        return UIColor(hexColor: "fb6f00")
+        return UIColor(hexColor: "ff6633")
     }
-    ///灰色字体
-    class var darkGrayText :UIColor {
-        return UIColor(hexColor: "999999")
+  
+    class var redText:UIColor {
+        return UIColor(hexColor: "e60012")
     }
     ///首页绿色文本
     class var greenText :UIColor {
@@ -76,11 +76,11 @@ extension UIColor {
     }
     ///灰色字体
     class var grayText :UIColor {
-        return UIColor(hexColor: "a5a5a5")
+        return UIColor(hexColor: "999999")
     }
     /// navigationbar的字体按钮颜色
     class var navigationBarTintColor :UIColor {
-        return UIColor(hexColor: "484848")
+        return UIColor(hexColor: "333333")
     }
     /// tabbar的主题颜色
     class var tabBarTint :UIColor {

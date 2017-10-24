@@ -24,7 +24,7 @@
                             <constraint firstAttribute="width" constant="81" id="w6N-4i-GJD"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muq-V9-oW1">
@@ -34,7 +34,7 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="获取验证码">
-                            <color key="titleColor" red="0.0" green="0.76078431372549016" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleColor" red="0.0" green="0.70588235294117641" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
                             <action selector="cellGetCodeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VyO-AM-JCW"/>
@@ -42,8 +42,8 @@
                     </button>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4uu-FL-ZrQ">
                         <rect key="frame" x="97" y="0.0" width="135" height="43.5"/>
-                        <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
@@ -63,7 +63,7 @@
                 <outlet property="textField" destination="4uu-FL-ZrQ" id="vih-oZ-5kw"/>
                 <outlet property="verBtn" destination="Muq-V9-oW1" id="RW4-AD-ekv"/>
             </connections>
-            <point key="canvasLocation" x="-128" y="-84"/>
+            <point key="canvasLocation" x="-309" y="-117"/>
         </tableViewCell>
     </objects>
 </document>

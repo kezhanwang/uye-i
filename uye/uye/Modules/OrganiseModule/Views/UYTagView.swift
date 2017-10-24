@@ -42,7 +42,7 @@ class UYTagView: UIView {
 extension UYTagView {
     func addHeadView(title:String,showDelete:Bool)  {
         let titleLabel :UILabel = UILabel()
-        titleLabel.textColor = UIColor.darkGrayText
+        titleLabel.textColor = UIColor.grayText
         titleLabel.font = UIFont.systemFont(ofSize: 15)
         titleLabel.tag = 99
         titleLabel.text = title

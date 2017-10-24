@@ -138,7 +138,7 @@ extension UYHomeViewController :UITableViewDelegate,UITableViewDataSource {
                 let str:String = "\(number)"
 
                 let startIndex =  (tips as NSString).range(of: str)
-                let attributes:[NSAttributedStringKey:Any] = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 13),
+                let attributes:[NSAttributedStringKey:Any] = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 14),
 NSAttributedStringKey.foregroundColor:UIColor.blackText]
                 
                 let mutableAttributedString = NSMutableAttributedString(string: tips, attributes: attributes)
@@ -167,7 +167,7 @@ NSAttributedStringKey.foregroundColor:UIColor.blackText]
             return 31
         }
         if indexPath.section == 1 {
-            return 213
+            return 240
         }
         return 199
     }

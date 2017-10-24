@@ -13,7 +13,7 @@ class UYSearchBar: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(hexColor: "f2f2f2")
-        font = UIFont.systemFont(ofSize: 15)
+        font = UIFont.systemFont(ofSize: 13)
         placeholder = "请输入您要搜索的机构名称"
         leftView = UIImageView(image: #imageLiteral(resourceName: "search_icon"))
         borderStyle = UITextBorderStyle.none

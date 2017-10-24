@@ -30,7 +30,7 @@ class UYTipsHeadView: UIView {
             make.centerY.equalTo(self)
         }
         titleLabel.font = UIFont.systemFont(ofSize: 12)
-        titleLabel.textColor = UIColor(hexColor: "fb6f00")
+        titleLabel.textColor = UIColor.orangeText
 
     }
     
