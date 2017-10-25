@@ -403,8 +403,7 @@
 				353FD23F1F9F2895003BB537 /* ViewController */,
 				353FD2441F9F2895003BB537 /* Views */,
 			);
-			name = Apply;
-			path = "../../../../../../../Desktop/U业/uye/uye/Modules/Apply";
+			path = Apply;
 			sourceTree = "<group>";
 		};
 		353FD23A1F9F2895003BB537 /* Model */ = {

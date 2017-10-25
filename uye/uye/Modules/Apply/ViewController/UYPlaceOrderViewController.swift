@@ -21,7 +21,7 @@ class UYPlaceOrderViewController: UYBaseViewController {
 
     fileprivate let uploadManager = UYUploadPhotoManager()
     fileprivate var datePicker = KZDatePickerView()
-
+    fileprivate let footView = UYTableFooterView(title: "提交")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class UYPlaceOrderViewController: UYBaseViewController {
         tableView.register(UYUploadImageTableViewCell.classForCoder(), forCellReuseIdentifier: uploadCellIdentifier)
         tableView.register(UINib(nibName: "UYOrganiseOrderTableCell", bundle: nil), forCellReuseIdentifier: orderOrganiseIdentifier)
         
-        let footView = UYTableFooterView(title: "完成")
+        footView.addOrderSubview()
         footView.delegate = self
         tableView.tableFooterView = footView
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
@@ -301,7 +301,10 @@ extension UYPlaceOrderViewController:UYTableFooterViewDelegate {
             showTextToastAutoDismiss(msg: agreeInputModel.placeholder)
             return false
         }
-       
+        guard footView.orderAgreedAgreement else {
+            showTextToastAutoDismiss(msg: "请阅读并同意服务协议以及授权协议")
+            return false
+        }
         return true
     }
     func loadParameters() -> [String:Any] {
@@ -338,10 +341,13 @@ extension UYPlaceOrderViewController:UYTableFooterViewDelegate {
                 "insured_type":"1",
         ]
     }
+    // MARK: 提交数据
+    
     func footButtonAction() {
+        
         guard checkParameters() else { return }
         let parameters = loadParameters()
-        
+
         request.submitOrderInfo(parameters: parameters) {[weak self] (error) -> (Void) in
             if error != nil {
                 self?.showTextToastAutoDismiss(msg: (error?.description)!)
@@ -352,6 +358,19 @@ extension UYPlaceOrderViewController:UYTableFooterViewDelegate {
             }
         }
     }
+    //展示U授权协议
+    func showAuthoriseAgreementAction() {
+        let webVC = UYWebViewController()
+        webVC.urlString = ServiceAgreementURLString
+        pushToNextVC(nextVC: webVC)
+    }
+    //展示服务协议
+    func showOrderServiceAgreement() {
+        let webVC = UYWebViewController()
+        webVC.urlString = OrderServiceAgreementURLString
+        pushToNextVC(nextVC: webVC)
+    }
+
 }
 
 // MARK: - 网络请求

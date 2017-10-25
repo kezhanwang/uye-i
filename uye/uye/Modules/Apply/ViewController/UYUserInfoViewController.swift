@@ -51,6 +51,7 @@ class UYUserInfoViewController: UYBaseViewController {
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
         
+        
         tableView.register(UINib(nibName: "UYUserInfoTableCell", bundle: nil), forCellReuseIdentifier: userInfoIdetifier)
         
         let footView = UYTableFooterView(title: "下一步")

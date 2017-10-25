@@ -45,8 +45,9 @@ class UYQuestionHeaderView: UITableViewHeaderFooterView {
         }
         titleLabel.font = UIFont.systemFont(ofSize: 16)
         titleLabel.textColor = UIColor.blackText
+        
         tipsLabel.font = UIFont.systemFont(ofSize: 13)
-        tipsLabel.textColor = UIColor(hexColor: "fb6f00")
+        tipsLabel.textColor = UIColor.orangeText
         tipsLabel.text = "注：此题为多选"
         contentView.backgroundColor = UIColor.white
     }
