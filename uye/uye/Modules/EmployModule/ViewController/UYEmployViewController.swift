@@ -20,7 +20,9 @@ class UYEmployViewController: UYBaseViewController {
         title = "就业帮"
         NotificationCenter.default.addObserver(self, selector: #selector(noticeHasMoreOrder), name: MakeOrderSuccess, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(loginStatusChange), name: LoginStatusChange, object: nil)
-        loadOrderList()
+        if UYAPPManager.shared.userInfo != nil {
+            loadOrderList()
+        }
     }
     override func setupUI() {
         titleLabel.font = UIFont.systemFont(ofSize: 15)

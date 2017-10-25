@@ -36,7 +36,14 @@
         }
     }];
     
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -100) forBarMetrics:UIBarMetricsDefault];
+    /*
+     navigationBar.barTintColor = UIColor.white
+     navigationBar.tintColor = UIColor.navigationBarTintColor
+     navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.navigationBarTintColor,
+     NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 18)];
+     */
+    
+//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -100) forBarMetrics:UIBarMetricsDefault];
     
     //设置NavigationBar背景颜色
     [[UINavigationBar appearance] setBarTintColor:photoConfig.navigationBarColor];

@@ -184,11 +184,6 @@ extension UYRegisterViewController : UYTableFooterViewDelegate {
         pushToNextVC(nextVC: webVC)
     }
     
-    func registerShowPrivacyWeb() {
-        let webVC = UYWebViewController()
-        webVC.urlString = PrivacyAgreementURLString
-        pushToNextVC(nextVC: webVC)
-    }
     
 }
 

@@ -32,11 +32,13 @@ class UYSearchViewController: UYBaseViewController {
 //        searchView.searchBar.placeholder = "请输入您要搜索的机构名称"
 //        searchView.searchBar.showsCancelButton = true
 //        searchView.searchBar.delegate = self
-        searchBar.frame = CGRect(x: 0, y: 0, width: kScreenWidth-100, height: 30)
+        navigationItem.leftBarButtonItem = nil
+        navigationItem.hidesBackButton = true
+        searchBar.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 30)
         searchBar.delegate = self
         navigationItem.titleView = searchBar
         searchBar.becomeFirstResponder()
-         let cancelBtn = UIBarButtonItem(title: "取消", style: UIBarButtonItemStyle.plain, target: self, action: #selector(cancelAction))
+         let cancelBtn = UIBarButtonItem(title: "    取消", style: UIBarButtonItemStyle.plain, target: self, action: #selector(cancelAction))
         navigationItem.rightBarButtonItem = cancelBtn
         
 //        searchBar.snp.makeConstraints { (make) in
@@ -181,9 +183,14 @@ extension UYSearchViewController :UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let quetionVC = UYQuestionnaireViewController()
-        quetionVC.org_id = organiseList[indexPath.row].org_id ?? ""
-        pushToNextVC(nextVC: quetionVC)
+        
+        if UYAPPManager.shared.userInfo != nil {
+            let quetionVC = UYQuestionnaireViewController()
+            quetionVC.org_id = organiseList[indexPath.row].org_id ?? ""
+            pushToNextVC(nextVC: quetionVC)
+        }else{
+            pushToNextVC(nextVC: UYLoginViewController())
+        }
         
 //        let organiseDetailVC = UYOrganiseDetailViewController()
 //        organiseDetailVC.organise = organiseList[indexPath.row]

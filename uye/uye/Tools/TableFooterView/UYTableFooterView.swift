@@ -43,30 +43,71 @@ class UYTableFooterView: UIView {
             NSAttributedStringKey.foregroundColor: UIColor.grayText,
             NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]
         
-        var attributedString = NSMutableAttributedString(string: "我同意\"服务条款\"和", attributes: multipleAttributes)
-        let range = NSRange(location: 4, length: 4)
-        attributedString.addAttribute(NSAttributedStringKey.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
+        var attributedString = NSMutableAttributedString(string: "我已阅读并同意《U业帮用户注册协议》", attributes: multipleAttributes)
+        let range = NSRange(location: 7, length: 11)
+        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.greenText, range: range)
         btn.setAttributedTitle(attributedString, for: UIControlState.normal)
         btn.addTarget(self, action: #selector(serviceBtnAction), for: UIControlEvents.touchUpInside)
 
         return btn
     }()
     
-    fileprivate lazy var privacyBtn :UIButton = {
+    
+    var orderAgreedAgreement:Bool = false
+    
+    fileprivate lazy var servceAgreeBtn : UIButton = {
         () -> UIButton in
+        let btn = UIButton(type: .custom)
+        btn.setImage(#imageLiteral(resourceName: "agree_btn_normal"), for: .normal)
+        btn.setImage(#imageLiteral(resourceName: "agree_btn_selected"), for: .selected)
+        btn.addTarget(self, action: #selector(agreeSelectBtnAction(agreeBtn:)), for: UIControlEvents.touchUpInside)
+        return btn
+    }()
+    
+    fileprivate lazy var orderAgreementBtn :UIButton = {
+        () -> UIButton in
+        
         let btn = UIButton(type: UIButtonType.custom)
-        btn.addTarget(self, action: #selector(privacyBtnAction), for: UIControlEvents.touchUpInside)
         
         let multipleAttributes: [NSAttributedStringKey : Any] = [
             NSAttributedStringKey.foregroundColor: UIColor.grayText,
             NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]
-        let attributedString = NSMutableAttributedString(string: "\"隐私权相关政策\"", attributes: multipleAttributes)
-        let range = NSRange(location: 1, length: 7)
-        attributedString.addAttribute(NSAttributedStringKey.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
-        btn .setAttributedTitle(attributedString, for: UIControlState.normal)
+        
+        var attributedString = NSMutableAttributedString(string: "我已经阅读《U业帮服务协议》并且同意服务条款", attributes: multipleAttributes)
+        let range = NSRange(location: 6, length: 7)
+        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.greenText, range: range)
+        btn.setAttributedTitle(attributedString, for: UIControlState.normal)
+        btn.addTarget(self, action: #selector(orderServiceAgreementAction), for: UIControlEvents.touchUpInside)
         
         return btn
     }()
+    fileprivate lazy var authoriseAgreeBtn : UIButton = {
+        () -> UIButton in
+        let btn = UIButton(type: .custom)
+        btn.setImage(#imageLiteral(resourceName: "agree_btn_normal"), for: .normal)
+        btn.setImage(#imageLiteral(resourceName: "agree_btn_selected"), for: .selected)
+        btn.addTarget(self, action: #selector(authoriseAgreeBtnAction(agreeBtn:)), for: UIControlEvents.touchUpInside)
+        return btn
+    }()
+    
+    fileprivate lazy var authoriseAgreementBtn :UIButton = {
+        () -> UIButton in
+        
+        let btn = UIButton(type: UIButtonType.custom)
+        
+        let multipleAttributes: [NSAttributedStringKey : Any] = [
+            NSAttributedStringKey.foregroundColor: UIColor.grayText,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]
+        
+        var attributedString = NSMutableAttributedString(string: "我已经阅读《U业帮授权协议》并且同意授权", attributes: multipleAttributes)
+        let range = NSRange(location: 6, length: 7)
+        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.greenText, range: range)
+        btn.setAttributedTitle(attributedString, for: UIControlState.normal)
+        btn.addTarget(self, action: #selector(authoriseAgreementBtnAction), for: UIControlEvents.touchUpInside)
+        
+        return btn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(footerBtn)
@@ -84,7 +125,7 @@ class UYTableFooterView: UIView {
         footerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         footerBtn.addTarget(self, action: #selector(footerBtnAction), for: UIControlEvents.touchUpInside)
     }
-    convenience init(title atitle:String = "",frame:CGRect = CGRect(x: 0, y: 0, width: kScreenWidth, height: 150)) {
+    convenience init(title atitle:String = "",frame:CGRect = CGRect(x: 0, y: 0, width: kScreenWidth, height: 180)) {
         self.init(frame: frame)
         title = atitle
         footerBtn.setTitle(title, for: UIControlState.normal)
@@ -131,14 +172,9 @@ extension UYTableFooterView {
     /// 注册页面需要的，协议展示
     func addRrgisterSubView() {
         addSubview(serviceBtn)
-        addSubview(privacyBtn)
         serviceBtn.snp.makeConstraints { (make) in
             make.top.equalTo(footerBtn.snp.bottom).offset(10)
             make.left.equalTo(16)
-        }
-        privacyBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(serviceBtn.snp.top).offset(0)
-            make.left.equalTo(serviceBtn.snp.right).offset(0)
         }
     }
     @objc func serviceBtnAction() {
@@ -146,15 +182,79 @@ extension UYTableFooterView {
             delegate!.registerShowServiceWeb!()
         }
     }
-    @objc func privacyBtnAction() {
-        if delegate != nil {
-            delegate!.registerShowPrivacyWeb!()
+    
+}
+
+// MARK: - 订单提交需要的
+extension UYTableFooterView {
+    func addOrderSubview()  {
+        addSubview(servceAgreeBtn)
+        addSubview(orderAgreementBtn)
+        
+        addSubview(authoriseAgreeBtn)
+        addSubview(authoriseAgreementBtn)
+        
+        servceAgreeBtn.snp.makeConstraints { (make) in
+            make.top.equalTo(footerBtn.snp.bottom).offset(10)
+            make.left.equalTo(16)
+            make.width.height.equalTo(30)
+        }
+        orderAgreementBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(servceAgreeBtn.snp.right).offset(10)
+            make.centerY.equalTo(servceAgreeBtn.snp.centerY)
+        }
+        
+        authoriseAgreeBtn.snp.makeConstraints { (make) in
+            make.top.equalTo(servceAgreeBtn.snp.bottom).offset(5)
+            make.left.equalTo(16)
+            make.width.height.equalTo(30)
+        }
+        authoriseAgreementBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(authoriseAgreeBtn.snp.right).offset(10)
+            make.centerY.equalTo(authoriseAgreeBtn.snp.centerY)
+        }
+        
+        
+    }
+    
+    
+    /// 服务协议同意按钮
+    @objc func agreeSelectBtnAction(agreeBtn:UIButton) {
+        agreeBtn.isSelected = !agreeBtn.isSelected
+        if agreeBtn.isSelected && authoriseAgreeBtn.isSelected {
+            orderAgreedAgreement = true
+        }else{
+            orderAgreedAgreement = false
         }
     }
+    @objc func orderServiceAgreementAction()  {
+        if delegate != nil {
+            delegate!.showOrderServiceAgreement!()
+        }
+    }
+    //授权协议同意按钮
+    @objc func authoriseAgreeBtnAction(agreeBtn:UIButton) {
+        agreeBtn.isSelected = !agreeBtn.isSelected
+        if agreeBtn.isSelected && servceAgreeBtn.isSelected {
+            orderAgreedAgreement = true
+        }else{
+            orderAgreedAgreement = false
+        }
+    }
+    @objc func authoriseAgreementBtnAction() {
+        if delegate != nil {
+            delegate!.showAuthoriseAgreementAction!()
+        }
+    }
+    
 }
 @objc protocol UYTableFooterViewDelegate :NSObjectProtocol {
     func footButtonAction()
     @objc optional func loginTypeChange(ispwdLogin:Bool)
+    
     @objc optional func registerShowServiceWeb()
-    @objc optional func registerShowPrivacyWeb()
+    
+    
+    @objc optional func showOrderServiceAgreement()
+    @objc optional func showAuthoriseAgreementAction()
 }

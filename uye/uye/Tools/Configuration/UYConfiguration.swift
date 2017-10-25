@@ -61,7 +61,11 @@ let customerServicePhone = "4000029691"
 
 /// 注册协议
 let ServiceAgreementURLString = "https:www.baidu.com"
-let PrivacyAgreementURLString = "https:www.baidu.com"
+
+//下单授权协议
+let AuthoriseAgreementURLString = "https:www.baidu.com"
+//下单服务协议
+let OrderServiceAgreementURLString = "https:www.baidu.com"
 
 
 

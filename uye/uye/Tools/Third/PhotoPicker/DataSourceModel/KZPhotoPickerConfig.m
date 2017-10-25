@@ -16,9 +16,9 @@
         self.maxNumberOfSelection = 9;
         self.allowsMultipleSelection = NO;
         self.isNeedEdit = NO;
-        self.barButtonColor = [UIColor colorWithRed:0 green:165.0/255 blue:240.0/255 alpha:1];
-        self.navigationBarColor = [UIColor colorWithRed:0 green:165.0/255 blue:240.0/255 alpha:1];
-        self.navigationTitleColor = [UIColor whiteColor];
+        self.barButtonColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1];
+        self.navigationBarColor = [UIColor whiteColor];
+        self.navigationTitleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1];
         self.reshapeScale = 4.0/3.0;
     }
     return self;

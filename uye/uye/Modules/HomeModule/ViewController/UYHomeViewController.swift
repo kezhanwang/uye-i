@@ -45,7 +45,8 @@ class UYHomeViewController: UYBaseViewController {
         
         let textField = UYSearchBar()
         textField.delegate = self
-        textField.frame = CGRect(x: 0, y: 0, width: kScreenWidth-100, height: 30)
+        textField.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 30)
+        textField.homeStyle()
         navigationItem.titleView = textField
 
         navigationItem.leftBarButtonItem = areaBtn
@@ -72,11 +73,7 @@ class UYHomeViewController: UYBaseViewController {
         bannerView.autoScrollTimeInterval = 5
         tableView.tableHeaderView = bannerView
     }
-    @objc func showAToast() {
-//        pushToNextVC(nextVC: UYPlaceOrderViewController())
 
-//        pushToNextVC(nextVC: UYSearchViewController())
-    }
    
 }
 
@@ -102,7 +99,7 @@ extension UYHomeViewController {
     }
     func updateBannerView() {
         if let areaTitle = homeModel?.loaction {
-            areaBtn.title = areaTitle
+            areaBtn.title = "\(areaTitle)    "
         }
         if let adArray:[UYAdModle] = homeModel?.ad_list {
             var urlArray:[String] = []
@@ -181,11 +178,9 @@ NSAttributedStringKey.foregroundColor:UIColor.blackText]
         return 0.1
     }
 }
-extension UYHomeViewController : UYHomeOrganiseTableViewCellDelegate,UISearchBarDelegate,UITextFieldDelegate {
+extension UYHomeViewController : UYHomeOrganiseTableViewCellDelegate,UITextFieldDelegate {
     func hoemSiginAction() {
-//        let placeOrderVC = UYPlaceOrderViewController()
-//        placeOrderVC.order_id = "10221"
-//        pushToNextVC(nextVC: placeOrderVC)
+      
         if let organise = homeModel?.organize {
             let quesVC = UYQuestionnaireViewController()
             quesVC.org_id = organise.org_id
@@ -195,18 +190,11 @@ extension UYHomeViewController : UYHomeOrganiseTableViewCellDelegate,UISearchBar
     }
     
     func homeSearchAction() {
-//        let placeOrderVC = UYPlaceOrderViewController()
-//        placeOrderVC.order_id = "10221"
-//        pushToNextVC(nextVC: placeOrderVC)
-        
        pushToNextVC(nextVC: UYSearchViewController())
     }
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        homeSearchAction()
-        return false
-    }
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-            homeSearchAction()
+        homeSearchAction()
         return false
     }
     

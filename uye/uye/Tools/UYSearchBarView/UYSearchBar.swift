@@ -22,6 +22,16 @@ class UYSearchBar: UITextField {
         layer.cornerRadius = 15
         layer.masksToBounds = true
     }
+    
+    func homeStyle() {
+        backgroundColor = UIColor.white
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(hexColor: "e7e7e7").cgColor
+    }
+    func searchStyle() {
+        
+    }
+    
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
         var oryLeftRect = super.leftViewRect(forBounds: bounds)
         oryLeftRect.origin.x = oryLeftRect.origin.x + 10

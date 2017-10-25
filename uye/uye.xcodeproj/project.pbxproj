@@ -10,7 +10,6 @@
 		3514F15E1F945BD9005574B3 /* UYAPPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3514F15D1F945BD9005574B3 /* UYAPPManager.swift */; };
 		351572781F9303B700AFCA8F /* UYRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351572761F9303B700AFCA8F /* UYRegisterViewController.swift */; };
 		3515727B1F9306A600AFCA8F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515727A1F9306A600AFCA8F /* UIViewController+Extension.swift */; };
-		351749991F9CF67500D76A15 /* UYSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351749981F9CF67500D76A15 /* UYSearchBarView.swift */; };
 		3517C1301F7DF037008E49AC /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3517C1331F7DF037008E49AC /* IQKeyboardManagerSwift.framework */; };
 		3517C1311F7DF037008E49AC /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3517C1341F7DF037008E49AC /* Moya.framework */; };
 		3517C1321F7DF037008E49AC /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3517C1351F7DF037008E49AC /* Result.framework */; };
@@ -150,7 +149,6 @@
 		3514F15D1F945BD9005574B3 /* UYAPPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAPPManager.swift; sourceTree = "<group>"; };
 		351572761F9303B700AFCA8F /* UYRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYRegisterViewController.swift; sourceTree = "<group>"; };
 		3515727A1F9306A600AFCA8F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		351749981F9CF67500D76A15 /* UYSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYSearchBarView.swift; sourceTree = "<group>"; };
 		3517C1331F7DF037008E49AC /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3517C1341F7DF037008E49AC /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3517C1351F7DF037008E49AC /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,7 +366,6 @@
 		351749971F9CF64F00D76A15 /* UYSearchBarView */ = {
 			isa = PBXGroup;
 			children = (
-				351749981F9CF67500D76A15 /* UYSearchBarView.swift */,
 				35D43CC31F9D9C9A00D08BF4 /* UYSearchBar.swift */,
 			);
 			path = UYSearchBarView;
@@ -1232,7 +1229,6 @@
 				358CF6DF1F9B1F1E00C281EA /* LoanSafeAuthResultModel.m in Sources */,
 				35D253EE1F91F91400945017 /* UYLoginViewController.swift in Sources */,
 				353FD24F1F9F2895003BB537 /* UYUserStatusModel.swift in Sources */,
-				351749991F9CF67500D76A15 /* UYSearchBarView.swift in Sources */,
 				35E9BB341F97464C00A8BED9 /* UYInputModel.swift in Sources */,
 				353FD2501F9F2895003BB537 /* UYPlaceOrderViewController.swift in Sources */,
 				358CF7251F9B3C7A00C281EA /* PhotoCollectionViewCell.m in Sources */,
