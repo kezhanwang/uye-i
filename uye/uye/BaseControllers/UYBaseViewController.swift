@@ -22,9 +22,11 @@ class UYBaseViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.background
         if #available(iOS 11.0, *) {
+            
         } else {
             automaticallyAdjustsScrollViewInsets = false
         }
+        
         setupUI()
     }
  

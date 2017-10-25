@@ -16,6 +16,7 @@
 		3517C1381F7DF5D9008E49AC /* SRToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517C1371F7DF5D9008E49AC /* SRToast.swift */; };
 		3517C13A1F7DF5F1008E49AC /* SRCycleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */; };
 		351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */; };
+		351B84871FA03AE400C77846 /* UYTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B84861FA03AE300C77846 /* UYTagView.swift */; };
 		3524A2F91F95E2330035FE80 /* UYOrganiseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */; };
 		3524A2FA1F95E2330035FE80 /* UYOrganiseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */; };
 		3524A2FC1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */; };
@@ -69,7 +70,6 @@
 		355260AC1F6F663300F8734A /* UYRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AB1F6F663300F8734A /* UYRequestManager.swift */; };
 		355260AE1F6F664700F8734A /* UYRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AD1F6F664700F8734A /* UYRequestError.swift */; };
 		355260B01F6F665800F8734A /* UYBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AF1F6F665800F8734A /* UYBaseModel.swift */; };
-		355CFEE91F9497EF001CB55C /* UYTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355CFEE81F9497EF001CB55C /* UYTagView.swift */; };
 		356521BF1F91D5C200175734 /* UYUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356521BD1F91D5C200175734 /* UYUserTableViewCell.swift */; };
 		356521C01F91D5C200175734 /* UYUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */; };
 		356521C91F91E20000175734 /* UYCustomSimpleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */; };
@@ -155,6 +155,7 @@
 		3517C1371F7DF5D9008E49AC /* SRToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRToast.swift; sourceTree = "<group>"; };
 		3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCycleProgressView.swift; sourceTree = "<group>"; };
 		351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYHomeModel.swift; sourceTree = "<group>"; };
+		351B84861FA03AE300C77846 /* UYTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYTagView.swift; sourceTree = "<group>"; };
 		3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseTableViewCell.swift; sourceTree = "<group>"; };
 		3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrganiseTableViewCell.xib; sourceTree = "<group>"; };
 		3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseDetailViewController.swift; sourceTree = "<group>"; };
@@ -220,7 +221,6 @@
 		355365281F9447C000CA6DF6 /* HGImageCompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGImageCompleteButton.swift; sourceTree = "<group>"; };
 		355365291F9447C000CA6DF6 /* HGImagePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGImagePickerCell.swift; sourceTree = "<group>"; };
 		3553652A1F9447C000CA6DF6 /* HGImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGImagePickerController.swift; sourceTree = "<group>"; };
-		355CFEE81F9497EF001CB55C /* UYTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYTagView.swift; sourceTree = "<group>"; };
 		356521BD1F91D5C200175734 /* UYUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYUserTableViewCell.swift; sourceTree = "<group>"; };
 		356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYUserTableViewCell.xib; sourceTree = "<group>"; };
 		356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYCustomSimpleTableCell.swift; sourceTree = "<group>"; };
@@ -684,7 +684,7 @@
 		355CFEE71F9497C2001CB55C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				355CFEE81F9497EF001CB55C /* UYTagView.swift */,
+				351B84861FA03AE300C77846 /* UYTagView.swift */,
 				3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */,
 				3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */,
 			);
@@ -1185,7 +1185,6 @@
 				358CF72F1F9B3C7A00C281EA /* PhotoModel.m in Sources */,
 				358CF72B1F9B3C7A00C281EA /* KZPhotoPickerConfig.m in Sources */,
 				358EBB151F9C69F60075033D /* UYBankTableCell.swift in Sources */,
-				355CFEE91F9497EF001CB55C /* UYTagView.swift in Sources */,
 				35522BD21F9853510088C7D6 /* UYUploadImageTableViewCell.swift in Sources */,
 				353FD2541F9F2895003BB537 /* UYAnswerTableViewCell.swift in Sources */,
 				358CF7231F9B3C7A00C281EA /* BottomView.m in Sources */,
@@ -1194,6 +1193,7 @@
 				358CF72E1F9B3C7A00C281EA /* PhotoListModel.m in Sources */,
 				356521C91F91E20000175734 /* UYCustomSimpleTableCell.swift in Sources */,
 				3552609D1F6F5D7C00F8734A /* UYHomeViewController.swift in Sources */,
+				351B84871FA03AE400C77846 /* UYTagView.swift in Sources */,
 				355260B01F6F665800F8734A /* UYBaseModel.swift in Sources */,
 				358CF7501F9B41C000C281EA /* KZPhotoPicker+TipsImage.m in Sources */,
 				353FD2381F9F285B003BB537 /* UYSearchModel.swift in Sources */,

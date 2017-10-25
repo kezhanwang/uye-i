@@ -96,6 +96,7 @@ extension UYSearchViewController {
         }
         let hotSearch:UYTagView = UYTagView(title: "热门搜索")
         hotSearch.tagsArray = ["翡翠","华育","IT","完美东流","健身","英语","设计"]
+        hotSearch.delegate = self
         tagsView.addSubview(hotSearch)
         hotSearch.snp.makeConstraints { (make) in
             make.top.equalTo(10)
@@ -105,6 +106,7 @@ extension UYSearchViewController {
         
         let historyView:UYTagView = UYTagView(title: "历史记录", showDelete: true)
         historyView.tagsArray = ["翡翠","华育","IT","完美东流","健身","英语","设计"]
+        historyView.delegate = self
         tagsView.addSubview(historyView)
         historyView.snp.makeConstraints { (make) in
             make.top.equalTo(20+hotSearch.estimatedHeight)
@@ -197,7 +199,7 @@ extension UYSearchViewController :UITableViewDelegate,UITableViewDataSource {
 //        pushToNextVC(nextVC: organiseDetailVC)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 113
+        return 100
     }
 }
 
