@@ -17,6 +17,7 @@
 		3517C13A1F7DF5F1008E49AC /* SRCycleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */; };
 		351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */; };
 		351B84871FA03AE400C77846 /* UYTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B84861FA03AE300C77846 /* UYTagView.swift */; };
+		351B84891FA066A100C77846 /* UYScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B84881FA066A100C77846 /* UYScoreView.swift */; };
 		3524A2F91F95E2330035FE80 /* UYOrganiseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */; };
 		3524A2FA1F95E2330035FE80 /* UYOrganiseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */; };
 		3524A2FC1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */; };
@@ -156,6 +157,7 @@
 		3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCycleProgressView.swift; sourceTree = "<group>"; };
 		351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYHomeModel.swift; sourceTree = "<group>"; };
 		351B84861FA03AE300C77846 /* UYTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYTagView.swift; sourceTree = "<group>"; };
+		351B84881FA066A100C77846 /* UYScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYScoreView.swift; sourceTree = "<group>"; };
 		3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseTableViewCell.swift; sourceTree = "<group>"; };
 		3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrganiseTableViewCell.xib; sourceTree = "<group>"; };
 		3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseDetailViewController.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 				353FD2491F9F2895003BB537 /* UYQuestionHeaderView.swift */,
 				353FD24A1F9F2895003BB537 /* UYUserInfoTableCell.swift */,
 				353FD24B1F9F2895003BB537 /* UYUserInfoTableCell.xib */,
+				351B84881FA066A100C77846 /* UYScoreView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1220,6 +1223,7 @@
 				351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */,
 				354E34401F6D3CD2009CFCE4 /* UIButton+Extension.swift in Sources */,
 				351572781F9303B700AFCA8F /* UYRegisterViewController.swift in Sources */,
+				351B84891FA066A100C77846 /* UYScoreView.swift in Sources */,
 				354D08BC1F908C140024414E /* UYUserInfo.swift in Sources */,
 				35CFD7641F9B4F70001C0AC0 /* UYAddressBookManager.swift in Sources */,
 				35A7B76F1F9B0E880031799D /* KZDatePickerView.m in Sources */,

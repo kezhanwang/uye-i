@@ -16,6 +16,7 @@ class UYOrganiseOrderTableCell: UITableViewCell {
     
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var scoreView: UYScoreView!
     override func awakeFromNib() {
         super.awakeFromNib()
         categoryView.layer.cornerRadius = 4
@@ -38,6 +39,7 @@ class UYOrganiseOrderTableCell: UITableViewCell {
         
                 priceLabel.text = "￥\(Int(price)!*100)"
             }
+            scoreView.score = Float(organise!.employment_index ?? "4.5")!
             
             
         }

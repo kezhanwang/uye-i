@@ -180,7 +180,11 @@ NSAttributedStringKey.foregroundColor:UIColor.blackText]
 }
 extension UYHomeViewController : UYHomeOrganiseTableViewCellDelegate,UITextFieldDelegate {
     func hoemSiginAction() {
-      
+        let orderVC = UYPlaceOrderViewController()
+        orderVC.order_id = "10049"
+        pushToNextVC(nextVC: orderVC)
+        return
+        
         if let organise = homeModel?.organize {
             let quesVC = UYQuestionnaireViewController()
             quesVC.org_id = organise.org_id
@@ -190,7 +194,10 @@ extension UYHomeViewController : UYHomeOrganiseTableViewCellDelegate,UITextField
     }
     
     func homeSearchAction() {
-       pushToNextVC(nextVC: UYSearchViewController())
+        let orderVC = UYPlaceOrderViewController()
+        orderVC.order_id = "10049"
+        pushToNextVC(nextVC: orderVC)
+//       pushToNextVC(nextVC: UYSearchViewController())
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

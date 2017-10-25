@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="101.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pSh-UY-BXB">
@@ -68,7 +68,7 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKr-gt-HlG">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKr-gt-HlG" customClass="UYScoreView" customModule="uye" customModuleProvider="target">
                         <rect key="frame" x="249" y="35.5" width="65" height="30"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -102,8 +102,9 @@
                 <outlet property="iconImageView" destination="pSh-UY-BXB" id="YU3-pb-vPp"/>
                 <outlet property="nameLabel" destination="HSs-1V-KnM" id="ZeG-sN-GD4"/>
                 <outlet property="priceLabel" destination="TV2-6J-6J6" id="uXD-KB-Xie"/>
+                <outlet property="scoreView" destination="XKr-gt-HlG" id="UJs-ZS-LFH"/>
             </connections>
-            <point key="canvasLocation" x="-223" y="-43"/>
+            <point key="canvasLocation" x="-476" y="-145"/>
         </tableViewCell>
     </objects>
 </document>
