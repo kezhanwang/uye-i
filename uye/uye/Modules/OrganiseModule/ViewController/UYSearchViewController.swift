@@ -15,7 +15,8 @@ class UYSearchViewController: UYBaseViewController {
 
     fileprivate let tagsView :UIView = UIView()
     fileprivate let tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
-//    fileprivate let searchView = UYSearchBarView()
+
+    fileprivate var keyWord:String = ""
     fileprivate let searchBar = UYSearchBar()
     fileprivate let hotSearch:UYTagView = UYTagView(title: "热门搜索")
     fileprivate let historyView:UYTagView = UYTagView(title: "历史记录", showDelete: true)
@@ -29,9 +30,6 @@ class UYSearchViewController: UYBaseViewController {
     }
     override func setupUI() {
         
-//        searchView.searchBar.placeholder = "请输入您要搜索的机构名称"
-//        searchView.searchBar.showsCancelButton = true
-//        searchView.searchBar.delegate = self
         navigationItem.leftBarButtonItem = nil
         navigationItem.hidesBackButton = true
         searchBar.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 30)
@@ -41,14 +39,7 @@ class UYSearchViewController: UYBaseViewController {
          let cancelBtn = UIBarButtonItem(title: "    取消", style: UIBarButtonItemStyle.plain, target: self, action: #selector(cancelAction))
         navigationItem.rightBarButtonItem = cancelBtn
         
-//        searchBar.snp.makeConstraints { (make) in
-//            make.left.equalTo(16)
-//            make.top.bottom.equalTo(0)
-//            make.right.equalTo(-16)
-//        }
-        
-//        changeSearchBarCancelBtnTitleColor(view: searchView.searchBar)
-//        searchView.searchBar.becomeFirstResponder()
+
         showErorView()
         errorView.isHidden = true
         setupTableView()
@@ -64,7 +55,7 @@ class UYSearchViewController: UYBaseViewController {
 extension UYSearchViewController {
     func getOrganiseList(isRefash:Bool = true) {
         showWaitToast()
-        request.getOrganiseList(isRefash: isRefash, word: "上海") {[weak self] (list, error) -> (Void) in
+        request.getOrganiseList(isRefash: isRefash, word: keyWord) {[weak self] (list, error) -> (Void) in
             if error != nil {
                 self?.showTextToastAutoDismiss(msg: (error?.description)!)
             }else{
@@ -91,7 +82,7 @@ extension UYSearchViewController {
     func addTagsView() {
         view.addSubview(tagsView)
         tagsView.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaHeight)
+            make.top.equalTo(kNavigationHeight)
             make.left.right.bottom.equalTo(0)
         }
         let hotSearch:UYTagView = UYTagView(title: "热门搜索")
@@ -136,9 +127,7 @@ extension UYSearchViewController : UYTagViewDelegate {
     func tagAcion(title: String) {
         searchBar.text = title
         
-//        searchView.searchBar.text = title
        _ = textFieldShouldReturn(searchBar)
-//        searchBarSearchButtonClicked(searchView.searchBar)
     }
 
 }
@@ -159,7 +148,7 @@ extension UYSearchViewController {
     func setupTableView()  {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaHeight)
+            make.top.equalTo(kNavigationHeight)
             make.left.right.bottom.equalTo(0)
         }
         tableView.delegate = self
@@ -212,44 +201,12 @@ extension UYSearchViewController :UITextFieldDelegate {
             return false
         }
         searchBar.resignFirstResponder()
+        keyWord = textField.text!
         getOrganiseList(isRefash: true)
         return true
     }
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        if (searchBar.text?.isEmpty)! {
-//            showTextToastAutoDismiss(msg: searchBar.placeholder!)
-//            return
-//        }
-//        changeSearchBarCancelBtnTitleColor(view: searchBar)
-//        searchBar.resignFirstResponder()
-//        getOrganiseList(isRefash: true)
-//    }
-    
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        searchBar.resignFirstResponder()
-//        popBackAction()
-//    }
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.resignFirstResponder()
 
-    }
-//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//        searchBar.resignFirstResponder()
-//        changeSearchBarCancelBtnTitleColor(view: searchBar)
-//    }
-//    func changeSearchBarCancelBtnTitleColor(view:UIView) {
-//        if view.isKind(of: UIButton.self) {
-//            let getBtn = view as! UIButton
-//            getBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-//            getBtn.isEnabled = true
-//            getBtn.isUserInteractionEnabled = true
-//            return;
-//        }else{
-//            for subView in view.subviews {
-//                changeSearchBarCancelBtnTitleColor(view: subView)
-//            }
-//        }
-//    }
+
 }
 
 

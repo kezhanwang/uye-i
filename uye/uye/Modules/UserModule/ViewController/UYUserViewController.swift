@@ -48,7 +48,7 @@ class UYUserViewController: UYBaseViewController {
         tableView.register(UINib(nibName: "UYUserTableViewCell", bundle: nil), forCellReuseIdentifier: UserCellIdentifier)
         tableView.register(UINib(nibName: "UYCustomSimpleTableCell", bundle: nil), forCellReuseIdentifier: UserItemCellIdentifier)
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaHeight)
+            make.top.equalTo(kNavigationHeight)
             make.left.bottom.right.equalTo(0)
         }
         

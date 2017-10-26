@@ -31,6 +31,7 @@
                 <constraints>
                     <constraint firstItem="Q8g-0Q-YdP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BBq-Zg-61t"/>
                     <constraint firstItem="c4F-SB-ucw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Hll-w9-waS"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Q8g-0Q-YdP" secondAttribute="trailing" constant="16" id="II2-Sz-l5H"/>
                     <constraint firstItem="c4F-SB-ucw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="g8X-Ch-bRc"/>
                     <constraint firstItem="Q8g-0Q-YdP" firstAttribute="leading" secondItem="c4F-SB-ucw" secondAttribute="trailing" constant="14" id="sd3-YY-7do"/>
                 </constraints>

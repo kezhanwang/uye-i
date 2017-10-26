@@ -28,6 +28,18 @@ let LoginStatusChange = NSNotification.Name("com.uy.login.changed")
 /// 默认cell的距左侧间隙
 let spaceWidth :CGFloat = 15
 
+/// 状态栏高度（非iPhone X：StatusBar 高20px,iPhone X：StatusBar 高44px）
+let kStatusBarHeight:CGFloat = UIApplication.shared.statusBarFrame.size.height
+
+/// navigationbar高度
+let kNavBarHeight:CGFloat = 44.0
+
+let kNavigationHeight:CGFloat = kStatusBarHeight + kNavBarHeight
+/// tabbarController高度 （非iPhone X：底部TabBar高49px,iPHone X：底部高度83px）
+let kTabBarHeight:CGFloat = kStatusBarHeight > 20 ? 83 : 49
+
+
+
 /// 屏幕宽度
 let kScreenWidth :CGFloat = UIScreen.main.bounds.width
 

@@ -53,7 +53,7 @@ enum UYRequestAPI : String {
     case organise = "app/index/inquire"//首页附近机构推荐（分页）和机构搜索接口
     case searchHistory = "app/index/search" //搜索历史以及热门
     case organizationDetail = "app/index/org"//机构详情
-    
+    case organizeIntroduce = "app/org/view" //机构简介webView
     //分期相关
     case applyQuestionList = "app/question/config" //申请之问卷调查列表
     case applyQuestionSubmit = "app/question/submit" ////申请之问卷调查提交
@@ -74,6 +74,9 @@ enum UYRequestAPI : String {
     func requestURLString() -> String {
         return baseURL() + self.rawValue
     }
+}
+func organiseIntroduce(orgId:String) -> String {
+    return "\(UYRequestAPI.organizeIntroduce.requestURLString())?org_id=\(orgId)"
 }
 
 func baseURL() -> String {

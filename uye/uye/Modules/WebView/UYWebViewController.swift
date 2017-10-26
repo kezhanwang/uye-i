@@ -74,7 +74,7 @@ extension UYWebViewController  {
         webView.navigationDelegate = self
         view.addSubview(webView)
         webView.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaHeight)
+            make.top.equalTo(kNavigationHeight)
             make.left.bottom.right.equalTo(0)
         }
         
@@ -82,7 +82,7 @@ extension UYWebViewController  {
         progressView.trackTintColor = UIColor.white
         view.addSubview(progressView)
         progressView.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaHeight)
+            make.top.equalTo(kNavigationHeight)
             make.left.right.equalTo(0)
             make.height.equalTo(2)
         }

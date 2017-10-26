@@ -25,7 +25,7 @@ class UYOrganiseInfoCell: UITableViewCell {
         
         categoryView.layer.cornerRadius = 4
         categoryView.layer.borderWidth = 1
-        categoryView.layer.borderColor = UIColor(hexColor: "39aefb").cgColor
+        categoryView.layer.borderColor = UIColor.blueTextColor.cgColor
         categoryView.layer.masksToBounds = true
         
         signBtn.layer.cornerRadius = 4

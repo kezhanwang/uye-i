@@ -54,7 +54,7 @@ class UYHomeViewController: UYBaseViewController {
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaHeight)
+            make.top.equalTo(kNavigationHeight)
             make.left.right.equalTo(0)
             make.bottom.equalTo(-(tabBarController?.tabBar.frame.height)!)
         }

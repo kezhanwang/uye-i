@@ -99,7 +99,7 @@ extension UYLoginViewController  {
         view.addSubview(showPwdBtn)
         
         phoneTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaHeight)
+            make.top.equalTo(kNavigationHeight)
             make.left.equalTo(16)
             make.right.equalTo(-16)
             make.height.equalTo(49)

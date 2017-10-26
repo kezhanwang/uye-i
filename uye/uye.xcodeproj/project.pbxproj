@@ -139,6 +139,8 @@
 		35D253EE1F91F91400945017 /* UYLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D253ED1F91F91400945017 /* UYLoginViewController.swift */; };
 		35D43CC21F9D9AF200D08BF4 /* UDIDSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D43CC11F9D9AF100D08BF4 /* UDIDSDK.a */; };
 		35D43CC41F9D9C9A00D08BF4 /* UYSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D43CC31F9D9C9A00D08BF4 /* UYSearchBar.swift */; };
+		35DE41631FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DE41611FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift */; };
+		35DE41641FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DE41621FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib */; };
 		35E4A3E41F9C9BF6003C2C56 /* KZDataPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4A3E21F9C9BF5003C2C56 /* KZDataPicker.m */; };
 		35E9BB341F97464C00A8BED9 /* UYInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9BB331F97464C00A8BED9 /* UYInputModel.swift */; };
 		35E9BB371F97493900A8BED9 /* UYInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9BB351F97493900A8BED9 /* UYInputTableViewCell.swift */; };
@@ -327,6 +329,9 @@
 		35D253ED1F91F91400945017 /* UYLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYLoginViewController.swift; sourceTree = "<group>"; };
 		35D43CC11F9D9AF100D08BF4 /* UDIDSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = UDIDSDK.a; sourceTree = "<group>"; };
 		35D43CC31F9D9C9A00D08BF4 /* UYSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYSearchBar.swift; sourceTree = "<group>"; };
+		35DE41601FA1C07000C9562B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		35DE41611FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYMoreCourseTableViewCell.swift; sourceTree = "<group>"; };
+		35DE41621FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYMoreCourseTableViewCell.xib; sourceTree = "<group>"; };
 		35E4A3E21F9C9BF5003C2C56 /* KZDataPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZDataPicker.m; sourceTree = "<group>"; };
 		35E4A3E31F9C9BF5003C2C56 /* KZDataPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZDataPicker.h; sourceTree = "<group>"; };
 		35E9BB331F97464C00A8BED9 /* UYInputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYInputModel.swift; sourceTree = "<group>"; };
@@ -364,6 +369,7 @@
 		1FA9AEF4B9E3741373006DC5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35DE41601FA1C07000C9562B /* WebKit.framework */,
 				358CF6EE1F9B286300C281EA /* libc++.tbd */,
 				358CF6EC1F9B284B00C281EA /* libicucore.tbd */,
 				35522BD51F9882290088C7D6 /* Security.framework */,
@@ -708,6 +714,8 @@
 				3503D3951FA07A240026C2FF /* UYOrganiseInfoCell.xib */,
 				3503D3981FA0816E0026C2FF /* UYOrganiseDetailHeaderView.swift */,
 				3503D39A1FA081780026C2FF /* UYOrganiseDetailHeaderView.xib */,
+				35DE41611FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift */,
+				35DE41621FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib */,
 				3503D39C1FA082A40026C2FF /* UYCourseTableViewCell.swift */,
 				3503D39D1FA082A40026C2FF /* UYCourseTableViewCell.xib */,
 				3503D3A41FA085170026C2FF /* UYOrganiseIntroduceTableViewCell.swift */,
@@ -1053,7 +1061,7 @@
 				TargetAttributes = {
 					354E340D1F6CF862009CFCE4 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 48TW2EJWSZ;
+						DevelopmentTeam = DSU3FH258U;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1109,6 +1117,7 @@
 				3524A2FA1F95E2330035FE80 /* UYOrganiseTableViewCell.xib in Resources */,
 				358CF7311F9B3C7A00C281EA /* photo_picker_back@2x.png in Resources */,
 				358CF7321F9B3C7A00C281EA /* photo_picker_normal@2x.png in Resources */,
+				35DE41641FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib in Resources */,
 				356521CA1F91E20000175734 /* UYCustomSimpleTableCell.xib in Resources */,
 				353FD2551F9F2895003BB537 /* UYAnswerTableViewCell.xib in Resources */,
 				3503D39F1FA082A40026C2FF /* UYCourseTableViewCell.xib in Resources */,
@@ -1216,6 +1225,7 @@
 				358EBB151F9C69F60075033D /* UYBankTableCell.swift in Sources */,
 				35522BD21F9853510088C7D6 /* UYUploadImageTableViewCell.swift in Sources */,
 				353FD2541F9F2895003BB537 /* UYAnswerTableViewCell.swift in Sources */,
+				35DE41631FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift in Sources */,
 				358CF7231F9B3C7A00C281EA /* BottomView.m in Sources */,
 				358CF7241F9B3C7A00C281EA /* HeadView.m in Sources */,
 				3524A2F91F95E2330035FE80 /* UYOrganiseTableViewCell.swift in Sources */,
@@ -1395,7 +1405,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = uye/uye.entitlements;
-				DEVELOPMENT_TEAM = 48TW2EJWSZ;
+				DEVELOPMENT_TEAM = DSU3FH258U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1415,7 +1425,7 @@
 					"$(PROJECT_DIR)/uye/Tools/Third/SafeAuthManager/UDSafeSDK",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bjzt.uye;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bjzht.uye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "uye/uye-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1432,7 +1442,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = uye/uye.entitlements;
-				DEVELOPMENT_TEAM = 48TW2EJWSZ;
+				DEVELOPMENT_TEAM = DSU3FH258U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1447,7 +1457,7 @@
 					"$(PROJECT_DIR)/uye/Tools/Third/SafeAuthManager/UDSafeSDK",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bjzt.uye;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bjzht.uye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "uye/uye-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;

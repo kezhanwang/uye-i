@@ -44,7 +44,7 @@ class UYUserInfoViewController: UYBaseViewController {
     override func setupUI() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaHeight)
+            make.top.equalTo(kNavigationHeight)
             make.left.right.bottom.equalTo(0)
         }
         tableView.delegate = self

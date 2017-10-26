@@ -59,7 +59,7 @@ extension UYEmployViewController {
         orderCollectionView.backgroundColor = UIColor.background
         orderCollectionView.register(UINib(nibName: "UYOrderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: orderCelIdentifier)
         orderCollectionView.snp.updateConstraints { (make) in
-            make.top.equalTo(safeAreaHeight)
+            make.top.equalTo(kNavigationHeight)
             make.bottom.equalTo(-(tabBarController?.tabBar.frame.height)!)
         }
     }
@@ -110,7 +110,7 @@ extension UYEmployViewController :UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = kScreenHeight - safeAreaHeight - (tabBarController?.tabBar.frame.height)!
+        let height = kScreenHeight - kNavigationHeight - kTabBarHeight
         return CGSize(width: kScreenWidth, height: height)
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -149,7 +149,6 @@ extension UYEmployViewController {
         if isRefash {
             page  = 1
         }
-        print("当前请求第\(page)页")
         request.getOrderList(page: page) {[weak self] (orderList, error) -> (Void) in
             if error != nil {
                 self?.showTextToastAutoDismiss(msg: (error?.description)!)
