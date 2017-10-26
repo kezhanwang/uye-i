@@ -12,6 +12,12 @@ class UYOrganiseList: UYBaseModel {
     var page :UYPageModel?
     var organizes :[UYOrganiseModel]?
 }
+class UYOrganiseDetailModel: UYBaseModel {
+    var organize:UYOrganiseModel?
+    var courses:[UYCourseModel]?
+    
+    
+}
 class UYOrganiseModel: UYBaseModel {
     //机构id
     var org_id:String?
@@ -53,9 +59,11 @@ class UYOrganiseModel: UYBaseModel {
     var status:String?
     var uye:String?
     
-   
-    
-    
-    
+}
+
+class UYCourseModel: UYBaseModel {
+    var c_id:String?
+    var c_name:String?
+    var logo:String?
 }
 

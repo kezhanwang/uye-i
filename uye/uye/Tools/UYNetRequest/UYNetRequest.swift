@@ -194,6 +194,20 @@ extension UYNetRequest {
             }
         }
     }
+    func getOrganiseDetail(orgId:String, complete:@escaping(_ result:UYOrganiseDetailModel?,_ error:UYError?) -> Void) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.organizationDetail
+        config.requestMethod = .get
+        config.parameters = ["org_id":orgId]
+        UYRequestManager.shared.request(config: config, type: UYOrganiseDetailModel.self) { (list:Any, error:UYError?) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYOrganiseDetailModel),error)
+            }
+        }
+    }
+  
 
 }
 

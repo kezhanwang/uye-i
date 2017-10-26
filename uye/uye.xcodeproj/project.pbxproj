@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3503D3961FA07A240026C2FF /* UYOrganiseInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3503D3941FA07A240026C2FF /* UYOrganiseInfoCell.swift */; };
+		3503D3971FA07A240026C2FF /* UYOrganiseInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3503D3951FA07A240026C2FF /* UYOrganiseInfoCell.xib */; };
+		3503D3991FA0816E0026C2FF /* UYOrganiseDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3503D3981FA0816E0026C2FF /* UYOrganiseDetailHeaderView.swift */; };
+		3503D39B1FA081780026C2FF /* UYOrganiseDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3503D39A1FA081780026C2FF /* UYOrganiseDetailHeaderView.xib */; };
+		3503D39E1FA082A40026C2FF /* UYCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3503D39C1FA082A40026C2FF /* UYCourseTableViewCell.swift */; };
+		3503D39F1FA082A40026C2FF /* UYCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3503D39D1FA082A40026C2FF /* UYCourseTableViewCell.xib */; };
+		3503D3A61FA085170026C2FF /* UYOrganiseIntroduceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3503D3A41FA085170026C2FF /* UYOrganiseIntroduceTableViewCell.swift */; };
 		3514F15E1F945BD9005574B3 /* UYAPPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3514F15D1F945BD9005574B3 /* UYAPPManager.swift */; };
 		351572781F9303B700AFCA8F /* UYRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351572761F9303B700AFCA8F /* UYRegisterViewController.swift */; };
 		3515727B1F9306A600AFCA8F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515727A1F9306A600AFCA8F /* UIViewController+Extension.swift */; };
@@ -147,6 +154,13 @@
 		12160BFF0D29DE99B9C1AF4D /* Pods-uye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uye.release.xcconfig"; path = "Pods/Target Support Files/Pods-uye/Pods-uye.release.xcconfig"; sourceTree = "<group>"; };
 		1D19E058FE32AE5E02149D6F /* Pods-uye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uye.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uye/Pods-uye.debug.xcconfig"; sourceTree = "<group>"; };
 		24262430B6035025E7355646 /* Pods_uye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3503D3941FA07A240026C2FF /* UYOrganiseInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseInfoCell.swift; sourceTree = "<group>"; };
+		3503D3951FA07A240026C2FF /* UYOrganiseInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrganiseInfoCell.xib; sourceTree = "<group>"; };
+		3503D3981FA0816E0026C2FF /* UYOrganiseDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseDetailHeaderView.swift; sourceTree = "<group>"; };
+		3503D39A1FA081780026C2FF /* UYOrganiseDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrganiseDetailHeaderView.xib; sourceTree = "<group>"; };
+		3503D39C1FA082A40026C2FF /* UYCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYCourseTableViewCell.swift; sourceTree = "<group>"; };
+		3503D39D1FA082A40026C2FF /* UYCourseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYCourseTableViewCell.xib; sourceTree = "<group>"; };
+		3503D3A41FA085170026C2FF /* UYOrganiseIntroduceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseIntroduceTableViewCell.swift; sourceTree = "<group>"; };
 		3514F15D1F945BD9005574B3 /* UYAPPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAPPManager.swift; sourceTree = "<group>"; };
 		351572761F9303B700AFCA8F /* UYRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYRegisterViewController.swift; sourceTree = "<group>"; };
 		3515727A1F9306A600AFCA8F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -690,6 +704,13 @@
 				351B84861FA03AE300C77846 /* UYTagView.swift */,
 				3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */,
 				3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */,
+				3503D3941FA07A240026C2FF /* UYOrganiseInfoCell.swift */,
+				3503D3951FA07A240026C2FF /* UYOrganiseInfoCell.xib */,
+				3503D3981FA0816E0026C2FF /* UYOrganiseDetailHeaderView.swift */,
+				3503D39A1FA081780026C2FF /* UYOrganiseDetailHeaderView.xib */,
+				3503D39C1FA082A40026C2FF /* UYCourseTableViewCell.swift */,
+				3503D39D1FA082A40026C2FF /* UYCourseTableViewCell.xib */,
+				3503D3A41FA085170026C2FF /* UYOrganiseIntroduceTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1082,6 +1103,7 @@
 				358CF7261F9B3C7A00C281EA /* PhotoCollectionViewCell.xib in Resources */,
 				35E9BB381F97493900A8BED9 /* UYInputTableViewCell.xib in Resources */,
 				358CF7281F9B3C7A00C281EA /* PhotoListCell.xib in Resources */,
+				3503D39B1FA081780026C2FF /* UYOrganiseDetailHeaderView.xib in Resources */,
 				357396B71F98A6B900BF5811 /* UYHomeOrderTableViewCell.xib in Resources */,
 				358CF73C1F9B3C7A00C281EA /* PhotoViewController.xib in Resources */,
 				3524A2FA1F95E2330035FE80 /* UYOrganiseTableViewCell.xib in Resources */,
@@ -1089,6 +1111,8 @@
 				358CF7321F9B3C7A00C281EA /* photo_picker_normal@2x.png in Resources */,
 				356521CA1F91E20000175734 /* UYCustomSimpleTableCell.xib in Resources */,
 				353FD2551F9F2895003BB537 /* UYAnswerTableViewCell.xib in Resources */,
+				3503D39F1FA082A40026C2FF /* UYCourseTableViewCell.xib in Resources */,
+				3503D3971FA07A240026C2FF /* UYOrganiseInfoCell.xib in Resources */,
 				354A214B1F9DBC7400B33832 /* UYEmployViewController.xib in Resources */,
 				354E34191F6CF862009CFCE4 /* Assets.xcassets in Resources */,
 			);
@@ -1157,6 +1181,7 @@
 				353FD2561F9F2895003BB537 /* UYOrganiseOrderTableCell.swift in Sources */,
 				355260A81F6F65FE00F8734A /* UYNetRequest.swift in Sources */,
 				3517C1381F7DF5D9008E49AC /* SRToast.swift in Sources */,
+				3503D39E1FA082A40026C2FF /* UYCourseTableViewCell.swift in Sources */,
 				358CF7271F9B3C7A00C281EA /* PhotoListCell.m in Sources */,
 				357396B61F98A6B900BF5811 /* UYHomeOrderTableViewCell.swift in Sources */,
 				358CF73B1F9B3C7A00C281EA /* PhotoViewController.m in Sources */,
@@ -1178,6 +1203,7 @@
 				354E344C1F6D3ED9009CFCE4 /* UYConfiguration.swift in Sources */,
 				358CF7301F9B3C7A00C281EA /* UIImage+Reshape.m in Sources */,
 				352F123C1F99F8E100F7E30B /* UYTipsHeadView.swift in Sources */,
+				3503D3961FA07A240026C2FF /* UYOrganiseInfoCell.swift in Sources */,
 				354E34471F6D3E11009CFCE4 /* UYNavigationController.swift in Sources */,
 				354E34571F6D4284009CFCE4 /* UYWebViewController.swift in Sources */,
 				354E343E1F6D3CD2009CFCE4 /* String+Extension.swift in Sources */,
@@ -1218,6 +1244,7 @@
 				356521BF1F91D5C200175734 /* UYUserTableViewCell.swift in Sources */,
 				35D43CC41F9D9C9A00D08BF4 /* UYSearchBar.swift in Sources */,
 				3552609F1F6F5DB000F8734A /* UYUserViewController.swift in Sources */,
+				3503D3A61FA085170026C2FF /* UYOrganiseIntroduceTableViewCell.swift in Sources */,
 				35A87ED71F9493E3004DEFFE /* UYSearchViewController.swift in Sources */,
 				358CF74D1F9B3E4400C281EA /* XJActionSheet+ImagePicker.m in Sources */,
 				351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */,
@@ -1245,6 +1272,7 @@
 				35E9BB3B1F974ACE00A8BED9 /* UYInputBtnTableViewCell.swift in Sources */,
 				358CF7461F9B3D3A00C281EA /* UYUploadPhotoManager.swift in Sources */,
 				353FD24D1F9F2895003BB537 /* UYQuestionList.swift in Sources */,
+				3503D3991FA0816E0026C2FF /* UYOrganiseDetailHeaderView.swift in Sources */,
 				355260AA1F6F662200F8734A /* UYRequestConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

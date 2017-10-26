@@ -14,12 +14,5 @@ class UYOrganiseConfig: UYBaseModel {
     var organize:UYOrganiseModel? //机构信息
     var courses:[UYCourseModel]?  //课程列表
     
-    
 }
 
-class UYCourseModel: UYBaseModel {
-    var c_id:String?
-    var c_name:String?
-    
-    
-}

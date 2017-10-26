@@ -98,7 +98,7 @@
                 <outlet property="iconImageView" destination="7y4-s3-HqZ" id="Svr-og-iFb"/>
                 <outlet property="nameLabel" destination="1Ea-f9-8u7" id="0i8-Ed-26w"/>
             </connections>
-            <point key="canvasLocation" x="-650" y="-228"/>
+            <point key="canvasLocation" x="-955" y="-260"/>
         </tableViewCell>
     </objects>
     <resources>
