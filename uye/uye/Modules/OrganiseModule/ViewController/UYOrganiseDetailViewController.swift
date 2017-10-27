@@ -20,6 +20,9 @@ class UYOrganiseDetailViewController: UYBaseViewController {
     
     fileprivate var organiseDetailInfo:UYOrganiseDetailModel?
     fileprivate let tableView = UITableView(frame: .zero, style: .grouped)
+    
+    fileprivate var bottomBar:UYOrganiseBottomBar? = nil
+    
     fileprivate var webViewHeight :CGFloat = 100
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +32,10 @@ class UYOrganiseDetailViewController: UYBaseViewController {
 
     override func setupUI() {
         view.addSubview(tableView)
+        
         tableView.snp.makeConstraints { (make) in
             make.top.equalTo(kNavigationHeight)
             make.left.right.equalTo(0)
-            make.bottom.equalTo(-49)
         }
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,8 +49,17 @@ class UYOrganiseDetailViewController: UYBaseViewController {
         tableView.register(UYOrganiseIntroduceTableViewCell.classForCoder(), forCellReuseIdentifier: introduceIdentifier)
         tableView.register(UINib(nibName: "UYOrganiseDetailHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: headViewIdentifier)
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 1))
-
         
+        bottomBar = UYOrganiseBottomBar.loadBottomBar()
+        if  bottomBar !=  nil {
+            view.addSubview(bottomBar!)
+            bottomBar?.snp.makeConstraints({ (make) in
+                make.top.equalTo(tableView.snp.bottom).offset(0)
+                make.left.right.bottom.equalTo(0)
+                make.height.equalTo(kTabBarHeight+6)
+            })
+            bottomBar?.delegate = self
+        }
     }
 
     
@@ -90,6 +102,7 @@ extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSour
         if indexPath.section == 0  {
             if indexPath.row == 0 {
                 let cell  = tableView.dequeueReusableCell(withIdentifier: organiseInfoCellIdentifier, for: indexPath) as! UYOrganiseInfoCell
+                cell.delegate = self
                 cell.organiseInfo = organiseDetailInfo?.organize
                 return cell
             }
@@ -218,7 +231,43 @@ extension UYOrganiseDetailViewController : UYOrganiseIntroduceTableViewCellDeleg
         
     }
 }
-
+extension UYOrganiseDetailViewController :UYOrganiseBottomBarDelegate {
+    func callOrganisePhone() {
+        if let phoeNumber = organise?.phone {
+            if phoeNumber.characters.count > 0 {
+                DispatchQueue.main.async {
+                    UIApplication.shared.openURL(URL(string: "telprompt://\(phoeNumber)")!)
+                }
+            }else{
+                showTextToastAutoDismiss(msg: "暂无机构电话")
+            }
+        }else{
+            showTextToastAutoDismiss(msg: "暂无机构电话")
+        }
+    }
+    func collectOrganiseAction() {
+        organise?.is_collect = !(organise?.is_collect)!
+        if organise?.is_collect == false {
+            bottomBar!.collectionImageView.image = #imageLiteral(resourceName: "organise_collect_icon")
+        }else{
+            bottomBar?.collectionImageView.image = #imageLiteral(resourceName: "organise_uncollect_icon")
+        }
+    }
+    func signOrganiseAction() {
+        if UYAPPManager.shared.userInfo != nil {
+            let quetionVC = UYQuestionnaireViewController()
+            quetionVC.org_id = organise?.org_id ?? ""
+            pushToNextVC(nextVC: quetionVC)
+        }else{
+            pushToNextVC(nextVC: UYLoginViewController())
+        }
+    }
+}
+extension UYOrganiseDetailViewController : UYOrganiseInfoCellDelegate {
+    func signOrganiseCellAction() {
+        signOrganiseAction()
+    }
+}
 // MARK: - 网络请求
 extension UYOrganiseDetailViewController {
     func loadOrganiseDetailData() {

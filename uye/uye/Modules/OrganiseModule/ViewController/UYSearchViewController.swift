@@ -175,13 +175,7 @@ extension UYSearchViewController :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-//        if UYAPPManager.shared.userInfo != nil {
-//            let quetionVC = UYQuestionnaireViewController()
-//            quetionVC.org_id = organiseList[indexPath.row].org_id ?? ""
-//            pushToNextVC(nextVC: quetionVC)
-//        }else{
-//            pushToNextVC(nextVC: UYLoginViewController())
-//        }
+
         
         let organiseDetailVC = UYOrganiseDetailViewController()
         organiseDetailVC.organise = organiseList[indexPath.row]

@@ -56,6 +56,8 @@ class UYOrganiseModel: UYBaseModel {
     //热门课程
     var popular :String?
     
+    var is_collect:Bool = false
+    
     var status:String?
     var uye:String?
     

@@ -68,6 +68,8 @@
 		354E344C1F6D3ED9009CFCE4 /* UYConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E344B1F6D3ED9009CFCE4 /* UYConfiguration.swift */; };
 		354E34501F6D3F9B009CFCE4 /* UYTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E344F1F6D3F9B009CFCE4 /* UYTabBarController.swift */; };
 		354E34571F6D4284009CFCE4 /* UYWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E34561F6D4284009CFCE4 /* UYWebViewController.swift */; };
+		354F86951FA32BEA009C7276 /* UYOrganiseBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F86941FA32BEA009C7276 /* UYOrganiseBottomBar.swift */; };
+		354F86991FA32C03009C7276 /* UYOrganiseBottomBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354F86981FA32C03009C7276 /* UYOrganiseBottomBar.xib */; };
 		35522BD21F9853510088C7D6 /* UYUploadImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35522BD11F9853510088C7D6 /* UYUploadImageTableViewCell.swift */; };
 		35522BD41F9882210088C7D6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35522BD01F9850C60088C7D6 /* SystemConfiguration.framework */; };
 		3552609D1F6F5D7C00F8734A /* UYHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3552609C1F6F5D7C00F8734A /* UYHomeViewController.swift */; };
@@ -219,6 +221,8 @@
 		354E344B1F6D3ED9009CFCE4 /* UYConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYConfiguration.swift; sourceTree = "<group>"; };
 		354E344F1F6D3F9B009CFCE4 /* UYTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYTabBarController.swift; sourceTree = "<group>"; };
 		354E34561F6D4284009CFCE4 /* UYWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYWebViewController.swift; sourceTree = "<group>"; };
+		354F86941FA32BEA009C7276 /* UYOrganiseBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseBottomBar.swift; sourceTree = "<group>"; };
+		354F86981FA32C03009C7276 /* UYOrganiseBottomBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrganiseBottomBar.xib; sourceTree = "<group>"; };
 		35522BD01F9850C60088C7D6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		35522BD11F9853510088C7D6 /* UYUploadImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYUploadImageTableViewCell.swift; sourceTree = "<group>"; };
 		35522BD31F98801A0088C7D6 /* uye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = uye.entitlements; sourceTree = "<group>"; };
@@ -719,6 +723,8 @@
 				3503D39C1FA082A40026C2FF /* UYCourseTableViewCell.swift */,
 				3503D39D1FA082A40026C2FF /* UYCourseTableViewCell.xib */,
 				3503D3A41FA085170026C2FF /* UYOrganiseIntroduceTableViewCell.swift */,
+				354F86941FA32BEA009C7276 /* UYOrganiseBottomBar.swift */,
+				354F86981FA32C03009C7276 /* UYOrganiseBottomBar.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1107,6 +1113,7 @@
 				358CF7331F9B3C7A00C281EA /* photo_picker_select@2x.png in Resources */,
 				35E9BB3C1F974ACE00A8BED9 /* UYInputBtnTableViewCell.xib in Resources */,
 				358CF6EB1F9B1F9700C281EA /* Resource.bundle in Resources */,
+				354F86991FA32C03009C7276 /* UYOrganiseBottomBar.xib in Resources */,
 				354A214F1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib in Resources */,
 				358CF7261F9B3C7A00C281EA /* PhotoCollectionViewCell.xib in Resources */,
 				35E9BB381F97493900A8BED9 /* UYInputTableViewCell.xib in Resources */,
@@ -1244,6 +1251,7 @@
 				358CF7341F9B3C7A00C281EA /* KZPhotoPicker.m in Sources */,
 				3524A2FC1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift in Sources */,
 				357396B21F98A47D00BF5811 /* UYHomeTipsTableViewCell.swift in Sources */,
+				354F86951FA32BEA009C7276 /* UYOrganiseBottomBar.swift in Sources */,
 				355260A11F6F5DBE00F8734A /* UYEmployViewController.swift in Sources */,
 				354E343F1F6D3CD2009CFCE4 /* UIBarButtonItem+Extension.swift in Sources */,
 				358CF6E01F9B1F1E00C281EA /* SafeAuthManager.m in Sources */,

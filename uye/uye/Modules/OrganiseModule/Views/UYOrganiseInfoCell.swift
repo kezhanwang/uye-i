@@ -17,6 +17,9 @@ class UYOrganiseInfoCell: UITableViewCell {
     
     @IBOutlet weak var scoreView: UYScoreView!
     @IBOutlet weak var signBtn: UIButton!
+    
+    var delegate: UYOrganiseInfoCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +55,12 @@ class UYOrganiseInfoCell: UITableViewCell {
     
 
     @IBAction func signAction(_ sender: Any) {
+        if delegate != nil {
+            delegate?.signOrganiseCellAction()
+        }
     }
     
+}
+protocol UYOrganiseInfoCellDelegate :NSObjectProtocol {
+    func signOrganiseCellAction()
 }
