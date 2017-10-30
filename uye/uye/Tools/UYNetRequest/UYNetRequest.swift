@@ -30,6 +30,7 @@ extension UYNetRequest {
             }
         }
     }
+    // MARK: 版本检测
     func checkVersionRequest(complete:@escaping(_ versionInfo:UYVersionInfo?,_ error:UYError?) -> (Void)) {
         let config = UYRequestConfig()
         config.requestURL = UYRequestAPI.commonVersion
@@ -43,6 +44,7 @@ extension UYNetRequest {
         }
         
     }
+    // MARK : 上传图片
     func uploadImageRequest(images:[UYImageModel],complete:@escaping(_ picInfo:[String:Any]?,_ error:UYError?) -> (Void))  {
         let config = UYRequestConfig()
         config.requestURL = UYRequestAPI.commonUpload
@@ -61,7 +63,45 @@ extension UYNetRequest {
                 complete(picInfo as? [String:Any],nil)
             }
         }
-       
+    }
+    // MARK: - 获取省列表
+    func getProvinceList(complete:@escaping(_ privinces:[UYAddress]?,_ error:UYError?) -> (Void)) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.commonProvince
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYAddress.self) { (result, error) in
+            if error != nil {
+                complete(nil,error!)
+            }else{
+                complete((result as? [UYAddress]),nil)
+            }
+        }
+    }
+    func getCityList(province:String,complete:@escaping(_ privinces:[UYAddress]?,_ error:UYError?) -> (Void)) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.commonCity
+        config.requestMethod = .get
+        config.parameters = ["province":province]
+        UYRequestManager.shared.request(config: config, type: UYAddress.self) { (result, error) in
+            if error != nil {
+                complete(nil,error!)
+            }else{
+                complete((result as? [UYAddress]),nil)
+            }
+        }
+    }
+    func getAreaList(city:String,complete:@escaping(_ privinces:[UYAddress]?,_ error:UYError?) -> (Void)) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.commonArea
+        config.requestMethod = .get
+        config.parameters = ["city":city]
+        UYRequestManager.shared.request(config: config, type: UYAddress.self) { (result, error) in
+            if error != nil {
+                complete(nil,error!)
+            }else{
+                complete((result as? [UYAddress]),nil)
+            }
+        }
     }
  
 }
@@ -320,6 +360,45 @@ extension UYNetRequest {
     func submitUserMobileBook(parameters:[String:Any],complete:@escaping(_ error: UYError?) -> (Void)) {
         let config = UYRequestConfig()
         config.requestURL = UYRequestAPI.userMobileSubmit
+        config.requestMethod = .post
+        config.parameters = parameters
+        UYRequestManager.shared.request(config: config, type: UYEmptyModel.self) { (result:Any, error) in
+            complete(error)
+        }
+    }
+}
+
+// MARK: - 申请相关之联系人信息
+extension UYNetRequest {
+    func getUserContactConfig(complete:@escaping(_ result:UYContactConfig?,_ error:UYError?) -> Void) {
+
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userContactConfig
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYContactConfig.self) { (list:Any, error) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYContactConfig),error)
+            }
+        }
+    }
+    func getUserContactInfo(complete:@escaping(_ result:UYUserContactInfo?,_ error:UYError?) -> Void) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userContactInfo
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYUserContactInfo.self) { (list:Any, error) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYUserContactInfo),error)
+            }
+        }
+    }
+    func submitUserContactInfo(parameters:[String:Any],complete:@escaping(_ error: UYError?) -> (Void)) {
+
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userContactSubmit
         config.requestMethod = .post
         config.parameters = parameters
         UYRequestManager.shared.request(config: config, type: UYEmptyModel.self) { (result:Any, error) in

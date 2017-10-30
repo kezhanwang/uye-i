@@ -59,9 +59,15 @@ enum UYRequestAPI : String {
     case applyQuestionSubmit = "app/question/submit" ////申请之问卷调查提交
     
     case userInfoStatus = "app/user/index" //用户信息的各项状态
+    
     case userInfoConfig = "app/identity/config" //用户信息绑定的配置
     case userIdentifyInfo = "app/identity/info" //用户身份信息获取
     case userIdentifySubmit = "app/identity/submit" //用户信息绑定提交
+    
+    case userContactConfig = "app/contact/config"//联系人信息的配置：婚姻状态，关系列表
+    case userContactInfo = "app/contact/info"//联系人信息
+    case userContactSubmit = "app/contact/submit"//联系人信息提交
+    
     case userMobileSubmit = "app/mobile/submit" //用户手机通讯录提交
     
     case orderOrganizeInfo = "app/insured/config" //订单的机构信息

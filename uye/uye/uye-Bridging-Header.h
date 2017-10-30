@@ -20,5 +20,7 @@
 
 #import "KZDataPicker.h"
 
+#import "MultiSelectView.h"
+
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 #endif /* uye_Bridging_Header_h */

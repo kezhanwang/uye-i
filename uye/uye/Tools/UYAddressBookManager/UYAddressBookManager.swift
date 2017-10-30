@@ -24,17 +24,17 @@ class UYAddressBookManager: NSObject {
 
     func uploadAddressBook(complete:@escaping UploadAddressBookHandler)  {
         uploadHandler = complete
-        //定义一个错误标记对象，判断是否成功
-        var error:Unmanaged<CFError>?
-        addressBook = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
         
         //发出授权信息
         let sysAddressBookStatus = ABAddressBookGetAuthorizationStatus()
         if (sysAddressBookStatus == ABAuthorizationStatus.notDetermined) {
-            //            var errorRef:Unmanaged<CFError>? = nil
-            //addressBook = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, &errorRef))
+            //定义一个错误标记对象，判断是否成功
+            var error:Unmanaged<CFError>?
+            addressBook = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
+            
             ABAddressBookRequestAccessWithCompletion(addressBook, { success, error in
                 if success {
+                    
                     //获取并遍历所有联系人记录
                     self.getAddressBook(complete: { (suce) in
                         if suce {
@@ -45,16 +45,17 @@ class UYAddressBookManager: NSObject {
                             }
                         }
                     })
-                }
-                else {
-                    print("error")
+                }else {
+                    if self.uploadHandler != nil {
+                        self.uploadHandler!(false,"权限不足，请在设置中打开通讯录权限")
+                    }
                 }
             })
         }
         else if (sysAddressBookStatus == ABAuthorizationStatus.denied ||
             sysAddressBookStatus == ABAuthorizationStatus.restricted) {
             if self.uploadHandler != nil {
-                self.uploadHandler!(false,"获取失败")
+                self.uploadHandler!(false,"权限不足，请在设置中打开通讯录权限")
             }
             
         }

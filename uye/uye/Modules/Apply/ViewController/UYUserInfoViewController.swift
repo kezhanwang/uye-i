@@ -138,11 +138,17 @@ extension UYUserInfoViewController {
                 self?.showTextToastAutoDismiss(msg: (error?.description)!)
             }else{
                 self?.dismissToast()
+                
                 if var status = self?.itemArray.first {
                     status.isCertified = (infoStatus?.identity)!
                     self?.itemArray[0] = status
-                    self?.tableView.reloadData()
                 }
+                if var status = self?.itemArray[2] {
+                    status.isCertified = (infoStatus?.contact)!
+                    self?.itemArray[2] = status
+                }
+                self?.tableView.reloadData()
+
                 
             }
         }
@@ -171,14 +177,17 @@ extension UYUserInfoViewController {
     }
     func submitUserMobie()  {
         showWaitToast()
-        UYAddressBookManager.shared.uploadAddressBook {[weak self] (scc, errorMsg) in
-            self?.dismissToast()
-            if var status = self?.itemArray.last {
-                status.isCertified = scc
-                self?.itemArray[1] = status
-                self?.tableView.reloadData()
+        UYAddressBookManager.shared.uploadAddressBook {[weak self] (success, errorMsg) in
+            if success {
+                if var status = self?.itemArray.last {
+                    self?.dismissToast()
+                    status.isCertified = true
+                    self?.itemArray[1] = status
+                    self?.tableView.reloadData()
+                }
+            }else{
+                self?.showTextToastAutoDismiss(msg: errorMsg)
             }
-
         }
     }
 }

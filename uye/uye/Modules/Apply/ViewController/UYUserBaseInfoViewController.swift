@@ -18,6 +18,7 @@ class UYUserBaseInfoViewController: UYBaseViewController {
     fileprivate var safeManager = SafeAuthManager()
     fileprivate let uploadManager = UYUploadPhotoManager()
     fileprivate let bankPickerView = UYBankPickerView()
+    
     fileprivate var repeatCount :Int = 0
     fileprivate var tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.grouped)
     fileprivate var dataArray = [[UYInputModel]]()

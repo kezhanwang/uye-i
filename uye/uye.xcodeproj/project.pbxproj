@@ -88,6 +88,9 @@
 		355CF5DF1FA6D672001F967F /* MultSelectHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5D51FA6D671001F967F /* MultSelectHeadView.m */; };
 		355CF5E01FA6D672001F967F /* SchoolSearchHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5D71FA6D671001F967F /* SchoolSearchHeadView.m */; };
 		355CF5E11FA6D672001F967F /* KZSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5DA1FA6D671001F967F /* KZSegmentControl.m */; };
+		355CF5E31FA6F615001F967F /* UYAddressPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5E21FA6F615001F967F /* UYAddressPicker.swift */; };
+		355CF5E51FA6F7CF001F967F /* UYAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5E41FA6F7CF001F967F /* UYAddress.swift */; };
+		355CF5E71FA70A7F001F967F /* UYUserContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5E61FA70A7F001F967F /* UYUserContactInfo.swift */; };
 		356521BF1F91D5C200175734 /* UYUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356521BD1F91D5C200175734 /* UYUserTableViewCell.swift */; };
 		356521C01F91D5C200175734 /* UYUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */; };
 		356521C91F91E20000175734 /* UYCustomSimpleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */; };
@@ -264,6 +267,9 @@
 		355CF5D71FA6D671001F967F /* SchoolSearchHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolSearchHeadView.m; sourceTree = "<group>"; };
 		355CF5D91FA6D671001F967F /* KZSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZSegmentControl.h; sourceTree = "<group>"; };
 		355CF5DA1FA6D671001F967F /* KZSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZSegmentControl.m; sourceTree = "<group>"; };
+		355CF5E21FA6F615001F967F /* UYAddressPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAddressPicker.swift; sourceTree = "<group>"; };
+		355CF5E41FA6F7CF001F967F /* UYAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAddress.swift; sourceTree = "<group>"; };
+		355CF5E61FA70A7F001F967F /* UYUserContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYUserContactInfo.swift; sourceTree = "<group>"; };
 		356521BD1F91D5C200175734 /* UYUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYUserTableViewCell.swift; sourceTree = "<group>"; };
 		356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYUserTableViewCell.xib; sourceTree = "<group>"; };
 		356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYCustomSimpleTableCell.swift; sourceTree = "<group>"; };
@@ -460,6 +466,9 @@
 				353FD23C1F9F2895003BB537 /* UYQuestionList.swift */,
 				353FD23D1F9F2895003BB537 /* UYUserInfoStatus.swift */,
 				353FD23E1F9F2895003BB537 /* UYUserStatusModel.swift */,
+				355CF5E21FA6F615001F967F /* UYAddressPicker.swift */,
+				355CF5E41FA6F7CF001F967F /* UYAddress.swift */,
+				355CF5E61FA70A7F001F967F /* UYUserContactInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1266,6 +1275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				355CF5DE1FA6D672001F967F /* KZTextField.m in Sources */,
+				355CF5E51FA6F7CF001F967F /* UYAddress.swift in Sources */,
 				353FD24C1F9F2895003BB537 /* UYOrganiseConfig.swift in Sources */,
 				358EBB121F9C64FD0075033D /* UYBankPickerView.swift in Sources */,
 				358CF7381F9B3C7A00C281EA /* PhotoNavigationController.m in Sources */,
@@ -1293,6 +1303,7 @@
 				354E34431F6D3CD2009CFCE4 /* UITableViewCell+Extension.swift in Sources */,
 				35A7B7681F9AED3D0031799D /* UYOrderListModel.swift in Sources */,
 				353FD2591F9F2895003BB537 /* UYUserInfoTableCell.swift in Sources */,
+				355CF5E31FA6F615001F967F /* UYAddressPicker.swift in Sources */,
 				354E34121F6CF862009CFCE4 /* AppDelegate.swift in Sources */,
 				354E344C1F6D3ED9009CFCE4 /* UYConfiguration.swift in Sources */,
 				358CF7301F9B3C7A00C281EA /* UIImage+Reshape.m in Sources */,
@@ -1350,6 +1361,7 @@
 				351B84891FA066A100C77846 /* UYScoreView.swift in Sources */,
 				354D08BC1F908C140024414E /* UYUserInfo.swift in Sources */,
 				35CFD7641F9B4F70001C0AC0 /* UYAddressBookManager.swift in Sources */,
+				355CF5E71FA70A7F001F967F /* UYUserContactInfo.swift in Sources */,
 				35A7B76F1F9B0E880031799D /* KZDatePickerView.m in Sources */,
 				355CF5DB1FA6D672001F967F /* MultiSelectView.m in Sources */,
 				353FD2581F9F2895003BB537 /* UYQuestionHeaderView.swift in Sources */,

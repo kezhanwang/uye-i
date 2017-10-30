@@ -10,6 +10,7 @@ import UIKit
 
 class UYUserInfoStatus: UYBaseModel {
     var identity :Bool = false
+    var contact:Bool = false
     
 }
 
