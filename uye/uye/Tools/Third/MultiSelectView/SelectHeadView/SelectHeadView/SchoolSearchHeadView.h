@@ -1,0 +1,13 @@
+//
+//  SchoolSearchHeadView.h
+//  MultiSelectView
+//
+//  Created by Tintin on 2017/3/31.
+//  Copyright © 2017年 Tintin. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface SchoolSearchHeadView : UIScrollView
+- (void)makeSureButtonAction:(void(^)(NSString *schoolName))block;
+@end

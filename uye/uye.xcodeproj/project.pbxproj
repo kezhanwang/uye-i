@@ -80,6 +80,14 @@
 		355260AC1F6F663300F8734A /* UYRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AB1F6F663300F8734A /* UYRequestManager.swift */; };
 		355260AE1F6F664700F8734A /* UYRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AD1F6F664700F8734A /* UYRequestError.swift */; };
 		355260B01F6F665800F8734A /* UYBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AF1F6F665800F8734A /* UYBaseModel.swift */; };
+		355CF5C91FA6C2C7001F967F /* UYContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5C81FA6C2C7001F967F /* UYContactsViewController.swift */; };
+		355CF5DB1FA6D672001F967F /* MultiSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5CC1FA6D671001F967F /* MultiSelectView.m */; };
+		355CF5DC1FA6D672001F967F /* loan_close_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 355CF5CE1FA6D671001F967F /* loan_close_black@2x.png */; };
+		355CF5DD1FA6D672001F967F /* loan_close_black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 355CF5CF1FA6D671001F967F /* loan_close_black@3x.png */; };
+		355CF5DE1FA6D672001F967F /* KZTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5D31FA6D671001F967F /* KZTextField.m */; };
+		355CF5DF1FA6D672001F967F /* MultSelectHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5D51FA6D671001F967F /* MultSelectHeadView.m */; };
+		355CF5E01FA6D672001F967F /* SchoolSearchHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5D71FA6D671001F967F /* SchoolSearchHeadView.m */; };
+		355CF5E11FA6D672001F967F /* KZSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5DA1FA6D671001F967F /* KZSegmentControl.m */; };
 		356521BF1F91D5C200175734 /* UYUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356521BD1F91D5C200175734 /* UYUserTableViewCell.swift */; };
 		356521C01F91D5C200175734 /* UYUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */; };
 		356521C91F91E20000175734 /* UYCustomSimpleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */; };
@@ -243,6 +251,19 @@
 		355365281F9447C000CA6DF6 /* HGImageCompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGImageCompleteButton.swift; sourceTree = "<group>"; };
 		355365291F9447C000CA6DF6 /* HGImagePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGImagePickerCell.swift; sourceTree = "<group>"; };
 		3553652A1F9447C000CA6DF6 /* HGImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGImagePickerController.swift; sourceTree = "<group>"; };
+		355CF5C81FA6C2C7001F967F /* UYContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYContactsViewController.swift; sourceTree = "<group>"; };
+		355CF5CB1FA6D671001F967F /* MultiSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiSelectView.h; sourceTree = "<group>"; };
+		355CF5CC1FA6D671001F967F /* MultiSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectView.m; sourceTree = "<group>"; };
+		355CF5CE1FA6D671001F967F /* loan_close_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loan_close_black@2x.png"; sourceTree = "<group>"; };
+		355CF5CF1FA6D671001F967F /* loan_close_black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loan_close_black@3x.png"; sourceTree = "<group>"; };
+		355CF5D21FA6D671001F967F /* KZTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZTextField.h; sourceTree = "<group>"; };
+		355CF5D31FA6D671001F967F /* KZTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZTextField.m; sourceTree = "<group>"; };
+		355CF5D41FA6D671001F967F /* MultSelectHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultSelectHeadView.h; sourceTree = "<group>"; };
+		355CF5D51FA6D671001F967F /* MultSelectHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultSelectHeadView.m; sourceTree = "<group>"; };
+		355CF5D61FA6D671001F967F /* SchoolSearchHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolSearchHeadView.h; sourceTree = "<group>"; };
+		355CF5D71FA6D671001F967F /* SchoolSearchHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolSearchHeadView.m; sourceTree = "<group>"; };
+		355CF5D91FA6D671001F967F /* KZSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZSegmentControl.h; sourceTree = "<group>"; };
+		355CF5DA1FA6D671001F967F /* KZSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZSegmentControl.m; sourceTree = "<group>"; };
 		356521BD1F91D5C200175734 /* UYUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYUserTableViewCell.swift; sourceTree = "<group>"; };
 		356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYUserTableViewCell.xib; sourceTree = "<group>"; };
 		356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYCustomSimpleTableCell.swift; sourceTree = "<group>"; };
@@ -450,6 +471,7 @@
 				353FD2411F9F2895003BB537 /* UYQuestionnaireViewController.swift */,
 				353FD2421F9F2895003BB537 /* UYUserBaseInfoViewController.swift */,
 				353FD2431F9F2895003BB537 /* UYUserInfoViewController.swift */,
+				355CF5C81FA6C2C7001F967F /* UYContactsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -622,6 +644,7 @@
 		355237C31F7248A10041B5BD /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				355CF5CA1FA6D671001F967F /* MultiSelectView */,
 				358CF7471F9B3E1D00C281EA /* XJActionSheet */,
 				358CF6F01F9B3C7A00C281EA /* PhotoPicker */,
 				358CF6DA1F9B1F1E00C281EA /* SafeAuthManager */,
@@ -706,6 +729,57 @@
 				3553652A1F9447C000CA6DF6 /* HGImagePickerController.swift */,
 			);
 			path = HGImage;
+			sourceTree = "<group>";
+		};
+		355CF5CA1FA6D671001F967F /* MultiSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				355CF5CB1FA6D671001F967F /* MultiSelectView.h */,
+				355CF5CC1FA6D671001F967F /* MultiSelectView.m */,
+				355CF5CD1FA6D671001F967F /* Resources */,
+				355CF5D01FA6D671001F967F /* SelectHeadView */,
+				355CF5D81FA6D671001F967F /* SelectSegmentedControl */,
+			);
+			path = MultiSelectView;
+			sourceTree = "<group>";
+		};
+		355CF5CD1FA6D671001F967F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				355CF5CE1FA6D671001F967F /* loan_close_black@2x.png */,
+				355CF5CF1FA6D671001F967F /* loan_close_black@3x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		355CF5D01FA6D671001F967F /* SelectHeadView */ = {
+			isa = PBXGroup;
+			children = (
+				355CF5D11FA6D671001F967F /* SelectHeadView */,
+			);
+			path = SelectHeadView;
+			sourceTree = "<group>";
+		};
+		355CF5D11FA6D671001F967F /* SelectHeadView */ = {
+			isa = PBXGroup;
+			children = (
+				355CF5D21FA6D671001F967F /* KZTextField.h */,
+				355CF5D31FA6D671001F967F /* KZTextField.m */,
+				355CF5D41FA6D671001F967F /* MultSelectHeadView.h */,
+				355CF5D51FA6D671001F967F /* MultSelectHeadView.m */,
+				355CF5D61FA6D671001F967F /* SchoolSearchHeadView.h */,
+				355CF5D71FA6D671001F967F /* SchoolSearchHeadView.m */,
+			);
+			path = SelectHeadView;
+			sourceTree = "<group>";
+		};
+		355CF5D81FA6D671001F967F /* SelectSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				355CF5D91FA6D671001F967F /* KZSegmentControl.h */,
+				355CF5DA1FA6D671001F967F /* KZSegmentControl.m */,
+			);
+			path = SelectSegmentedControl;
 			sourceTree = "<group>";
 		};
 		355CFEE71F9497C2001CB55C /* Views */ = {
@@ -1115,7 +1189,9 @@
 				358CF6EB1F9B1F9700C281EA /* Resource.bundle in Resources */,
 				354F86991FA32C03009C7276 /* UYOrganiseBottomBar.xib in Resources */,
 				354A214F1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib in Resources */,
+				355CF5DC1FA6D672001F967F /* loan_close_black@2x.png in Resources */,
 				358CF7261F9B3C7A00C281EA /* PhotoCollectionViewCell.xib in Resources */,
+				355CF5DD1FA6D672001F967F /* loan_close_black@3x.png in Resources */,
 				35E9BB381F97493900A8BED9 /* UYInputTableViewCell.xib in Resources */,
 				358CF7281F9B3C7A00C281EA /* PhotoListCell.xib in Resources */,
 				3503D39B1FA081780026C2FF /* UYOrganiseDetailHeaderView.xib in Resources */,
@@ -1189,9 +1265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355CF5DE1FA6D672001F967F /* KZTextField.m in Sources */,
 				353FD24C1F9F2895003BB537 /* UYOrganiseConfig.swift in Sources */,
 				358EBB121F9C64FD0075033D /* UYBankPickerView.swift in Sources */,
 				358CF7381F9B3C7A00C281EA /* PhotoNavigationController.m in Sources */,
+				355CF5E01FA6D672001F967F /* SchoolSearchHeadView.m in Sources */,
 				35E9BB3F1F974C1A00A8BED9 /* UYIdCardTableViewCell.swift in Sources */,
 				3517C13A1F7DF5F1008E49AC /* SRCycleProgressView.swift in Sources */,
 				353FD2561F9F2895003BB537 /* UYOrganiseOrderTableCell.swift in Sources */,
@@ -1230,6 +1308,7 @@
 				358CF72F1F9B3C7A00C281EA /* PhotoModel.m in Sources */,
 				358CF72B1F9B3C7A00C281EA /* KZPhotoPickerConfig.m in Sources */,
 				358EBB151F9C69F60075033D /* UYBankTableCell.swift in Sources */,
+				355CF5E11FA6D672001F967F /* KZSegmentControl.m in Sources */,
 				35522BD21F9853510088C7D6 /* UYUploadImageTableViewCell.swift in Sources */,
 				353FD2541F9F2895003BB537 /* UYAnswerTableViewCell.swift in Sources */,
 				35DE41631FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift in Sources */,
@@ -1272,6 +1351,7 @@
 				354D08BC1F908C140024414E /* UYUserInfo.swift in Sources */,
 				35CFD7641F9B4F70001C0AC0 /* UYAddressBookManager.swift in Sources */,
 				35A7B76F1F9B0E880031799D /* KZDatePickerView.m in Sources */,
+				355CF5DB1FA6D672001F967F /* MultiSelectView.m in Sources */,
 				353FD2581F9F2895003BB537 /* UYQuestionHeaderView.swift in Sources */,
 				358CF7351F9B3C7A00C281EA /* EditPhotoViewController.m in Sources */,
 				358CF6DF1F9B1F1E00C281EA /* LoanSafeAuthResultModel.m in Sources */,
@@ -1290,6 +1370,8 @@
 				35E9BB3B1F974ACE00A8BED9 /* UYInputBtnTableViewCell.swift in Sources */,
 				358CF7461F9B3D3A00C281EA /* UYUploadPhotoManager.swift in Sources */,
 				353FD24D1F9F2895003BB537 /* UYQuestionList.swift in Sources */,
+				355CF5C91FA6C2C7001F967F /* UYContactsViewController.swift in Sources */,
+				355CF5DF1FA6D672001F967F /* MultSelectHeadView.m in Sources */,
 				3503D3991FA0816E0026C2FF /* UYOrganiseDetailHeaderView.swift in Sources */,
 				355260AA1F6F662200F8734A /* UYRequestConfig.swift in Sources */,
 			);

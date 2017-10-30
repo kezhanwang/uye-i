@@ -122,6 +122,12 @@ extension UYUserBaseInfoViewController :UITableViewDelegate,UITableViewDataSourc
         }
         return 0.1
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 2 {
+            cell.separatorInset = UIEdgeInsetsMake(0, 90, 0, 0)
+            cell.layoutMargins = UIEdgeInsetsMake(0, 90, 0, 0)
+        }
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if indexPath.row == 2  {

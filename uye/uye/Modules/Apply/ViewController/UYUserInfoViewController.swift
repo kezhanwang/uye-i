@@ -34,12 +34,32 @@ class UYUserInfoViewController: UYBaseViewController {
         var phoneBook = UYUserStatusModel()
         phoneBook.itemIcon = "user_phone_book_icon"
         phoneBook.title = "手机通讯信息"
-        phoneBook.detail = "本机通讯录"
+        phoneBook.detail = "本机通讯录及通话详单"
         phoneBook.isOptional = false
         phoneBook.isCertified = false
         phoneBook.placeholder = "请认证更新通讯录信息"
+        
+        var contacts = UYUserStatusModel()
+        contacts.itemIcon = "user_contacts_icon"
+        contacts.title = "联系信息"
+        contacts.detail = "您以及其他相关人的联系方式"
+        contacts.isOptional = false
+        contacts.isCertified = false
+        contacts.placeholder = "请认证联系信息"
+        
+        var experience = UYUserStatusModel()
+        experience.itemIcon = "user_experience_icon"
+        experience.title = "个人经历"
+        experience.detail = "学习就业的经历"
+        experience.isOptional = false
+        experience.isCertified = false
+        experience.placeholder = "请认证个人经历"
+        
         itemArray.append(itemOne)
         itemArray.append(phoneBook)
+        itemArray.append(contacts)
+        itemArray.append(experience)
+
     }
     override func setupUI() {
         view.addSubview(tableView)
@@ -80,6 +100,8 @@ extension UYUserInfoViewController :UITableViewDelegate,UITableViewDataSource {
             getUserInfo()
         }else if indexPath.row == 1 {
             submitUserMobie()
+        }else if indexPath.row == 2 {
+            pushToNextVC(nextVC: UYContactsViewController())
         }
     }
 }
@@ -87,7 +109,6 @@ extension UYUserInfoViewController :UITableViewDelegate,UITableViewDataSource {
 // MARK: - 下一步按钮
 extension UYUserInfoViewController :UYTableFooterViewDelegate {
     func checkUserStatus() -> Bool {
-        
     
         for status in itemArray {
             if status.isCertified == false {
