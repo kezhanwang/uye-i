@@ -68,6 +68,11 @@ enum UYRequestAPI : String {
     case userContactInfo = "app/contact/info"//联系人信息
     case userContactSubmit = "app/contact/submit"//联系人信息提交
     
+    case userExperConfig = "app/exper/config" //获取个人经历的配置（包含添加学历的配置）
+    case userExperInfo = "app/exper/info" //获取个人经历的信息
+    case userExperSubmit = "app/exper/submit"
+    
+    
     case userMobileSubmit = "app/mobile/submit" //用户手机通讯录提交
     
     case orderOrganizeInfo = "app/insured/config" //订单的机构信息

@@ -17,12 +17,15 @@ class UYAddressPicker: NSObject {
     fileprivate var selectedCity:UYAddress?
     fileprivate var addressHandler :AddressPickHandler?
     fileprivate let request = UYNetRequest()
+    var showArea = true
+    
     override init() {
         super.init()
         selectView.title = "请选择地址"
         selectView.dataSource = self
         getProvinceList()
     }
+    
     func showAddressPicker(_ complete: @escaping AddressPickHandler) {
         addressHandler = complete
         selectView.showMultiSelectiView()
@@ -55,8 +58,18 @@ extension UYAddressPicker :MultiSelectViewDataSource {
             getCityList(provinceId: (address?.id!)!)
         }
         if index == 1 {
-            selectedCity = address!
-            getAredList(cityId: (address?.id!)!)
+            if showArea == false {
+                
+                if addressHandler != nil {
+                    addressHandler!(selectedProvince,address!,address!)
+                }
+                selectView.dismissMultiSelectiView()
+                return false
+            }else{
+                
+                selectedCity = address!
+                getAredList(cityId: (address?.id!)!)
+            }
         }
         if index == 2 {
             if addressHandler != nil {

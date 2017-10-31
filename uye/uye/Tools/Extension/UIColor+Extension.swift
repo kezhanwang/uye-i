@@ -78,6 +78,9 @@ extension UIColor {
     class var grayText :UIColor {
         return UIColor(hexColor: "999999")
     }
+    class var placeholderText:UIColor {
+        return UIColor(hexColor: "c3c3c3")
+    }
     /// navigationbar的字体按钮颜色
     class var navigationBarTintColor :UIColor {
         return UIColor(hexColor: "333333")

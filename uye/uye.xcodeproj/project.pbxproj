@@ -25,6 +25,11 @@
 		351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */; };
 		351B84871FA03AE400C77846 /* UYTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B84861FA03AE300C77846 /* UYTagView.swift */; };
 		351B84891FA066A100C77846 /* UYScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B84881FA066A100C77846 /* UYScoreView.swift */; };
+		352482431FA8111D00E7ECA9 /* UYAddOccupaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352482421FA8111D00E7ECA9 /* UYAddOccupaViewController.swift */; };
+		352482451FA8112A00E7ECA9 /* UYOccupaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352482441FA8112A00E7ECA9 /* UYOccupaListViewController.swift */; };
+		352482471FA8113500E7ECA9 /* UYAddDegreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352482461FA8113500E7ECA9 /* UYAddDegreeViewController.swift */; };
+		352482491FA8114000E7ECA9 /* UYDegreeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352482481FA8114000E7ECA9 /* UYDegreeListViewController.swift */; };
+		3524824B1FA8240500E7ECA9 /* UYUserExperInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524824A1FA8240500E7ECA9 /* UYUserExperInfo.swift */; };
 		3524A2F91F95E2330035FE80 /* UYOrganiseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */; };
 		3524A2FA1F95E2330035FE80 /* UYOrganiseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */; };
 		3524A2FC1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */; };
@@ -68,6 +73,7 @@
 		354E344C1F6D3ED9009CFCE4 /* UYConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E344B1F6D3ED9009CFCE4 /* UYConfiguration.swift */; };
 		354E34501F6D3F9B009CFCE4 /* UYTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E344F1F6D3F9B009CFCE4 /* UYTabBarController.swift */; };
 		354E34571F6D4284009CFCE4 /* UYWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E34561F6D4284009CFCE4 /* UYWebViewController.swift */; };
+		354E82411FA729D500DEE357 /* UYExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E82401FA729D500DEE357 /* UYExperienceViewController.swift */; };
 		354F86951FA32BEA009C7276 /* UYOrganiseBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F86941FA32BEA009C7276 /* UYOrganiseBottomBar.swift */; };
 		354F86991FA32C03009C7276 /* UYOrganiseBottomBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354F86981FA32C03009C7276 /* UYOrganiseBottomBar.xib */; };
 		35522BD21F9853510088C7D6 /* UYUploadImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35522BD11F9853510088C7D6 /* UYUploadImageTableViewCell.swift */; };
@@ -152,6 +158,7 @@
 		35D253EE1F91F91400945017 /* UYLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D253ED1F91F91400945017 /* UYLoginViewController.swift */; };
 		35D43CC21F9D9AF200D08BF4 /* UDIDSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D43CC11F9D9AF100D08BF4 /* UDIDSDK.a */; };
 		35D43CC41F9D9C9A00D08BF4 /* UYSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D43CC31F9D9C9A00D08BF4 /* UYSearchBar.swift */; };
+		35D531ED1FA84B6F000C6648 /* UYAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D531EC1FA84B6F000C6648 /* UYAreaTableViewCell.swift */; };
 		35DE41631FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DE41611FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift */; };
 		35DE41641FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DE41621FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib */; };
 		35E4A3E41F9C9BF6003C2C56 /* KZDataPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4A3E21F9C9BF5003C2C56 /* KZDataPicker.m */; };
@@ -187,6 +194,11 @@
 		351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYHomeModel.swift; sourceTree = "<group>"; };
 		351B84861FA03AE300C77846 /* UYTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYTagView.swift; sourceTree = "<group>"; };
 		351B84881FA066A100C77846 /* UYScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYScoreView.swift; sourceTree = "<group>"; };
+		352482421FA8111D00E7ECA9 /* UYAddOccupaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAddOccupaViewController.swift; sourceTree = "<group>"; };
+		352482441FA8112A00E7ECA9 /* UYOccupaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOccupaListViewController.swift; sourceTree = "<group>"; };
+		352482461FA8113500E7ECA9 /* UYAddDegreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAddDegreeViewController.swift; sourceTree = "<group>"; };
+		352482481FA8114000E7ECA9 /* UYDegreeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYDegreeListViewController.swift; sourceTree = "<group>"; };
+		3524824A1FA8240500E7ECA9 /* UYUserExperInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYUserExperInfo.swift; sourceTree = "<group>"; };
 		3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseTableViewCell.swift; sourceTree = "<group>"; };
 		3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrganiseTableViewCell.xib; sourceTree = "<group>"; };
 		3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseDetailViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +244,7 @@
 		354E344B1F6D3ED9009CFCE4 /* UYConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYConfiguration.swift; sourceTree = "<group>"; };
 		354E344F1F6D3F9B009CFCE4 /* UYTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYTabBarController.swift; sourceTree = "<group>"; };
 		354E34561F6D4284009CFCE4 /* UYWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYWebViewController.swift; sourceTree = "<group>"; };
+		354E82401FA729D500DEE357 /* UYExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYExperienceViewController.swift; sourceTree = "<group>"; };
 		354F86941FA32BEA009C7276 /* UYOrganiseBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseBottomBar.swift; sourceTree = "<group>"; };
 		354F86981FA32C03009C7276 /* UYOrganiseBottomBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrganiseBottomBar.xib; sourceTree = "<group>"; };
 		35522BD01F9850C60088C7D6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -360,6 +373,7 @@
 		35D253ED1F91F91400945017 /* UYLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYLoginViewController.swift; sourceTree = "<group>"; };
 		35D43CC11F9D9AF100D08BF4 /* UDIDSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = UDIDSDK.a; sourceTree = "<group>"; };
 		35D43CC31F9D9C9A00D08BF4 /* UYSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYSearchBar.swift; sourceTree = "<group>"; };
+		35D531EC1FA84B6F000C6648 /* UYAreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAreaTableViewCell.swift; sourceTree = "<group>"; };
 		35DE41601FA1C07000C9562B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		35DE41611FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYMoreCourseTableViewCell.swift; sourceTree = "<group>"; };
 		35DE41621FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYMoreCourseTableViewCell.xib; sourceTree = "<group>"; };
@@ -469,6 +483,8 @@
 				355CF5E21FA6F615001F967F /* UYAddressPicker.swift */,
 				355CF5E41FA6F7CF001F967F /* UYAddress.swift */,
 				355CF5E61FA70A7F001F967F /* UYUserContactInfo.swift */,
+				3524824A1FA8240500E7ECA9 /* UYUserExperInfo.swift */,
+				35D531EC1FA84B6F000C6648 /* UYAreaTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -481,6 +497,11 @@
 				353FD2421F9F2895003BB537 /* UYUserBaseInfoViewController.swift */,
 				353FD2431F9F2895003BB537 /* UYUserInfoViewController.swift */,
 				355CF5C81FA6C2C7001F967F /* UYContactsViewController.swift */,
+				354E82401FA729D500DEE357 /* UYExperienceViewController.swift */,
+				352482421FA8111D00E7ECA9 /* UYAddOccupaViewController.swift */,
+				352482441FA8112A00E7ECA9 /* UYOccupaListViewController.swift */,
+				352482461FA8113500E7ECA9 /* UYAddDegreeViewController.swift */,
+				352482481FA8114000E7ECA9 /* UYDegreeListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1321,13 +1342,17 @@
 				358EBB151F9C69F60075033D /* UYBankTableCell.swift in Sources */,
 				355CF5E11FA6D672001F967F /* KZSegmentControl.m in Sources */,
 				35522BD21F9853510088C7D6 /* UYUploadImageTableViewCell.swift in Sources */,
+				35D531ED1FA84B6F000C6648 /* UYAreaTableViewCell.swift in Sources */,
 				353FD2541F9F2895003BB537 /* UYAnswerTableViewCell.swift in Sources */,
 				35DE41631FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift in Sources */,
+				352482491FA8114000E7ECA9 /* UYDegreeListViewController.swift in Sources */,
 				358CF7231F9B3C7A00C281EA /* BottomView.m in Sources */,
+				354E82411FA729D500DEE357 /* UYExperienceViewController.swift in Sources */,
 				358CF7241F9B3C7A00C281EA /* HeadView.m in Sources */,
 				3524A2F91F95E2330035FE80 /* UYOrganiseTableViewCell.swift in Sources */,
 				358CF72E1F9B3C7A00C281EA /* PhotoListModel.m in Sources */,
 				356521C91F91E20000175734 /* UYCustomSimpleTableCell.swift in Sources */,
+				352482431FA8111D00E7ECA9 /* UYAddOccupaViewController.swift in Sources */,
 				3552609D1F6F5D7C00F8734A /* UYHomeViewController.swift in Sources */,
 				351B84871FA03AE400C77846 /* UYTagView.swift in Sources */,
 				355260B01F6F665800F8734A /* UYBaseModel.swift in Sources */,
@@ -1358,6 +1383,7 @@
 				351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */,
 				354E34401F6D3CD2009CFCE4 /* UIButton+Extension.swift in Sources */,
 				351572781F9303B700AFCA8F /* UYRegisterViewController.swift in Sources */,
+				352482451FA8112A00E7ECA9 /* UYOccupaListViewController.swift in Sources */,
 				351B84891FA066A100C77846 /* UYScoreView.swift in Sources */,
 				354D08BC1F908C140024414E /* UYUserInfo.swift in Sources */,
 				35CFD7641F9B4F70001C0AC0 /* UYAddressBookManager.swift in Sources */,
@@ -1371,11 +1397,13 @@
 				353FD24F1F9F2895003BB537 /* UYUserStatusModel.swift in Sources */,
 				35E9BB341F97464C00A8BED9 /* UYInputModel.swift in Sources */,
 				353FD2501F9F2895003BB537 /* UYPlaceOrderViewController.swift in Sources */,
+				352482471FA8113500E7ECA9 /* UYAddDegreeViewController.swift in Sources */,
 				358CF7251F9B3C7A00C281EA /* PhotoCollectionViewCell.m in Sources */,
 				353FD2521F9F2895003BB537 /* UYUserBaseInfoViewController.swift in Sources */,
 				357396BA1F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.swift in Sources */,
 				35BCD6B11F8E13B900C3469F /* UYOrganiseList.swift in Sources */,
 				35CFD7661F9C3806001C0AC0 /* UYImageModel.swift in Sources */,
+				3524824B1FA8240500E7ECA9 /* UYUserExperInfo.swift in Sources */,
 				358CF7391F9B3C7A00C281EA /* PhotoPreviewController.m in Sources */,
 				354E34411F6D3CD2009CFCE4 /* UIColor+Extension.swift in Sources */,
 				353FD2511F9F2895003BB537 /* UYQuestionnaireViewController.swift in Sources */,

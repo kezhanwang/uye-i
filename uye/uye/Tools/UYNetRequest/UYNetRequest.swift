@@ -407,6 +407,45 @@ extension UYNetRequest {
     }
 }
 
+// MARK: - 申请相关之个人经历
+extension UYNetRequest {
+    func getUserExperConfig(complete:@escaping(_ result:UYUserExperConfig?,_ error:UYError?) -> Void) {
+        
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userExperConfig
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYUserExperConfig.self) { (list:Any, error) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYUserExperConfig),error)
+            }
+        }
+    }
+    func getUserExperInfo(complete:@escaping(_ result:UYUserExperInfo?,_ error:UYError?) -> Void) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userExperInfo
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYUserExperInfo.self) { (list:Any, error) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYUserExperInfo),error)
+            }
+        }
+    }
+    func submitUserExperInfo(parameters:[String:Any],complete:@escaping(_ error: UYError?) -> (Void)) {
+        
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userExperSubmit
+        config.requestMethod = .post
+        config.parameters = parameters
+        UYRequestManager.shared.request(config: config, type: UYEmptyModel.self) { (result:Any, error) in
+            complete(error)
+        }
+    }
+
+}
 // MARK: - 申请相关之机构订单
 extension UYNetRequest {
     func getOrderOrganiseConfig(orgId:String, complete:@escaping(_ result:UYOrganiseConfig?,_ error:UYError?) -> Void) {

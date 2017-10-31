@@ -110,6 +110,7 @@ extension UYTagView : UYTagDelegate {
         }
     }
 }
+
 class UYTag: UIView {
     
     
@@ -125,6 +126,8 @@ class UYTag: UIView {
         return lable
     }()
    
+  
+    
     init(title atitle:String,origin:CGPoint) {
         let size : CGSize = getTextRectSize(text: atitle as NSString).size
         let minWidth = size.width + 20 < 80 ? 80 : size.width + 20
@@ -153,6 +156,53 @@ class UYTag: UIView {
     }
     
 }
+class UYAreaTag : UIView {
+    var title:String?
+
+    fileprivate lazy var deleteBtn : UIButton = {
+        () -> UIButton in
+        let btn = UIButton()
+        btn.setImage(#imageLiteral(resourceName: "user_delete_icon"), for: UIControlState.normal)
+        btn.addTarget(self, action: #selector(deleteAction), for: UIControlEvents.touchUpInside)
+        return btn
+    }()
+    weak var delegate:UYAreaTagDelegate?
+    init(title atitle:String,origin:CGPoint) {
+        title = atitle
+        let aTag = UYTag(title: atitle, origin: CGPoint(x: 0, y: 0))
+        let width = aTag.bounds.width + 10
+        let height = aTag.bounds.height
+        super.init(frame: CGRect(x: origin.x, y: origin.y, width: width, height: height))
+        addSubview(aTag)
+        addSubview(deleteBtn)
+        deleteBtn.snp.makeConstraints({ (make) in
+            make.top.equalTo(-4)
+            make.right.equalTo(-5)
+        })
+        backgroundColor = UIColor.white
+        aTag.delegate = self
+        
+        
+    }
+    @objc func deleteAction() {
+        print("删除按钮")
+        if self.delegate != nil {
+            self.delegate?.deleteAreaTag(area: self)
+        }
+//        if delegate != nil {
+//            delegate?.deleteTag!(tag: self)
+//        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+extension UYAreaTag :UYTagDelegate {
+    func tagAcion(tag: UYTag) {
+        deleteAction()
+    }
+}
 func getTextRectSize(text:NSString,font:UIFont = UIFont.systemFont(ofSize: 14)) -> CGRect {
     let attributes = [NSAttributedStringKey.font: font]
     let option = NSStringDrawingOptions.usesLineFragmentOrigin
@@ -160,11 +210,15 @@ func getTextRectSize(text:NSString,font:UIFont = UIFont.systemFont(ofSize: 14)) 
     let rect:CGRect = text.boundingRect(with: CGSize(width: 999, height: 30), options: option, attributes: attributes, context: nil)
     return rect;
 }
-protocol UYTagDelegate : NSObjectProtocol {
+ protocol UYTagDelegate : NSObjectProtocol {
     func tagAcion(tag:UYTag)
+//    @objc optional func deleteTag(tag:UYTag)
 //    @objc optional func loginTypeChange(ispwdLogin:Bool)
 }
 protocol UYTagViewDelegate : NSObjectProtocol {
     func tagAcion(title:String)
     func deleteHistory()
+}
+protocol UYAreaTagDelegate:NSObjectProtocol {
+    func deleteAreaTag(area:UYAreaTag)
 }

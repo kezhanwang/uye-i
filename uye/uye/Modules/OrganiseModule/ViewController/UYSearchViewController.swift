@@ -12,7 +12,7 @@ let organisterCellIdentifier = "organisterCellIdentifier"
 
 class UYSearchViewController: UYBaseViewController {
     
-
+    fileprivate var isFirstTime = true
     fileprivate let tagsView :UIView = UIView()
     fileprivate let tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
 
@@ -25,8 +25,11 @@ class UYSearchViewController: UYBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = UIColor.white
+        DispatchQueue.main.asyncAfter(deadline: 1) {
+            self.searchBar.becomeFirstResponder()
+        }
+
     }
     override func setupUI() {
         
@@ -35,7 +38,6 @@ class UYSearchViewController: UYBaseViewController {
         searchBar.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 30)
         searchBar.delegate = self
         navigationItem.titleView = searchBar
-        searchBar.becomeFirstResponder()
          let cancelBtn = UIBarButtonItem(title: "    取消", style: UIBarButtonItemStyle.plain, target: self, action: #selector(cancelAction))
         navigationItem.rightBarButtonItem = cancelBtn
         
@@ -46,7 +48,7 @@ class UYSearchViewController: UYBaseViewController {
         addTagsView()
         
     }
-
+  
     @objc func cancelAction(){
         popBackAction()
     }
@@ -112,11 +114,15 @@ extension UYSearchViewController {
         hotSearch.snp.remakeConstraints { (make) in
             make.top.equalTo(10)
             make.left.right.equalTo(0)
-            make.height.equalTo(hotSearch.estimatedHeight)        }
+            make.height.equalTo(hotSearch.estimatedHeight)
+            
+        }
         historyView.snp.remakeConstraints { (make) in
             make.top.equalTo(20+hotSearch.estimatedHeight)
             make.left.right.equalTo(0)
-            make.height.equalTo(historyView.estimatedHeight)        }
+            make.height.equalTo(historyView.estimatedHeight)
+            
+        }
 
     }
 }

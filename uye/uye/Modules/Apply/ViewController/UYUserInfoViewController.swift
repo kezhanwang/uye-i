@@ -102,6 +102,8 @@ extension UYUserInfoViewController :UITableViewDelegate,UITableViewDataSource {
             submitUserMobie()
         }else if indexPath.row == 2 {
             pushToNextVC(nextVC: UYContactsViewController())
+        }else if indexPath.row == 3 {
+            pushToNextVC(nextVC: UYExperienceViewController())
         }
     }
 }
