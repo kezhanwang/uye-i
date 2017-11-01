@@ -53,15 +53,27 @@ extension UYOccupaListViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.top.equalTo(kNavigationHeight)
-            make.left.right.bottom.equalTo(0)
+            make.left.right.equalTo(0)
         }
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 55
         tableView.register(UINib(nibName: "UYElistTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        let footView = UYTableFooterView(title: "下一步")
-        footView.delegate = self
-        tableView.tableFooterView = footView
+        
+//        let footView = UYTableFooterView(title: "下一步")
+//        footView.delegate = self
+//        tableView.tableFooterView = footView
+        
+        tableView.tableFooterView = UIView()
+        let bottomView = UYBottomBtnView(title: "下一步")
+        bottomView.delegate = self
+        view.addSubview(bottomView)
+        bottomView.snp.makeConstraints { (make) in
+            make.top.equalTo(tableView.snp.bottom).offset(0)
+            make.left.right.equalTo(0)
+            make.bottom.equalTo(0)
+            make.height.equalTo(kTabBarHeight)
+        }
     }
     
 }

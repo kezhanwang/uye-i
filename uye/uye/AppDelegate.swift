@@ -24,21 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = UYTabBarController()
         window?.makeKeyAndVisible()
+        //百度地区
         mapManager.start(mapKey, generalDelegate: nil)
+        //开启定位
         UYLocationManager.shared.requstAuthorization()
+        //开始键盘输入监控
         IQKeyboardManager.sharedManager().enable = true
-        
+        //版本更新
+//        UYAPPManager.shared.checkAPPVersion()
         return true
     }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-//        UYLocationManager.shared.beginUpdataLocation()
-    }
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-//        
-//    }
-
-
-
+    
 }
 

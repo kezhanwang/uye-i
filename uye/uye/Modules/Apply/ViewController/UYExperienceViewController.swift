@@ -84,9 +84,10 @@ extension UYExperienceViewController :UITableViewDelegate,UITableViewDataSource 
         }else if indexPath.row == 1 {
             dataArray = experConfig?.profession ?? []
         }else if indexPath.row == 2 {
-            dataArray = experConfig?.housing_situation ?? []
-        }else if indexPath.row == 3 {
             dataArray = experConfig?.monthly_income ?? []
+        }else if indexPath.row == 3 {
+            dataArray = experConfig?.housing_situation ?? []
+
         }
         showDataPicker(dataArray: dataArray, indexPath: indexPath)
     }
@@ -198,8 +199,8 @@ extension UYExperienceViewController {
     func loadParameters() -> [String:Any] {
         let highest_education :UYInputModel = dataSource[0]
         let profession :UYInputModel = dataSource[1]
-        let housing_situation :UYInputModel = dataSource[2]
-        let monthly_income :UYInputModel = dataSource[3]
+        let monthly_income :UYInputModel = dataSource[2]
+        let housing_situation :UYInputModel = dataSource[3]
         
         var workCity = ""
         

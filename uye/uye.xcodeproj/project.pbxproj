@@ -101,6 +101,7 @@
 		356521C01F91D5C200175734 /* UYUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */; };
 		356521C91F91E20000175734 /* UYCustomSimpleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */; };
 		356521CA1F91E20000175734 /* UYCustomSimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356521C81F91E20000175734 /* UYCustomSimpleTableCell.xib */; };
+		356A1B461FA9A330001544FA /* UYBottomBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356A1B451FA9A330001544FA /* UYBottomBtnView.swift */; };
 		357396B21F98A47D00BF5811 /* UYHomeTipsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357396B01F98A47D00BF5811 /* UYHomeTipsTableViewCell.swift */; };
 		357396B31F98A47D00BF5811 /* UYHomeTipsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357396B11F98A47D00BF5811 /* UYHomeTipsTableViewCell.xib */; };
 		357396B61F98A6B900BF5811 /* UYHomeOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357396B41F98A6B900BF5811 /* UYHomeOrderTableViewCell.swift */; };
@@ -293,6 +294,7 @@
 		356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYUserTableViewCell.xib; sourceTree = "<group>"; };
 		356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYCustomSimpleTableCell.swift; sourceTree = "<group>"; };
 		356521C81F91E20000175734 /* UYCustomSimpleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYCustomSimpleTableCell.xib; sourceTree = "<group>"; };
+		356A1B451FA9A330001544FA /* UYBottomBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYBottomBtnView.swift; sourceTree = "<group>"; };
 		357396B01F98A47D00BF5811 /* UYHomeTipsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYHomeTipsTableViewCell.swift; sourceTree = "<group>"; };
 		357396B11F98A47D00BF5811 /* UYHomeTipsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYHomeTipsTableViewCell.xib; sourceTree = "<group>"; };
 		357396B41F98A6B900BF5811 /* UYHomeOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYHomeOrderTableViewCell.swift; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 				351B84881FA066A100C77846 /* UYScoreView.swift */,
 				358A545A1FA8970600138307 /* UYElistTableViewCell.swift */,
 				358A545B1FA8970600138307 /* UYElistTableViewCell.xib */,
+				356A1B451FA9A330001544FA /* UYBottomBtnView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1407,6 +1410,7 @@
 				353FD2501F9F2895003BB537 /* UYPlaceOrderViewController.swift in Sources */,
 				352482471FA8113500E7ECA9 /* UYAddDegreeViewController.swift in Sources */,
 				358CF7251F9B3C7A00C281EA /* PhotoCollectionViewCell.m in Sources */,
+				356A1B461FA9A330001544FA /* UYBottomBtnView.swift in Sources */,
 				353FD2521F9F2895003BB537 /* UYUserBaseInfoViewController.swift in Sources */,
 				357396BA1F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.swift in Sources */,
 				35BCD6B11F8E13B900C3469F /* UYOrganiseList.swift in Sources */,

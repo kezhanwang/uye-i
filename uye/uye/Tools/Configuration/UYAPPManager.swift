@@ -12,6 +12,9 @@ import UIKit
 class UYAPPManager: NSObject {
     var userInfo :UYUserInfo?
     
+    var questionListInfo :UYQuestionList?
+    
+    fileprivate var request = UYNetRequest()
     /// 以下是单例的一种写法
     static let shared = UYAPPManager()
     /// 将init方法私有化了,这样在其他地方就无法init
@@ -31,6 +34,29 @@ class UYAPPManager: NSObject {
         deletePath("user")
         removeHttpCookie()
     }
+    
+    func checkAPPVersion()  {
+        request.checkVersionRequest { (versionInfo, error) -> (Void) in
+            if error == nil {
+                if versionInfo?.isUpdate == true {
+                    let tabBC :UYTabBarController = UIApplication.shared.keyWindow?.rootViewController as! UYTabBarController
+                    tabBC.showAppVersionUpdateAlert(version: versionInfo!)
+                }
+            }
+        }
+    }
+    
+    func checkOrganiseNeedQuestion(orgId:String, complete:@escaping ()->(Void)) {
+        request.getQuestionListRequest(orgId: orgId) { (quesList, error) in
+            if error != nil {
+                SRToast.shared.showTextToastAutoDismiss(msg: (error?.description)!)
+            }else{
+                self.questionListInfo = quesList!
+            }
+            complete()
+        }
+    }
+    
 }
 
 // MARK: - Cookie 的处理

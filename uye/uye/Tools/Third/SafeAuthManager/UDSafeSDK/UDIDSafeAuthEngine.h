@@ -129,7 +129,7 @@
 /**
  *  人脸身份认证初始化
  *
- *  @param aViewController 当前viewcontroller
+ *  @param viewController 当前viewcontroller
  */
 - (void)startIdSafeFaceAuthInViewController:(UIViewController *)viewController;
 

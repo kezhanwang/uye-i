@@ -96,6 +96,7 @@
                     <rect key="frame" x="100" y="0.0" width="1" height="55"/>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="55" id="eOe-Ve-aCK"/>
                         <constraint firstAttribute="width" constant="1" id="nmJ-k2-nYi"/>
                     </constraints>
                 </view>
@@ -110,7 +111,6 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="xbS-fm-ijF" secondAttribute="bottom" id="0Kk-mt-v7U"/>
                 <constraint firstItem="Lw9-4N-ucx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3dR-N1-P0U"/>
                 <constraint firstItem="yAG-2V-jFa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="52T-7W-k5G"/>
                 <constraint firstItem="Lw9-4N-ucx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DfU-FP-fTp"/>
@@ -129,7 +129,7 @@
             <connections>
                 <outlet property="collectionImageView" destination="gwK-sz-eDP" id="MpM-Zh-HOK"/>
             </connections>
-            <point key="canvasLocation" x="-213" y="-159"/>
+            <point key="canvasLocation" x="-343" y="-129"/>
         </view>
     </objects>
     <resources>

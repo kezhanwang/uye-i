@@ -37,17 +37,27 @@ extension UYAddOccupaViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.top.equalTo(kNavigationHeight)
-            make.left.right.bottom.equalTo(0)
+            make.left.right.equalTo(0)
         }
+       
+        
+//        let footView = UYTableFooterView(title: "提交")
+//        footView.delegate = self
+        tableView.tableFooterView = UIView()
+        let bottomView = UYBottomBtnView(title: "提交")
+        bottomView.delegate = self
+        view.addSubview(bottomView)
+        bottomView.snp.makeConstraints { (make) in
+            make.top.equalTo(tableView.snp.bottom).offset(0)
+            make.left.right.equalTo(0)
+            make.bottom.equalTo(0)
+            make.height.equalTo(kTabBarHeight)
+        }
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 46
         tableView.register(UINib(nibName: "UYInputTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        
-        let footView = UYTableFooterView(title: "提交")
-        footView.delegate = self
-        tableView.tableFooterView = footView
-        
         
     }
 }

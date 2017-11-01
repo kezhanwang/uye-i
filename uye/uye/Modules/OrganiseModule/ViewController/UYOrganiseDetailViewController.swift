@@ -255,9 +255,19 @@ extension UYOrganiseDetailViewController :UYOrganiseBottomBarDelegate {
     }
     func signOrganiseAction() {
         if UYAPPManager.shared.userInfo != nil {
-            let quetionVC = UYQuestionnaireViewController()
-            quetionVC.org_id = organise?.org_id ?? ""
-            pushToNextVC(nextVC: quetionVC)
+            
+            UYAPPManager.shared.checkOrganiseNeedQuestion(orgId: organise?.org_id ?? "", complete: { () -> (Void) in
+                if (UYAPPManager.shared.questionListInfo?.need_question)! {
+                    let quetionVC = UYQuestionnaireViewController()
+                    quetionVC.org_id = self.organise?.org_id ?? ""
+                    self.pushToNextVC(nextVC: quetionVC)
+                }else{
+                    let userInfoVC = UYUserInfoViewController()
+                    userInfoVC.order_id = self.organise?.org_id ?? ""
+                    self.pushToNextVC(nextVC: userInfoVC)
+                }
+            })
+            
         }else{
             pushToNextVC(nextVC: UYLoginViewController())
         }

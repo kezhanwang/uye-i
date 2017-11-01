@@ -178,6 +178,8 @@ NSAttributedStringKey.foregroundColor:UIColor.blackText]
         return 0.1
     }
 }
+
+// MARK: - 立即签约和去搜索页面
 extension UYHomeViewController : UYHomeOrganiseTableViewCellDelegate,UITextFieldDelegate {
     func hoemSiginAction() {
 //        let orderVC = UYPlaceOrderViewController()
@@ -185,11 +187,27 @@ extension UYHomeViewController : UYHomeOrganiseTableViewCellDelegate,UITextField
 //        pushToNextVC(nextVC: orderVC)
 //        return
         
-        if let organise = homeModel?.organize {
-            let quesVC = UYQuestionnaireViewController()
-            quesVC.org_id = organise.org_id
-            pushToNextVC(nextVC: quesVC)
+        if UYAPPManager.shared.userInfo != nil {
+            UYAPPManager.shared.checkOrganiseNeedQuestion(orgId: homeModel?.organize?.org_id ?? "", complete: { () -> (Void) in
+                if (UYAPPManager.shared.questionListInfo?.need_question)! {
+                    let quetionVC = UYQuestionnaireViewController()
+                    quetionVC.org_id = self.homeModel?.organize?.org_id ?? ""
+                    self.pushToNextVC(nextVC: quetionVC)
+                }else{
+                    let userInfoVC = UYUserInfoViewController()
+                    userInfoVC.order_id = self.homeModel?.organize?.org_id ?? ""
+                    self.pushToNextVC(nextVC: userInfoVC)
+                }
+            })
+        }else{
+            pushToNextVC(nextVC: UYLoginViewController())
         }
+        
+//        if let organise = homeModel?.organize {
+//            let quesVC = UYQuestionnaireViewController()
+//            quesVC.org_id = organise.org_id
+//            pushToNextVC(nextVC: quesVC)
+//        }
         
     }
     
