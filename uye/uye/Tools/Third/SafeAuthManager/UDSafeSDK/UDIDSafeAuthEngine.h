@@ -113,17 +113,13 @@
  **/
 @property (assign, nonatomic) BOOL showInfo;
 
+/* 手动拍照 OCR（默认为 YES） */
+@property (nonatomic, assign) BOOL isManualOCR;
 
 /**
  * 活体的语音提示是否关闭，默认为打开，即closeRemindVoice = NO
  **/
 @property (nonatomic, assign) BOOL closeRemindVoice;
-
-
-/**
- * OCR手动上传功能，默认为关闭，即takedBySelf = NO，非必传
- **/
-@property (nonatomic, assign) BOOL takedBySelf;
 
 /**
  * 作为备用的业务字段（预留字段，json格式，非必传）
@@ -133,7 +129,7 @@
 /**
  *  人脸身份认证初始化
  *
- *  @param viewController 当前viewcontroller
+ *  @param aViewController 当前viewcontroller
  */
 - (void)startIdSafeFaceAuthInViewController:(UIViewController *)viewController;
 

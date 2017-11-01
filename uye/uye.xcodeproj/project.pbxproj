@@ -22,13 +22,13 @@
 		3517C1321F7DF037008E49AC /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3517C1351F7DF037008E49AC /* Result.framework */; };
 		3517C1381F7DF5D9008E49AC /* SRToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517C1371F7DF5D9008E49AC /* SRToast.swift */; };
 		3517C13A1F7DF5F1008E49AC /* SRCycleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */; };
+		3519E8C81FA96535007B722C /* UDIDSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3519E8C71FA96535007B722C /* UDIDSDK.a */; };
 		351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */; };
 		351B84871FA03AE400C77846 /* UYTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B84861FA03AE300C77846 /* UYTagView.swift */; };
 		351B84891FA066A100C77846 /* UYScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B84881FA066A100C77846 /* UYScoreView.swift */; };
 		352482431FA8111D00E7ECA9 /* UYAddOccupaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352482421FA8111D00E7ECA9 /* UYAddOccupaViewController.swift */; };
 		352482451FA8112A00E7ECA9 /* UYOccupaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352482441FA8112A00E7ECA9 /* UYOccupaListViewController.swift */; };
 		352482471FA8113500E7ECA9 /* UYAddDegreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352482461FA8113500E7ECA9 /* UYAddDegreeViewController.swift */; };
-		352482491FA8114000E7ECA9 /* UYDegreeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352482481FA8114000E7ECA9 /* UYDegreeListViewController.swift */; };
 		3524824B1FA8240500E7ECA9 /* UYUserExperInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524824A1FA8240500E7ECA9 /* UYUserExperInfo.swift */; };
 		3524A2F91F95E2330035FE80 /* UYOrganiseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */; };
 		3524A2FA1F95E2330035FE80 /* UYOrganiseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */; };
@@ -107,6 +107,8 @@
 		357396B71F98A6B900BF5811 /* UYHomeOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357396B51F98A6B900BF5811 /* UYHomeOrderTableViewCell.xib */; };
 		357396BA1F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357396B81F98A6DA00BF5811 /* UYHomeOrganiseTableViewCell.swift */; };
 		357396BB1F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357396B91F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.xib */; };
+		358A545C1FA8970600138307 /* UYElistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A545A1FA8970600138307 /* UYElistTableViewCell.swift */; };
+		358A545D1FA8970600138307 /* UYElistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358A545B1FA8970600138307 /* UYElistTableViewCell.xib */; };
 		358CF6DF1F9B1F1E00C281EA /* LoanSafeAuthResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 358CF6DC1F9B1F1E00C281EA /* LoanSafeAuthResultModel.m */; };
 		358CF6E01F9B1F1E00C281EA /* SafeAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 358CF6DE1F9B1F1E00C281EA /* SafeAuthManager.m */; };
 		358CF6EB1F9B1F9700C281EA /* Resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 358CF6EA1F9B1F9700C281EA /* Resource.bundle */; };
@@ -156,9 +158,9 @@
 		35D253E61F91E68800945017 /* UYTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D253E51F91E68800945017 /* UYTableFooterView.swift */; };
 		35D253E81F91E92000945017 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D253E71F91E92000945017 /* UIImage+Extension.swift */; };
 		35D253EE1F91F91400945017 /* UYLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D253ED1F91F91400945017 /* UYLoginViewController.swift */; };
-		35D43CC21F9D9AF200D08BF4 /* UDIDSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D43CC11F9D9AF100D08BF4 /* UDIDSDK.a */; };
 		35D43CC41F9D9C9A00D08BF4 /* UYSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D43CC31F9D9C9A00D08BF4 /* UYSearchBar.swift */; };
 		35D531ED1FA84B6F000C6648 /* UYAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D531EC1FA84B6F000C6648 /* UYAreaTableViewCell.swift */; };
+		35D531EF1FA88DAB000C6648 /* UYUserElistInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D531EE1FA88DAB000C6648 /* UYUserElistInfo.swift */; };
 		35DE41631FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DE41611FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift */; };
 		35DE41641FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DE41621FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib */; };
 		35E4A3E41F9C9BF6003C2C56 /* KZDataPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4A3E21F9C9BF5003C2C56 /* KZDataPicker.m */; };
@@ -191,13 +193,17 @@
 		3517C1351F7DF037008E49AC /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3517C1371F7DF5D9008E49AC /* SRToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRToast.swift; sourceTree = "<group>"; };
 		3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCycleProgressView.swift; sourceTree = "<group>"; };
+		3519E8C31FA9652A007B722C /* UDIDSafeOCREngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDSafeOCREngine.h; sourceTree = "<group>"; };
+		3519E8C41FA9652B007B722C /* UDIDSafeVideoRecodeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDSafeVideoRecodeEngine.h; sourceTree = "<group>"; };
+		3519E8C51FA9652B007B722C /* UDIDSafeAuthEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDSafeAuthEngine.h; sourceTree = "<group>"; };
+		3519E8C61FA9652B007B722C /* UDIDSafeDataDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDSafeDataDefine.h; sourceTree = "<group>"; };
+		3519E8C71FA96535007B722C /* UDIDSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = UDIDSDK.a; sourceTree = "<group>"; };
 		351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYHomeModel.swift; sourceTree = "<group>"; };
 		351B84861FA03AE300C77846 /* UYTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYTagView.swift; sourceTree = "<group>"; };
 		351B84881FA066A100C77846 /* UYScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYScoreView.swift; sourceTree = "<group>"; };
 		352482421FA8111D00E7ECA9 /* UYAddOccupaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAddOccupaViewController.swift; sourceTree = "<group>"; };
 		352482441FA8112A00E7ECA9 /* UYOccupaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOccupaListViewController.swift; sourceTree = "<group>"; };
 		352482461FA8113500E7ECA9 /* UYAddDegreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAddDegreeViewController.swift; sourceTree = "<group>"; };
-		352482481FA8114000E7ECA9 /* UYDegreeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYDegreeListViewController.swift; sourceTree = "<group>"; };
 		3524824A1FA8240500E7ECA9 /* UYUserExperInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYUserExperInfo.swift; sourceTree = "<group>"; };
 		3524A2F71F95E2330035FE80 /* UYOrganiseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseTableViewCell.swift; sourceTree = "<group>"; };
 		3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrganiseTableViewCell.xib; sourceTree = "<group>"; };
@@ -293,14 +299,12 @@
 		357396B51F98A6B900BF5811 /* UYHomeOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYHomeOrderTableViewCell.xib; sourceTree = "<group>"; };
 		357396B81F98A6DA00BF5811 /* UYHomeOrganiseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYHomeOrganiseTableViewCell.swift; sourceTree = "<group>"; };
 		357396B91F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYHomeOrganiseTableViewCell.xib; sourceTree = "<group>"; };
+		358A545A1FA8970600138307 /* UYElistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYElistTableViewCell.swift; sourceTree = "<group>"; };
+		358A545B1FA8970600138307 /* UYElistTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYElistTableViewCell.xib; sourceTree = "<group>"; };
 		358CF6DB1F9B1F1E00C281EA /* LoanSafeAuthResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanSafeAuthResultModel.h; sourceTree = "<group>"; };
 		358CF6DC1F9B1F1E00C281EA /* LoanSafeAuthResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanSafeAuthResultModel.m; sourceTree = "<group>"; };
 		358CF6DD1F9B1F1E00C281EA /* SafeAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeAuthManager.h; sourceTree = "<group>"; };
 		358CF6DE1F9B1F1E00C281EA /* SafeAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafeAuthManager.m; sourceTree = "<group>"; };
-		358CF6E41F9B1F7C00C281EA /* UDIDSafeVideoRecodeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDSafeVideoRecodeEngine.h; sourceTree = "<group>"; };
-		358CF6E51F9B1F7C00C281EA /* UDIDSafeAuthEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDSafeAuthEngine.h; sourceTree = "<group>"; };
-		358CF6E61F9B1F7C00C281EA /* UDIDSafeDataDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDSafeDataDefine.h; sourceTree = "<group>"; };
-		358CF6E71F9B1F7C00C281EA /* UDIDSafeOCREngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDSafeOCREngine.h; sourceTree = "<group>"; };
 		358CF6EA1F9B1F9700C281EA /* Resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resource.bundle; sourceTree = "<group>"; };
 		358CF6EC1F9B284B00C281EA /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		358CF6EE1F9B286300C281EA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -371,9 +375,9 @@
 		35D253E51F91E68800945017 /* UYTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYTableFooterView.swift; sourceTree = "<group>"; };
 		35D253E71F91E92000945017 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		35D253ED1F91F91400945017 /* UYLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYLoginViewController.swift; sourceTree = "<group>"; };
-		35D43CC11F9D9AF100D08BF4 /* UDIDSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = UDIDSDK.a; sourceTree = "<group>"; };
 		35D43CC31F9D9C9A00D08BF4 /* UYSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYSearchBar.swift; sourceTree = "<group>"; };
 		35D531EC1FA84B6F000C6648 /* UYAreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAreaTableViewCell.swift; sourceTree = "<group>"; };
+		35D531EE1FA88DAB000C6648 /* UYUserElistInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYUserElistInfo.swift; sourceTree = "<group>"; };
 		35DE41601FA1C07000C9562B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		35DE41611FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYMoreCourseTableViewCell.swift; sourceTree = "<group>"; };
 		35DE41621FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYMoreCourseTableViewCell.xib; sourceTree = "<group>"; };
@@ -401,8 +405,8 @@
 				358CF6EF1F9B286300C281EA /* libc++.tbd in Frameworks */,
 				353FD2661F9F3092003BB537 /* opencv2.framework in Frameworks */,
 				354A74881F735B2A000906CA /* Alamofire.framework in Frameworks */,
+				3519E8C81FA96535007B722C /* UDIDSDK.a in Frameworks */,
 				354A74891F735B2A000906CA /* HandyJSON.framework in Frameworks */,
-				35D43CC21F9D9AF200D08BF4 /* UDIDSDK.a in Frameworks */,
 				354A748A1F735B2A000906CA /* SnapKit.framework in Frameworks */,
 				A20D203223A92CD788AFA2A5 /* Pods_uye.framework in Frameworks */,
 			);
@@ -485,6 +489,7 @@
 				355CF5E61FA70A7F001F967F /* UYUserContactInfo.swift */,
 				3524824A1FA8240500E7ECA9 /* UYUserExperInfo.swift */,
 				35D531EC1FA84B6F000C6648 /* UYAreaTableViewCell.swift */,
+				35D531EE1FA88DAB000C6648 /* UYUserElistInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -501,7 +506,6 @@
 				352482421FA8111D00E7ECA9 /* UYAddOccupaViewController.swift */,
 				352482441FA8112A00E7ECA9 /* UYOccupaListViewController.swift */,
 				352482461FA8113500E7ECA9 /* UYAddDegreeViewController.swift */,
-				352482481FA8114000E7ECA9 /* UYDegreeListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -517,6 +521,8 @@
 				353FD24A1F9F2895003BB537 /* UYUserInfoTableCell.swift */,
 				353FD24B1F9F2895003BB537 /* UYUserInfoTableCell.xib */,
 				351B84881FA066A100C77846 /* UYScoreView.swift */,
+				358A545A1FA8970600138307 /* UYElistTableViewCell.swift */,
+				358A545B1FA8970600138307 /* UYElistTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -872,13 +878,13 @@
 		358CF6E11F9B1F5F00C281EA /* UDSafeSDK */ = {
 			isa = PBXGroup;
 			children = (
+				3519E8C71FA96535007B722C /* UDIDSDK.a */,
+				3519E8C51FA9652B007B722C /* UDIDSafeAuthEngine.h */,
+				3519E8C61FA9652B007B722C /* UDIDSafeDataDefine.h */,
+				3519E8C31FA9652A007B722C /* UDIDSafeOCREngine.h */,
+				3519E8C41FA9652B007B722C /* UDIDSafeVideoRecodeEngine.h */,
 				353FD2651F9F3092003BB537 /* opencv2.framework */,
-				35D43CC11F9D9AF100D08BF4 /* UDIDSDK.a */,
 				358CF6EA1F9B1F9700C281EA /* Resource.bundle */,
-				358CF6E51F9B1F7C00C281EA /* UDIDSafeAuthEngine.h */,
-				358CF6E61F9B1F7C00C281EA /* UDIDSafeDataDefine.h */,
-				358CF6E71F9B1F7C00C281EA /* UDIDSafeOCREngine.h */,
-				358CF6E41F9B1F7C00C281EA /* UDIDSafeVideoRecodeEngine.h */,
 			);
 			path = UDSafeSDK;
 			sourceTree = "<group>";
@@ -1225,6 +1231,7 @@
 				35E9BB381F97493900A8BED9 /* UYInputTableViewCell.xib in Resources */,
 				358CF7281F9B3C7A00C281EA /* PhotoListCell.xib in Resources */,
 				3503D39B1FA081780026C2FF /* UYOrganiseDetailHeaderView.xib in Resources */,
+				358A545D1FA8970600138307 /* UYElistTableViewCell.xib in Resources */,
 				357396B71F98A6B900BF5811 /* UYHomeOrderTableViewCell.xib in Resources */,
 				358CF73C1F9B3C7A00C281EA /* PhotoViewController.xib in Resources */,
 				3524A2FA1F95E2330035FE80 /* UYOrganiseTableViewCell.xib in Resources */,
@@ -1324,6 +1331,7 @@
 				354E34431F6D3CD2009CFCE4 /* UITableViewCell+Extension.swift in Sources */,
 				35A7B7681F9AED3D0031799D /* UYOrderListModel.swift in Sources */,
 				353FD2591F9F2895003BB537 /* UYUserInfoTableCell.swift in Sources */,
+				358A545C1FA8970600138307 /* UYElistTableViewCell.swift in Sources */,
 				355CF5E31FA6F615001F967F /* UYAddressPicker.swift in Sources */,
 				354E34121F6CF862009CFCE4 /* AppDelegate.swift in Sources */,
 				354E344C1F6D3ED9009CFCE4 /* UYConfiguration.swift in Sources */,
@@ -1337,6 +1345,7 @@
 				354A214E1F9DBCF000B33832 /* UYOrderCollectionViewCell.swift in Sources */,
 				355260AC1F6F663300F8734A /* UYRequestManager.swift in Sources */,
 				35E9BB371F97493900A8BED9 /* UYInputTableViewCell.swift in Sources */,
+				35D531EF1FA88DAB000C6648 /* UYUserElistInfo.swift in Sources */,
 				358CF72F1F9B3C7A00C281EA /* PhotoModel.m in Sources */,
 				358CF72B1F9B3C7A00C281EA /* KZPhotoPickerConfig.m in Sources */,
 				358EBB151F9C69F60075033D /* UYBankTableCell.swift in Sources */,
@@ -1345,7 +1354,6 @@
 				35D531ED1FA84B6F000C6648 /* UYAreaTableViewCell.swift in Sources */,
 				353FD2541F9F2895003BB537 /* UYAnswerTableViewCell.swift in Sources */,
 				35DE41631FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift in Sources */,
-				352482491FA8114000E7ECA9 /* UYDegreeListViewController.swift in Sources */,
 				358CF7231F9B3C7A00C281EA /* BottomView.m in Sources */,
 				354E82411FA729D500DEE357 /* UYExperienceViewController.swift in Sources */,
 				358CF7241F9B3C7A00C281EA /* HeadView.m in Sources */,

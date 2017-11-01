@@ -75,10 +75,10 @@ extension UYExperienceViewController :UITableViewDelegate,UITableViewDataSource 
         return 46
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var dataArray :[String] = []
         
         guard indexPath.row < 4 else { return }
-        
+        var dataArray :[String] = []
+
         if indexPath.row == 0 {
             dataArray = experConfig?.highest_education ?? []
         }else if indexPath.row == 1 {
@@ -198,8 +198,8 @@ extension UYExperienceViewController {
     func loadParameters() -> [String:Any] {
         let highest_education :UYInputModel = dataSource[0]
         let profession :UYInputModel = dataSource[1]
-        let housing_situation :UYInputModel = dataSource[3]
-        let monthly_income :UYInputModel = dataSource[2]
+        let housing_situation :UYInputModel = dataSource[2]
+        let monthly_income :UYInputModel = dataSource[3]
         
         var workCity = ""
         

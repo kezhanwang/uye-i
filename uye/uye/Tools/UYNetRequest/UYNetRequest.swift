@@ -444,7 +444,46 @@ extension UYNetRequest {
             complete(error)
         }
     }
+}
 
+// MARK: - 申请相关个人经历之职业以及学历
+extension UYNetRequest {
+    func getUserElistConfig(complete:@escaping(_ result:UYUserElistConfig?,_ error:UYError?) -> Void) {
+        
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userElistConfig
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYUserElistConfig.self) { (list:Any, error) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! UYUserElistConfig),error)
+            }
+        }
+    }
+    func getUserElistInfo(type:Int, complete:@escaping(_ result:[UYUserElistInfo]?,_ error:UYError?) -> Void) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userElistInfo
+        config.requestMethod = .get
+        config.parameters = ["type":type]
+        UYRequestManager.shared.request(config: config, type: UYUserElistInfo.self) { (list:Any, error) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((list as! [UYUserElistInfo]),error)
+            }
+        }
+    }
+    func submitUserElistInfo(parameters:[String:Any],complete:@escaping(_ error: UYError?) -> (Void)) {
+        
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userElistSubmit
+        config.requestMethod = .post
+        config.parameters = parameters
+        UYRequestManager.shared.request(config: config, type: UYEmptyModel.self) { (result:Any, error) in
+            complete(error)
+        }
+    }
 }
 // MARK: - 申请相关之机构订单
 extension UYNetRequest {
