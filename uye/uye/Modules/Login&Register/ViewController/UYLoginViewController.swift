@@ -75,7 +75,7 @@ class UYLoginViewController: UYBaseViewController {
         if phoneTextField.text?.lengthOfBytes(using: String.Encoding.utf8) == 11 {
             getCodeBtn.beginCountDown()
         }else{
-            showTextToastAutoDismiss(msg: "请输入11位手机号")
+            showTextToast(msg: "请输入11位手机号")
         }
     }
     // MARK: 切换密码可见与不可见
@@ -134,14 +134,14 @@ extension UYLoginViewController  {
 extension UYLoginViewController :UYTableFooterViewDelegate {
     func footButtonAction() {
         if phoneTextField.text!.length != 11 {
-            showTextToastAutoDismiss(msg: "请输入11位手机号")
+            showTextToast(msg: "请输入11位手机号")
             return
         }
         guard codeTextField.text!.length > 0 else {
             if showPwdBtn.isHidden == true {
-                showTextToastAutoDismiss(msg: "请输入短信验证码")
+                showTextToast(msg: "请输入短信验证码")
             }else{
-                showTextToastAutoDismiss(msg: "请输入密码")
+                showTextToast(msg: "请输入密码")
             }
             return
         }
@@ -173,10 +173,10 @@ extension UYLoginViewController {
         showWaitToast()
         request.getPhoneCodeRequest(phone: phoneTextField.text!) {[weak self] (error:UYError?) -> (Void) in
             if error == nil {
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.getCodeBtn.beginCountDown()
             }else{
-                self?.showTextToastAutoDismiss(msg: error!.description)
+                showTextToast(msg: error!.description)
             }
         }
     }
@@ -186,9 +186,9 @@ extension UYLoginViewController {
         showWaitToast()
         request.loginWithPasswordRequest(phone: phoneTextField.text!, pwd: codeTextField.text!) {[weak self] (userInf:UYUserInfo?, error:UYError?) -> (Void) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: error!.description)
+                showTextToast(msg: error!.description)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.handleLoginSuccessAction()
             }
         }
@@ -198,9 +198,9 @@ extension UYLoginViewController {
         showWaitToast()
         request.loginWithPhoneCodeRequest(phone:phoneTextField.text!, code:  codeTextField.text!) {[weak self] (userInfo, error:UYError?) -> (Void) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: error!.description)
+                showTextToast(msg: error!.description)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.handleLoginSuccessAction()
             }
         }

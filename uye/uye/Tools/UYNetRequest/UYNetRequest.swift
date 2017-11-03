@@ -50,16 +50,17 @@ extension UYNetRequest {
         config.requestURL = UYRequestAPI.commonUpload
         config.requestMethod = .get
         config.images = images
-        SRToast.shared.showToastView()
+        
+        showWaitToast()
         UYRequestManager.shared.uploadImageRequest(config: config, uploadProgress: { (progress) in
-//            SRToast.shared.showProgressToast(progress: progress)
-
+            showProgressToast(progress: progress)
+            
         }) { (picInfo, error) in
             if error != nil {
                 complete(nil,error)
-                SRToast.shared.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                SRToast.shared.dismissToast()
+                dismissWaitToast()
                 complete(picInfo as? [String:Any],nil)
             }
         }
@@ -481,6 +482,15 @@ extension UYNetRequest {
         config.requestMethod = .post
         config.parameters = parameters
         UYRequestManager.shared.request(config: config, type: UYEmptyModel.self) { (result:Any, error) in
+            complete(error)
+        }
+    }
+    func deleteUserElist(elistId:String, complete:@escaping(_ error:UYError?) -> Void) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.userElistDelete
+        config.requestMethod = .get
+        config.parameters = ["id":elistId]
+        UYRequestManager.shared.request(config: config, type: UYUserElistInfo.self) { (list:Any, error) in
             complete(error)
         }
     }

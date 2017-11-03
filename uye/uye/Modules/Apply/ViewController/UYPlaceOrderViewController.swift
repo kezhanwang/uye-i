@@ -212,7 +212,7 @@ extension UYPlaceOrderViewController :UYInputTableViewCellDelegate {
                 
                 let firstUrl = agreeInputModel.images!["training_pic_0"] ?? ""
                 var isFull = false
-                if firstUrl.characters.count > 0 {
+                if firstUrl.count > 0 {
                     isFull = true
                 }
                 if isFull {
@@ -280,29 +280,29 @@ extension UYPlaceOrderViewController {
 extension UYPlaceOrderViewController:UYTableFooterViewDelegate {
     func checkParameters() -> Bool {
         for model:UYInputModel in dataArray {
-            guard model.content.characters.count > 0 else {
-                showTextToastAutoDismiss(msg: model.placeholder)
+            guard model.content.count > 0 else {
+                showTextToast(msg: model.placeholder)
                 return false
             }
         }
-        guard imageInputModel.image1.characters.count > 0 else {
-            showTextToastAutoDismiss(msg: imageInputModel.placeholder)
+        guard imageInputModel.image1.count > 0 else {
+            showTextToast(msg: imageInputModel.placeholder)
             return false
         }
         
         var hasValue = false
         
         for (_,value) in agreeInputModel.images! {
-            if value.characters.count > 0 {
+            if value.count > 0 {
                 hasValue = true
             }
         }
         guard hasValue else {
-            showTextToastAutoDismiss(msg: agreeInputModel.placeholder)
+            showTextToast(msg: agreeInputModel.placeholder)
             return false
         }
         guard footView.orderAgreedAgreement else {
-            showTextToastAutoDismiss(msg: "请阅读并同意服务协议以及授权协议")
+            showTextToast(msg: "请阅读并同意服务协议以及授权协议")
             return false
         }
         return true
@@ -320,7 +320,7 @@ extension UYPlaceOrderViewController:UYTableFooterViewDelegate {
         var training_pic :String = ""
         var aImages:[String:String] = [:]
         for (key,value) in agreeInputModel.images! {
-            if value.characters.count > 0 {
+            if value.count > 0 {
                 aImages[key] = value
             }
         }
@@ -350,9 +350,9 @@ extension UYPlaceOrderViewController:UYTableFooterViewDelegate {
 
         request.submitOrderInfo(parameters: parameters) {[weak self] (error) -> (Void) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.showTextToastAutoDismiss(msg: "提交成功")
+                showTextToast(msg: "提交成功")
                 NotificationCenter.default.post(name: MakeOrderSuccess, object: nil)
                 self?.popToRootViewController(after: 3)
             }
@@ -379,9 +379,9 @@ extension UYPlaceOrderViewController {
         showWaitToast()
         request.getOrderOrganiseConfig(orgId: order_id) {[weak self] (organiseConfig, error) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.organiseConfig = organiseConfig
                 self?.tableView.reloadData()
             }

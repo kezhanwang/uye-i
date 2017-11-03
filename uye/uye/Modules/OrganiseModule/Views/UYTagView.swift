@@ -101,6 +101,9 @@ extension UYTagView {
                 orX = orX + space 
             }
         }
+        if self.delegate != nil  {
+            self.delegate?.tagViewEstimatedHeight(tagView: self, height: estimatedHeight)
+        }
     }
 }
 extension UYTagView : UYTagDelegate {
@@ -218,6 +221,7 @@ func getTextRectSize(text:NSString,font:UIFont = UIFont.systemFont(ofSize: 14)) 
 protocol UYTagViewDelegate : NSObjectProtocol {
     func tagAcion(title:String)
     func deleteHistory()
+    func tagViewEstimatedHeight(tagView:UYTagView,height:CGFloat)
 }
 protocol UYAreaTagDelegate:NSObjectProtocol {
     func deleteAreaTag(area:UYAreaTag)

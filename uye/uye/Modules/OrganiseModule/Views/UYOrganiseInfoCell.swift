@@ -18,7 +18,7 @@ class UYOrganiseInfoCell: UITableViewCell {
     @IBOutlet weak var scoreView: UYScoreView!
     @IBOutlet weak var signBtn: UIButton!
     
-    var delegate: UYOrganiseInfoCellDelegate?
+    weak var delegate: UYOrganiseInfoCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,7 +41,7 @@ class UYOrganiseInfoCell: UITableViewCell {
                 logoImageView.kf.setImage(with: url)
             }
             nameLabel.text = organiseInfo?.org_name
-            if organiseInfo?.category?.characters.count ?? 0 > 0 {
+            if organiseInfo?.category?.count ?? 0 > 0 {
                 
                 categoryLabel.text = organiseInfo?.category
                 categoryView.isHidden = false

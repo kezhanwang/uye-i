@@ -107,11 +107,13 @@ extension UYRequestManager {
                         self?.handleRequestFailResult(response: response, complete: complete!)
                     }
                 })
+                upload.uploadProgress(closure: { (progress) in
+                    uploadProgress(progress)
+                })
+               
             case .failure(let error):
                 print(error)
             }
-            
-        
         })
 
     }

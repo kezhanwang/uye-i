@@ -88,9 +88,11 @@ extension UYHomeViewController {
         showWaitToast()
         request.getHomeData {[weak self] (data:UYHomeModel?, error : UYError?) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
+//                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
+//                dismissWaitToast()
                 self?.homeModel = data
                 self?.tableView.reloadData()
                 self?.updateBannerView()

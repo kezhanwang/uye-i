@@ -79,7 +79,13 @@ extension UYAddDegreeViewController :UITableViewDataSource,UITableViewDelegate {
             showDataPicker(dataArray: dataArray, indexPath: indexPath)
         }else if indexPath.row == 4 || indexPath.row == 5 {
             let years70:TimeInterval = 24*60*60*365*70
-            let minDate = Date(timeIntervalSinceNow: -years70)
+            var minDate = Date(timeIntervalSinceNow: -years70)
+            if indexPath.row == 5 {
+                let inputModel = dataSource[indexPath.row-1]
+                if inputModel.content.count > 0{
+                    minDate = NSDate(from: inputModel.content)! as Date
+                }
+            }
             showDatePicer(maxDate: Date(), minDate: minDate, indexPath: indexPath)
         }
     }
@@ -173,17 +179,17 @@ extension UYAddDegreeViewController {
         showWaitToast()
         request.getUserElistConfig { (config, error) in
             if error != nil {
-                self.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self.dismissToast()
+                dismissWaitToast()
                 self.degreeConfig = config
             }
         }
     }
     func checkParameters() -> Bool {
         for inputModel in dataSource {
-            guard inputModel.content.characters.count > 0 else {
-                showTextToastAutoDismiss(msg: inputModel.placeholder)
+            guard inputModel.content.count > 0 else {
+                showTextToast(msg: inputModel.placeholder)
                 return false
             }
         }
@@ -217,9 +223,9 @@ extension UYAddDegreeViewController {
         showWaitToast()
         request.submitUserElistInfo(parameters: parameters) { (error) -> (Void) in
             if error != nil {
-                self.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self.dismissToast()
+                dismissWaitToast()
                 self.gotoDegreeListVC()
             }
         }

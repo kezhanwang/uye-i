@@ -20,8 +20,6 @@
 		3517C1301F7DF037008E49AC /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3517C1331F7DF037008E49AC /* IQKeyboardManagerSwift.framework */; };
 		3517C1311F7DF037008E49AC /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3517C1341F7DF037008E49AC /* Moya.framework */; };
 		3517C1321F7DF037008E49AC /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3517C1351F7DF037008E49AC /* Result.framework */; };
-		3517C1381F7DF5D9008E49AC /* SRToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517C1371F7DF5D9008E49AC /* SRToast.swift */; };
-		3517C13A1F7DF5F1008E49AC /* SRCycleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */; };
 		3519E8C81FA96535007B722C /* UDIDSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3519E8C71FA96535007B722C /* UDIDSDK.a */; };
 		351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */; };
 		351B84871FA03AE400C77846 /* UYTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B84861FA03AE300C77846 /* UYTagView.swift */; };
@@ -34,6 +32,8 @@
 		3524A2FA1F95E2330035FE80 /* UYOrganiseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */; };
 		3524A2FC1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */; };
 		352F123C1F99F8E100F7E30B /* UYTipsHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352F123B1F99F8E100F7E30B /* UYTipsHeadView.swift */; };
+		353F28781FAC0558005B7FB6 /* SRToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F28761FAC0558005B7FB6 /* SRToast.swift */; };
+		353F28791FAC0558005B7FB6 /* SRToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F28771FAC0558005B7FB6 /* SRToastView.swift */; };
 		353FD2381F9F285B003BB537 /* UYSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FD2371F9F285B003BB537 /* UYSearchModel.swift */; };
 		353FD24C1F9F2895003BB537 /* UYOrganiseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FD23B1F9F2895003BB537 /* UYOrganiseConfig.swift */; };
 		353FD24D1F9F2895003BB537 /* UYQuestionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FD23C1F9F2895003BB537 /* UYQuestionList.swift */; };
@@ -192,8 +192,6 @@
 		3517C1331F7DF037008E49AC /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3517C1341F7DF037008E49AC /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3517C1351F7DF037008E49AC /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3517C1371F7DF5D9008E49AC /* SRToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRToast.swift; sourceTree = "<group>"; };
-		3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCycleProgressView.swift; sourceTree = "<group>"; };
 		3519E8C31FA9652A007B722C /* UDIDSafeOCREngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDSafeOCREngine.h; sourceTree = "<group>"; };
 		3519E8C41FA9652B007B722C /* UDIDSafeVideoRecodeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDSafeVideoRecodeEngine.h; sourceTree = "<group>"; };
 		3519E8C51FA9652B007B722C /* UDIDSafeAuthEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDIDSafeAuthEngine.h; sourceTree = "<group>"; };
@@ -210,6 +208,8 @@
 		3524A2F81F95E2330035FE80 /* UYOrganiseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrganiseTableViewCell.xib; sourceTree = "<group>"; };
 		3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrganiseDetailViewController.swift; sourceTree = "<group>"; };
 		352F123B1F99F8E100F7E30B /* UYTipsHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYTipsHeadView.swift; sourceTree = "<group>"; };
+		353F28761FAC0558005B7FB6 /* SRToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRToast.swift; sourceTree = "<group>"; };
+		353F28771FAC0558005B7FB6 /* SRToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRToastView.swift; sourceTree = "<group>"; };
 		353FD2371F9F285B003BB537 /* UYSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYSearchModel.swift; sourceTree = "<group>"; };
 		353FD23B1F9F2895003BB537 /* UYOrganiseConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYOrganiseConfig.swift; sourceTree = "<group>"; };
 		353FD23C1F9F2895003BB537 /* UYQuestionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYQuestionList.swift; sourceTree = "<group>"; };
@@ -444,15 +444,6 @@
 			path = UYSearchBarView;
 			sourceTree = "<group>";
 		};
-		3517C1361F7DF444008E49AC /* SRToastView */ = {
-			isa = PBXGroup;
-			children = (
-				3517C1371F7DF5D9008E49AC /* SRToast.swift */,
-				3517C1391F7DF5F1008E49AC /* SRCycleProgressView.swift */,
-			);
-			path = SRToastView;
-			sourceTree = "<group>";
-		};
 		352F12371F99F8B300F7E30B /* UYTipsHeadView */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +451,15 @@
 			);
 			name = UYTipsHeadView;
 			path = UYTipsHeadView/UYTipsHeadView;
+			sourceTree = "<group>";
+		};
+		353F28751FAC0558005B7FB6 /* SRToast */ = {
+			isa = PBXGroup;
+			children = (
+				353F28761FAC0558005B7FB6 /* SRToast.swift */,
+				353F28771FAC0558005B7FB6 /* SRToastView.swift */,
+			);
+			path = SRToast;
 			sourceTree = "<group>";
 		};
 		353FD2361F9F2757003BB537 /* Recovered References */ = {
@@ -594,7 +594,7 @@
 				35E9BB321F9745D400A8BED9 /* UYInput */,
 				35D253E41F91E65A00945017 /* TableFooterView */,
 				354D08BD1F90A6560024414E /* LocationManager */,
-				3517C1361F7DF444008E49AC /* SRToastView */,
+				353F28751FAC0558005B7FB6 /* SRToast */,
 				355237C31F7248A10041B5BD /* Third */,
 				355260A61F6F62AB00F8734A /* UYNetRequest */,
 				354E344A1F6D3EBF009CFCE4 /* Configuration */,
@@ -1307,15 +1307,14 @@
 			files = (
 				355CF5DE1FA6D672001F967F /* KZTextField.m in Sources */,
 				355CF5E51FA6F7CF001F967F /* UYAddress.swift in Sources */,
+				353F28791FAC0558005B7FB6 /* SRToastView.swift in Sources */,
 				353FD24C1F9F2895003BB537 /* UYOrganiseConfig.swift in Sources */,
 				358EBB121F9C64FD0075033D /* UYBankPickerView.swift in Sources */,
 				358CF7381F9B3C7A00C281EA /* PhotoNavigationController.m in Sources */,
 				355CF5E01FA6D672001F967F /* SchoolSearchHeadView.m in Sources */,
 				35E9BB3F1F974C1A00A8BED9 /* UYIdCardTableViewCell.swift in Sources */,
-				3517C13A1F7DF5F1008E49AC /* SRCycleProgressView.swift in Sources */,
 				353FD2561F9F2895003BB537 /* UYOrganiseOrderTableCell.swift in Sources */,
 				355260A81F6F65FE00F8734A /* UYNetRequest.swift in Sources */,
-				3517C1381F7DF5D9008E49AC /* SRToast.swift in Sources */,
 				3503D39E1FA082A40026C2FF /* UYCourseTableViewCell.swift in Sources */,
 				358CF7271F9B3C7A00C281EA /* PhotoListCell.m in Sources */,
 				357396B61F98A6B900BF5811 /* UYHomeOrderTableViewCell.swift in Sources */,
@@ -1411,6 +1410,7 @@
 				352482471FA8113500E7ECA9 /* UYAddDegreeViewController.swift in Sources */,
 				358CF7251F9B3C7A00C281EA /* PhotoCollectionViewCell.m in Sources */,
 				356A1B461FA9A330001544FA /* UYBottomBtnView.swift in Sources */,
+				353F28781FAC0558005B7FB6 /* SRToast.swift in Sources */,
 				353FD2521F9F2895003BB537 /* UYUserBaseInfoViewController.swift in Sources */,
 				357396BA1F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.swift in Sources */,
 				35BCD6B11F8E13B900C3469F /* UYOrganiseList.swift in Sources */,

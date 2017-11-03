@@ -184,13 +184,13 @@ extension UYUserBaseInfoViewController {
         let idEndItem = UYInputModel(content:userInfo.id_card_end, placeholder: "请选择身份证结束日期", textFieldEnable: false)
         let addressItem = UYInputModel(title: "证件住址",content:userInfo.id_card_address,  placeholder: "请输入您身份证上的住址")
         var picItem = UYInputModel()
-        if  userInfo.id_card_info_pic.characters.count > 0 {
+        if  userInfo.id_card_info_pic.count > 0 {
             picItem.image1 = userInfo.id_card_info_pic
-            if userInfo.id_card_nation_pic.characters.count > 0 {
+            if userInfo.id_card_nation_pic.count > 0 {
                 picItem.content = "有照片啦"
             }
         }
-        if userInfo.id_card_nation_pic.characters.count > 0 {
+        if userInfo.id_card_nation_pic.count > 0 {
             picItem.image2 = userInfo.id_card_nation_pic
         }
         
@@ -221,7 +221,7 @@ extension UYUserBaseInfoViewController {
                 self.repeatCount = 0
                 self.getUserIdPic()
             }else{
-                self.showTextToastAutoDismiss(msg: (userInfo?.ret_msg)!)
+                showTextToast(msg: (userInfo?.ret_msg)!)
             }
         }
     }
@@ -244,7 +244,7 @@ extension UYUserBaseInfoViewController :UYIdCardTableViewCellDelegate ,UYInputTa
             }else{
                 inputModel.image2 = result[name] as! String
             }
-            if inputModel.image1.characters.count > 0 && inputModel.image2.characters.count > 0 {
+            if inputModel.image1.count > 0 && inputModel.image2.count > 0 {
                 inputModel.content = "有照片了"
             }
             self?.dataArray[1][0] = inputModel
@@ -254,15 +254,15 @@ extension UYUserBaseInfoViewController :UYIdCardTableViewCellDelegate ,UYInputTa
     func getCodeAction() {
         let inputModel :UYInputModel = dataArray[2][2]
         let phone = inputModel.content
-        if phone.characters.count != 11 {
-            showTextToastAutoDismiss(msg: "请输入正确的手机号")
+        if phone.count != 11 {
+            showTextToast(msg: "请输入正确的手机号")
             return
         }
         let  cell  = tableView.cellForRow(at: IndexPath(row: 2, section: 2)) as! UYInputBtnTableViewCell
         cell.verBtn.beginCountDown()
-        request.getPhoneCodeRequest(phone: phone) {[weak self] (error) -> (Void) in
+        request.getPhoneCodeRequest(phone: phone) { (error) -> (Void) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }
         }
     }
@@ -277,20 +277,20 @@ extension UYUserBaseInfoViewController :UYIdCardTableViewCellDelegate ,UYInputTa
 extension UYUserBaseInfoViewController:UYTableFooterViewDelegate {
     func checkParameters() -> Bool {
         for model:UYInputModel in dataArray[0] {
-            guard model.content.characters.count > 0 else {
-                showTextToastAutoDismiss(msg: model.placeholder)
+            guard model.content.count > 0 else {
+                showTextToast(msg: model.placeholder)
                 return false
             }
         }
         for model:UYInputModel in dataArray[1] {
-            guard model.content.characters.count > 0 else {
-                showTextToastAutoDismiss(msg: model.placeholder)
+            guard model.content.count > 0 else {
+                showTextToast(msg: model.placeholder)
                 return false
             }
         }
         for model:UYInputModel in dataArray[2] {
-            guard model.content.characters.count > 0 else {
-                showTextToastAutoDismiss(msg: model.placeholder)
+            guard model.content.count > 0 else {
+                showTextToast(msg: model.placeholder)
                 return false
             }
         }
@@ -333,9 +333,9 @@ extension UYUserBaseInfoViewController:UYTableFooterViewDelegate {
         showWaitToast()
         request.submitUserInfo(parameters: parameters) { (error) -> (Void) in
             if error != nil {
-                self.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self.dismissToast()
+                dismissWaitToast()
                 self.popBackAction()
             }
         }
@@ -349,9 +349,9 @@ extension UYUserBaseInfoViewController {
         showWaitToast()
         request.getUserInfoConfig {[weak self] (bannks, error) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.banksArray = bannks!
                 self?.bankPickerView.banksArray = bannks!
             }
@@ -362,9 +362,9 @@ extension UYUserBaseInfoViewController {
         showWaitToast()
         request.getUserUDCreditRequest {[weak self] (creditConfig, error) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.safeManager.safeEngine.outOrderId = creditConfig?.order
                 self?.safeManager.safeEngine.authKey = creditConfig?.key
                 self?.safeManager.safeEngine.userId = creditConfig?.user_id
@@ -389,10 +389,10 @@ extension UYUserBaseInfoViewController {
                     self?.getUserIdPic()
                     self?.repeatCount += 1
                 }else{
-                    self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                    showTextToast(msg: (error?.description)!)
                 }
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.userInfo.id_card_info_pic = UserPic?.id_card_info_pic ?? ""
                 self?.userInfo.id_card_nation_pic = UserPic?.id_card_nation_pic ?? ""
                 var picItem = UYInputModel()

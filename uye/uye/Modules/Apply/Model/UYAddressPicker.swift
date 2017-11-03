@@ -109,28 +109,29 @@ extension UYAddressPicker {
 // MARK: - 网络请求
 extension UYAddressPicker {
     func getProvinceList()  {
-        SRToast.shared.showToastView()
+        showWaitToast()
+
         request.getProvinceList {[weak self] (provinces, error) -> (Void) in
             self?.handleRequest(results: provinces, error: error, cityType: 1)
         }
     }
     func getCityList(provinceId:String)  {
-        SRToast.shared.showToastView()
+        showWaitToast()
         request.getCityList(province: provinceId) {[weak self] (citys, error) -> (Void) in
             self?.handleRequest(results: citys, error: error, cityType: 2)
         }
     }
     func getAredList(cityId:String) {
-        SRToast.shared.showToastView()
+        showWaitToast()
         request.getAreaList(city: cityId) {[weak self] (areas, error) -> (Void) in
             self?.handleRequest(results: areas, error: error, cityType: 3)
         }
     }
     func handleRequest(results:[UYAddress]?,error:UYError?,cityType:NSInteger) {
         if  error != nil {
-            SRToast.shared.showTextToastAutoDismiss(msg: (error?.description)!)
+            showTextToast(msg: (error?.description)!)
         }else{
-            SRToast.shared.dismissToast()
+            dismissWaitToast()
             if cityType == 1 {
                 provinceArray.removeAll()
                 provinceArray +=  results!

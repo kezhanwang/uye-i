@@ -65,7 +65,7 @@ class UYOrderCollectionViewCell: UICollectionViewCell {
                 let attribute = NSMutableAttributedString(string: "学费：￥\(realPriceStr)", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14),NSAttributedStringKey.foregroundColor:UIColor(hexColor: "999999")])
                 attribute.addAttributes([NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12),NSAttributedStringKey.foregroundColor:UIColor(hexColor: "333333")], range: NSMakeRange(3, 1))
 
-                attribute.addAttributes([NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 16),NSAttributedStringKey.foregroundColor:UIColor(hexColor: "333333")], range: NSMakeRange(4, realPriceStr.characters.count))
+                attribute.addAttributes([NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 16),NSAttributedStringKey.foregroundColor:UIColor(hexColor: "333333")], range: NSMakeRange(4, realPriceStr.count))
                 priceLabel.attributedText = attribute
                 
               

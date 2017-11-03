@@ -10,7 +10,7 @@ import UIKit
 
 class UYOrganiseBottomBar: UIView {
     
-    var delegate:UYOrganiseBottomBarDelegate?
+    weak var delegate:UYOrganiseBottomBarDelegate?
     
     static func loadBottomBar() -> UYOrganiseBottomBar? {
         let nibViews = Bundle.main.loadNibNamed("UYOrganiseBottomBar", owner: nil, options: nil)

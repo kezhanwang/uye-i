@@ -49,7 +49,8 @@ class UYAPPManager: NSObject {
     func checkOrganiseNeedQuestion(orgId:String, complete:@escaping ()->(Void)) {
         request.getQuestionListRequest(orgId: orgId) { (quesList, error) in
             if error != nil {
-                SRToast.shared.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
+                
             }else{
                 self.questionListInfo = quesList!
             }

@@ -18,6 +18,7 @@ class UYEmployViewController: UYBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "就业帮"
+        view.backgroundColor = UIColor.background
         NotificationCenter.default.addObserver(self, selector: #selector(noticeHasMoreOrder), name: MakeOrderSuccess, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(loginStatusChange), name: LoginStatusChange, object: nil)
         if UYAPPManager.shared.userInfo != nil {
@@ -67,7 +68,8 @@ extension UYEmployViewController {
         var shakeTime = UserDefaults.standard.integer(forKey: "com.uy.shake.time")
         if shakeTime < 2 {
             DispatchQueue.main.async {
-                self.showTextToastAutoDismiss(msg: "向左滑动查看更多订单哦", second: 3)
+                showTextToast(msg: "向左滑动查看更多订单哦")
+
                 UIView.animate(withDuration: 0.8, animations: {
                     self.orderCollectionView.scrollRectToVisible(CGRect(x: 100, y: 0, width: kScreenWidth, height: 300), animated: false)
                 }, completion: { (finish) in
@@ -151,10 +153,10 @@ extension UYEmployViewController {
         }
         request.getOrderList(page: page) {[weak self] (orderList, error) -> (Void) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
                 self?.hasMore = false
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 if orderList?.insured_order != nil {
                     self?.hiddenErrorView()
                    self?.totlePage = orderList?.page?.totalPage ?? 1

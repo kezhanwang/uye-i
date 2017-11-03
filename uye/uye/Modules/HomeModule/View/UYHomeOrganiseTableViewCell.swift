@@ -17,6 +17,9 @@ class UYHomeOrganiseTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        searchView.layer.cornerRadius = searchView.bounds.height/2
+        searchView.layer.borderWidth = 1
+        searchView.layer.borderColor = UIColor.themeColor.cgColor
         
     }
     func setupUI(organise:UYOrganiseModel) {
@@ -26,7 +29,7 @@ class UYHomeOrganiseTableViewCell: UITableViewCell {
                                                           NSAttributedStringKey.foregroundColor:UIColor.blackText]
             
             let mutableAttributedString = NSMutableAttributedString(string: "您当前的位置在\(name)", attributes: attributes)
-            let range = NSMakeRange(7, name.characters.count)
+            let range = NSMakeRange(7, name.count)
             
             mutableAttributedString.addAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 15),NSAttributedStringKey.foregroundColor:UIColor.greenText], range: range)
             

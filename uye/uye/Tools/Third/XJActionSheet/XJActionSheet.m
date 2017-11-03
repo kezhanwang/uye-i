@@ -25,7 +25,7 @@
 /**
  *  放otherButton 和destructiveButton 的title （destructiveButton 在第一位）
  */
-@property(nonatomic,copy)NSMutableArray * titleArray;
+@property(nonatomic,strong)NSMutableArray * titleArray;
 /**
  *  存放按钮和标题的
  */

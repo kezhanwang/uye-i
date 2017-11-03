@@ -15,7 +15,7 @@ class UYSearchViewController: UYBaseViewController {
     fileprivate var isFirstTime = true
     fileprivate let tagsView :UIView = UIView()
     fileprivate let tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
-
+    
     fileprivate var keyWord:String = ""
     fileprivate let searchBar = UYSearchBar()
     fileprivate let hotSearch:UYTagView = UYTagView(title: "热门搜索")
@@ -25,12 +25,14 @@ class UYSearchViewController: UYBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = UIColor.white
-        DispatchQueue.main.asyncAfter(deadline: 1) {
+        getSearchHistory()
+        DispatchQueue.main.asyncAfter(deadline: 0.5, execute: {
             self.searchBar.becomeFirstResponder()
-        }
-
+        })
     }
+ 
     override func setupUI() {
         
         navigationItem.leftBarButtonItem = nil
@@ -40,7 +42,6 @@ class UYSearchViewController: UYBaseViewController {
         navigationItem.titleView = searchBar
          let cancelBtn = UIBarButtonItem(title: "    取消", style: UIBarButtonItemStyle.plain, target: self, action: #selector(cancelAction))
         navigationItem.rightBarButtonItem = cancelBtn
-        
 
         showErorView()
         errorView.isHidden = true
@@ -49,7 +50,8 @@ class UYSearchViewController: UYBaseViewController {
         
     }
   
-    @objc func cancelAction(){
+    @objc func cancelAction() {
+        searchBar.resignFirstResponder()
         popBackAction()
     }
 }
@@ -59,21 +61,33 @@ extension UYSearchViewController {
         showWaitToast()
         request.getOrganiseList(isRefash: isRefash, word: keyWord) {[weak self] (list, error) -> (Void) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
+                if isRefash {
+                    self?.organiseList.removeAll()
+                }
                 self?.organiseList = (self?.organiseList)! + (list?.organizes)!
                 if (self?.organiseList.isEmpty)! {
                     self?.errorView.isHidden = false
                     self?.view.bringSubview(toFront: (self?.errorView)!)
                 }else{
-//                    self?.tableView.mj_footer.endRefreshing()
-
                     self?.errorView.isHidden = true
                     self?.view.bringSubview(toFront: (self?.tableView)!)
                     self?.tableView.reloadData()
                 }
                 
+            }
+        }
+    }
+    func getSearchHistory() {
+        showWaitToast()
+        request.getSearchDataRequest { (searchModel, error) in
+            if (error != nil) {
+                showTextToast(msg: (error?.description)!)
+            }else{
+                dismissWaitToast()
+                self.updateTagsViewWithSearchData(searchData: searchModel!)
             }
         }
     }
@@ -87,8 +101,7 @@ extension UYSearchViewController {
             make.top.equalTo(kNavigationHeight)
             make.left.right.bottom.equalTo(0)
         }
-        let hotSearch:UYTagView = UYTagView(title: "热门搜索")
-        hotSearch.tagsArray = ["翡翠","华育","IT","完美东流","健身","英语","设计"]
+        hotSearch.tagsArray = []
         hotSearch.delegate = self
         tagsView.addSubview(hotSearch)
         hotSearch.snp.makeConstraints { (make) in
@@ -97,12 +110,11 @@ extension UYSearchViewController {
             make.height.equalTo(hotSearch.estimatedHeight)
         }
         
-        let historyView:UYTagView = UYTagView(title: "历史记录", showDelete: true)
-        historyView.tagsArray = ["翡翠","华育","IT","完美东流","健身","英语","设计"]
+        historyView.tagsArray = []
         historyView.delegate = self
         tagsView.addSubview(historyView)
         historyView.snp.makeConstraints { (make) in
-            make.top.equalTo(20+hotSearch.estimatedHeight)
+            make.top.equalTo(hotSearch.snp.bottom).offset(15)
             make.left.right.equalTo(0)
             make.height.equalTo(historyView.estimatedHeight)
         }
@@ -111,18 +123,7 @@ extension UYSearchViewController {
     func updateTagsViewWithSearchData(searchData:UYSearchModel)  {
         hotSearch.tagsArray = searchData.hot_search ?? []
         historyView.tagsArray = searchData.history ?? []
-        hotSearch.snp.remakeConstraints { (make) in
-            make.top.equalTo(10)
-            make.left.right.equalTo(0)
-            make.height.equalTo(hotSearch.estimatedHeight)
-            
-        }
-        historyView.snp.remakeConstraints { (make) in
-            make.top.equalTo(20+hotSearch.estimatedHeight)
-            make.left.right.equalTo(0)
-            make.height.equalTo(historyView.estimatedHeight)
-            
-        }
+
 
     }
 }
@@ -130,6 +131,12 @@ extension UYSearchViewController : UYTagViewDelegate {
     func deleteHistory() {
         
     }
+    func tagViewEstimatedHeight(tagView: UYTagView, height: CGFloat) {
+        tagView.snp.updateConstraints { (make) in
+            make.height.equalTo(tagView.estimatedHeight)
+        }
+    }
+
     func tagAcion(title: String) {
         searchBar.text = title
         
@@ -197,7 +204,7 @@ extension UYSearchViewController :UITableViewDelegate,UITableViewDataSource {
 extension UYSearchViewController :UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (searchBar.text?.isEmpty)! {
-            showTextToastAutoDismiss(msg: searchBar.placeholder!)
+            showTextToast(msg: searchBar.placeholder!)
             return false
         }
         searchBar.resignFirstResponder()

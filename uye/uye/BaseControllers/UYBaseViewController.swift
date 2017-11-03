@@ -68,7 +68,7 @@ extension UYBaseViewController {
         }
         titleLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(errorView)
-            make.top.equalTo(imageView.snp.bottom).offset(10)
+            make.top.equalTo(imageView.snp.bottom).offset(18)
         }
         view.bringSubview(toFront: errorView)
         
@@ -86,6 +86,15 @@ extension UYBaseViewController {
             navigationController?.popToRootViewController(animated: true)
         }else{
             navigationController?.popViewController(animated: true)
+        }
+    }
+    func popToViewController(targetVC:AnyClass) {
+        for i in 0..<(self.navigationController?.viewControllers.count)! {
+            
+            if self.navigationController?.viewControllers[i].isKind(of: targetVC) == true {
+                _ = self.navigationController?.popToViewController((self.navigationController?.viewControllers[i])!, animated: true)
+                break
+            }
         }
     }
     func popToRootViewController(after:DispatchTime) {

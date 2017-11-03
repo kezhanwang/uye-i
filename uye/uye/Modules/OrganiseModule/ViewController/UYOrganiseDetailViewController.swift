@@ -211,7 +211,7 @@ extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSour
         }else if indexPath.section == 1 {
             if indexPath.row == 2 && isShowMore == false {
                 isShowMore = true
-                self.tableView.reloadData()
+                tableView.reloadData()
             }
         }else if indexPath.section == 2 {
             let webVC  = UYWebViewController()
@@ -234,15 +234,20 @@ extension UYOrganiseDetailViewController : UYOrganiseIntroduceTableViewCellDeleg
 extension UYOrganiseDetailViewController :UYOrganiseBottomBarDelegate {
     func callOrganisePhone() {
         if let phoeNumber = organise?.phone {
-            if phoeNumber.characters.count > 0 {
-                DispatchQueue.main.async {
-                    UIApplication.shared.openURL(URL(string: "telprompt://\(phoeNumber)")!)
-                }
+            if phoeNumber.count > 0 {
+                let alertVC = UIAlertController(title: "机构电话", message: nil, preferredStyle: .actionSheet)
+                alertVC.addAction(UIAlertAction(title: customerServicePhone, style: .default, handler: { (action) in
+                    DispatchQueue.main.async {
+                        UIApplication.shared.openURL(URL(string: "telprompt://\(phoeNumber)")!)
+                    }
+                }))
+                alertVC.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+                present(alertVC, animated: true, completion: nil)
             }else{
-                showTextToastAutoDismiss(msg: "暂无机构电话")
+                showTextToast(msg: "暂无机构电话")
             }
         }else{
-            showTextToastAutoDismiss(msg: "暂无机构电话")
+            showTextToast(msg: "暂无机构电话")
         }
     }
     func collectOrganiseAction() {
@@ -284,9 +289,9 @@ extension UYOrganiseDetailViewController {
         showWaitToast()
         request.getOrganiseDetail(orgId: organise?.org_id ?? "") {[weak self] (organiseModel, error) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.organiseDetailInfo = organiseModel
                 self?.tableView.reloadData()
             }

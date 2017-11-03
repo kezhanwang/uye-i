@@ -112,12 +112,18 @@ extension UYUserViewController :UITableViewDelegate,UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 1 {
             if indexPath.row == 0  {
-                showWaitToastAutoDismiss(msg: "清理中...", second: 1)
+                showTextToast(msg: "清理中...")
             }
             if indexPath.row == 1 {
-                DispatchQueue.main.async {
-                    UIApplication.shared.openURL(URL(string: "telprompt://\(customerServicePhone)")!)
-                }
+                
+                let alertVC = UIAlertController(title: "客服电话", message: nil, preferredStyle: .actionSheet)
+                alertVC.addAction(UIAlertAction(title: customerServicePhone, style: .default, handler: { (action) in
+                    DispatchQueue.main.async {
+                        UIApplication.shared.openURL(URL(string: "telprompt://\(customerServicePhone)")!)
+                    }
+                }))
+                alertVC.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+                present(alertVC, animated: true, completion: nil)
             }
         }
     }
@@ -131,9 +137,9 @@ extension UYUserViewController : UYTableFooterViewDelegate {
 //            showWaitToast()
 //            request.logoutAction(complete: { [weak self] (error) -> (Void) in
 //                if error != nil {
-//                    self?.showTextToastAutoDismiss(msg: (error?.description)!)
+//                    showTextToast(msg: (error?.description)!)
 //                }else{
-//                    self?.dismissToast()
+//                    dismissWaitToast()
 //                    self?.footerView.title = "登录/注册"
 //                    self?.tableView.reloadData()
 //                }

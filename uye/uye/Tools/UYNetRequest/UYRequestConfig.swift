@@ -75,7 +75,7 @@ enum UYRequestAPI : String {
     case userElistConfig = "app/elist/config" //获取学校、或者职业的配置
     case userElistInfo = "app/elist/list" //获取职业列表、学历列表 1、学历、2职业
     case userElistSubmit = "app/elist/submit" //个人经历提交
-    
+    case userElistDelete = "app/elist/del"//职业列表或者学历列表删除
     
     case userMobileSubmit = "app/mobile/submit" //用户手机通讯录提交
     

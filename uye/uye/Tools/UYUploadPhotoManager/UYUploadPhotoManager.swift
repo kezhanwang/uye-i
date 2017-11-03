@@ -35,7 +35,7 @@ extension UYUploadPhotoManager {
                     data = UIImageJPEGRepresentation(image, 1)
                 }
                 if data == nil {
-                    SRToast.shared.showTextToastAutoDismiss(msg: "图片格式不支持")
+                    showTextToast(msg: "图片格式不支持")
                 }else{
                     let imageModel = UYImageModel(name: "\(name)_\(index)", data: data!)
                     images.append(imageModel)
@@ -51,7 +51,7 @@ extension UYUploadPhotoManager {
         
         photoPicker?.showActionSheetShowTitle(false, complete: { (result, error, success) in
             if error != nil {
-                SRToast.shared.showTextToastAutoDismiss(msg: (error?.localizedDescription)!)
+                showTextToast(msg: (error?.localizedDescription)!)
             }else{
                 let image :UIImage = result?.first as! UIImage
                 let width = kScreenWidth*4
@@ -71,7 +71,7 @@ extension UYUploadPhotoManager {
             data = UIImageJPEGRepresentation(image, 1)
         }
         if data == nil {
-        SRToast.shared.showTextToastAutoDismiss(msg: "图片格式不支持")
+        showTextToast(msg: "图片格式不支持")
             return
         }
         let images:[UYImageModel] = [UYImageModel(name: name, data: data!)]

@@ -50,9 +50,9 @@ extension UYQuestionnaireViewController {
         
         request.getQuestionListRequest(orgId: org_id ?? "") {[weak self] (questionList, error) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.questionList = questionList
                 if self?.questionList?.need_question == true {
                     self?.tableView.reloadData()
@@ -82,9 +82,9 @@ extension UYQuestionnaireViewController {
 
         request.submitQuestionAnswer(orgId:org_id ?? "", answers: JSONString) {[weak self] (error) -> (Void) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 let userInfoVC = UYUserInfoViewController()
                 userInfoVC.order_id = self?.org_id ?? ""
                 self?.pushToNextVC(nextVC: userInfoVC)

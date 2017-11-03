@@ -124,7 +124,7 @@ extension UYContactsViewController :UITableViewDelegate,UITableViewDataSource {
                         }
                     })
                 }else{
-                    showTextToastAutoDismiss(msg: "婚姻状况获取失败，请返回上个页面，重新获取")
+                    showTextToast(msg: "婚姻状况获取失败，请返回上个页面，重新获取")
                 }
             }else if indexPath.row == 3 {//地址选择
                 var addressModel = dataSource[indexPath.section][indexPath.row]
@@ -152,7 +152,7 @@ extension UYContactsViewController :UITableViewDelegate,UITableViewDataSource {
                         }
                     })
                 }else{
-                    showTextToastAutoDismiss(msg: "关系列表获取失败，请返回上个页面，重新获取")
+                    showTextToast(msg: "关系列表获取失败，请返回上个页面，重新获取")
                 }
             }
         }
@@ -197,9 +197,9 @@ extension UYContactsViewController {
         showWaitToast()
         request.getUserContactConfig {[weak self] (config, error) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.contactConfig = config
             }
         }
@@ -208,9 +208,9 @@ extension UYContactsViewController {
         showWaitToast()
         request.getUserContactInfo {[weak self] (contactInfo, error) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.contactInfo = contactInfo!
                 self?.loadLoaclDatas()
             }
@@ -219,8 +219,8 @@ extension UYContactsViewController {
     func checkParameters() -> Bool {
         for inputModelArray in dataSource {
             for inputModel in inputModelArray {
-                guard inputModel.content.characters.count > 0 else {
-                    showTextToastAutoDismiss(msg: inputModel.placeholder)
+                guard inputModel.content.count > 0 else {
+                    showTextToast(msg: inputModel.placeholder)
                     return false
                 }
             }
@@ -260,9 +260,9 @@ extension UYContactsViewController {
         showWaitToast()
         request.submitUserContactInfo(parameters: parameters) {[weak self] (error) -> (Void) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
                 self?.popBackAction()
             }
         }

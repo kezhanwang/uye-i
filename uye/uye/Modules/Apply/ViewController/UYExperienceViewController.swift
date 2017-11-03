@@ -159,9 +159,11 @@ extension UYExperienceViewController {
         showWaitToast()
         request.getUserExperConfig { (config, error) in
             if error != nil {
-                self.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
+//                showTextToast(msg: (error?.description)!)
             }else{
-                self.dismissToast()
+                dismissWaitToast()
+//                dismissWaitToast()
                 self.experConfig = config
             }
         }
@@ -170,9 +172,10 @@ extension UYExperienceViewController {
         showWaitToast()
         request.getUserExperInfo { (info, error) in
             if error != nil {
-                self.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self.dismissToast()
+                dismissWaitToast()
+//                dismissWaitToast()
                 self.experInfo = info!
                 self.loadLocalData()
                 
@@ -184,14 +187,16 @@ extension UYExperienceViewController {
         
         for inputModel in dataSource {
             if inputModel.title != "就业地区" {
-                guard inputModel.content.characters.count > 0 else {
-                    showTextToastAutoDismiss(msg: inputModel.placeholder)
+                guard inputModel.content.count > 0 else {
+                    showTextToast(msg: inputModel.placeholder)
+//                    showTextToast(msg: inputModel.placeholder)
                     return false
                 }
             }
         }
         if experInfo.will_work_city.count == 0 {
-            showTextToastAutoDismiss(msg: "请添加您期望的工作地区")
+            showTextToast(msg: "请添加您期望的工作地区")
+//            showTextToast(msg: "请添加您期望的工作地区")
             return false
         }
         return true
@@ -222,9 +227,11 @@ extension UYExperienceViewController {
         showWaitToast()
         request.submitUserExperInfo(parameters: parameters) { (error) -> (Void) in
             if error != nil {
-                self.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
+//                showTextToast(msg: (error?.description)!)
             }else{
-                self.dismissToast()
+                dismissWaitToast()
+//                dismissWaitToast()
                 self.gotoNextViewController()
             }
         }

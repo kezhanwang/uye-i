@@ -68,7 +68,7 @@ let kInputCellLabelWidth = 80 - spaceWidth
 
 // MARK: - URL
 /// 客服电话
-let customerServicePhone = "4000029691"
+let customerServicePhone = "400-002-9691"
 
 
 /// 注册协议

@@ -30,7 +30,7 @@ class UYRegisterViewController: UYBaseViewController {
         if phoneTextField.text?.length == 11 {
             getSMSCode()
         }else{
-            showTextToastAutoDismiss(msg: "请输入11位手机号")
+            showTextToast(msg: "请输入11位手机号")
         }
     }
     // MARK: 切换密码可见与不可见
@@ -138,24 +138,24 @@ extension UYRegisterViewController {
         request.getPhoneCodeRequest(phone: phoneTextField.text!) {[weak self] (error:UYError?) -> (Void) in
             if error == nil {
                 self?.getCodeBtn.beginCountDown()
-                self?.dismissToast()
+                dismissWaitToast()
             }else{
-                self?.showTextToastAutoDismiss(msg: error!.description)
+                showTextToast(msg: error!.description)
             }
         }
     }
     
     func checkRegigsterPar() {
         if phoneTextField.text?.length != 11 {
-            showTextToastAutoDismiss(msg: "请输入11位手机号")
+            showTextToast(msg: "请输入11位手机号")
             return
         }
         guard codeTextField.text!.length > 0 else {
-          showTextToastAutoDismiss(msg: "请输入短信验证码")
+          showTextToast(msg: "请输入短信验证码")
             return
         }
         guard pwdTextField.text!.length > 0 else {
-            showTextToastAutoDismiss(msg: "请输入密码")
+            showTextToast(msg: "请输入密码")
             return
         }
         registerAction()
@@ -165,9 +165,10 @@ extension UYRegisterViewController {
         request.registerRequest(phone: phoneTextField.text!, code: codeTextField.text!, pwd: pwdTextField.text!) {[weak self] (userInfo, error:UYError?) -> (Void) in
             
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
+                self?.popToViewController(targetVC: UYUserViewController.self)
                 self?.popBackAction()
             }
         }

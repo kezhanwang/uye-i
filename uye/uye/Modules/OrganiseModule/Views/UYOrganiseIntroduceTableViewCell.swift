@@ -42,7 +42,6 @@ class UYOrganiseIntroduceTableViewCell: UITableViewCell {
 }
 extension UYOrganiseIntroduceTableViewCell : WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print(webView.scrollView.contentSize.height)
         if webView.isLoading == false {
             webView.evaluateJavaScript("document.body.scrollHeight") {[weak self] (result, error) in
                 if let height = result as? CGFloat {

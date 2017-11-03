@@ -60,10 +60,6 @@ extension UYOccupaListViewController {
         tableView.rowHeight = 55
         tableView.register(UINib(nibName: "UYElistTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         
-//        let footView = UYTableFooterView(title: "下一步")
-//        footView.delegate = self
-//        tableView.tableFooterView = footView
-        
         tableView.tableFooterView = UIView()
         let bottomView = UYBottomBtnView(title: "下一步")
         bottomView.delegate = self
@@ -109,34 +105,56 @@ extension UYOccupaListViewController :UITableViewDelegate,UITableViewDataSource 
             
         }
     }
+    
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "删除"
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let listInfo = dataSourece[indexPath.row]
+            deleteUserElistInfo(listId: listInfo.id!,index: indexPath)
+        }
+    }
 }
+
+//下一步按钮点击
 extension UYOccupaListViewController :UYTableFooterViewDelegate {
     func footButtonAction() {
         if isDegreeList {
-            for i in 0..<(self.navigationController?.viewControllers.count)! {
-                
-                if self.navigationController?.viewControllers[i].isKind(of: UYUserInfoViewController.self) == true {
-                    _ = self.navigationController?.popToViewController(self.navigationController?.viewControllers[i] as! UYUserInfoViewController, animated: true)
-                    break
-                }
-            }
+            popToViewController(targetVC: UYUserInfoViewController.self)
         }else{
             pushToNextVC(nextVC: UYAddDegreeViewController())
         }
     }
 }
 
+// MARK: - 网络请求
 extension UYOccupaListViewController {
     func getOccupaList()  {
-        
         let type : Int = isDegreeList == true ? 1 : 2
         request.getUserElistInfo(type: type) { (infoList, error) in
             if error != nil {
-                self.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
             }else{
                 self.dataSourece.removeAll()
                 self.dataSourece += infoList!
                 self.tableView.reloadData()
+            }
+        }
+    }
+    func deleteUserElistInfo(listId:String,index:IndexPath) {
+        showWaitToast()
+        request.deleteUserElist(elistId: listId) { (error) in
+            if error != nil {
+                showTextToast(msg: (error?.description)!)
+            }else{
+                dismissWaitToast()
+                self.dataSourece.remove(at: index.row)
+                self.tableView.deleteRows(at: [index], with: .fade)
             }
         }
     }

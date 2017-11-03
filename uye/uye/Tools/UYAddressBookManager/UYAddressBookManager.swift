@@ -60,6 +60,9 @@ class UYAddressBookManager: NSObject {
             
         }
         else if (sysAddressBookStatus == ABAuthorizationStatus.authorized) {
+            
+            var error:Unmanaged<CFError>?
+            addressBook = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
             //获取并遍历所有联系人记录
             self.getAddressBook(complete: { (succe) in
                 if succe {
@@ -78,7 +81,8 @@ class UYAddressBookManager: NSObject {
 
 // MARK: - 读取通讯录内容
 extension UYAddressBookManager {
-    func getAddressBook(complete:@escaping(_ success:Bool)->Void)  {
+    
+   fileprivate func getAddressBook(complete:@escaping(_ success:Bool)->Void)  {
         let sysContacts:NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook)
             .takeRetainedValue() as NSArray
         

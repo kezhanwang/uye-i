@@ -114,7 +114,8 @@ extension UYUserInfoViewController :UYTableFooterViewDelegate {
     
         for status in itemArray {
             if status.isCertified == false {
-                showTextToastAutoDismiss(msg: status.placeholder)
+                showTextToast(msg: status.placeholder)
+//                showTextToast(msg: status.placeholder)
                 return false
             }
         }
@@ -137,9 +138,11 @@ extension UYUserInfoViewController {
         showWaitToast()
         request.getUsetInfoStatus { [weak self] (infoStatus, error) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
+//                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
+//                dismissWaitToast()
                 
                 if var status = self?.itemArray.first {
                     status.isCertified = (infoStatus?.identity)!
@@ -148,6 +151,10 @@ extension UYUserInfoViewController {
                 if var status = self?.itemArray[2] {
                     status.isCertified = (infoStatus?.contact)!
                     self?.itemArray[2] = status
+                }
+                if var status = self?.itemArray[3] {
+                    status.isCertified = (infoStatus?.experience)!
+                    self?.itemArray[3] = status
                 }
                 self?.tableView.reloadData()
 
@@ -159,9 +166,11 @@ extension UYUserInfoViewController {
         showWaitToast()
         request.getUserInfoRequest {[weak self] (userInfo, error) in
             if error != nil {
-                self?.showTextToastAutoDismiss(msg: (error?.description)!)
+                showTextToast(msg: (error?.description)!)
+//                showTextToast(msg: (error?.description)!)
             }else{
-                self?.dismissToast()
+                dismissWaitToast()
+//                dismissWaitToast()
                 UYAPPManager.shared.userInfo?.full_name = userInfo?.full_name ?? ""
                 UYAPPManager.shared.userInfo?.id_card = userInfo?.id_card ?? ""
                 UYAPPManager.shared.userInfo?.id_card_start = userInfo?.id_card_start ?? ""
@@ -182,13 +191,14 @@ extension UYUserInfoViewController {
         UYAddressBookManager.shared.uploadAddressBook {[weak self] (success, errorMsg) in
             if success {
                 if var status = self?.itemArray.last {
-                    self?.dismissToast()
+                    dismissWaitToast()
                     status.isCertified = true
                     self?.itemArray[1] = status
                     self?.tableView.reloadData()
                 }
             }else{
-                self?.showTextToastAutoDismiss(msg: errorMsg)
+                showTextToast(msg: errorMsg)
+
             }
         }
     }
