@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UYEmployViewController" customModule="uye" customModuleProvider="target">
             <connections>
+                <outlet property="bottmContraint" destination="ke7-Iy-UVb" id="Nmg-77-tKV"/>
                 <outlet property="orderCollectionView" destination="TP0-Od-6it" id="ltN-GQ-qmr"/>
+                <outlet property="topConstraint" destination="xQh-8Y-f5b" id="IFS-eC-Vtz"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Hxy-Em-gDn"/>
             </connections>
         </placeholder>

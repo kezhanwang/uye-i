@@ -24,8 +24,11 @@ class UYBaseViewController: UIViewController {
         if #available(iOS 11.0, *) {
             
         } else {
+            //http://www.jianshu.com/p/87a0de8eac43
             automaticallyAdjustsScrollViewInsets = false
         }
+        
+//        view.translatesAutoresizingMaskIntoConstraints = false
         
         setupUI()
     }

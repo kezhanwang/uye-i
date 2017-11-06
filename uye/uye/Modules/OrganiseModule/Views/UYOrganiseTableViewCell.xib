@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,6 @@
                         <rect key="frame" x="16" y="10" width="107" height="80.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="7y4-s3-HqZ" secondAttribute="height" multiplier="4:3" id="Z1A-e0-3fx"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80.5" id="rid-wO-4DV"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ea-f9-8u7">
@@ -98,7 +97,7 @@
                 <outlet property="iconImageView" destination="7y4-s3-HqZ" id="Svr-og-iFb"/>
                 <outlet property="nameLabel" destination="1Ea-f9-8u7" id="0i8-Ed-26w"/>
             </connections>
-            <point key="canvasLocation" x="-955" y="-260"/>
+            <point key="canvasLocation" x="-1109" y="-260"/>
         </tableViewCell>
     </objects>
     <resources>

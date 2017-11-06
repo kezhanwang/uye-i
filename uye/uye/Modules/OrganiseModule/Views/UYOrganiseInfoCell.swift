@@ -22,7 +22,7 @@ class UYOrganiseInfoCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        translatesAutoresizingMaskIntoConstraints = false
+//        translatesAutoresizingMaskIntoConstraints = false
         logoImageView.layer.cornerRadius = 4
         logoImageView.layer.masksToBounds = true
         

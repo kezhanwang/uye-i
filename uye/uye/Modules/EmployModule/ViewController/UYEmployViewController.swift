@@ -9,6 +9,10 @@
 import UIKit
 fileprivate let orderCelIdentifier = "UYOrderCollectionViewCellIdentifier"
 class UYEmployViewController: UYBaseViewController {
+    
+    @IBOutlet fileprivate weak var bottmContraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var topConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var orderCollectionView: UICollectionView!
     fileprivate var orderList:[UYOrderModel] = []
     fileprivate var hasMore = false //是否还有更多，默认是没有的
@@ -30,6 +34,8 @@ class UYEmployViewController: UYBaseViewController {
         titleLabel.textColor = UIColor.blackText
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: titleLabel)
         titleLabel.snp.updateConstraints { (make) in
+            make.right.equalTo(-10)
+            make.centerY.equalTo((navigationController?.navigationBar.snp.centerY)!)
             make.height.equalTo(21)
             make.width.equalTo(30)
         }
@@ -59,10 +65,10 @@ extension UYEmployViewController {
     func loadCollectionView()  {
         orderCollectionView.backgroundColor = UIColor.background
         orderCollectionView.register(UINib(nibName: "UYOrderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: orderCelIdentifier)
-        orderCollectionView.snp.updateConstraints { (make) in
-            make.top.equalTo(kNavigationHeight)
-            make.bottom.equalTo(-(tabBarController?.tabBar.frame.height)!)
-        }
+        bottmContraint.constant = kTabBarHeight
+        topConstraint.constant = kNavigationHeight
+        
+
     }
     func shakeCollectionView() {
         var shakeTime = UserDefaults.standard.integer(forKey: "com.uy.shake.time")

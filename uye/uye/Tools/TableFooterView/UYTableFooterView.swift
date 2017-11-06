@@ -110,12 +110,13 @@ class UYTableFooterView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+
         addSubview(footerBtn)
         footerBtn.snp.makeConstraints { (make) in
-            make.left.equalTo(16)
-            make.right.equalTo(-16)
             make.top.equalTo(30)
             make.height.equalTo(49)
+            make.centerX.equalTo(kScreenWidth/2)
+            make.width.equalTo(kScreenWidth-32)
         }
         footerBtn.setBackgroundImage(UIImage.imageColor(color: UIColor.themeColor), for: UIControlState.normal)
         footerBtn.setBackgroundImage(UIImage.imageColor(color: UIColor.disableBackColor), for: UIControlState.disabled)

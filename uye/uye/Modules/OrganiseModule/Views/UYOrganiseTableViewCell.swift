@@ -20,7 +20,8 @@ class UYOrganiseTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        translatesAutoresizingMaskIntoConstraints = false
+        
+//        translatesAutoresizingMaskIntoConstraints = false
         categoryView.layer.cornerRadius = 4
         categoryView.layer.borderWidth = 1
         categoryView.layer.borderColor = UIColor(hexColor: "39aefb").cgColor
