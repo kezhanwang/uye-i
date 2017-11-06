@@ -30,7 +30,7 @@ class UYUserViewController: UYBaseViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "user_msg_read_icon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(showMessageVC))
     }
     @objc func showMessageVC() {
-        
+        pushToNextVC(nextVC: UYMessageViewController())
     }
     override func setupUI() {
         view.addSubview(tableView)

@@ -86,6 +86,7 @@
 		355260AC1F6F663300F8734A /* UYRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AB1F6F663300F8734A /* UYRequestManager.swift */; };
 		355260AE1F6F664700F8734A /* UYRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AD1F6F664700F8734A /* UYRequestError.swift */; };
 		355260B01F6F665800F8734A /* UYBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355260AF1F6F665800F8734A /* UYBaseModel.swift */; };
+		355B57D21FAFF6B30040E534 /* UYMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B57D11FAFF6B30040E534 /* UYMessageViewController.swift */; };
 		355CF5C91FA6C2C7001F967F /* UYContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5C81FA6C2C7001F967F /* UYContactsViewController.swift */; };
 		355CF5DB1FA6D672001F967F /* MultiSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CF5CC1FA6D671001F967F /* MultiSelectView.m */; };
 		355CF5DC1FA6D672001F967F /* loan_close_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 355CF5CE1FA6D671001F967F /* loan_close_black@2x.png */; };
@@ -274,6 +275,7 @@
 		355365281F9447C000CA6DF6 /* HGImageCompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGImageCompleteButton.swift; sourceTree = "<group>"; };
 		355365291F9447C000CA6DF6 /* HGImagePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGImagePickerCell.swift; sourceTree = "<group>"; };
 		3553652A1F9447C000CA6DF6 /* HGImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGImagePickerController.swift; sourceTree = "<group>"; };
+		355B57D11FAFF6B30040E534 /* UYMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYMessageViewController.swift; sourceTree = "<group>"; };
 		355CF5C81FA6C2C7001F967F /* UYContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYContactsViewController.swift; sourceTree = "<group>"; };
 		355CF5CB1FA6D671001F967F /* MultiSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiSelectView.h; sourceTree = "<group>"; };
 		355CF5CC1FA6D671001F967F /* MultiSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectView.m; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 			isa = PBXGroup;
 			children = (
 				3552609E1F6F5DB000F8734A /* UYUserViewController.swift */,
+				355B57D11FAFF6B30040E534 /* UYMessageViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1305,6 +1308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355B57D21FAFF6B30040E534 /* UYMessageViewController.swift in Sources */,
 				355CF5DE1FA6D672001F967F /* KZTextField.m in Sources */,
 				355CF5E51FA6F7CF001F967F /* UYAddress.swift in Sources */,
 				353F28791FAC0558005B7FB6 /* SRToastView.swift in Sources */,

@@ -38,7 +38,8 @@ class UYHomeViewController: UYBaseViewController {
         
     }
     @objc func showMessageVC() {
-        
+        pushToNextVC(nextVC: UYMessageViewController())
+
     }
     override func setupUI() {
         
@@ -72,6 +73,8 @@ class UYHomeViewController: UYBaseViewController {
         tableView.tableFooterView = UIView()
         bannerView.autoScrollTimeInterval = 5
         tableView.tableHeaderView = bannerView
+        
+
     }
 
    
