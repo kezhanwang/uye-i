@@ -39,6 +39,10 @@ class UYQuestionnaireViewController: UYBaseViewController {
         tableView.tableFooterView = footView
         tableView.register(UINib(nibName: "UYAnswerTableViewCell", bundle: nil), forCellReuseIdentifier: answerCellIdentifier)
         tableView.register(UYQuestionHeaderView.classForCoder(), forHeaderFooterViewReuseIdentifier: questionHeaderIdentifier)
+        
+        tableView.estimatedRowHeight = 0
+        tableView.estimatedSectionFooterHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
     }
 
 }
@@ -131,7 +135,7 @@ extension UYQuestionnaireViewController : UITableViewDelegate,UITableViewDataSou
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 1
+        return 10
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let queston = questionList?.questions![indexPath.section] {

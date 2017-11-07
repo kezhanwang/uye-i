@@ -18,7 +18,6 @@ class UYAddOccupaViewController: UYBaseViewController {
     
     fileprivate let tableView = UITableView()
     fileprivate var dataSource = [UYInputModel]()
-    fileprivate let datePicker = KZDatePickerView()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "添加职业"
@@ -76,20 +75,31 @@ extension UYAddOccupaViewController :UITableViewDataSource,UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {//入职日期
-            let years70:TimeInterval = 24*60*60*365*70
-            let minDate = Date(timeIntervalSinceNow: -years70)
-            showDatePicer(maxDate: Date(), minDate: minDate, indexPath: indexPath)
+            
+            showMonthDatePicker(minDate: "", containNow: false, indexPath: indexPath)
+            
+//            let years70:TimeInterval = 24*60*60*365*70
+//            let minDate = Date(timeIntervalSinceNow: -years70)
+//            showDatePicer(maxDate: Date(), minDate: minDate, indexPath: indexPath)
             
         }else if indexPath.row == 2 {//离职日期
-            let years70:TimeInterval = 24*60*60*365*70
-            var minDate = Date(timeIntervalSinceNow: -years70)
             
             let inputModel = dataSource[indexPath.row-1]
+            var minDate = ""
             if inputModel.content.count > 0{
-                minDate = NSDate(from: inputModel.content)! as Date
+                minDate = inputModel.content
             }
+            showMonthDatePicker(minDate: minDate, containNow: false, indexPath: indexPath)
 
-            showDatePicer(maxDate: Date(), minDate: minDate, indexPath: indexPath)
+            
+//            let years70:TimeInterval = 24*60*60*365*70
+//            var minDate = Date(timeIntervalSinceNow: -years70)
+//
+//            let inputModel = dataSource[indexPath.row-1]
+//            if inputModel.content.count > 0{
+//                minDate = NSDate(from: inputModel.content)! as Date
+//            }
+//            showDatePicer(maxDate: Date(), minDate: minDate, indexPath: indexPath)
 
         }else if indexPath.row == 3 {//职位
             let dataArray = occupaConfig?.position ?? []
@@ -155,27 +165,28 @@ extension UYAddOccupaViewController {
             }
         })
     }
-    
-    func showDatePicer(maxDate:Date,minDate:Date,indexPath:IndexPath) {
+    func showMonthDatePicker(minDate:String,containNow:Bool, indexPath:IndexPath) {
         self.view.endEditing(false)
+        
+        let datePicker =  UYMonthDatePicker()
+        datePicker.isContainNow = containNow
+        datePicker.minDate = minDate
+        datePicker.maxDate = datePicker.nowDate
+        
         var inputModel :UYInputModel = dataSource[indexPath.row]
-        datePicker.minimumDate = minDate
-        datePicker.maximumDate = maxDate
-        if inputModel.content.isEmpty == false {
-            let nowDate = NSDate(from: inputModel.content)! as Date
-            
-            if (nowDate < minDate  || nowDate > maxDate) {
-                datePicker.beginDate = minDate
-            }else{
-                datePicker.beginDate = nowDate
-            }
+        if inputModel.content.count > 0 {
+            datePicker.defaultDate = inputModel.content;
         }
-        datePicker.showDatePickerComolete {[weak self] (date) in
-            inputModel.content = date ?? ""
+        datePicker.showActionSheet()
+        
+        
+        datePicker.selectDateFinish {[weak self] (date) in
+            inputModel.content = date
             self?.dataSource[indexPath.row] = inputModel
             self?.tableView.reloadData()
         }
     }
+    
 }
 
 // MARK: - 网络请求

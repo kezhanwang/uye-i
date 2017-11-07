@@ -60,6 +60,8 @@ class UYOrganiseDetailViewController: UYBaseViewController {
             })
             bottomBar?.delegate = self
         }
+        tableView.estimatedSectionFooterHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
     }
 
     
@@ -69,11 +71,7 @@ class UYOrganiseDetailViewController: UYBaseViewController {
 }
 extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        var numberOfSection = 2
-        if organiseDetailInfo?.courses!.count ?? 0 > 0 {
-            numberOfSection = numberOfSection + 1
-        }
-        return numberOfSection
+        return 3;
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -180,10 +178,32 @@ extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSour
         return 44
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 1 {
+            if let count = organiseDetailInfo?.courses?.count {
+                if count > 0 {
+                    return 10
+                }else{
+                    return 0.01
+                }
+            }else{
+                return 0.01
+            }
+        }
         return 10
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if  section > 0 {
+            if section == 1 {
+                if let count = organiseDetailInfo?.courses?.count {
+                    if count > 0 {
+                        return 50
+                    }else{
+                        return 0
+                    }
+                }else{
+                    return 0
+                }
+            }
             return 50
         }
         return 0
@@ -192,10 +212,18 @@ extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if section > 0 {
+            
             let headView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headViewIdentifier) as! UYOrganiseDetailHeaderView
+            
             headView.contentView.backgroundColor = UIColor.white
             if section == 1 {
-                headView.titleLabel.text = "精彩 • 课程"
+                if  let count = organiseDetailInfo?.courses?.count,
+                    count > 0 {
+                    headView.titleLabel.text = "精彩 • 课程"
+                }else{
+                    return UIView()
+//                    headView.titleLabel.text = ""
+                }
             }else{
                 headView.titleLabel.text = "课程 • 介绍"
             }

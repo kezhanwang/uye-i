@@ -106,20 +106,33 @@ extension UYAddressBookManager {
             var phones = [String]()
             
             if phoneValues != nil {
-                for i in 0 ..< ABMultiValueGetCount(phoneValues){
-                    
-                    // 获得标签名
-                    let phoneLabel = ABMultiValueCopyLabelAtIndex(phoneValues, i).takeRetainedValue()
-                        as CFString;
-                    // 转为本地标签名（能看得懂的标签名，比如work、home）
-                    let localizedPhoneLabel = ABAddressBookCopyLocalizedLabel(phoneLabel)
-                        .takeRetainedValue() as String
-                    
-                    let value = ABMultiValueCopyValueAtIndex(phoneValues, i)
-                    let phone = value?.takeRetainedValue() as! String
-                    phones.append(phone)
-                    print("  \(localizedPhoneLabel):\(phone)")
+                let count = ABMultiValueGetCount(phoneValues)
+                if count > 0 {
+                    for i in 0 ..< count {
+                        if phoneValues != nil {
+                            
+                            var localizedPhoneLabel = ""
+                            
+                            // 获得标签名
+                            let aphoneLabel = ABMultiValueCopyLabelAtIndex(phoneValues, i)
+                            if aphoneLabel == nil {//不造为啥会空的。。。
+                                localizedPhoneLabel = "电话"
+                            }else{
+                                let phoneLabel = aphoneLabel?.takeRetainedValue()
+                                
+                                // 转为本地标签名（能看得懂的标签名，比如work、home）
+                                localizedPhoneLabel = ABAddressBookCopyLocalizedLabel(phoneLabel)
+                                    .takeRetainedValue() as String
+                            }
+                            
+                            let value = ABMultiValueCopyValueAtIndex(phoneValues, i)
+                            let phone = value?.takeRetainedValue() as! String
+                            phones.append(phone)
+                            print("  \(localizedPhoneLabel):\(phone)")
+                        }
+                    }
                 }
+               
             }
             
             //获取Email

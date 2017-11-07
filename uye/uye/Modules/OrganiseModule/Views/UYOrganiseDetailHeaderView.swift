@@ -11,6 +11,10 @@ import UIKit
 class UYOrganiseDetailHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var titleLabel: UILabel!
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.backgroundView = UIView(frame: self.bounds)
+        self.backgroundView?.backgroundColor = UIColor.white
+    }
 
 }

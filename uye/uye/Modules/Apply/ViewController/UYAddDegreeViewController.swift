@@ -16,7 +16,7 @@ class UYAddDegreeViewController: UYBaseViewController {
     fileprivate var degreeConfig:UYUserElistConfig?
     fileprivate let tableView = UITableView()
     fileprivate var dataSource = [UYInputModel]()
-    fileprivate let datePicker = KZDatePickerView()
+//    fileprivate let datePicker = KZDatePickerView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,21 +74,32 @@ extension UYAddDegreeViewController :UITableViewDataSource,UITableViewDelegate {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.view.endEditing(false)
         if indexPath.row == 0 {
             let dataArray = degreeConfig?.education ?? []
             showDataPicker(dataArray: dataArray, indexPath: indexPath)
         }else if indexPath.row == 4 || indexPath.row == 5 {
-            let years70:TimeInterval = 24*60*60*365*70
-            var minDate = Date(timeIntervalSinceNow: -years70)
+            
+            var minDate = ""
+
             if indexPath.row == 5 {
                 let inputModel = dataSource[indexPath.row-1]
                 if inputModel.content.count > 0{
-                    minDate = NSDate(from: inputModel.content)! as Date
+                    minDate = inputModel.content
                 }
             }
-            let maxDate = Date(timeIntervalSinceNow: years70)
-            
-            showDatePicer(maxDate: maxDate, minDate: minDate, indexPath: indexPath)
+            showMonthDatePicker(minDate: minDate, containNow: false, indexPath: indexPath)
+//            let years70:TimeInterval = 24*60*60*365*70
+//            var minDate = Date(timeIntervalSinceNow: -years70)
+//            if indexPath.row == 5 {
+//                let inputModel = dataSource[indexPath.row-1]
+//                if inputModel.content.count > 0{
+//                    minDate = NSDate(from: inputModel.content)! as Date
+//                }
+//            }
+//            let maxDate = Date(timeIntervalSinceNow: years70)
+//
+//            showDatePicer(maxDate: maxDate, minDate: minDate, indexPath: indexPath)
         }
     }
 }
@@ -153,26 +164,52 @@ extension UYAddDegreeViewController {
         })
     }
     
-    func showDatePicer(maxDate:Date,minDate:Date,indexPath:IndexPath) {
+    func showMonthDatePicker(minDate:String,containNow:Bool, indexPath:IndexPath) {
         self.view.endEditing(false)
-        var inputModel :UYInputModel = dataSource[indexPath.row]
-        datePicker.minimumDate = minDate
-        datePicker.maximumDate = maxDate
-        if inputModel.content.isEmpty == false {
-            let nowDate = NSDate(from: inputModel.content)! as Date
-            
-            if (nowDate < minDate  || nowDate > maxDate) {
-                datePicker.beginDate = minDate
-            }else{
-                datePicker.beginDate = nowDate
-            }
+        
+        let datePicker =  UYMonthDatePicker()
+        datePicker.isContainNow = containNow
+        datePicker.minDate = minDate
+        if indexPath.row == 4  {
+            datePicker.maxDate = datePicker.nowDate
         }
-        datePicker.showDatePickerComolete {[weak self] (date) in
-            inputModel.content = date ?? ""
+        
+        var inputModel :UYInputModel = dataSource[indexPath.row]
+        if inputModel.content.count > 0 {
+            datePicker.defaultDate = inputModel.content;
+        }
+        
+        datePicker.showActionSheet()
+        
+        
+        
+        datePicker.selectDateFinish {[weak self] (date) in
+            inputModel.content = date
             self?.dataSource[indexPath.row] = inputModel
             self?.tableView.reloadData()
         }
     }
+    
+//    func showDatePicer(maxDate:Date,minDate:Date,indexPath:IndexPath) {
+//        self.view.endEditing(false)
+//        var inputModel :UYInputModel = dataSource[indexPath.row]
+//        datePicker.minimumDate = minDate
+//        datePicker.maximumDate = maxDate
+//        if inputModel.content.isEmpty == false {
+//            let nowDate = NSDate(from: inputModel.content)! as Date
+//
+//            if (nowDate < minDate  || nowDate > maxDate) {
+//                datePicker.beginDate = minDate
+//            }else{
+//                datePicker.beginDate = nowDate
+//            }
+//        }
+//        datePicker.showDatePickerComolete {[weak self] (date) in
+//            inputModel.content = date ?? ""
+//            self?.dataSource[indexPath.row] = inputModel
+//            self?.tableView.reloadData()
+//        }
+//    }
 }
 
 // MARK: - 网络请求

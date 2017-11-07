@@ -21,6 +21,11 @@ class UYMonthDatePicker: UYBaseActionSheetView {
                 if yearArray.last != "至今" {
                     yearArray.append("至今")
                 }
+            }else{
+                yearArray.removeAll()
+                for index in currentYear-100...currentYear+100 {
+                    yearArray.append("\(index)")
+                }
             }
         }
     }
@@ -77,6 +82,8 @@ class UYMonthDatePicker: UYBaseActionSheetView {
     }
     fileprivate var maxYear:Int = 3000
     fileprivate var maxMonth:Int = 13
+    
+    var nowDate:String!
     
     //设置默认展示的日期,默认是当前的年月
     var defaultDate:String! {
@@ -153,8 +160,11 @@ extension UYMonthDatePicker {
         
         let componentsSet = Set<Calendar.Component>([.year, .month])
         let componentss = currentCalendar.dateComponents(componentsSet, from: currentDate)
+        
         currentYear = componentss.year!
         currentMonth = componentss.month!
+        
+        nowDate = "\(currentYear)-\(currentMonth)"
         
         defaultYear = currentYear
         defaultMonth = currentMonth
@@ -167,6 +177,7 @@ extension UYMonthDatePicker {
         }
         monthArray = ["1","2","3","4","5","6","7","8","9","10","11","12"]
     }
+    
     func refashDate() {
         let indexRow0 = yearArray.index(of: "\(defaultYear)") ?? 0
         let indexRow1 = monthArray.index(of: "\(defaultMonth)") ?? 0
@@ -393,7 +404,8 @@ extension UYMonthDatePicker :UIPickerViewDelegate,UIPickerViewDataSource {
                         let monthRow = (maxCycleCount/2)*monthArray.count + indexRow0
                         pickerView.selectRow(monthRow, inComponent: 1, animated: true)
                     }
-                }else if yearInt == maxYear {//如果是判定越大年限
+                }
+                if yearInt == maxYear {//如果是判定越大年限
                     var realMinMonth = minMonth
                     if yearInt == currentYear {
                         realMinMonth = currentMonth > maxMonth ? maxMonth : currentMonth
@@ -404,7 +416,8 @@ extension UYMonthDatePicker :UIPickerViewDelegate,UIPickerViewDataSource {
                         let monthRow = (maxCycleCount/2)*monthArray.count + indexRow0
                         pickerView.selectRow(monthRow, inComponent: 1, animated: true)
                     }
-                }else if yearInt == currentYear {
+                }
+                if yearInt == currentYear {
                     if monthInt > currentMonth {
                         monthInt = currentMonth
                         let indexRow0 = monthArray.index(of: "\(monthInt)") ?? 0

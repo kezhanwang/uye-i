@@ -30,14 +30,15 @@ class UYBaseActionSheetView: UIView {
         keyWindow?.addSubview(self)
         snp.makeConstraints { (make) in
             make.left.right.equalTo(0)
-            make.top.equalTo(kScreenHeight)
-            make.bottom.equalTo(kScreenHeight)
-        }
-        layoutIfNeeded()
-        snp.updateConstraints { (make) in
             make.top.equalTo(0)
             make.bottom.equalTo(0)
         }
+        layoutIfNeeded()
+        
+//        snp.updateConstraints { (make) in
+//            make.top.equalTo(0)
+//            make.bottom.equalTo(0)
+//        }
         UIView.animate(withDuration: 0.3) {
             self.alpha = 1
             self.layoutIfNeeded()

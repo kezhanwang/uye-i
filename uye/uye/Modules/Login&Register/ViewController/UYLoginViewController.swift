@@ -84,6 +84,7 @@ class UYLoginViewController: UYBaseViewController {
         if showPwdBtn.isSelected {
             codeTextField.isSecureTextEntry = true
         }else{
+            
             codeTextField.isSecureTextEntry = false
         }
     }
@@ -145,6 +146,7 @@ extension UYLoginViewController :UYTableFooterViewDelegate {
             }
             return
         }
+        self.view.endEditing(false)
         if showPwdBtn.isHidden == true {
             loginActionWithSMSCode()
         }else{
@@ -155,6 +157,11 @@ extension UYLoginViewController :UYTableFooterViewDelegate {
         if ispwdLogin {
             showPwdBtn.isHidden = true
             getCodeBtn.isHidden = false
+            if phoneTextField.text?.count == 11 {
+                getCodeBtn.isEnabled = true
+            }else{
+                getCodeBtn.isEnabled = false
+            }
             codeTextField.placeholder = "验证码"
             codeTextField.isSecureTextEntry = false
         }else{
@@ -237,6 +244,12 @@ extension UYLoginViewController : UITextFieldDelegate {
             }
         }
    
+        return true
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if codeTextField == textField {
+            footButtonAction()
+        }
         return true
     }
 }
