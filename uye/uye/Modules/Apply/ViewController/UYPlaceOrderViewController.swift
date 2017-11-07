@@ -199,7 +199,9 @@ extension UYPlaceOrderViewController :UYInputTableViewCellDelegate {
         dataArray[indexPath.row] = inputModel
     }
     func uploadImageAction(indexPath: IndexPath, index: Int) {
-        
+        if uploadManager.isUploading {
+            return
+        }
         if indexPath.row == 0 {//上传手持身份证照片
             self.view.endEditing(false)
             let group_pic = "group_pic"
@@ -302,7 +304,7 @@ extension UYPlaceOrderViewController:UYTableFooterViewDelegate {
             return false
         }
         guard footView.orderAgreedAgreement else {
-            showTextToast(msg: "请阅读并同意服务协议以及授权协议")
+            showTextToast(msg: "请阅读并同意服务条款")
             return false
         }
         return true
@@ -360,15 +362,18 @@ extension UYPlaceOrderViewController:UYTableFooterViewDelegate {
     }
     //展示U授权协议
     func showAuthoriseAgreementAction() {
-        let webVC = UYWebViewController()
-        webVC.urlString = ServiceAgreementURLString
-        pushToNextVC(nextVC: webVC)
+//        let webVC = UYWebViewController()
+//        webVC.urlString = ServiceAgreementURLString
+//        pushToNextVC(nextVC: webVC)
     }
     //展示服务协议
     func showOrderServiceAgreement() {
-        let webVC = UYWebViewController()
-        webVC.urlString = OrderServiceAgreementURLString
-        pushToNextVC(nextVC: webVC)
+        if let url =  organiseConfig?.contract {
+            
+            let webVC = UYWebViewController()
+            webVC.urlString = url
+            pushToNextVC(nextVC: webVC)
+        }
     }
 
 }

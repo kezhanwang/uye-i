@@ -12,12 +12,12 @@ class UYTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        delegate = self
         let homeNavi = UYNavigationController(rootViewController: UYHomeViewController())
         homeNavi.tabBarItem = UITabBarItem(title: "首页", image: tabbbarImage(imageName: "tabbar_home_normal"), selectedImage: tabbbarImage(imageName: "tabbar_home_select"))
         
         let findNavi = UYNavigationController(rootViewController: UYEmployViewController())
-        findNavi.tabBarItem = UITabBarItem(title: "就业帮", image: tabbbarImage(imageName: "tabbar_finacial_normal"), selectedImage: tabbbarImage(imageName: "tabbar_finacial_select"))
+        findNavi.tabBarItem = UITabBarItem(title: "U业帮", image: tabbbarImage(imageName: "tabbar_finacial_normal"), selectedImage: tabbbarImage(imageName: "tabbar_finacial_select"))
         
         let userNavi = UYNavigationController(rootViewController: UYUserViewController())
         userNavi.tabBarItem = UITabBarItem(title: "我的", image: tabbbarImage(imageName: "tabbar_user_normal"), selectedImage: tabbbarImage(imageName: "tabbar_user_select"))
@@ -31,6 +31,8 @@ class UYTabBarController: UITabBarController {
     func tabbbarImage(imageName:String) -> UIImage {
         return UIImage(named: imageName)!.withRenderingMode(.alwaysOriginal)
     }
+    
+    
     func showAppVersionUpdateAlert(version:UYVersionInfo) {
         DispatchQueue.main.async {
             let alertVC = UIAlertController(title: "有新版本啦", message: version.desp, preferredStyle: UIAlertControllerStyle.alert)
@@ -53,3 +55,26 @@ class UYTabBarController: UITabBarController {
         }
     }
 }
+
+extension UYTabBarController : UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController.isKind(of: UYNavigationController.classForCoder()) {
+            let naviVC = viewController as! UYNavigationController
+            
+            if naviVC.tabBarItem.title == "U业帮" {
+                if UYAPPManager.shared.userInfo == nil {
+                    let loginVC = UYLoginViewController()
+                    loginVC.loginSuccess {
+                        tabBarController.selectedIndex = 1;
+                    }
+                    let oryNavi = tabBarController.selectedViewController as! UYNavigationController
+                    oryNavi.pushViewController(loginVC, animated: true)
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+}
+

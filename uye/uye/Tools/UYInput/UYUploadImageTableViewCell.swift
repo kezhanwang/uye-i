@@ -96,12 +96,15 @@ class UYUploadImageTableViewCell: UITableViewCell {
                 
                 uploadBtn.frame = CGRect(x: orX, y: orY, width: width, height: width)
                 let picName = "\(name)_\(index)"
-                let urlStr = images![picName]
-                if let url = URL(string: urlStr!) {
-                    uploadBtn.kf.setImage(with: url, for: .normal, placeholder: #imageLiteral(resourceName: "cell_upload_icon"), options: nil, progressBlock: nil, completionHandler: nil)
-                }else{
-                    uploadBtn.setImage(#imageLiteral(resourceName: "cell_upload_icon"), for: UIControlState.normal)
+                if  let urlStr = images![picName] {
+                    if let url = URL(string: urlStr) {
+                        uploadBtn.kf.setImage(with: url, for: .normal, placeholder: #imageLiteral(resourceName: "cell_upload_icon"), options: nil, progressBlock: nil, completionHandler: nil)
+                    }else{
+                        uploadBtn.setImage(#imageLiteral(resourceName: "cell_upload_icon"), for: UIControlState.normal)
+                    }
                 }
+               
+                
                 
                 uploadBtn.tag = index
                 uploadBtn.addTarget(self, action: #selector(uploadButtonAction(btn:)), for: UIControlEvents.touchUpInside)

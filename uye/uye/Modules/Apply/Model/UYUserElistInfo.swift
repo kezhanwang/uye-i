@@ -7,6 +7,10 @@
 //
 
 import UIKit
+class UYUserElistListData: UYBaseModel {
+    var list:[UYUserElistInfo]?
+    
+}
 //学历以及职业的model
 class UYUserElistInfo: UYBaseModel {
     var uid:String?

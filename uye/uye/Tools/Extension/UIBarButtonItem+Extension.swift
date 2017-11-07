@@ -29,8 +29,22 @@ extension UIBarButtonItem {
             btn.setImage(UIImage(named: "bacn_icon"), for: .normal)
         }
         btn.sizeToFit()
-        
+        if isBack {
+            btn.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+        }
         self.init(customView: btn)
         
+        
     }
+    class func backBarButton(target:Any?,action:Selector) -> UIBarButtonItem {
+        let btn = UIButton()
+        btn.setImage(#imageLiteral(resourceName: "bacn_icon"), for: .normal)
+        btn.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+        btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 50)
+        btn.addTarget(target, action: action, for: .touchUpInside)
+        return UIBarButtonItem(customView: btn)
+        
+    }
+  
+    
 }

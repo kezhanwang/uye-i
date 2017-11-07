@@ -187,9 +187,6 @@ extension UYSearchViewController :UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-
-        
         let organiseDetailVC = UYOrganiseDetailViewController()
         organiseDetailVC.organise = organiseList[indexPath.row]
         pushToNextVC(nextVC: organiseDetailVC)

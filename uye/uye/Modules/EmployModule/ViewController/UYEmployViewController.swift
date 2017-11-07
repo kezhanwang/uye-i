@@ -18,7 +18,7 @@ class UYEmployViewController: UYBaseViewController {
     fileprivate var hasMore = false //是否还有更多，默认是没有的
     fileprivate var page:Int = 1 //从第一页开始
     fileprivate var totlePage :Int = 1//默认也是1
-    fileprivate var titleLabel = UILabel()
+    fileprivate var titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 21))
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "就业帮"
@@ -33,12 +33,7 @@ class UYEmployViewController: UYBaseViewController {
         titleLabel.font = UIFont.systemFont(ofSize: 15)
         titleLabel.textColor = UIColor.blackText
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: titleLabel)
-        titleLabel.snp.updateConstraints { (make) in
-            make.right.equalTo(-10)
-            make.centerY.equalTo((navigationController?.navigationBar.snp.centerY)!)
-            make.height.equalTo(21)
-            make.width.equalTo(30)
-        }
+
         
         loadCollectionView()
         showErorView()

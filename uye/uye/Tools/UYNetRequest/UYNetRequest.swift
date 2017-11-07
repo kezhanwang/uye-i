@@ -467,11 +467,12 @@ extension UYNetRequest {
         config.requestURL = UYRequestAPI.userElistInfo
         config.requestMethod = .get
         config.parameters = ["type":type]
-        UYRequestManager.shared.request(config: config, type: UYUserElistInfo.self) { (list:Any, error) in
+        UYRequestManager.shared.request(config: config, type: UYUserElistListData.self) { (result:Any, error) in
             if error != nil {
                 complete(nil,error)
             }else{
-                complete((list as! [UYUserElistInfo]),error)
+                let infos = result as! UYUserElistListData
+                complete(infos.list,error)
             }
         }
     }

@@ -14,6 +14,7 @@ class UYUploadPhotoManager: NSObject {
     fileprivate var request = UYNetRequest()
     fileprivate var photoPicker = KZPhotoPicker(config: KZPhotoPickerConfig())
     fileprivate var handler:UploadPhotoHandler?
+    var isUploading: Bool = false
     
    
 }
@@ -78,7 +79,9 @@ extension UYUploadPhotoManager {
         uploadImageToServer(images: images)
     }
     fileprivate func uploadImageToServer(images:[UYImageModel]) {
+        isUploading = true
         request.uploadImageRequest(images: images) {[weak self] (picInfo, error) -> (Void) in
+            self?.isUploading = false
             if error == nil {
                 if self?.handler != nil {
                     self?.handler!(picInfo!)

@@ -73,8 +73,8 @@ class UYTableFooterView: UIView {
             NSAttributedStringKey.foregroundColor: UIColor.grayText,
             NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]
         
-        var attributedString = NSMutableAttributedString(string: "我已经阅读《U业帮服务协议》并且同意服务条款", attributes: multipleAttributes)
-        let range = NSRange(location: 6, length: 7)
+        var attributedString = NSMutableAttributedString(string: "我同意《U业帮用户服务条款》", attributes: multipleAttributes)
+        let range = NSRange(location: 4, length: 9)
         attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.greenText, range: range)
         btn.setAttributedTitle(attributedString, for: UIControlState.normal)
         btn.addTarget(self, action: #selector(orderServiceAgreementAction), for: UIControlEvents.touchUpInside)
@@ -192,8 +192,8 @@ extension UYTableFooterView {
         addSubview(servceAgreeBtn)
         addSubview(orderAgreementBtn)
         
-        addSubview(authoriseAgreeBtn)
-        addSubview(authoriseAgreementBtn)
+//        addSubview(authoriseAgreeBtn)
+//        addSubview(authoriseAgreementBtn)
         
         servceAgreeBtn.snp.makeConstraints { (make) in
             make.top.equalTo(footerBtn.snp.bottom).offset(10)
@@ -205,15 +205,15 @@ extension UYTableFooterView {
             make.centerY.equalTo(servceAgreeBtn.snp.centerY)
         }
         
-        authoriseAgreeBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(servceAgreeBtn.snp.bottom).offset(5)
-            make.left.equalTo(16)
-            make.width.height.equalTo(30)
-        }
-        authoriseAgreementBtn.snp.makeConstraints { (make) in
-            make.left.equalTo(authoriseAgreeBtn.snp.right).offset(10)
-            make.centerY.equalTo(authoriseAgreeBtn.snp.centerY)
-        }
+//        authoriseAgreeBtn.snp.makeConstraints { (make) in
+//            make.top.equalTo(servceAgreeBtn.snp.bottom).offset(5)
+//            make.left.equalTo(16)
+//            make.width.height.equalTo(30)
+//        }
+//        authoriseAgreementBtn.snp.makeConstraints { (make) in
+//            make.left.equalTo(authoriseAgreeBtn.snp.right).offset(10)
+//            make.centerY.equalTo(authoriseAgreeBtn.snp.centerY)
+//        }
         
         
     }
@@ -222,7 +222,7 @@ extension UYTableFooterView {
     /// 服务协议同意按钮
     @objc func agreeSelectBtnAction(agreeBtn:UIButton) {
         agreeBtn.isSelected = !agreeBtn.isSelected
-        if agreeBtn.isSelected && authoriseAgreeBtn.isSelected {
+        if agreeBtn.isSelected {//&& authoriseAgreeBtn.isSelected
             orderAgreedAgreement = true
         }else{
             orderAgreedAgreement = false
@@ -236,7 +236,7 @@ extension UYTableFooterView {
     //授权协议同意按钮
     @objc func authoriseAgreeBtnAction(agreeBtn:UIButton) {
         agreeBtn.isSelected = !agreeBtn.isSelected
-        if agreeBtn.isSelected && servceAgreeBtn.isSelected {
+        if agreeBtn.isSelected {//&& servceAgreeBtn.isSelected
             orderAgreedAgreement = true
         }else{
             orderAgreedAgreement = false

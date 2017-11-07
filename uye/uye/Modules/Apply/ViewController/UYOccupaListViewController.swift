@@ -15,6 +15,7 @@ class UYOccupaListViewController: UYBaseViewController {
     
     fileprivate let tableView = UITableView()
     fileprivate var dataSourece = [UYUserElistInfo]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if isDegreeList {
@@ -125,9 +126,25 @@ extension UYOccupaListViewController :UITableViewDelegate,UITableViewDataSource 
 extension UYOccupaListViewController :UYTableFooterViewDelegate {
     func footButtonAction() {
         if isDegreeList {
+            
             popToViewController(targetVC: UYUserInfoViewController.self)
         }else{
-            pushToNextVC(nextVC: UYAddDegreeViewController())
+            request.getUserElistInfo(type: 1, complete: { (list, error) in
+                if error != nil {
+                    showTextToast(msg: (error?.description)!)
+                }else{
+                    if list?.count ?? 0 > 0 {
+                        let degressListVC = UYOccupaListViewController()
+                        degressListVC.isDegreeList = true
+                        self.pushToNextVC(nextVC: degressListVC)
+                        
+                    }else{
+                        self.pushToNextVC(nextVC: UYAddDegreeViewController())
+                    }
+                }
+            })
+            
+
         }
     }
 }

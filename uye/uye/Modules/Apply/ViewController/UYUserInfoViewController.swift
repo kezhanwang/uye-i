@@ -190,7 +190,7 @@ extension UYUserInfoViewController {
         showWaitToast()
         UYAddressBookManager.shared.uploadAddressBook {[weak self] (success, errorMsg) in
             if success {
-                if var status = self?.itemArray.last {
+                if var status = self?.itemArray[1] {
                     dismissWaitToast()
                     status.isCertified = true
                     self?.itemArray[1] = status

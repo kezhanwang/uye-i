@@ -86,7 +86,9 @@ extension UYAddDegreeViewController :UITableViewDataSource,UITableViewDelegate {
                     minDate = NSDate(from: inputModel.content)! as Date
                 }
             }
-            showDatePicer(maxDate: Date(), minDate: minDate, indexPath: indexPath)
+            let maxDate = Date(timeIntervalSinceNow: years70)
+            
+            showDatePicer(maxDate: maxDate, minDate: minDate, indexPath: indexPath)
         }
     }
 }

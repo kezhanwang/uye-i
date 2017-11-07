@@ -233,6 +233,32 @@ extension UYExperienceViewController {
                 dismissWaitToast()
 //                dismissWaitToast()
                 self.gotoNextViewController()
+                
+            }
+        }
+    }
+    //检测用户列表是否有值。如果有列表则进入对应的列表
+    func checkUserElistInfo(type:Int)  {
+        request.getUserElistInfo(type: type) { (elistInfos, error) in
+            if error != nil {
+                showTextToast(msg: (error?.description)!)
+            }else{
+                if elistInfos?.count ?? 0 > 0 {
+                    let elistVC = UYOccupaListViewController()
+                    if type == 1 {
+                        elistVC.isDegreeList = true
+                    }else{
+                        elistVC.isDegreeList = false
+                    }
+                    self.pushToNextVC(nextVC: elistVC)
+                }else{
+                    if type == 1 {
+                        self.pushToNextVC(nextVC: UYAddDegreeViewController())
+                    }else{
+                        self.pushToNextVC(nextVC: UYAddOccupaViewController())
+
+                    }
+                }
             }
         }
     }
@@ -246,9 +272,11 @@ extension UYExperienceViewController:UYTableFooterViewDelegate {
     func gotoNextViewController() {
         let profession :UYInputModel = dataSource[1]
         if profession.content == "未就业" {
-            pushToNextVC(nextVC: UYAddDegreeViewController())
+            checkUserElistInfo(type: 1)
+//            pushToNextVC(nextVC: UYAddDegreeViewController())
         }else{
-            pushToNextVC(nextVC: UYAddOccupaViewController())
+            checkUserElistInfo(type: 2)
+//            pushToNextVC(nextVC: UYAddOccupaViewController())
         }
 
     }

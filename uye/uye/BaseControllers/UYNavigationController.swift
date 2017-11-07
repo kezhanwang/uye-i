@@ -22,8 +22,9 @@ class UYNavigationController: UINavigationController {
         if childViewControllers.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
             if viewController.isKind(of: UYBaseViewController.self) {
-                let targetVC = viewController as! UYBaseViewController                
-                targetVC.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "", target: self, action: #selector(popBackAction), isBack: true)
+                let targetVC = viewController as! UYBaseViewController
+                targetVC.navigationItem.leftBarButtonItem = UIBarButtonItem.backBarButton(target: self, action: #selector(popBackAction))
+//                targetVC.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "", target: self, action: #selector(popBackAction), isBack: true)
                 
             }
         }
