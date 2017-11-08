@@ -63,7 +63,7 @@ class UYOrderCollectionViewCell: UICollectionViewCell {
                 organiseNameLabel.text = order?.org_name
                 orderTypeLabel.text = "类型：\(order!.insured_type ?? "")"
                 
-                let realPrice = order!.tuition!/100
+                let realPrice = (order!.tuition ?? 0)/100
                 let realPriceStr = "\(realPrice)"
                 
                 let attribute = NSMutableAttributedString(string: "学费：￥\(realPriceStr)", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14),NSAttributedStringKey.foregroundColor:UIColor(hexColor: "999999")])

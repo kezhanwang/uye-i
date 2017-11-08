@@ -92,12 +92,10 @@ extension UYAddressBookManager {
             //获取姓
             let lastName = ABRecordCopyValue(contact as ABRecord, kABPersonLastNameProperty)?
                 .takeRetainedValue() as! String? ?? ""
-            print("姓：\(lastName)")
             
             //获取名
             let firstName = ABRecordCopyValue(contact as ABRecord, kABPersonFirstNameProperty)?
                 .takeRetainedValue() as! String? ?? ""
-            print("名：\(firstName)")
             
             
             //获取电话
@@ -128,7 +126,6 @@ extension UYAddressBookManager {
                             let value = ABMultiValueCopyValueAtIndex(phoneValues, i)
                             let phone = value?.takeRetainedValue() as! String
                             phones.append(phone)
-                            print("  \(localizedPhoneLabel):\(phone)")
                         }
                     }
                 }
@@ -152,7 +149,6 @@ extension UYAddressBookManager {
                     let value = ABMultiValueCopyValueAtIndex(emailValues, i)
                     let email = value?.takeRetainedValue() as! String
                     emails.append(email)
-                    print("  \(localizedLabel):\(email)")
                 }
             }
             onePersion["LastName"] = lastName

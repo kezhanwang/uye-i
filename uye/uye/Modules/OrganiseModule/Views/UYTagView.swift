@@ -188,13 +188,9 @@ class UYAreaTag : UIView {
         
     }
     @objc func deleteAction() {
-        print("删除按钮")
         if self.delegate != nil {
             self.delegate?.deleteAreaTag(area: self)
         }
-//        if delegate != nil {
-//            delegate?.deleteTag!(tag: self)
-//        }
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -11,8 +11,15 @@ import Alamofire
 import HandyJSON
 
 let UYURLTypeKey = "com.kezhan.base.URL.type"
-let DistributionURL = "http://dev.bjzhongteng.com/"
-let DevelopmentURL = "http://dev.bjzhongteng.com/"
+
+let DistributionURL = "http://app.bjzhongteng.com/"
+let DistributionWebURL = "http://www.bjzhongteng.com/"
+
+let DevelopmentURL = "http://dev.app.bjzhongteng.com/"
+let DevelopmentWebURL = "http://dev.bjzhongteng.com/"
+
+
+fileprivate var platform = UYDevelopPlatform(rawValue: UserDefaults.standard.integer(forKey: UYURLTypeKey))!
 
 enum UYDevelopPlatform : Int {
     case Distribution = 0
@@ -87,23 +94,29 @@ enum UYRequestAPI : String {
     
     
     func requestURLString() -> String {
-        return baseURL() + self.rawValue
+        
+        switch self {
+        case .SMScode,.commonProvince,.commonCity,.commonArea,.common400,.udcredit,.register,.login,.loginWithCode,.logout:
+            if platform == .Distribution {
+                return DistributionWebURL + self.rawValue
+            }else{
+                return DevelopmentWebURL + self.rawValue
+            }
+        case _:
+            if platform == .Distribution {
+                return DistributionURL + self.rawValue
+            }else{
+                return DevelopmentURL + self.rawValue
+            }
+        }
     }
 }
 func organiseIntroduce(orgId:String) -> String {
     return "\(UYRequestAPI.organizeIntroduce.requestURLString())?org_id=\(orgId)"
 }
 
-func baseURL() -> String {
-    let urlType : UYDevelopPlatform = UYDevelopPlatform(rawValue: UserDefaults.standard.integer(forKey: UYURLTypeKey))!
-    switch urlType {
-    case .Distribution:
-        return DevelopmentURL
-    case _ :
-        return DistributionURL
-    }
-}
 func updateDevelopPlatform(devPlatform:UYDevelopPlatform) {
+    platform = devPlatform
     UserDefaults.standard.set(devPlatform, forKey: UYURLTypeKey)
     UserDefaults.standard.synchronize()
 }

@@ -50,11 +50,10 @@ class UYAPPManager: NSObject {
         request.getQuestionListRequest(orgId: orgId) { (quesList, error) in
             if error != nil {
                 showTextToast(msg: (error?.description)!)
-                
             }else{
                 self.questionListInfo = quesList!
+                complete()
             }
-            complete()
         }
     }
     

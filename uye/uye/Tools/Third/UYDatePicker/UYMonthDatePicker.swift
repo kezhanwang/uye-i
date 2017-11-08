@@ -193,7 +193,6 @@ extension UYMonthDatePicker {
         DispatchQueue.main.async {
             self.dataPicker.reloadAllComponents()
             DispatchQueue.main.async {
-                print("为什么老是展示")
                 self.refashDate()
             }
         }

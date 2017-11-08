@@ -122,15 +122,12 @@ extension UYWebViewController {
 // MARK: - WKNavigationDelegate
 extension UYWebViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("didStartProvisionalNavigation")
         loadCount += 1
     }
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        print("webViewdidCommit")
         loadCount -= 1
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print("加载失败了？？？")
         loadCount -= 1
     }
 }

@@ -41,7 +41,6 @@ class UYCourseTableViewCell: UITableViewCell {
                     courseLogo2.kf.setImage(with: url)
                 }
                 courseNameLabel2.text = courseInfo2?.c_name
-                
             }else{
                 courseLogo2.isHidden = true
                 courseNameLabel2.isHidden = true

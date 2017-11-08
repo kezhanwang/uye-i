@@ -55,12 +55,16 @@ class UYUserViewController: UYBaseViewController {
         let label = UILabel()
         label.textColor = UIColor.gray
         label.font = UIFont.systemFont(ofSize: 12)
+        label.isUserInteractionEnabled = true
         label.text = "V-\(appVersion)"
         view.addSubview(label)
         label.snp.makeConstraints { (make) in
             make.bottom.equalTo(-20-(tabBarController?.tabBar.frame.height)!)
             make.centerX.equalTo(kScreenWidth/2)
         }
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(changeDevelopPaltform))
+        label.addGestureRecognizer(longpress)
+        
         
         
     }
@@ -148,5 +152,26 @@ extension UYUserViewController : UYTableFooterViewDelegate {
             let loginVC = UYLoginViewController()
             pushToNextVC(nextVC: loginVC)
         }
+    }
+}
+extension UYUserViewController {
+    @objc func changeDevelopPaltform()  {
+        let urlType : UYDevelopPlatform = UYDevelopPlatform(rawValue: UserDefaults.standard.integer(forKey: UYURLTypeKey))!
+        var message = ""
+        if urlType == .Distribution {
+            message = "当前是发布环境"
+        }else{
+            message = "当前是开发环境"
+        }
+        let actionController = UIAlertController(title: "切换平台", message: message, preferredStyle: .actionSheet)
+        actionController.addAction(UIAlertAction(title: "发布平台", style: .default, handler: { (action) in
+            updateDevelopPlatform(devPlatform: .Distribution)
+        }))
+        actionController.addAction(UIAlertAction(title: "开发环境", style: .default, handler: { (action) in
+            updateDevelopPlatform(devPlatform: .Development)
+        }))
+        actionController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        present(actionController, animated: true, completion: nil)
+        
     }
 }
