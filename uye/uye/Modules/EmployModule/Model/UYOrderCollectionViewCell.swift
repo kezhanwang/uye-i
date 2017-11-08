@@ -30,6 +30,10 @@ class UYOrderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var secondTrainDateLabel: UILabel! //再培训日期
     @IBOutlet weak var endTrainLabel: UILabel! //结业日期
     
+    @IBOutlet weak var secondTrainView: UIView!
+    @IBOutlet weak var endTrainView: UIView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.backgroundColor = UIColor.background
@@ -77,9 +81,18 @@ class UYOrderCollectionViewCell: UICollectionViewCell {
                 careerDatesLabel.text = order?.career_time
                 repayDatesLabel.text = order?.repay_time
                 firstTrainDatesLabel.text  = order?.train?.first_train
-                secondTrainDateLabel.text = order?.train?.second_train
-                endTrainLabel.text = order?.train?.end_train
-              
+                if order?.train?.second_train?.count ?? 0 > 0 {
+                    secondTrainDateLabel.text = order?.train?.second_train
+                    secondTrainView.isHidden = false
+                }else{
+                    secondTrainView.isHidden = true
+                }
+                if order?.train?.end_train?.count ?? 0 > 0 {
+                    endTrainLabel.text = order?.train?.end_train
+                    endTrainView.isHidden = false
+                }else{
+                    endTrainView.isHidden = true
+                }
             }else{
                 bgView.isHidden = true
             }
