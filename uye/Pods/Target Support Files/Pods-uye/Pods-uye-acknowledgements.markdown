@@ -50,6 +50,11 @@ SOFTWARE.
 
 
 
+## Bugly
+
+Copyright 2017 tencent.com. All rights reserved.
+
+
 ## FCUUID
 
 The MIT License (MIT)

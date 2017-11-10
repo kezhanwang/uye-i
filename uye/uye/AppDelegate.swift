@@ -30,8 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UYLocationManager.shared.requstAuthorization()
         //开始键盘输入监控
         IQKeyboardManager.sharedManager().enable = true
+        //崩溃日志分析
+        UYBuglyManager.startBugly()
         //版本更新
-//        UYAPPManager.shared.checkAPPVersion()
+        UYAPPManager.shared.checkAPPVersion()
         return true
     }
     

@@ -23,4 +23,6 @@ target 'uye' do
     pod 'FCUUID', '~> 1.3.1'
     #首页轮播图
     pod 'LLCycleScrollView', '~> 1.4.1'
+    #腾讯bug监控
+    pod 'Bugly', '~> 2.4.8'
 end

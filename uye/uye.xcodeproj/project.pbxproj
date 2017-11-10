@@ -103,6 +103,7 @@
 		356521C01F91D5C200175734 /* UYUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */; };
 		356521C91F91E20000175734 /* UYCustomSimpleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */; };
 		356521CA1F91E20000175734 /* UYCustomSimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356521C81F91E20000175734 /* UYCustomSimpleTableCell.xib */; };
+		3565E13B1FB53847006D93B7 /* UYBuglyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565E13A1FB53847006D93B7 /* UYBuglyManager.swift */; };
 		356A1B461FA9A330001544FA /* UYBottomBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356A1B451FA9A330001544FA /* UYBottomBtnView.swift */; };
 		357396B21F98A47D00BF5811 /* UYHomeTipsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357396B01F98A47D00BF5811 /* UYHomeTipsTableViewCell.swift */; };
 		357396B31F98A47D00BF5811 /* UYHomeTipsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357396B11F98A47D00BF5811 /* UYHomeTipsTableViewCell.xib */; };
@@ -300,6 +301,7 @@
 		356521BE1F91D5C200175734 /* UYUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYUserTableViewCell.xib; sourceTree = "<group>"; };
 		356521C71F91E20000175734 /* UYCustomSimpleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYCustomSimpleTableCell.swift; sourceTree = "<group>"; };
 		356521C81F91E20000175734 /* UYCustomSimpleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYCustomSimpleTableCell.xib; sourceTree = "<group>"; };
+		3565E13A1FB53847006D93B7 /* UYBuglyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYBuglyManager.swift; sourceTree = "<group>"; };
 		356A1B451FA9A330001544FA /* UYBottomBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYBottomBtnView.swift; sourceTree = "<group>"; };
 		357396B01F98A47D00BF5811 /* UYHomeTipsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYHomeTipsTableViewCell.swift; sourceTree = "<group>"; };
 		357396B11F98A47D00BF5811 /* UYHomeTipsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYHomeTipsTableViewCell.xib; sourceTree = "<group>"; };
@@ -691,6 +693,7 @@
 		355237C31F7248A10041B5BD /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				3565E1391FB53832006D93B7 /* BuglyManager */,
 				35F02D161FB069920093D7F3 /* UYDatePicker */,
 				35F02D151FB066470093D7F3 /* UYBaseActionSheetView */,
 				355CF5CA1FA6D671001F967F /* MultiSelectView */,
@@ -862,6 +865,14 @@
 				356521C81F91E20000175734 /* UYCustomSimpleTableCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3565E1391FB53832006D93B7 /* BuglyManager */ = {
+			isa = PBXGroup;
+			children = (
+				3565E13A1FB53847006D93B7 /* UYBuglyManager.swift */,
+			);
+			path = BuglyManager;
 			sourceTree = "<group>";
 		};
 		357396AF1F98A19300BF5811 /* View */ = {
@@ -1448,6 +1459,7 @@
 				35BCD6B11F8E13B900C3469F /* UYOrganiseList.swift in Sources */,
 				35CFD7661F9C3806001C0AC0 /* UYImageModel.swift in Sources */,
 				3524824B1FA8240500E7ECA9 /* UYUserExperInfo.swift in Sources */,
+				3565E13B1FB53847006D93B7 /* UYBuglyManager.swift in Sources */,
 				358CF7391F9B3C7A00C281EA /* PhotoPreviewController.m in Sources */,
 				354E34411F6D3CD2009CFCE4 /* UIColor+Extension.swift in Sources */,
 				353FD2511F9F2895003BB537 /* UYQuestionnaireViewController.swift in Sources */,
@@ -1582,7 +1594,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DSU3FH258U;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1624,7 +1636,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DSU3FH258U;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.5.1)
   - BaiduMapKit (3.4.0)
+  - Bugly (2.4.8)
   - FCUUID (1.3.1):
     - UICKeyChainStore (~> 2.1.0)
   - HandyJSON (4.0.0-beta.1)
@@ -21,6 +22,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.5.1)
   - BaiduMapKit (~> 3.4.0)
+  - Bugly (~> 2.4.8)
   - FCUUID (~> 1.3.1)
   - HandyJSON (~> 4.0.0-beta.1)
   - IQKeyboardManagerSwift (= 5.0.0)
@@ -33,6 +35,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   BaiduMapKit: 0a5e5e0b1e3fd8dc5aceb40ab9b89e52e1d13df9
+  Bugly: da3c02408c14838d498429320545a8e439392978
   FCUUID: bb054fc90cd7cd99320f9f6ff8e130fe607fba05
   HandyJSON: 428bb18e2c34c2a77361accebf90cf64e4f74118
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
@@ -44,6 +47,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
 
-PODFILE CHECKSUM: cfb012ad86944f0f298c864d9223a1660d421a97
+PODFILE CHECKSUM: fb8f4289147f268df8e9de04429537a702efd82b
 
 COCOAPODS: 1.2.1
