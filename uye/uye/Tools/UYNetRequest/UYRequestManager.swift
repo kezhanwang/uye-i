@@ -163,19 +163,23 @@ extension UYRequestManager {
                     handleRequestFailResult(response: response, complete: complete)
                 }
             }
-            
         }else{
             handleRequestFailResult(response: response, complete: complete)
         }
     }
+    
     fileprivate func handleRequestFailResult(response:DataResponse<Any>, complete:RequestCompleteHandler) {
         
         var resultError :UYError?
         if response.result.isSuccess {
             if let json = response.result.value as? [String : Any],
-                let code = json["code"] as? Int,
                 let msg = json["msg"] as? String
             {
+                var code:Int = 0
+                if (json["code"] is NSNull) {
+                }else{
+                    code = json["code"] as! Int
+                }
                 resultError = UYError(code: code, msg: msg)
             }
         }else{

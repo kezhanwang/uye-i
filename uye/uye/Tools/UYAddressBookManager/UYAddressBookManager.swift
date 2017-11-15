@@ -108,20 +108,19 @@ extension UYAddressBookManager {
                 if count > 0 {
                     for i in 0 ..< count {
                         if phoneValues != nil {
-                            
-                            var localizedPhoneLabel = ""
-                            
-                            // 获得标签名
-                            let aphoneLabel = ABMultiValueCopyLabelAtIndex(phoneValues, i)
-                            if aphoneLabel == nil {//不造为啥会空的。。。
-                                localizedPhoneLabel = "电话"
-                            }else{
-                                let phoneLabel = aphoneLabel?.takeRetainedValue()
-                                
-                                // 转为本地标签名（能看得懂的标签名，比如work、home）
-                                localizedPhoneLabel = ABAddressBookCopyLocalizedLabel(phoneLabel)
-                                    .takeRetainedValue() as String
-                            }
+                            if i > 10 { break }
+//                            var localizedPhoneLabel = ""
+//                            // 获得标签名
+//                            let aphoneLabel = ABMultiValueCopyLabelAtIndex(phoneValues, i)
+//                            if aphoneLabel == nil {//不造为啥会空的。。。
+//                                localizedPhoneLabel = "电话"
+//                            }else{
+//                                let phoneLabel = aphoneLabel?.takeRetainedValue()
+//
+//                                // 转为本地标签名（能看得懂的标签名，比如work、home）
+//                                localizedPhoneLabel = ABAddressBookCopyLocalizedLabel(phoneLabel)
+//                                    .takeRetainedValue() as String
+//                            }
                             
                             let value = ABMultiValueCopyValueAtIndex(phoneValues, i)
                             let phone = value?.takeRetainedValue() as! String
@@ -141,10 +140,10 @@ extension UYAddressBookManager {
                 for i in 0 ..< ABMultiValueGetCount(emailValues){
                     
                     // 获得标签名
-                    let label = ABMultiValueCopyLabelAtIndex(emailValues, i).takeRetainedValue()
-                        as CFString;
-                    let localizedLabel = ABAddressBookCopyLocalizedLabel(label)
-                        .takeRetainedValue() as String
+//                    let label = ABMultiValueCopyLabelAtIndex(emailValues, i).takeRetainedValue()
+//                        as CFString;
+//                    let localizedLabel = ABAddressBookCopyLocalizedLabel(label)
+//                        .takeRetainedValue() as String
                     
                     let value = ABMultiValueCopyValueAtIndex(emailValues, i)
                     let email = value?.takeRetainedValue() as! String

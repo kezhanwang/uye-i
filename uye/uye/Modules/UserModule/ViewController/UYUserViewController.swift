@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher.Swift
 let UserCellIdentifier :String = "UYUserTableViewCellIdentifier"
 let UserItemCellIdentifier = "UYCustomSimpleTableCellIdentifier"
 
@@ -62,8 +63,10 @@ class UYUserViewController: UYBaseViewController {
             make.bottom.equalTo(-20-(tabBarController?.tabBar.frame.height)!)
             make.centerX.equalTo(kScreenWidth/2)
         }
-        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(changeDevelopPaltform))
-        label.addGestureRecognizer(longpress)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(changeDevelopPaltform))
+        tapGesture.numberOfTapsRequired = 8
+        label.addGestureRecognizer(tapGesture)
+    
         
         
         
@@ -116,6 +119,8 @@ extension UYUserViewController :UITableViewDelegate,UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 1 {
             if indexPath.row == 0  {
+                ImageCache.default.clearDiskCache()
+                
                 showTextToast(msg: "清理中...")
             }
             if indexPath.row == 1 {
@@ -169,6 +174,7 @@ extension UYUserViewController {
         }))
         actionController.addAction(UIAlertAction(title: "开发环境", style: .default, handler: { (action) in
             updateDevelopPlatform(devPlatform: .Development)
+            
         }))
         actionController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
         present(actionController, animated: true, completion: nil)

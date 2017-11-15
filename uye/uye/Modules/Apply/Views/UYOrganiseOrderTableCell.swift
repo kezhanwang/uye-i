@@ -37,7 +37,7 @@ class UYOrganiseOrderTableCell: UITableViewCell {
             categoryLabel.text = organise?.category
             if let price:String = organise?.avg_course_price {
         
-                priceLabel.text = "￥\(Int(price)!*100)"
+                priceLabel.text = "￥\(Int(price)!/100)"
             }
             scoreView.score = Float(organise!.employment_index ?? "4.5")!
             

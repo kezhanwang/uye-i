@@ -22,6 +22,9 @@ extension String {
         result.deinitialize()
         return String(format: hash as String)
     }
+//    func <#name#>(<#parameters#>) -> <#return type#> {
+//        <#function body#>
+//    }
     
     
 }

@@ -16,7 +16,8 @@
         self.be_idcard = [NSString stringWithFormat:@"%@",dict[@"be_idcard"]];
         self.branch_issued = [NSString stringWithFormat:@"%@",dict[@"branch_issued"]];
         self.date_birthday = [NSString stringWithFormat:@"%@",dict[@"date_birthday"]];
-        self.id_name = [NSString stringWithFormat:@"%@",dict[@"flag_sex"]];
+        self.flag_sex = [NSString stringWithFormat:@"%@",dict[@"flag_sex"]];
+        self.id_name = [NSString stringWithFormat:@"%@",dict[@"id_name"]];
         self.id_no = [NSString stringWithFormat:@"%@",dict[@"id_no"]];
         self.result_auth = [NSString stringWithFormat:@"%@",dict[@"result_auth"]];
         self.ret_code = [NSString stringWithFormat:@"%@",dict[@"ret_code"]];

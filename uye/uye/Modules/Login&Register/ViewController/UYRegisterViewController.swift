@@ -106,7 +106,7 @@ extension UYRegisterViewController {
         codeTextField.keyboardType = UIKeyboardType.numberPad
 
         pwdTextField.font = UIFont.systemFont(ofSize: 15)
-        pwdTextField.placeholder = "密码"
+        pwdTextField.placeholder = "密码由8~20位字符组成，区分大小写"
         pwdTextField.textColor = UIColor.blackText
         pwdTextField.delegate = self
         pwdTextField.isSecureTextEntry = true
@@ -181,7 +181,7 @@ extension UYRegisterViewController : UYTableFooterViewDelegate {
     
     func registerShowServiceWeb() {
         let webVC = UYWebViewController()
-        webVC.urlString = ServiceAgreementURLString
+        webVC.urlString = UYRequestAPI.registerAgreement.requestURLString()
         pushToNextVC(nextVC: webVC)
     }
     

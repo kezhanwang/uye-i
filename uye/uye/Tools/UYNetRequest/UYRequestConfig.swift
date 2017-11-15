@@ -55,6 +55,8 @@ enum UYRequestAPI : String {
     case register = "login/register"//注册
     case loginWithCode = "login/Loginphone" //短信验证码登录
     case logout = "login/logout" //退出登录
+    case registerAgreement = "html/contract/privacy.html"
+
     //首页机构相关
     case homeIndex = "app/index/index" //首页分类接口
     case organise = "app/index/inquire"//首页附近机构推荐（分页）和机构搜索接口
@@ -88,7 +90,7 @@ enum UYRequestAPI : String {
     
     case orderOrganizeInfo = "app/insured/config" //订单的机构信息
     case orderSubmit = "app/insured/submit" //订单提交
-    
+    case orderAgreement = "html/contract/serving.html"
     //订单信息
     case orderList = "app/order/list"//订单列表
     
@@ -96,7 +98,7 @@ enum UYRequestAPI : String {
     func requestURLString() -> String {
         
         switch self {
-        case .SMScode,.commonProvince,.commonCity,.commonArea,.common400,.udcredit,.register,.login,.loginWithCode,.logout:
+        case .SMScode,.commonProvince,.commonCity,.commonArea,.common400,.udcredit,.register,.login,.loginWithCode,.logout,.registerAgreement,.orderAgreement:
             if platform == .Distribution {
                 return DistributionWebURL + self.rawValue
             }else{
@@ -116,7 +118,7 @@ func organiseIntroduce(orgId:String) -> String {
 }
 
 func updateDevelopPlatform(devPlatform:UYDevelopPlatform) {
-    platform = devPlatform
-    UserDefaults.standard.set(devPlatform, forKey: UYURLTypeKey)
-    UserDefaults.standard.synchronize()
+        UYAPPManager.shared.logoutAction()
+        platform = devPlatform
+        UserDefaults.standard.set(devPlatform.rawValue, forKey: UYURLTypeKey)
 }

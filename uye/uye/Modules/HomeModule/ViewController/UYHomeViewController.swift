@@ -114,6 +114,12 @@ extension UYHomeViewController {
             }
             DispatchQueue.main.async {[weak self] in
                 self?.bannerView.imagePaths = urlArray
+                if urlArray.count == 1 {
+                    self?.bannerView.autoScroll = false
+                    self?.bannerView.pageControl = nil
+                }else{
+                    self?.bannerView.autoScroll = true
+                }
             }
         }
         

@@ -21,6 +21,7 @@ class UYInputTableViewCell: UITableViewCell {
             textField.keyboardType = (inputModel?.keyboardType)!
             textField.isEnabled = (inputModel?.textFieldEnable)!
             textField.text = inputModel?.content
+            textField.textColor = inputModel?.textFieldTextColor
             if (inputModel?.textFieldEnable)! {
                 accessoryView = nil
             }else{

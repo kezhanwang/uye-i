@@ -18,6 +18,10 @@ struct UYInputModel {
     var placeholder:String
     //textView是否可以编辑
     var textFieldEnable:Bool = true
+    
+    var textFieldTextColor = UIColor.blackText
+    
+    
     //键盘类型
     var keyboardType:UIKeyboardType = UIKeyboardType.default
     //附带传值，默认是nil

@@ -368,12 +368,10 @@ extension UYPlaceOrderViewController:UYTableFooterViewDelegate {
     }
     //展示服务协议
     func showOrderServiceAgreement() {
-        if let url =  organiseConfig?.contract {
-            
-            let webVC = UYWebViewController()
-            webVC.urlString = url
-            pushToNextVC(nextVC: webVC)
-        }
+        
+        let webVC = UYWebViewController()
+        webVC.urlString = UYRequestAPI.orderAgreement.requestURLString()
+        pushToNextVC(nextVC: webVC)
     }
 
 }

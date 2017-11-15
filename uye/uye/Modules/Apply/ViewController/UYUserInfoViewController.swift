@@ -8,6 +8,8 @@
 
 import UIKit
 let userInfoIdetifier = "userInfoIdentifier"
+
+/// 个人资料首页
 class UYUserInfoViewController: UYBaseViewController {
     var order_id :String = ""
     fileprivate var userInfoConfig:UYUserInfoStatus?

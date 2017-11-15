@@ -19,6 +19,7 @@ class UYUserBaseInfoViewController: UYBaseViewController {
     fileprivate let uploadManager = UYUploadPhotoManager()
     fileprivate let bankPickerView = UYBankPickerView()
     
+    fileprivate var isAuthSafe = false
     fileprivate var repeatCount :Int = 0
     fileprivate var tableView:UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.grouped)
     fileprivate var dataArray = [[UYInputModel]]()
@@ -94,17 +95,12 @@ extension UYUserBaseInfoViewController :UITableViewDelegate,UITableViewDataSourc
             cell.delegate = self
             let inputModel:UYInputModel = dataArray[indexPath.section][indexPath.row]
             
-            
             if let url1 = URL(string: inputModel.image1) {
                 cell.faceBtn.kf.setImage(with:url1, for: UIControlState.normal)
             }
             if let url2 = URL(string: inputModel.image2) {
                 cell.emblemBtn.kf.setImage(with: url2, for: UIControlState.normal)
             }
-//            cell.faceBtn.kf.setImage(with: url1, for: UIControlState.normal, placeholder: #imageLiteral(resourceName: "user_id_back_btn"), options: nil, progressBlock: nil, completionHandler: nil)
-            
-            
-            
             return cell
         }
     }
@@ -131,6 +127,8 @@ extension UYUserBaseInfoViewController :UITableViewDelegate,UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
+            if isAuthSafe == true { return }
+            
             if indexPath.row == 2  {
                 let years70:TimeInterval = 24*60*60*365*70
                 let minDate = Date(timeIntervalSinceNow: -years70)
@@ -201,9 +199,25 @@ extension UYUserBaseInfoViewController {
         let phoneItem = UYInputModel(title: "手机号",content:userInfo.auth_mobile,  placeholder: "请输入本人实名制手机号", keyboardType: UIKeyboardType.numberPad)
         let codeItem = UYInputModel(title: "验证码", placeholder: "请输入手机号验证码", keyboardType: UIKeyboardType.numberPad)
         dataArray.removeAll()
-        dataArray.append([nameItem,idCardItem,idBeginItem,idEndItem,addressItem])
+        var sectionOneArray = [nameItem,idCardItem,idBeginItem,idEndItem,addressItem]
+        if  isAuthSafe {
+            for index in 0...(sectionOneArray.count-1) {
+                let inputModel = sectionOneArray[index]
+                sectionOneArray[index] = checkInputModel(inputModel: inputModel)
+            }
+        }
+        
+        dataArray.append(sectionOneArray)
         dataArray.append([picItem])
         dataArray.append([bankNumItem,bankItem,phoneItem,codeItem])
+    }
+    func checkInputModel(inputModel:UYInputModel) -> UYInputModel {
+        var input = inputModel
+        if input.content.count > 0 {
+            input.textFieldEnable = false
+            input.textFieldTextColor = UIColor.grayText
+        }
+        return input
     }
     func starUdSafeSDK()  {
         DispatchQueue.main.async {
@@ -217,6 +231,7 @@ extension UYUserBaseInfoViewController {
                 self.userInfo.id_card_start = userInfo?.idcard_start ?? ""
                 self.userInfo.id_card_end = userInfo?.idcard_expire ?? ""
                 self.userInfo.id_card_address = userInfo?.addr_card ?? ""
+                self.isAuthSafe = true
                 self.setupDataArray()
                 self.repeatCount = 0
                 self.getUserIdPic()
@@ -230,15 +245,27 @@ extension UYUserBaseInfoViewController {
 // MARK: - 照片上传
 extension UYUserBaseInfoViewController :UYIdCardTableViewCellDelegate ,UYInputTableViewCellDelegate {
     func idcardInfoFaceAction() {
+        if uploadManager.isUploading {
+            return
+        }
         uploadImage(name: "id_card_info_pic")
     }
     func idcardNationAction() {
+        if uploadManager.isUploading {
+            return
+        }
         uploadImage(name: "id_card_nation_pic")
     }
     func uploadImage(name:String)  {
+       
+        
+        var inputModel :UYInputModel = self.dataArray[1][0]
+
+        if self.isAuthSafe == true && inputModel.content.count > 0 { return }
+        
         view.endEditing(false)
         uploadManager.uploadImage(tipsImage: "", name: name) {[weak self] (result) in
-            var inputModel :UYInputModel = (self?.dataArray[1][0])!
+//            var inputModel :UYInputModel = (self?.dataArray[1][0])!
             if name == "id_card_info_pic" {
                 inputModel.image1 = result[name] as! String
             }else{
@@ -246,6 +273,8 @@ extension UYUserBaseInfoViewController :UYIdCardTableViewCellDelegate ,UYInputTa
             }
             if inputModel.image1.count > 0 && inputModel.image2.count > 0 {
                 inputModel.content = "有照片了"
+            }else{
+                inputModel.content = ""
             }
             self?.dataArray[1][0] = inputModel
             self?.tableView.reloadData()
@@ -398,7 +427,11 @@ extension UYUserBaseInfoViewController {
                 var picItem = UYInputModel()
                 picItem.image1 = UserPic?.id_card_info_pic ?? ""
                 picItem.image2 = UserPic?.id_card_nation_pic ?? ""
-                picItem.content = "有照片啦"
+                if picItem.image1.count > 0  && picItem.image2.count > 0 {
+                    picItem.content = "有照片啦"
+                }else{
+                    picItem.content = ""
+                }
                 picItem.placeholder = "请上传身份证照片"
                 self?.dataArray[1] = [picItem]
                 self?.tableView.reloadData()

@@ -71,14 +71,6 @@ let kInputCellLabelWidth = 80 - spaceWidth
 let customerServicePhone = "400-002-9691"
 
 
-/// 注册协议
-let ServiceAgreementURLString = "https:www.baidu.com"
-
-//下单授权协议
-let AuthoriseAgreementURLString = "https:www.baidu.com"
-//下单服务协议
-let OrderServiceAgreementURLString = "https:www.baidu.com"
-
 
 
 // MARK: - 设备信息
@@ -94,7 +86,7 @@ let devName = UIDevice.current.modelName
 let infoDic = Bundle.main.infoDictionary
 
 /// 本地版本号
-let localAppVersion = "100"
+let localAppVersion = "101"
 
 let appVersion = infoDic?["CFBundleShortVersionString"] as! String// 获取App的版本
 let appBuildVersion = infoDic?["CFBundleVersion"] // 获取App的build版本
