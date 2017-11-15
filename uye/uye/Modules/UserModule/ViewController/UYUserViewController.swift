@@ -16,6 +16,8 @@ class UYUserViewController: UYBaseViewController {
     fileprivate let iconArray = ["user_clear_icon","user_contact_us_icon"]
     fileprivate let nameArray = ["清除缓存","联系我们"]
     fileprivate let footerView = UYTableFooterView(title: "登录/注册")
+    fileprivate var phoneNumber:String = ""
+    fileprivate var requestCount = 0
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -23,6 +25,10 @@ class UYUserViewController: UYBaseViewController {
             footerView.title = "退出登录"
         }else{
             footerView.title = "登录/注册"
+        }
+        if phoneNumber.count == 0 && requestCount < 3 {
+            getPoneNum()
+            requestCount += 1
         }
     }
     override func viewDidLoad() {
@@ -66,12 +72,11 @@ class UYUserViewController: UYBaseViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(changeDevelopPaltform))
         tapGesture.numberOfTapsRequired = 8
         label.addGestureRecognizer(tapGesture)
-    
-        
-        
         
     }
 }
+
+// MARK: - UITableViewDelegate
 extension UYUserViewController :UITableViewDelegate,UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -124,11 +129,13 @@ extension UYUserViewController :UITableViewDelegate,UITableViewDataSource {
                 showTextToast(msg: "清理中...")
             }
             if indexPath.row == 1 {
-                
+                guard phoneNumber.count > 0 else {
+                    showTextToast(msg: "暂无客服电话")
+                    return }
                 let alertVC = UIAlertController(title: "客服电话", message: nil, preferredStyle: .actionSheet)
-                alertVC.addAction(UIAlertAction(title: customerServicePhone, style: .default, handler: { (action) in
+                alertVC.addAction(UIAlertAction(title: phoneNumber, style: .default, handler: { (action) in
                     DispatchQueue.main.async {
-                        UIApplication.shared.openURL(URL(string: "telprompt://\(customerServicePhone)")!)
+                        UIApplication.shared.openURL(URL(string: "telprompt://\(self.phoneNumber)")!)
                     }
                 }))
                 alertVC.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
@@ -137,6 +144,8 @@ extension UYUserViewController :UITableViewDelegate,UITableViewDataSource {
         }
     }
 }
+
+// MARK: - 登录登出
 extension UYUserViewController : UYTableFooterViewDelegate {
     func footButtonAction() {
         if footerView.title == "退出登录" {
@@ -159,6 +168,8 @@ extension UYUserViewController : UYTableFooterViewDelegate {
         }
     }
 }
+
+// MARK: - 平台切换
 extension UYUserViewController {
     @objc func changeDevelopPaltform()  {
         let urlType : UYDevelopPlatform = UYDevelopPlatform(rawValue: UserDefaults.standard.integer(forKey: UYURLTypeKey))!
@@ -179,5 +190,18 @@ extension UYUserViewController {
         actionController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
         present(actionController, animated: true, completion: nil)
         
+    }
+}
+
+// MARK: - 网络请求
+extension UYUserViewController {
+    func getPoneNum()  {
+        request.get400PhoneRequest { (phoneModel, error) -> (Void) in
+            if error != nil {
+                showTextToast(msg: (error?.description)!)
+            }else{
+                self.phoneNumber = phoneModel?.company_phone ?? ""
+            }
+        }
     }
 }

@@ -64,4 +64,7 @@ class UYVersionInfo: UYBaseModel {
     ///是否强制更新
     var forceUpdate:Bool = false
 }
-
+class UYComanyPhoneModel: UYBaseModel {
+    var company_phone:String?
+    
+}

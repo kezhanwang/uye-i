@@ -30,6 +30,18 @@ extension UYNetRequest {
             }
         }
     }
+    func get400PhoneRequest(complete:@escaping(_ phoneModel:UYComanyPhoneModel?,_ error: UYError?) -> (Void)) {
+        let config = UYRequestConfig()
+        config.requestURL = UYRequestAPI.common400
+        config.requestMethod = .get
+        UYRequestManager.shared.request(config: config, type: UYComanyPhoneModel.self) { (result: Any, error:UYError?) in
+            if error != nil {
+                complete(nil,error)
+            }else{
+                complete((result as! UYComanyPhoneModel),error)
+            }
+        }
+    }
     // MARK: 版本检测
     func checkVersionRequest(complete:@escaping(_ versionInfo:UYVersionInfo?,_ error:UYError?) -> (Void)) {
         let config = UYRequestConfig()

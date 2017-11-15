@@ -37,7 +37,7 @@ class UYNavigationController: UINavigationController {
 }
 extension UYNavigationController :UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if viewControllers.count > 0 && canSlidingBack == true  {
+        if viewControllers.count > 1 && canSlidingBack == true  {
             return true
         }
         return false
