@@ -53,7 +53,7 @@ enum UYRequestAPI : String {
     ///账号相关
     case login = "login/login" //登录
     case register = "login/register"//注册
-    case loginWithCode = "login/Loginphone" //短信验证码登录
+    case loginWithCode = "login/loginphone" //短信验证码登录
     case logout = "login/logout" //退出登录
     case registerAgreement = "html/contract/privacy.html"
 

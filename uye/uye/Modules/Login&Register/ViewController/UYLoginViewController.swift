@@ -73,7 +73,15 @@ class UYLoginViewController: UYBaseViewController {
     // MARK: 获取手机号验证码
     @objc fileprivate func getCodeAction(){
         if phoneTextField.text?.lengthOfBytes(using: String.Encoding.utf8) == 11 {
-            getCodeBtn.beginCountDown()
+            showWaitToast()
+            request.getPhoneCodeRequest(phone: phoneTextField.text!) {[weak self] (error:UYError?) -> (Void) in
+                if error == nil {
+                    self?.getCodeBtn.beginCountDown()
+                    dismissWaitToast()
+                }else{
+                    showTextToast(msg: error!.description)
+                }
+            }
         }else{
             showTextToast(msg: "请输入11位手机号")
         }
