@@ -14,9 +14,17 @@ import FCUUID
 
 typealias RequestCompleteHandler = (Any,UYError?)->()
 typealias UploadProgressHandler = (Progress) -> Void
+
+//定义一个结构体，存储认证相关信息
+struct IdentityAndTrust {
+    var identityRef:SecIdentity
+    var trust:SecTrust
+    var certArray:AnyObject
+}
 class UYRequestManager: NSObject {
     var sessionManager : SessionManager?
     
+    let selfSignedHosts = ["app.bjzhongteng.com", "www.bjzhongteng.com"]
     
     /// 以下是单例的一种写法
     static let shared = UYRequestManager()
@@ -24,7 +32,12 @@ class UYRequestManager: NSObject {
     private override init() {
         super.init()
         configHttpHeaders()
+        
+        let manager = sessionManager
+        manager?.delegate.sessionDidReceiveChallenge = UYCertificateTrustUtil.alamofireCertificateTrust(session:challenge:)
+     
     }
+    
 }
 // MARK: - 配置所有请求的基本信息
 extension UYRequestManager {
@@ -39,6 +52,24 @@ extension UYRequestManager {
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = defaultHeaders
         configuration.timeoutIntervalForRequest = 30
+        
+      /*
+        
+//        let pathToCert = Bundle.main.path(forResource: "bjztserver", ofType: "cer")
+//        let localCertificate = NSData(contentsOfFile: pathToCert!)
+//        let certificates = [SecCertificateCreateWithData(nil, localCertificate!)!]
+        
+//        let certificates = ServerTrustPolicy.certificates()
+//        let serverTrustPolicy = ServerTrustPolicy.pinCertificates(certificates: certificates, validateCertificateChain: true, validateHost: true)
+        let serverTrustPolicy = ServerTrustPolicy.performDefaultEvaluation(validateHost: true)
+        let serverTrustPolicies = ["app.bjzhongteng.com" : serverTrustPolicy]
+//        let serverTrustPolicies: [String: ServerTrustPolicy] = [
+//            "app.bjzhongteng.com": .disableEvaluation
+//        ]
+        
+        let serverTrustPolicyManager = ServerTrustPolicyManager(policies: serverTrustPolicies)
+        sessionManager = Alamofire.SessionManager(configuration: configuration, serverTrustPolicyManager: serverTrustPolicyManager)
+*/
         sessionManager = Alamofire.SessionManager(configuration:configuration)
         
     }

@@ -39,10 +39,8 @@ class UYHomeViewController: UYBaseViewController {
     }
     @objc func showMessageVC() {
         pushToNextVC(nextVC: UYMessageViewController())
-
     }
     override func setupUI() {
-        
         
         let textField = UYSearchBar()
         textField.delegate = self
@@ -73,7 +71,7 @@ class UYHomeViewController: UYBaseViewController {
         tableView.tableFooterView = UIView()
         bannerView.autoScrollTimeInterval = 5
         tableView.tableHeaderView = bannerView
-        
+        tableView.backgroundColor = UIColor.background
 
     }
 
@@ -172,10 +170,10 @@ NSAttributedStringKey.foregroundColor:UIColor.blackText]
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 31
+            return 36
         }
         if indexPath.section == 1 {
-            return 240
+            return 207
         }
         return 199
     }

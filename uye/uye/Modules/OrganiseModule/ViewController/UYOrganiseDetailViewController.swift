@@ -234,6 +234,9 @@ extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if indexPath.row == 1 {//展示地图
+                let mapViewController = UYMapViewController()
+                mapViewController.organise = organiseDetailInfo?.organize
+                pushToNextVC(nextVC: mapViewController)
                 
             }
         }else if indexPath.section == 1 {

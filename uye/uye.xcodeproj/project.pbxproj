@@ -25,6 +25,7 @@
 		351AA42F1F8B8EA1000782F7 /* UYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */; };
 		351B84871FA03AE400C77846 /* UYTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B84861FA03AE300C77846 /* UYTagView.swift */; };
 		351B84891FA066A100C77846 /* UYScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B84881FA066A100C77846 /* UYScoreView.swift */; };
+		3522AFD61FBD694A008B606D /* UYMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3522AFD51FBD694A008B606D /* UYMapViewController.swift */; };
 		352482431FA8111D00E7ECA9 /* UYAddOccupaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352482421FA8111D00E7ECA9 /* UYAddOccupaViewController.swift */; };
 		352482451FA8112A00E7ECA9 /* UYOccupaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352482441FA8112A00E7ECA9 /* UYOccupaListViewController.swift */; };
 		352482471FA8113500E7ECA9 /* UYAddDegreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352482461FA8113500E7ECA9 /* UYAddDegreeViewController.swift */; };
@@ -165,6 +166,9 @@
 		35D43CC41F9D9C9A00D08BF4 /* UYSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D43CC31F9D9C9A00D08BF4 /* UYSearchBar.swift */; };
 		35D531ED1FA84B6F000C6648 /* UYAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D531EC1FA84B6F000C6648 /* UYAreaTableViewCell.swift */; };
 		35D531EF1FA88DAB000C6648 /* UYUserElistInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D531EE1FA88DAB000C6648 /* UYUserElistInfo.swift */; };
+		35D70C301FBC181600FDE5CC /* bjztserver.cer in Resources */ = {isa = PBXBuildFile; fileRef = 35D70C2F1FBC181600FDE5CC /* bjztserver.cer */; };
+		35D70C341FBC3A4200FDE5CC /* bjztserver.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 35D70C331FBC3A4200FDE5CC /* bjztserver.p12 */; };
+		35D70C361FBC436200FDE5CC /* UYCertificateTrustUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D70C351FBC436200FDE5CC /* UYCertificateTrustUtil.swift */; };
 		35DE41631FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DE41611FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift */; };
 		35DE41641FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DE41621FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib */; };
 		35E4A3E41F9C9BF6003C2C56 /* KZDataPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4A3E21F9C9BF5003C2C56 /* KZDataPicker.m */; };
@@ -206,6 +210,7 @@
 		351AA42E1F8B8EA1000782F7 /* UYHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYHomeModel.swift; sourceTree = "<group>"; };
 		351B84861FA03AE300C77846 /* UYTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYTagView.swift; sourceTree = "<group>"; };
 		351B84881FA066A100C77846 /* UYScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYScoreView.swift; sourceTree = "<group>"; };
+		3522AFD51FBD694A008B606D /* UYMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYMapViewController.swift; sourceTree = "<group>"; };
 		352482421FA8111D00E7ECA9 /* UYAddOccupaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAddOccupaViewController.swift; sourceTree = "<group>"; };
 		352482441FA8112A00E7ECA9 /* UYOccupaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOccupaListViewController.swift; sourceTree = "<group>"; };
 		352482461FA8113500E7ECA9 /* UYAddDegreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAddDegreeViewController.swift; sourceTree = "<group>"; };
@@ -388,6 +393,9 @@
 		35D43CC31F9D9C9A00D08BF4 /* UYSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYSearchBar.swift; sourceTree = "<group>"; };
 		35D531EC1FA84B6F000C6648 /* UYAreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAreaTableViewCell.swift; sourceTree = "<group>"; };
 		35D531EE1FA88DAB000C6648 /* UYUserElistInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYUserElistInfo.swift; sourceTree = "<group>"; };
+		35D70C2F1FBC181600FDE5CC /* bjztserver.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = bjztserver.cer; sourceTree = "<group>"; };
+		35D70C331FBC3A4200FDE5CC /* bjztserver.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bjztserver.p12; sourceTree = "<group>"; };
+		35D70C351FBC436200FDE5CC /* UYCertificateTrustUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYCertificateTrustUtil.swift; sourceTree = "<group>"; };
 		35DE41601FA1C07000C9562B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		35DE41611FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYMoreCourseTableViewCell.swift; sourceTree = "<group>"; };
 		35DE41621FA1DA7600C9562B /* UYMoreCourseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYMoreCourseTableViewCell.xib; sourceTree = "<group>"; };
@@ -765,6 +773,7 @@
 				355260A71F6F65FE00F8734A /* UYNetRequest.swift */,
 				355260A91F6F662200F8734A /* UYRequestConfig.swift */,
 				355260AB1F6F663300F8734A /* UYRequestManager.swift */,
+				35D70C351FBC436200FDE5CC /* UYCertificateTrustUtil.swift */,
 				355260AD1F6F664700F8734A /* UYRequestError.swift */,
 				355260AF1F6F665800F8734A /* UYBaseModel.swift */,
 			);
@@ -1072,6 +1081,7 @@
 			children = (
 				35A87ED61F9493E3004DEFFE /* UYSearchViewController.swift */,
 				3524A2FB1F95EBC70035FE80 /* UYOrganiseDetailViewController.swift */,
+				3522AFD51FBD694A008B606D /* UYMapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1137,6 +1147,8 @@
 		35D70C2E1FBBEACE00FDE5CC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				35D70C331FBC3A4200FDE5CC /* bjztserver.p12 */,
+				35D70C2F1FBC181600FDE5CC /* bjztserver.cer */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1270,10 +1282,12 @@
 				35E9BB401F974C1A00A8BED9 /* UYIdCardTableViewCell.xib in Resources */,
 				353FD2571F9F2895003BB537 /* UYOrganiseOrderTableCell.xib in Resources */,
 				358EBB161F9C69F60075033D /* UYBankTableCell.xib in Resources */,
+				35D70C341FBC3A4200FDE5CC /* bjztserver.p12 in Resources */,
 				358CF7331F9B3C7A00C281EA /* photo_picker_select@2x.png in Resources */,
 				35E9BB3C1F974ACE00A8BED9 /* UYInputBtnTableViewCell.xib in Resources */,
 				358CF6EB1F9B1F9700C281EA /* Resource.bundle in Resources */,
 				354F86991FA32C03009C7276 /* UYOrganiseBottomBar.xib in Resources */,
+				35D70C301FBC181600FDE5CC /* bjztserver.cer in Resources */,
 				354A214F1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib in Resources */,
 				355CF5DC1FA6D672001F967F /* loan_close_black@2x.png in Resources */,
 				358CF7261F9B3C7A00C281EA /* PhotoCollectionViewCell.xib in Resources */,
@@ -1444,6 +1458,7 @@
 				351572781F9303B700AFCA8F /* UYRegisterViewController.swift in Sources */,
 				352482451FA8112A00E7ECA9 /* UYOccupaListViewController.swift in Sources */,
 				351B84891FA066A100C77846 /* UYScoreView.swift in Sources */,
+				35D70C361FBC436200FDE5CC /* UYCertificateTrustUtil.swift in Sources */,
 				354D08BC1F908C140024414E /* UYUserInfo.swift in Sources */,
 				35CFD7641F9B4F70001C0AC0 /* UYAddressBookManager.swift in Sources */,
 				35F02D141FB0663C0093D7F3 /* UYBaseActionSheetView.swift in Sources */,
@@ -1478,6 +1493,7 @@
 				355CF5DF1FA6D672001F967F /* MultSelectHeadView.m in Sources */,
 				3503D3991FA0816E0026C2FF /* UYOrganiseDetailHeaderView.swift in Sources */,
 				355260AA1F6F662200F8734A /* UYRequestConfig.swift in Sources */,
+				3522AFD61FBD694A008B606D /* UYMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1599,7 +1615,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = uye/uye.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSU3FH258U;
@@ -1641,7 +1657,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = uye/uye.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSU3FH258U;
