@@ -29,7 +29,7 @@ class UYSearchBar: UITextField {
         layer.borderColor = UIColor(hexColor: "e7e7e7").cgColor
     }
     func searchStyle() {
-        
+        clearButtonMode = .always
     }
     
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {

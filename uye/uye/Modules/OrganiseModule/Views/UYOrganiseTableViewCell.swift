@@ -22,7 +22,7 @@ class UYOrganiseTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
 //        translatesAutoresizingMaskIntoConstraints = false
-        categoryView.layer.cornerRadius = 4
+        categoryView.layer.cornerRadius = 2
         categoryView.layer.borderWidth = 1
         categoryView.layer.borderColor = UIColor(hexColor: "39aefb").cgColor
         categoryView.layer.masksToBounds = true

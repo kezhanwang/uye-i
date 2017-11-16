@@ -60,7 +60,6 @@ extension UYTabBarController : UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.isKind(of: UYNavigationController.classForCoder()) {
             let naviVC = viewController as! UYNavigationController
-            
             if naviVC.tabBarItem.title == "U业帮" {
                 if UYAPPManager.shared.userInfo == nil {
                     let loginVC = UYLoginViewController()

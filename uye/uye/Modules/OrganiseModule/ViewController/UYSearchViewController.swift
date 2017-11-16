@@ -23,22 +23,27 @@ class UYSearchViewController: UYBaseViewController {
 
     fileprivate var organiseList:[UYOrganiseModel] = []
     
+    fileprivate var firstload = true
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.white
         getSearchHistory()
-        DispatchQueue.main.asyncAfter(deadline: 0.5, execute: {
-            self.searchBar.becomeFirstResponder()
-        })
     }
- 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if firstload == true {
+            self.searchBar.becomeFirstResponder()
+            firstload = false
+        }
+    }
     override func setupUI() {
         
         navigationItem.leftBarButtonItem = nil
         navigationItem.hidesBackButton = true
         searchBar.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 30)
         searchBar.delegate = self
+        searchBar.searchStyle()
         navigationItem.titleView = searchBar
          let cancelBtn = UIBarButtonItem(title: "    取消", style: UIBarButtonItemStyle.plain, target: self, action: #selector(cancelAction))
         navigationItem.rightBarButtonItem = cancelBtn
@@ -49,7 +54,7 @@ class UYSearchViewController: UYBaseViewController {
         addTagsView()
         
     }
-  
+
     @objc func cancelAction() {
         searchBar.resignFirstResponder()
         popBackAction()

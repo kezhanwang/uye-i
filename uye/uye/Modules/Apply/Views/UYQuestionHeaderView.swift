@@ -15,15 +15,9 @@ class UYQuestionHeaderView: UITableViewHeaderFooterView {
         didSet {
             titleLabel.text = question?.question
             if question?.type == "2" {
-                tipsLabel.isHidden = false
-                titleLabel.snp.updateConstraints({ (make) in
-                    make.bottom.equalTo(-20)
-                })
+                tipsLabel.text = "注：此题为多选"
             }else{
-                tipsLabel.isHidden = true
-                titleLabel.snp.updateConstraints({ (make) in
-                    make.bottom.equalTo(-10)
-                })
+                tipsLabel.text = ""
             }
         }
     }
@@ -34,14 +28,15 @@ class UYQuestionHeaderView: UITableViewHeaderFooterView {
         contentView.addSubview(tipsLabel)
         
         titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(10)
-            make.bottom.equalTo(-10)
+            make.top.equalTo(16)
             make.right.equalTo(-16);
             make.left.equalTo(16)
         }
         tipsLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.right.equalTo(-16)
             make.left.equalTo(16)
-            make.bottom.equalTo(-5)
+            make.bottom.equalTo(-16)
         }
         titleLabel.font = UIFont.systemFont(ofSize: 16)
         titleLabel.textColor = UIColor.blackText

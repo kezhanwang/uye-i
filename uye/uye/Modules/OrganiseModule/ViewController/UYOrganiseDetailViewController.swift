@@ -49,7 +49,7 @@ class UYOrganiseDetailViewController: UYBaseViewController {
         tableView.register(UYOrganiseIntroduceTableViewCell.classForCoder(), forCellReuseIdentifier: introduceIdentifier)
         tableView.register(UINib(nibName: "UYOrganiseDetailHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: headViewIdentifier)
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 1))
-        
+        tableView.backgroundColor = UIColor.background
         bottomBar = UYOrganiseBottomBar.loadBottomBar()
         if  bottomBar !=  nil {
             view.addSubview(bottomBar!)

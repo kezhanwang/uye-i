@@ -39,7 +39,7 @@ class UYQuestionnaireViewController: UYBaseViewController {
         tableView.tableFooterView = footView
         tableView.register(UINib(nibName: "UYAnswerTableViewCell", bundle: nil), forCellReuseIdentifier: answerCellIdentifier)
         tableView.register(UYQuestionHeaderView.classForCoder(), forHeaderFooterViewReuseIdentifier: questionHeaderIdentifier)
-        
+        tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 0
         tableView.estimatedSectionFooterHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
@@ -111,10 +111,12 @@ extension UYQuestionnaireViewController : UITableViewDelegate,UITableViewDataSou
         if let queston = questionList?.questions![indexPath.section] {
             if let ansower = questionList?.questions![indexPath.section].answer![indexPath.row] {
                 cell.nameLabel.text = ansower
+                cell.delegate = self
+                cell.indexPath = indexPath
                 if queston.selectAnswer.contains(ansower) {
-                    cell.selectBtn.isSelected = true
+                    cell.setCellSelected(selected: true)
                 }else{
-                    cell.selectBtn.isSelected = false
+                    cell.setCellSelected(selected: false)
                 }
             }
         }
@@ -133,11 +135,16 @@ extension UYQuestionnaireViewController : UITableViewDelegate,UITableViewDataSou
         }
         return 10
     }
-
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+}
+extension UYQuestionnaireViewController : UYAnswerTableViewCellDelegate {
+    func selectedIndexCell(indexPath: IndexPath) {
         if let queston = questionList?.questions![indexPath.section] {
             if let ansower = questionList?.questions![indexPath.section].answer![indexPath.row] {
                 if queston.selectAnswer.contains(ansower) {

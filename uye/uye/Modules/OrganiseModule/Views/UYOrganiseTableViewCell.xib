@@ -32,12 +32,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqp-Vt-i3y">
-                        <rect key="frame" x="133" y="39" width="37" height="23.5"/>
+                        <rect key="frame" x="133" y="43" width="26.5" height="15.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="语言" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lx-D2-EXq">
-                                <rect key="frame" x="6" y="5" width="25" height="13.5"/>
+                                <rect key="frame" x="2" y="1" width="22.5" height="13.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="Tcs-A1-rTA"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="Tcs-A1-rTA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.68235294117647061" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,10 +46,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6lx-D2-EXq" firstAttribute="top" secondItem="fqp-Vt-i3y" secondAttribute="top" constant="5" id="2De-Ub-gdx"/>
-                            <constraint firstItem="6lx-D2-EXq" firstAttribute="leading" secondItem="fqp-Vt-i3y" secondAttribute="leading" constant="6" id="Wyj-qZ-OWm"/>
-                            <constraint firstAttribute="trailing" secondItem="6lx-D2-EXq" secondAttribute="trailing" constant="6" id="fXz-T4-3X2"/>
-                            <constraint firstAttribute="bottom" secondItem="6lx-D2-EXq" secondAttribute="bottom" constant="5" id="hpJ-u7-a6s"/>
+                            <constraint firstItem="6lx-D2-EXq" firstAttribute="top" secondItem="fqp-Vt-i3y" secondAttribute="top" constant="1" id="2De-Ub-gdx"/>
+                            <constraint firstItem="6lx-D2-EXq" firstAttribute="leading" secondItem="fqp-Vt-i3y" secondAttribute="leading" constant="2" id="Wyj-qZ-OWm"/>
+                            <constraint firstAttribute="trailing" secondItem="6lx-D2-EXq" secondAttribute="trailing" constant="2" id="fXz-T4-3X2"/>
+                            <constraint firstAttribute="bottom" secondItem="6lx-D2-EXq" secondAttribute="bottom" constant="1" id="hpJ-u7-a6s"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.3Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSQ-85-yRr">

@@ -1,49 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="UYAnswerTableViewCell" customModule="uye" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="65" id="KGk-i7-Jjw" customClass="UYAnswerTableViewCell" customModule="uye" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a7-W1-WMF">
-                        <rect key="frame" x="16" y="14" width="35.5" height="17"/>
+                        <rect key="frame" x="16" y="2.5" width="35.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNr-c7-vUg">
-                        <rect key="frame" x="274" y="4" width="30" height="34"/>
-                        <state key="selected" image="select_icon"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wC0-zg-WOS">
+                        <rect key="frame" x="285" y="1.5" width="19" height="19"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="19" id="Lef-ry-QMG"/>
+                            <constraint firstAttribute="height" constant="19" id="Ltv-qS-yEE"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvg-gN-C52">
+                        <rect key="frame" x="270" y="0.0" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="5UK-4Y-NdV"/>
+                            <constraint firstAttribute="height" constant="50" id="C6q-Bx-d6C"/>
+                        </constraints>
+                        <connections>
+                            <action selector="selectedAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="reo-0s-QNl"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="2a7-W1-WMF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="LMP-GQ-xGU"/>
-                    <constraint firstItem="gNr-c7-vUg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Lki-8w-aWL"/>
-                    <constraint firstAttribute="trailing" secondItem="gNr-c7-vUg" secondAttribute="trailing" constant="16" id="a28-ee-5gj"/>
+                    <constraint firstAttribute="bottom" secondItem="2a7-W1-WMF" secondAttribute="bottom" constant="35" id="6cO-kp-yLK"/>
+                    <constraint firstItem="wC0-zg-WOS" firstAttribute="centerY" secondItem="2a7-W1-WMF" secondAttribute="centerY" id="G3C-cD-ybd"/>
+                    <constraint firstItem="Mvg-gN-C52" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LJf-xk-PEm"/>
                     <constraint firstItem="2a7-W1-WMF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="r1N-0i-SJC"/>
+                    <constraint firstAttribute="trailing" secondItem="wC0-zg-WOS" secondAttribute="trailing" constant="16" id="tN5-ox-cOo"/>
+                    <constraint firstAttribute="trailing" secondItem="Mvg-gN-C52" secondAttribute="trailing" id="uWT-jj-OQZ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="accessView" destination="wC0-zg-WOS" id="Z62-36-1a7"/>
                 <outlet property="nameLabel" destination="2a7-W1-WMF" id="uAw-J1-0XR"/>
-                <outlet property="selectBtn" destination="gNr-c7-vUg" id="f27-KT-I1B"/>
             </connections>
-            <point key="canvasLocation" x="-50" y="-56"/>
+            <point key="canvasLocation" x="-223" y="-94"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="select_icon" width="19" height="19"/>
-    </resources>
 </document>

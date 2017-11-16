@@ -21,7 +21,7 @@ class UYEmployViewController: UYBaseViewController {
     fileprivate var titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 21))
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "就业帮"
+        navigationItem.title = "U业帮"
         view.backgroundColor = UIColor.background
         NotificationCenter.default.addObserver(self, selector: #selector(noticeHasMoreOrder), name: MakeOrderSuccess, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(loginStatusChange), name: LoginStatusChange, object: nil)

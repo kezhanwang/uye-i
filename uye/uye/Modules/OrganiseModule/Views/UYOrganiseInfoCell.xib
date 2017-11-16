@@ -34,12 +34,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fX-lf-D5D">
-                        <rect key="frame" x="146.5" y="37.5" width="37" height="23.5"/>
+                        <rect key="frame" x="146.5" y="37.5" width="19" height="15.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgu-Ya-t1X">
-                                <rect key="frame" x="6" y="5" width="25" height="13.5"/>
+                                <rect key="frame" x="2" y="1" width="15" height="13.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="fbR-ER-eXS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="fbR-ER-eXS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.68235294120000001" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,10 +48,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="xgu-Ya-t1X" secondAttribute="trailing" constant="6" id="RtR-g7-bUI"/>
-                            <constraint firstAttribute="bottom" secondItem="xgu-Ya-t1X" secondAttribute="bottom" constant="5" id="ZFV-tf-MkT"/>
-                            <constraint firstItem="xgu-Ya-t1X" firstAttribute="top" secondItem="6fX-lf-D5D" secondAttribute="top" constant="5" id="aN6-TP-7eN"/>
-                            <constraint firstItem="xgu-Ya-t1X" firstAttribute="leading" secondItem="6fX-lf-D5D" secondAttribute="leading" constant="6" id="h65-Tc-hkc"/>
+                            <constraint firstAttribute="trailing" secondItem="xgu-Ya-t1X" secondAttribute="trailing" constant="2" id="RtR-g7-bUI"/>
+                            <constraint firstAttribute="bottom" secondItem="xgu-Ya-t1X" secondAttribute="bottom" constant="1" id="ZFV-tf-MkT"/>
+                            <constraint firstItem="xgu-Ya-t1X" firstAttribute="top" secondItem="6fX-lf-D5D" secondAttribute="top" constant="1" id="aN6-TP-7eN"/>
+                            <constraint firstItem="xgu-Ya-t1X" firstAttribute="leading" secondItem="6fX-lf-D5D" secondAttribute="leading" constant="2" id="h65-Tc-hkc"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="就业指数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLY-G8-0Ze">
@@ -81,9 +81,9 @@
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xfi-bo-58S">
                         <rect key="frame" x="0.0" y="110" width="320" height="1"/>
-                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80110576923076926" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="cie-8W-chl"/>
+                            <constraint firstAttribute="height" constant="0.80000000000000004" id="cie-8W-chl"/>
                         </constraints>
                     </view>
                 </subviews>

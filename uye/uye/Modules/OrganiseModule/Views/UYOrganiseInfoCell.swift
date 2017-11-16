@@ -26,7 +26,7 @@ class UYOrganiseInfoCell: UITableViewCell {
         logoImageView.layer.cornerRadius = 4
         logoImageView.layer.masksToBounds = true
         
-        categoryView.layer.cornerRadius = 4
+        categoryView.layer.cornerRadius = 2
         categoryView.layer.borderWidth = 1
         categoryView.layer.borderColor = UIColor.blueTextColor.cgColor
         categoryView.layer.masksToBounds = true
