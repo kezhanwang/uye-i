@@ -22,7 +22,7 @@ class UYEmployViewController: UYBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "U业帮"
-        view.backgroundColor = UIColor.background
+//        view.backgroundColor = UIColor.background
         NotificationCenter.default.addObserver(self, selector: #selector(noticeHasMoreOrder), name: MakeOrderSuccess, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(loginStatusChange), name: LoginStatusChange, object: nil)
         if UYAPPManager.shared.userInfo != nil {
@@ -55,16 +55,37 @@ class UYEmployViewController: UYBaseViewController {
     }
 }
 
-// MARK: - 有订单的列表
+
+
+// MARK: - 有订单的列表UI 设置
 extension UYEmployViewController {
     func loadCollectionView()  {
-        orderCollectionView.backgroundColor = UIColor.background
+//        view.bringSubview(toFront: orderCollectionView)
+        orderCollectionView.backgroundColor = UIColor.clear
+        setBackgroundView()
         orderCollectionView.register(UINib(nibName: "UYOrderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: orderCelIdentifier)
         bottmContraint.constant = kTabBarHeight
         topConstraint.constant = kNavigationHeight
         
-
     }
+    func setBackgroundView()  {
+        let backgroundView = UIView()
+        view.insertSubview(backgroundView, at: 0)
+        
+        backgroundView.snp.makeConstraints { (make) in
+            make.top.equalTo(0)
+            make.left.right.equalTo(0)
+            make.bottom.equalTo(0)
+        }
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = CGRect(x: 0, y: kNavigationHeight, width: kScreenWidth, height: kScreenHeight-kTabBarHeight-kNavigationHeight)
+        //设置渐变的主颜色
+        gradientLayer.colors = [UIColor(hexColor: "C9C9C9").cgColor, UIColor(hexColor: "e3e3e3").cgColor]
+        backgroundView.layer.addSublayer(gradientLayer)
+        
+    }
+   
     func shakeCollectionView() {
         var shakeTime = UserDefaults.standard.integer(forKey: "com.uy.shake.time")
         if shakeTime < 2 {
@@ -81,17 +102,13 @@ extension UYEmployViewController {
                     }
                 })
             }
-            
             shakeTime = shakeTime + 1
             UserDefaults.standard.set(shakeTime, forKey: "com.uy.shake.time")
-            UserDefaults.standard.synchronize()
-        }else{
-            UserDefaults.standard.set(0, forKey: "com.uy.shake.time")
-            UserDefaults.standard.synchronize()
         }
-        
     }
 }
+
+// MARK: - UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
 extension UYEmployViewController :UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

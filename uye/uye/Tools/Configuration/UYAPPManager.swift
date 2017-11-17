@@ -86,8 +86,8 @@ extension UYAPPManager {
         
     }
     func removeHttpCookie() {
+        NotificationCenter.default.post(name: LoginStatusChange, object: nil)
         let cookies = HTTPCookieStorage.shared.cookies
-
         for cookie in cookies! {
             HTTPCookieStorage.shared.deleteCookie(cookie)
         }

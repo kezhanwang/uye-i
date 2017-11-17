@@ -63,6 +63,7 @@ class UYHomeViewController: UYBaseViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.estimatedSectionFooterHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
+        
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.register(UINib(nibName: "UYHomeTipsTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifierTips)
         tableView.register(UINib(nibName: "UYHomeOrderTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifierHomeOrder)
@@ -73,14 +74,14 @@ class UYHomeViewController: UYBaseViewController {
         tableView.tableHeaderView = bannerView
         tableView.backgroundColor = UIColor.background
 
+        refashControl.addTarget(self, action: #selector(getHomeData), for: .valueChanged)
+        tableView.addSubview(refashControl)
     }
-
-   
 }
 
 // MARK: - 获取数据
 extension UYHomeViewController {
-    func updateLocation() {
+     func updateLocation() {
         UYLocationManager.shared.beginUpdataLocation(complete: {[weak self] (success) -> (Void) in
             self?.getHomeData()
         })
@@ -98,6 +99,8 @@ extension UYHomeViewController {
                 self?.tableView.reloadData()
                 self?.updateBannerView()
             }
+            self?.refashControl.endRefreshing()
+
         }
     }
     func updateBannerView() {

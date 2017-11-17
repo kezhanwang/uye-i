@@ -10,6 +10,11 @@ import UIKit
 import SnapKit
 import Kingfisher
 class UYBaseViewController: UIViewController {
+    
+    lazy var refashControl:UIRefreshControl = {
+        () -> UIRefreshControl in
+        return UIRefreshControl()
+    }()
     lazy var request : UYNetRequest = {
         () -> UYNetRequest in
         return UYNetRequest()

@@ -113,6 +113,11 @@
 		357396B71F98A6B900BF5811 /* UYHomeOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357396B51F98A6B900BF5811 /* UYHomeOrderTableViewCell.xib */; };
 		357396BA1F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357396B81F98A6DA00BF5811 /* UYHomeOrganiseTableViewCell.swift */; };
 		357396BB1F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357396B91F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.xib */; };
+		358401B61FBE8E9E00E12A4E /* UYOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358401B51FBE8E9E00E12A4E /* UYOrderView.swift */; };
+		358401B81FBE8F3600E12A4E /* UYOrderBaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358401B71FBE8F3600E12A4E /* UYOrderBaseInfoView.swift */; };
+		358401BA1FBE8F6F00E12A4E /* UYOrderInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358401B91FBE8F6F00E12A4E /* UYOrderInfoView.swift */; };
+		358401BC1FBE8FD100E12A4E /* UYOrderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358401BB1FBE8FD100E12A4E /* UYOrderItemView.swift */; };
+		358401BE1FBE8FED00E12A4E /* UYOrderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358401BD1FBE8FED00E12A4E /* UYOrderHeaderView.swift */; };
 		358A545C1FA8970600138307 /* UYElistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A545A1FA8970600138307 /* UYElistTableViewCell.swift */; };
 		358A545D1FA8970600138307 /* UYElistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358A545B1FA8970600138307 /* UYElistTableViewCell.xib */; };
 		358CF6DF1F9B1F1E00C281EA /* LoanSafeAuthResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 358CF6DC1F9B1F1E00C281EA /* LoanSafeAuthResultModel.m */; };
@@ -316,6 +321,11 @@
 		357396B51F98A6B900BF5811 /* UYHomeOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYHomeOrderTableViewCell.xib; sourceTree = "<group>"; };
 		357396B81F98A6DA00BF5811 /* UYHomeOrganiseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYHomeOrganiseTableViewCell.swift; sourceTree = "<group>"; };
 		357396B91F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYHomeOrganiseTableViewCell.xib; sourceTree = "<group>"; };
+		358401B51FBE8E9E00E12A4E /* UYOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrderView.swift; sourceTree = "<group>"; };
+		358401B71FBE8F3600E12A4E /* UYOrderBaseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrderBaseInfoView.swift; sourceTree = "<group>"; };
+		358401B91FBE8F6F00E12A4E /* UYOrderInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrderInfoView.swift; sourceTree = "<group>"; };
+		358401BB1FBE8FD100E12A4E /* UYOrderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrderItemView.swift; sourceTree = "<group>"; };
+		358401BD1FBE8FED00E12A4E /* UYOrderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrderHeaderView.swift; sourceTree = "<group>"; };
 		358A545A1FA8970600138307 /* UYElistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYElistTableViewCell.swift; sourceTree = "<group>"; };
 		358A545B1FA8970600138307 /* UYElistTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYElistTableViewCell.xib; sourceTree = "<group>"; };
 		358CF6DB1F9B1F1E00C281EA /* LoanSafeAuthResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanSafeAuthResultModel.h; sourceTree = "<group>"; };
@@ -688,6 +698,7 @@
 		354E34541F6D416E009CFCE4 /* EmployModule */ = {
 			isa = PBXGroup;
 			children = (
+				358401B41FBE8DEE00E12A4E /* Views */,
 				355260991F6F5CA300F8734A /* Model */,
 				355260981F6F5C6500F8734A /* ViewController */,
 			);
@@ -899,6 +910,18 @@
 				357396B91F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		358401B41FBE8DEE00E12A4E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				358401B51FBE8E9E00E12A4E /* UYOrderView.swift */,
+				358401B71FBE8F3600E12A4E /* UYOrderBaseInfoView.swift */,
+				358401B91FBE8F6F00E12A4E /* UYOrderInfoView.swift */,
+				358401BB1FBE8FD100E12A4E /* UYOrderItemView.swift */,
+				358401BD1FBE8FED00E12A4E /* UYOrderHeaderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		358CF6DA1F9B1F1E00C281EA /* SafeAuthManager */ = {
@@ -1373,6 +1396,7 @@
 				3522AFD81FBD913D008B606D /* UYUncheckView.swift in Sources */,
 				355CF5DE1FA6D672001F967F /* KZTextField.m in Sources */,
 				355CF5E51FA6F7CF001F967F /* UYAddress.swift in Sources */,
+				358401BE1FBE8FED00E12A4E /* UYOrderHeaderView.swift in Sources */,
 				353F28791FAC0558005B7FB6 /* SRToastView.swift in Sources */,
 				353FD24C1F9F2895003BB537 /* UYOrganiseConfig.swift in Sources */,
 				358EBB121F9C64FD0075033D /* UYBankPickerView.swift in Sources */,
@@ -1403,6 +1427,7 @@
 				355CF5E31FA6F615001F967F /* UYAddressPicker.swift in Sources */,
 				354E34121F6CF862009CFCE4 /* AppDelegate.swift in Sources */,
 				354E344C1F6D3ED9009CFCE4 /* UYConfiguration.swift in Sources */,
+				358401B81FBE8F3600E12A4E /* UYOrderBaseInfoView.swift in Sources */,
 				358CF7301F9B3C7A00C281EA /* UIImage+Reshape.m in Sources */,
 				352F123C1F99F8E100F7E30B /* UYTipsHeadView.swift in Sources */,
 				3503D3961FA07A240026C2FF /* UYOrganiseInfoCell.swift in Sources */,
@@ -1414,6 +1439,7 @@
 				355260AC1F6F663300F8734A /* UYRequestManager.swift in Sources */,
 				35E9BB371F97493900A8BED9 /* UYInputTableViewCell.swift in Sources */,
 				35D531EF1FA88DAB000C6648 /* UYUserElistInfo.swift in Sources */,
+				358401BC1FBE8FD100E12A4E /* UYOrderItemView.swift in Sources */,
 				358CF72F1F9B3C7A00C281EA /* PhotoModel.m in Sources */,
 				358CF72B1F9B3C7A00C281EA /* KZPhotoPickerConfig.m in Sources */,
 				358EBB151F9C69F60075033D /* UYBankTableCell.swift in Sources */,
@@ -1450,6 +1476,7 @@
 				3514F15E1F945BD9005574B3 /* UYAPPManager.swift in Sources */,
 				35D253E61F91E68800945017 /* UYTableFooterView.swift in Sources */,
 				354E34421F6D3CD2009CFCE4 /* UIFont+Extension.swift in Sources */,
+				358401B61FBE8E9E00E12A4E /* UYOrderView.swift in Sources */,
 				356521BF1F91D5C200175734 /* UYUserTableViewCell.swift in Sources */,
 				35D43CC41F9D9C9A00D08BF4 /* UYSearchBar.swift in Sources */,
 				3552609F1F6F5DB000F8734A /* UYUserViewController.swift in Sources */,
@@ -1480,6 +1507,7 @@
 				352482471FA8113500E7ECA9 /* UYAddDegreeViewController.swift in Sources */,
 				358CF7251F9B3C7A00C281EA /* PhotoCollectionViewCell.m in Sources */,
 				356A1B461FA9A330001544FA /* UYBottomBtnView.swift in Sources */,
+				358401BA1FBE8F6F00E12A4E /* UYOrderInfoView.swift in Sources */,
 				353F28781FAC0558005B7FB6 /* SRToast.swift in Sources */,
 				353FD2521F9F2895003BB537 /* UYUserBaseInfoViewController.swift in Sources */,
 				357396BA1F98A6DB00BF5811 /* UYHomeOrganiseTableViewCell.swift in Sources */,

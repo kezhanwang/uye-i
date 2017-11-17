@@ -184,13 +184,12 @@ extension UYUserViewController {
         }else{
             message = "当前是开发环境"
         }
-        let actionController = UIAlertController(title: "切换平台", message: message, preferredStyle: .actionSheet)
-        actionController.addAction(UIAlertAction(title: "发布平台", style: .default, handler: { (action) in
+        let actionController = UIAlertController(title: "切换环境", message: message, preferredStyle: .actionSheet)
+        actionController.addAction(UIAlertAction(title: "发布环境", style: .default, handler: { (action) in
             updateDevelopPlatform(devPlatform: .Distribution)
         }))
         actionController.addAction(UIAlertAction(title: "开发环境", style: .default, handler: { (action) in
             updateDevelopPlatform(devPlatform: .Development)
-            
         }))
         actionController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
         present(actionController, animated: true, completion: nil)
