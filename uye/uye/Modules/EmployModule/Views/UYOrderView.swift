@@ -13,6 +13,7 @@ class UYOrderView: UIView {
     
     fileprivate let orderBaseView = UYOrderBaseInfoView()
     fileprivate let orderDetailView = UYOrderInfoView()
+    weak var delegate:UYOrderBaseInfoViewDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -28,12 +29,14 @@ extension UYOrderView {
      fileprivate func setupUI() {
         addSubview(orderBaseView)
         addSubview(orderDetailView)
+        
         orderBaseView.snp.makeConstraints { (make) in
-            make.top.equalTo(10)
+            make.top.equalTo(16)
             make.left.equalTo(16)
             make.right.equalTo(-16)
             make.height.equalTo(UYOrderBaseInfoView.height)
         }
+        orderBaseView.delegate = self
         orderBaseView.layer.cornerRadius = 20
         orderBaseView.layer.borderColor = UIColor(hexColor:"9e9e9e").cgColor
         orderBaseView.layer.borderWidth = 1
@@ -61,11 +64,35 @@ extension UYOrderView {
             make.right.equalTo(-32)
             make.top.equalTo(orderBaseView.snp.bottom).offset(-(height/2))
         }
-        
     }
     func updateUI(orderInfo:UYOrderModel) {
         orderBaseView.updateUI(orderInfo: orderInfo)
         orderDetailView.updateUI(orderInfo: orderInfo)
         
+    }
+}
+extension UYOrderView:UYOrderBaseInfoViewDelegate {
+    func addEmploymentProgressAction() {
+        if self.delegate != nil {
+            self.delegate?.addEmploymentProgressAction()
+        }
+    }
+    
+    func haveJobsAction() {
+        if self.delegate != nil {
+         self.delegate?.haveJobsAction()
+        }
+    }
+    
+    func applyReparations() {
+        if self.delegate != nil {
+         self.delegate?.applyReparations()
+        }
+    }
+    
+    func compensationRecords() {
+        if self.delegate != nil {
+         self.delegate?.compensationRecords()
+        }
     }
 }

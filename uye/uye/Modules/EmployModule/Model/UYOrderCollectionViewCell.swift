@@ -11,11 +11,14 @@ import UIKit
 class UYOrderCollectionViewCell: UICollectionViewCell {
    
     let orderView = UYOrderView()
+    weak var delegate:UYOrderBaseInfoViewDelegate?
+    var indexPath:IndexPath?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setBackgroundView()
         contentView.addSubview(orderView)
+        orderView.delegate = self
         orderView.snp.makeConstraints { (make) in
             make.top.left.right.bottom.equalTo(0)
         }
@@ -25,7 +28,6 @@ class UYOrderCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.backgroundColor = UIColor.clear
-       
     }
     
     var order:UYOrderModel? {
@@ -59,4 +61,29 @@ class UYOrderCollectionViewCell: UICollectionViewCell {
     }
     
 
+}
+extension UYOrderCollectionViewCell:UYOrderBaseInfoViewDelegate {
+    func addEmploymentProgressAction() {
+        if self.delegate != nil {
+            self.delegate?.addEmploymentProgressAction()
+        }
+    }
+    
+    func haveJobsAction() {
+        if self.delegate != nil {
+            self.delegate?.haveJobsAction()
+        }
+    }
+    
+    func applyReparations() {
+        if self.delegate != nil {
+            self.delegate?.applyReparations()
+        }
+    }
+    
+    func compensationRecords() {
+        if self.delegate != nil {
+            self.delegate?.compensationRecords()
+        }
+    }
 }

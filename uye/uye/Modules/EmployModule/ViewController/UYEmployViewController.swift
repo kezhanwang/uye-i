@@ -10,6 +10,7 @@ import UIKit
 fileprivate let orderCelIdentifier = "UYOrderCollectionViewCellIdentifier"
 class UYEmployViewController: UYBaseViewController {
     
+    
     @IBOutlet fileprivate weak var bottmContraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var topConstraint: NSLayoutConstraint!
     
@@ -17,6 +18,7 @@ class UYEmployViewController: UYBaseViewController {
     fileprivate var orderList:[UYOrderModel] = []
     fileprivate var hasMore = false //是否还有更多，默认是没有的
     fileprivate var page:Int = 1 //从第一页开始
+    fileprivate var currentIndex:Int = 0 //当前展示的
     fileprivate var totlePage :Int = 1//默认也是1
     fileprivate var titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 21))
     override func viewDidLoad() {
@@ -121,6 +123,7 @@ extension UYEmployViewController :UICollectionViewDelegate,UICollectionViewDataS
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: orderCelIdentifier, for: indexPath) as! UYOrderCollectionViewCell
+        cell.delegate = self
         if indexPath.row >= orderList.count {
             cell.order = nil
         }else{
@@ -134,7 +137,8 @@ extension UYEmployViewController :UICollectionViewDelegate,UICollectionViewDataS
         return CGSize(width: kScreenWidth, height: height)
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let indexPage:Int = Int(scrollView.contentOffset.x/kScreenWidth)+1
+        currentIndex = Int(scrollView.contentOffset.x/kScreenWidth)
+        let indexPage:Int = currentIndex+1
         if hasMore {
             if indexPage >= page {
                 loadOrderList()
@@ -162,6 +166,30 @@ extension UYEmployViewController {
     }
 }
 
+// MARK: - 按钮点击
+extension UYEmployViewController:UYOrderBaseInfoViewDelegate {
+    //添加就业进展
+    func addEmploymentProgressAction() {
+//        let orderInfo = orderList[currentIndex]
+        pushToNextVC(nextVC: UYAddJobViewController())
+    }
+    //我已就业
+    func haveJobsAction() {
+        let orderInfo = orderList[currentIndex]
+        pushToNextVC(nextVC: UYAddJobViewController())
+
+    }
+    //申请理赔
+    func applyReparations() {
+        let orderInfo = orderList[currentIndex]
+
+    }
+    // 理赔记录
+    func compensationRecords() {
+        let orderInfo = orderList[currentIndex]
+
+    }
+}
 // MARK: - 网络请求
 extension UYEmployViewController {
     @objc fileprivate func loadOrderList(isRefash:Bool = false) {

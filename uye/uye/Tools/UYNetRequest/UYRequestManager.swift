@@ -123,9 +123,7 @@ extension UYRequestManager {
         sessionManager?.upload(multipartFormData: { (multipartFormData) in
            
             for imageModel:UYImageModel in config.images! {
-                
                 multipartFormData.append(imageModel.data!, withName: imageModel.name!, fileName: imageModel.name!, mimeType: "image/png")
-                
             }
             
         }, to: (config.requestURL?.requestURLString())!, encodingCompletion: { (encodingResult) in

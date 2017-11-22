@@ -54,6 +54,7 @@
 		353FD2591F9F2895003BB537 /* UYUserInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FD24A1F9F2895003BB537 /* UYUserInfoTableCell.swift */; };
 		353FD25A1F9F2895003BB537 /* UYUserInfoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353FD24B1F9F2895003BB537 /* UYUserInfoTableCell.xib */; };
 		353FD2661F9F3092003BB537 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353FD2651F9F3092003BB537 /* opencv2.framework */; };
+		3540F6EF1FC55B4F00C1D76C /* UYAddJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540F6EE1FC55B4F00C1D76C /* UYAddJobViewController.swift */; };
 		354A214B1F9DBC7400B33832 /* UYEmployViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354A214A1F9DBC7400B33832 /* UYEmployViewController.xib */; };
 		354A214E1F9DBCF000B33832 /* UYOrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354A214C1F9DBCF000B33832 /* UYOrderCollectionViewCell.swift */; };
 		354A214F1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354A214D1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib */; };
@@ -245,6 +246,7 @@
 		353FD24A1F9F2895003BB537 /* UYUserInfoTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYUserInfoTableCell.swift; sourceTree = "<group>"; };
 		353FD24B1F9F2895003BB537 /* UYUserInfoTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UYUserInfoTableCell.xib; sourceTree = "<group>"; };
 		353FD2651F9F3092003BB537 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		3540F6EE1FC55B4F00C1D76C /* UYAddJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAddJobViewController.swift; sourceTree = "<group>"; };
 		354A214A1F9DBC7400B33832 /* UYEmployViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYEmployViewController.xib; sourceTree = "<group>"; };
 		354A214C1F9DBCF000B33832 /* UYOrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrderCollectionViewCell.swift; sourceTree = "<group>"; };
 		354A214D1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrderCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -751,6 +753,7 @@
 			children = (
 				355260A01F6F5DBE00F8734A /* UYEmployViewController.swift */,
 				354A214A1F9DBC7400B33832 /* UYEmployViewController.xib */,
+				3540F6EE1FC55B4F00C1D76C /* UYAddJobViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1447,6 +1450,7 @@
 				35522BD21F9853510088C7D6 /* UYUploadImageTableViewCell.swift in Sources */,
 				35D531ED1FA84B6F000C6648 /* UYAreaTableViewCell.swift in Sources */,
 				353FD2541F9F2895003BB537 /* UYAnswerTableViewCell.swift in Sources */,
+				3540F6EF1FC55B4F00C1D76C /* UYAddJobViewController.swift in Sources */,
 				35DE41631FA1DA7600C9562B /* UYMoreCourseTableViewCell.swift in Sources */,
 				358CF7231F9B3C7A00C281EA /* BottomView.m in Sources */,
 				354E82411FA729D500DEE357 /* UYExperienceViewController.swift in Sources */,

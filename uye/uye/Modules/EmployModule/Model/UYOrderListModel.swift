@@ -18,7 +18,7 @@ class UYOrderModel: UYBaseModel {
     /// 保单号
     var insured_order:String?
     /// 保单状态
-    var insured_status:String?
+    var insured_status:Int = 0
     /// 保单状态描述
     var insured_status_desp:String?
     
@@ -57,4 +57,34 @@ class UYTrainModel: UYBaseModel {
     /// 毕业日期
     var end_train:String?
 
+}
+enum UYOrderStatus : Int {
+    case unkonow = 0
+    /// 订单审核中
+    case inReviewOrder = 100
+    /// 投保中
+    case inInsurance = 150
+    /// 审核拒绝
+    case rejectOrder = 151
+    /// 培训中
+    case inTraining = 200
+    /// 择业中
+    case inChoosingCareer = 300
+    /// 等待申请理赔
+    case waitingApplyClaims = 400
+    /// 审核申请的理赔
+    case inReviewClaims = 500
+    ///赔付中
+    case inPaying = 600
+    ///拒绝理赔
+    case rejectClaims = 650
+    /// 赔付结束
+    case payFinish = 700
+    /// 订单取消
+    case orderCancel = 800
+    /// 已就业
+    case haveJobs = 820
+    ///超过理赔期限
+    case timeOut = 20
+    
 }
