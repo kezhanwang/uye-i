@@ -58,7 +58,7 @@ extension UYRegisterViewController {
         phoneTextField.snp.makeConstraints { (make) in
             make.top.equalTo(kNavigationHeight)
             make.left.equalTo(16)
-            make.right.equalTo(-16)
+            make.right.equalTo(-100)
             make.height.equalTo(49)
         }
         codeTextField.snp.makeConstraints { (make) in
@@ -70,7 +70,7 @@ extension UYRegisterViewController {
         pwdTextField.snp.makeConstraints { (make) in
             make.top.equalTo(codeTextField.snp.bottom).offset(0)
             make.left.equalTo(16)
-            make.right.equalTo(-16)
+            make.right.equalTo(-50)
             make.height.equalTo(49)
         }
         footerView.snp.makeConstraints { (make) in
@@ -98,18 +98,21 @@ extension UYRegisterViewController {
         phoneTextField.textColor = UIColor.blackText
         phoneTextField.delegate = self
         phoneTextField.keyboardType = UIKeyboardType.numberPad
+        phoneTextField.clearButtonMode = .whileEditing
         
         codeTextField.font = UIFont.systemFont(ofSize: 15)
         codeTextField.placeholder = "验证码"
         codeTextField.textColor = UIColor.blackText
         codeTextField.delegate = self
         codeTextField.keyboardType = UIKeyboardType.numberPad
-
+        codeTextField.clearButtonMode = .whileEditing
+        
         pwdTextField.font = UIFont.systemFont(ofSize: 15)
         pwdTextField.placeholder = "密码由8~20位字符组成，区分大小写"
         pwdTextField.textColor = UIColor.blackText
         pwdTextField.delegate = self
         pwdTextField.isSecureTextEntry = true
+        pwdTextField.clearButtonMode = .whileEditing
         
         getCodeBtn.isEnabled = false
         getCodeBtn.setTitleColor(UIColor.themeColor, for: UIControlState.normal)

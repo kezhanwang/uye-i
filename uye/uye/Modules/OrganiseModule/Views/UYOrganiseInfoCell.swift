@@ -25,6 +25,8 @@ class UYOrganiseInfoCell: UITableViewCell {
 //        translatesAutoresizingMaskIntoConstraints = false
         logoImageView.layer.cornerRadius = 4
         logoImageView.layer.masksToBounds = true
+        logoImageView.layer.borderColor = UIColor.lineGray.cgColor
+        logoImageView.layer.borderWidth = 0.5
         
         categoryView.layer.cornerRadius = 2
         categoryView.layer.borderWidth = 1

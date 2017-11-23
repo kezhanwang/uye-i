@@ -55,6 +55,8 @@
 		353FD25A1F9F2895003BB537 /* UYUserInfoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353FD24B1F9F2895003BB537 /* UYUserInfoTableCell.xib */; };
 		353FD2661F9F3092003BB537 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353FD2651F9F3092003BB537 /* opencv2.framework */; };
 		3540F6EF1FC55B4F00C1D76C /* UYAddJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540F6EE1FC55B4F00C1D76C /* UYAddJobViewController.swift */; };
+		3540F6F21FC569BB00C1D76C /* UYCloseCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540F6F01FC569BB00C1D76C /* UYCloseCourseTableViewCell.swift */; };
+		3540F6F31FC569BB00C1D76C /* UYCloseCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3540F6F11FC569BB00C1D76C /* UYCloseCourseTableViewCell.xib */; };
 		354A214B1F9DBC7400B33832 /* UYEmployViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354A214A1F9DBC7400B33832 /* UYEmployViewController.xib */; };
 		354A214E1F9DBCF000B33832 /* UYOrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354A214C1F9DBCF000B33832 /* UYOrderCollectionViewCell.swift */; };
 		354A214F1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354A214D1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib */; };
@@ -247,6 +249,8 @@
 		353FD24B1F9F2895003BB537 /* UYUserInfoTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UYUserInfoTableCell.xib; sourceTree = "<group>"; };
 		353FD2651F9F3092003BB537 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		3540F6EE1FC55B4F00C1D76C /* UYAddJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYAddJobViewController.swift; sourceTree = "<group>"; };
+		3540F6F01FC569BB00C1D76C /* UYCloseCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYCloseCourseTableViewCell.swift; sourceTree = "<group>"; };
+		3540F6F11FC569BB00C1D76C /* UYCloseCourseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYCloseCourseTableViewCell.xib; sourceTree = "<group>"; };
 		354A214A1F9DBC7400B33832 /* UYEmployViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYEmployViewController.xib; sourceTree = "<group>"; };
 		354A214C1F9DBCF000B33832 /* UYOrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UYOrderCollectionViewCell.swift; sourceTree = "<group>"; };
 		354A214D1F9DBCF000B33832 /* UYOrderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UYOrderCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -879,6 +883,8 @@
 				3503D3A41FA085170026C2FF /* UYOrganiseIntroduceTableViewCell.swift */,
 				354F86941FA32BEA009C7276 /* UYOrganiseBottomBar.swift */,
 				354F86981FA32C03009C7276 /* UYOrganiseBottomBar.xib */,
+				3540F6F01FC569BB00C1D76C /* UYCloseCourseTableViewCell.swift */,
+				3540F6F11FC569BB00C1D76C /* UYCloseCourseTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1313,6 +1319,7 @@
 				358EBB161F9C69F60075033D /* UYBankTableCell.xib in Resources */,
 				35D70C341FBC3A4200FDE5CC /* bjztserver.p12 in Resources */,
 				358CF7331F9B3C7A00C281EA /* photo_picker_select@2x.png in Resources */,
+				3540F6F31FC569BB00C1D76C /* UYCloseCourseTableViewCell.xib in Resources */,
 				35E9BB3C1F974ACE00A8BED9 /* UYInputBtnTableViewCell.xib in Resources */,
 				358CF6EB1F9B1F9700C281EA /* Resource.bundle in Resources */,
 				354F86991FA32C03009C7276 /* UYOrganiseBottomBar.xib in Resources */,
@@ -1401,6 +1408,7 @@
 				355CF5E51FA6F7CF001F967F /* UYAddress.swift in Sources */,
 				358401BE1FBE8FED00E12A4E /* UYOrderHeaderView.swift in Sources */,
 				353F28791FAC0558005B7FB6 /* SRToastView.swift in Sources */,
+				3540F6F21FC569BB00C1D76C /* UYCloseCourseTableViewCell.swift in Sources */,
 				353FD24C1F9F2895003BB537 /* UYOrganiseConfig.swift in Sources */,
 				358EBB121F9C64FD0075033D /* UYBankPickerView.swift in Sources */,
 				358CF7381F9B3C7A00C281EA /* PhotoNavigationController.m in Sources */,

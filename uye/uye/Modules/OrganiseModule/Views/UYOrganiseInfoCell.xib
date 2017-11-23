@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zfb-3S-ZDF">
-                        <rect key="frame" x="16" y="10" width="120.5" height="90.5"/>
+                        <rect key="frame" x="16" y="12" width="113" height="84.5"/>
                         <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Zfb-3S-ZDF" secondAttribute="height" multiplier="4:3" id="CoV-fM-dbB"/>
@@ -28,13 +28,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京中腾" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W48-7o-wQm">
-                        <rect key="frame" x="146.5" y="12" width="157.5" height="19.5"/>
+                        <rect key="frame" x="139" y="12" width="165" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fX-lf-D5D">
-                        <rect key="frame" x="146.5" y="37.5" width="19" height="15.5"/>
+                        <rect key="frame" x="139" y="37.5" width="19" height="15.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgu-Ya-t1X">
                                 <rect key="frame" x="2" y="1" width="15" height="13.5"/>
@@ -55,20 +55,20 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="就业指数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLY-G8-0Ze">
-                        <rect key="frame" x="146.5" y="85.5" width="49.5" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <rect key="frame" x="139" y="81.5" width="57.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQT-Xo-u97" customClass="UYScoreView" customModule="uye" customModuleProvider="target">
-                        <rect key="frame" x="204" y="86.5" width="22" height="14"/>
+                        <rect key="frame" x="204.5" y="84.5" width="21.5" height="14"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="Yez-3r-VhQ"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1G-wn-yQu">
-                        <rect key="frame" x="234" y="72.5" width="70" height="28"/>
+                        <rect key="frame" x="234" y="70.5" width="70" height="28"/>
                         <color key="backgroundColor" red="0.0" green="0.76078431372549016" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="YcM-cC-ZDr"/>
@@ -89,19 +89,19 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="W48-7o-wQm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="0un-OI-fFn"/>
-                    <constraint firstItem="Zfb-3S-ZDF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="20Y-Ba-4Cp"/>
-                    <constraint firstAttribute="bottom" secondItem="Zfb-3S-ZDF" secondAttribute="bottom" constant="10" id="4SG-bH-puW"/>
+                    <constraint firstItem="Zfb-3S-ZDF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="20Y-Ba-4Cp"/>
+                    <constraint firstAttribute="bottom" secondItem="Zfb-3S-ZDF" secondAttribute="bottom" constant="14" id="4SG-bH-puW"/>
                     <constraint firstAttribute="trailing" secondItem="W48-7o-wQm" secondAttribute="trailing" constant="16" id="5ck-0G-ygM"/>
                     <constraint firstItem="WQT-Xo-u97" firstAttribute="leading" secondItem="nLY-G8-0Ze" secondAttribute="trailing" constant="8" id="7Oc-hO-3Fz"/>
                     <constraint firstItem="Xfi-bo-58S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="JWb-hz-mu3"/>
-                    <constraint firstAttribute="bottom" secondItem="WQT-Xo-u97" secondAttribute="bottom" constant="10" id="LGz-3q-8LU"/>
+                    <constraint firstAttribute="bottom" secondItem="WQT-Xo-u97" secondAttribute="bottom" constant="12" id="LGz-3q-8LU"/>
                     <constraint firstItem="Zfb-3S-ZDF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="QHX-DP-ukA"/>
-                    <constraint firstAttribute="bottom" secondItem="nLY-G8-0Ze" secondAttribute="bottom" constant="10" id="QQ7-HD-A8g"/>
+                    <constraint firstAttribute="bottom" secondItem="nLY-G8-0Ze" secondAttribute="bottom" constant="12" id="QQ7-HD-A8g"/>
                     <constraint firstAttribute="bottom" secondItem="Xfi-bo-58S" secondAttribute="bottom" id="Rp5-Yh-51K"/>
                     <constraint firstAttribute="trailing" secondItem="Xfi-bo-58S" secondAttribute="trailing" id="TAJ-Kh-ysh"/>
                     <constraint firstItem="6fX-lf-D5D" firstAttribute="top" secondItem="W48-7o-wQm" secondAttribute="bottom" constant="6" id="hOq-yR-CAo"/>
                     <constraint firstItem="W48-7o-wQm" firstAttribute="leading" secondItem="Zfb-3S-ZDF" secondAttribute="trailing" constant="10" id="hkf-ev-XP9"/>
-                    <constraint firstAttribute="bottom" secondItem="J1G-wn-yQu" secondAttribute="bottom" constant="10" id="iyj-yV-CoJ"/>
+                    <constraint firstAttribute="bottom" secondItem="J1G-wn-yQu" secondAttribute="bottom" constant="12" id="iyj-yV-CoJ"/>
                     <constraint firstAttribute="trailing" secondItem="J1G-wn-yQu" secondAttribute="trailing" constant="16" id="uVE-xd-t7w"/>
                     <constraint firstItem="nLY-G8-0Ze" firstAttribute="leading" secondItem="Zfb-3S-ZDF" secondAttribute="trailing" constant="10" id="uX9-xe-c7S"/>
                     <constraint firstItem="6fX-lf-D5D" firstAttribute="leading" secondItem="Zfb-3S-ZDF" secondAttribute="trailing" constant="10" id="wkv-yr-tPc"/>
@@ -116,7 +116,7 @@
                 <outlet property="scoreView" destination="WQT-Xo-u97" id="SKO-9u-pT4"/>
                 <outlet property="signBtn" destination="J1G-wn-yQu" id="C80-BS-RSv"/>
             </connections>
-            <point key="canvasLocation" x="-43" y="-95"/>
+            <point key="canvasLocation" x="-177" y="-75"/>
         </tableViewCell>
     </objects>
 </document>

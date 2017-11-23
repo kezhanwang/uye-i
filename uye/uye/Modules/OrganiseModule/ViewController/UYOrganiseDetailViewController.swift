@@ -13,6 +13,7 @@ fileprivate let courseCellIdentifier = "courseCellIdentifeir"
 fileprivate let moreCourseCellIdentifier = "moreCellIdentifier"
 fileprivate let headViewIdentifier = "headViewIdentifier"
 fileprivate let introduceIdentifier = "introduceIdentifier"
+fileprivate let closeIdentifier = "closeIntrodceIdentifier"
 class UYOrganiseDetailViewController: UYBaseViewController {
     var isShowMore = false
     
@@ -24,15 +25,15 @@ class UYOrganiseDetailViewController: UYBaseViewController {
     fileprivate var bottomBar:UYOrganiseBottomBar? = nil
     
     fileprivate var webViewHeight :CGFloat = 100
+    fileprivate var numberOfRowsInSectionOne :Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = organise?.org_name
         loadOrganiseDetailData()
     }
-
     override func setupUI() {
         view.addSubview(tableView)
-        
+     
         tableView.snp.makeConstraints { (make) in
             make.top.equalTo(kNavigationHeight)
             make.left.right.equalTo(0)
@@ -46,7 +47,10 @@ class UYOrganiseDetailViewController: UYBaseViewController {
         
         tableView.register(UINib(nibName: "UYMoreCourseTableViewCell", bundle: nil), forCellReuseIdentifier: moreCourseCellIdentifier)
         
+        tableView.register(UINib(nibName: "UYCloseCourseTableViewCell", bundle: nil), forCellReuseIdentifier: closeIdentifier)
+
         tableView.register(UYOrganiseIntroduceTableViewCell.classForCoder(), forCellReuseIdentifier: introduceIdentifier)
+        
         tableView.register(UINib(nibName: "UYOrganiseDetailHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: headViewIdentifier)
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 1))
         tableView.backgroundColor = UIColor.background
@@ -78,21 +82,7 @@ extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSour
             return 2
         }
         if section == 1 {
-            if let count = organiseDetailInfo?.courses?.count {
-                let numberRow = Int(ceil(Double(count)/2))
-                if isShowMore {
-                    return numberRow
-                }else{
-                    if numberRow > 2 {
-                        return 3
-                    }else{
-                        return numberRow
-                    }
-                }
-            }else{
-                return 0
-            }
-            
+            return numberOfRowsInSectionOne
         }
         return 1
     }
@@ -114,7 +104,6 @@ extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSour
         }else if indexPath.section == 1 {
             if isShowMore == false && indexPath.row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: moreCourseCellIdentifier, for: indexPath) as! UYMoreCourseTableViewCell
-                
                 var index = indexPath.row * 2
                 cell.courseInfo1 = organiseDetailInfo?.courses![index]
                 if let count = organiseDetailInfo?.courses?.count {
@@ -127,6 +116,15 @@ extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSour
                 }
                 return cell
             }else{
+                if indexPath.row == numberOfRowsInSectionOne - 1 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: closeIdentifier, for: indexPath) as! UYCloseCourseTableViewCell
+                    if isShowMore {
+                        cell.showClose = true
+                    }else{
+                        cell.showClose = false
+                    }
+                    return cell
+                }
                 let cell = tableView.dequeueReusableCell(withIdentifier: courseCellIdentifier, for: indexPath) as! UYCourseTableViewCell
                 
                 var index = indexPath.row * 2
@@ -156,7 +154,7 @@ extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSour
                 return 110
             }
             if indexPath.row == 1 {
-                return 44
+                return 55
             }
         }else if indexPath.section == 1 {
             if let count = organiseDetailInfo?.courses?.count {
@@ -164,6 +162,13 @@ extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSour
                     if isShowMore == false && indexPath.row == 2 {
                        return 100
                     }else{
+                        if indexPath.row == numberOfRowsInSectionOne - 1 {
+                            if isShowMore {
+                                return 64
+                            }else{
+                                return 10
+                            }
+                        }
                         return 150
                     }
                 }else{
@@ -242,7 +247,20 @@ extension UYOrganiseDetailViewController:UITableViewDelegate,UITableViewDataSour
         }else if indexPath.section == 1 {
             if indexPath.row == 2 && isShowMore == false {
                 isShowMore = true
+                estimateNumberOfRow()
                 tableView.reloadData()
+            }else{
+                
+                if indexPath.row == numberOfRowsInSectionOne - 1 && isShowMore == true {
+//                    if numberOfRowsInSectionOne > 4 {
+                        isShowMore = false
+                        estimateNumberOfRow()
+//                        tableView.beginUpdates()
+                        tableView.reloadData()
+//                        tableView.endUpdates()
+//                    }
+//                    tableView.reloadData()
+                }
             }
         }else if indexPath.section == 2 {
             let webVC  = UYWebViewController()
@@ -325,12 +343,33 @@ extension UYOrganiseDetailViewController {
             }else{
                 dismissWaitToast()
                 self?.organiseDetailInfo = organiseModel
+                self?.estimateNumberOfRow()
                 self?.tableView.reloadData()
             }
         }
     }
 }
 
+// MARK: - 计算精彩课程的行数
+extension UYOrganiseDetailViewController {
+    func estimateNumberOfRow()  {
+        numberOfRowsInSectionOne = 0
+        if let count = organiseDetailInfo?.courses?.count {
+            let numberRow = Int(ceil(Double(count)/2))
+            if isShowMore {
+                numberOfRowsInSectionOne = numberRow + 1 //加1 是因为底部有一个关闭
+            }else{
+                if numberRow > 2 {
+                    numberOfRowsInSectionOne = 3
+                }else{
+                    numberOfRowsInSectionOne = numberRow + 1 //加1 是因为底部有个10像素的cell间距
+                }
+            }
+           
+        }
+    }
+    
+}
 
 
 

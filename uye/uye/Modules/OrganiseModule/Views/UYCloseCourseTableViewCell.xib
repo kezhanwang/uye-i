@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="KGk-i7-Jjw" customClass="UYCloseCourseTableViewCell" customModule="uye" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTr-4K-kNC">
+                        <rect key="frame" x="135" y="-0.5" width="51" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收起" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBJ-2R-VEe">
+                                <rect key="frame" x="10" y="0.0" width="31" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="organise_close_icon" translatesAutoresizingMaskIntoConstraints="NO" id="xE2-EW-kpm">
+                                <rect key="frame" x="19.5" y="28" width="11" height="6"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xE2-EW-kpm" firstAttribute="top" secondItem="dBJ-2R-VEe" secondAttribute="bottom" constant="10" id="Fvb-f5-jBa"/>
+                            <constraint firstItem="dBJ-2R-VEe" firstAttribute="centerX" secondItem="pTr-4K-kNC" secondAttribute="centerX" id="KeH-Jk-WeQ"/>
+                            <constraint firstAttribute="bottom" secondItem="xE2-EW-kpm" secondAttribute="bottom" constant="10" id="RTZ-oZ-0CO"/>
+                            <constraint firstItem="dBJ-2R-VEe" firstAttribute="top" secondItem="pTr-4K-kNC" secondAttribute="top" id="tjM-CF-n2n"/>
+                            <constraint firstItem="xE2-EW-kpm" firstAttribute="centerX" secondItem="pTr-4K-kNC" secondAttribute="centerX" id="vf7-Lr-2EC"/>
+                            <constraint firstItem="dBJ-2R-VEe" firstAttribute="leading" secondItem="pTr-4K-kNC" secondAttribute="leading" constant="10" id="yPw-Qx-mee"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pTr-4K-kNC" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="1TY-aM-94g"/>
+                    <constraint firstAttribute="bottom" secondItem="pTr-4K-kNC" secondAttribute="bottom" id="59X-7z-HjC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="closeView" destination="pTr-4K-kNC" id="RM5-11-9s1"/>
+            </connections>
+            <point key="canvasLocation" x="-126" y="-79"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="organise_close_icon" width="11" height="6"/>
+    </resources>
+</document>

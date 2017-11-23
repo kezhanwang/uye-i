@@ -36,11 +36,13 @@ class UYLoginViewController: UYBaseViewController {
         phoneTextField.textColor = UIColor.blackText
         phoneTextField.delegate = self
         phoneTextField.keyboardType = UIKeyboardType.numberPad
+        phoneTextField.clearButtonMode = .whileEditing
         
         codeTextField.font = UIFont.systemFont(ofSize: 15)
         codeTextField.placeholder = "密码"
         codeTextField.textColor = UIColor.blackText
         codeTextField.delegate = self
+        codeTextField.clearButtonMode = .whileEditing
         
         getCodeBtn.isHidden = true
         getCodeBtn.isEnabled = false
@@ -116,7 +118,7 @@ extension UYLoginViewController  {
         codeTextField.snp.makeConstraints { (make) in
             make.top.equalTo(phoneTextField.snp.bottom).offset(0)
             make.left.equalTo(16)
-            make.right.equalTo(-16)
+            make.right.equalTo(-50)
             make.height.equalTo(49)
         }
         footerView.snp.makeConstraints { (make) in
@@ -172,11 +174,26 @@ extension UYLoginViewController :UYTableFooterViewDelegate {
             }
             codeTextField.placeholder = "验证码"
             codeTextField.isSecureTextEntry = false
+            
+            phoneTextField.snp.updateConstraints({ (make) in
+                make.right.equalTo(-100)
+            })
+            codeTextField.snp.updateConstraints({ (make) in
+                make.right.equalTo(-16)
+            })
+            view.layoutIfNeeded()
         }else{
             showPwdBtn.isHidden = false
             getCodeBtn.isHidden = true
             codeTextField.placeholder = "密码"
             codeTextField.isSecureTextEntry = showPwdBtn.isSelected
+            phoneTextField.snp.updateConstraints({ (make) in
+                make.right.equalTo(-16)
+            })
+            codeTextField.snp.updateConstraints({ (make) in
+                make.right.equalTo(-50)
+            })
+            view.layoutIfNeeded()
         }
         codeTextField.text = ""
     }

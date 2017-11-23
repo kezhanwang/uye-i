@@ -17,9 +17,13 @@ class UYMoreCourseTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         courseLogo1.layer.cornerRadius = 4
+        courseLogo1.layer.borderColor = UIColor.lineGray.cgColor
+        courseLogo1.layer.borderWidth = 0.5
         courseLogo1.layer.masksToBounds = true
         
         courseLogo2.layer.cornerRadius = 4
+        courseLogo2.layer.borderColor = UIColor.lineGray.cgColor
+        courseLogo2.layer.borderWidth = 0.5
         courseLogo2.layer.masksToBounds = true
         
         let layer  = CAGradientLayer()
